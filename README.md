@@ -1,6 +1,3 @@
-# wangweifeng.github.io
-A personal blog about wangweifeng
-
 🚀 Welcome to My Space: A Space with Big Dreams 🚀
 ---
 
