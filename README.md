@@ -24,8 +24,8 @@ If you want to run this website on your own computer, you will need to install s
 - [Jekyll](https://jekyllrb.com/)
 
 ### Steps
-1. Clone this repository to your local machine using `git clone https://github.com/wangweifeng/wangweifeng.github.io.git`
-2. Navigate to the cloned folder using `cd wangweifeng.github.io`
+1. Clone this repository to your local machine using `git clone https://github.com/Real-JasonWang/me.git`
+2. Navigate to the cloned folder using `cd me`
 3. Install the required gems using `bundle install`
 4. Build the website using `bundle exec jekyll build`
 5. Serve the website using `bundle exec jekyll serve`
