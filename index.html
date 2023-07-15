@@ -80,7 +80,7 @@
 
         .nav {
             display: flex;
-            gap: 10px;
+            gap: 15px;
         }
 
         .nav a {
@@ -114,6 +114,7 @@
             box-shadow: 0 0 5px rgba(0,255,255,0.5); 
             padding: 20px;
             margin-bottom: 20px;
+			border-radius: 20px;
         }
 
         .post h2 {
@@ -129,6 +130,7 @@
         .post img {
             max-width: 100%;
             height: auto;
+			border-radius: 20px;
         }
 
         .post footer {
@@ -151,6 +153,13 @@
         .post footer a:hover {
             color: #00ffff; 
         }
+		
+		.post iframe{
+			-moz-border-radius: 20px;
+			-webkit-border-radius: 20px;
+			-khtml-border-radius: 20px;
+			border-radius: 20px;
+		}
         
        
        /* Added page content */
@@ -160,6 +169,7 @@
           box-shadow :0 0 5px rgba(0,255,255,0.5); /* Changed box shadow color to cyan */
           padding :30px;
           margin-bottom :20px;
+		  border-radius: 20px;
        }
        
        /* Added active class for showing the page content */
@@ -167,31 +177,6 @@
           display:block;
        }
        
-       /* Added style for return to top icon */	
-		.return-to-top {
-		position: fixed; /* Fixed position on the bottom right corner */
-		bottom: 20px;
-		right: 20px;
-		width: 50px; /* Width and height of the icon */
-		height: 50px;
-		border-radius: 50%; /* Rounded shape */
-		background: linear-gradient(-45deg, #0067FF, #00AC7E, #3c9, #09f, #66f);
-        background-size: 200% 200%;
-        animation: gradient 8s ease infinite; 
-		color: #000000; /* Black text color */ /* Added this line */
-		text-align: center; /* Centered text */
-		line-height: 50px; /* Vertical alignment of the text */
-		font-size: 24px; /* Font size of the text */
-		cursor: pointer; /* Pointer cursor on hover */
-		display: none; /* Hide by default */
-		}
-
-
-       
-       /* Show the icon when scrolling down */
-       .show-return-to-top {
-           display :block; 
-       }
        
     </style>
 </head>
@@ -202,17 +187,17 @@
               <h1>Weifeng Wang's Space<br>尉锋の空间</h1>
             </div>
             <div class="nav">
-                <a href="#" class="active" id="home-link">Home<br>主页</a>
-                <a href="#" id="about-link">About<br>关于</a>
-                <a href="#" id="contact-link">Contact<br>联系</a>
-                <a href="#" id="portfolio-link">Portfolio<br>好活</a>
-                <a href="#" id="blog-link">Blog<br>博客</a>
+                <a href="#" class="active" id="home-link"> Home <br> 主页 </a>
+                <a href="#" id="about-link"> About <br> 关于 </a>
+                <a href="#" id="contact-link"> Contact <br> 联系 </a>
+                <a href="#" id="portfolio-link"> Portfolio <br> 好活 </a>
+                <a href="#" id="blog-link"> Blog <br> 博客 </a>
+				<a href="#" id="update-link"> Updates <br> 更新 </a>
                 <!-- Add more links-->
             </div>
         </div>
         
         <div class="main">
-            
            <!-- Added page content -->
            <div class="page-content active-page-content" id="home-content">
                <!-- Add more posts -->
@@ -228,9 +213,8 @@
                  <p>⚠ The picture here is from unsplash, which maybe copyrighted works, so please do not download and use it for commercial purposes! ⚠</p>
                    <footer>
                        <span>Posted on July 13, 2023 by Weifeng Wang</span>
-                       <!-- Replaced read more button with return to top icon --></footer>
+				   </footer>
                </div>
-
                <div class="post">
                    <h2>🚀 欢迎来到我的空间：一个有大梦想的空间 🚀</h2>
 				   <p>各位网友，大家好 👋</p>
@@ -244,11 +228,10 @@
                  <p>⚠这里的图片来自unsplash，可能是版权作品，请不要下载和用于商业用途！⚠</p>
                    <footer>
                        <span>Posted on July 13, 2023 by Weifeng Wang</span>
-                       <!-- Replaced read more button with return to top icon -->
-                       <i class="fa fa-arrow-up return-to-top"></i>
                    </footer>
                </div>
-
+			   <audio id="music1" autoplay="autoplay" controls="controls" autostart="true" loop="loop" preload="auto" src="https://github.com/Real-JasonWang/me/raw/main/Music/11.%20Separate%20Ways.mp3">
+			   </audio>
            </div>
 
            <!-- Added about page content -->
@@ -305,60 +288,82 @@
 
                <div class="post">
                    <h3>🎬Acdemic Movie: FLOUR📽️</h3>
-                   <iframe src="https://player.bilibili.com/player.html?aid=&bvid=BV1oL411k7jU&cid=516946215&page=1" allowfullscreen="allowfullscreen" width="90%" height="500px" scrolling="no" frameborder="0"></iframe>
+                   <iframe src="https://player.bilibili.com/player.html?aid=&bvid=BV1oL411k7jU&cid=516946215&page=1&autoplay=0" allowfullscreen="allowfullscreen" width="90%" height="500px" scrolling="no" frameborder="0"></iframe>
                    <p>This is a project that our school organizes. It is a thriller that tells a crime story and SWAT. It is inspired by the John Wick series and SCP: Overlord. Also, I have previously made a movie website by sxl (strikingly in China), so it sometimes does not load under some international network conditions.</p>
 				   <footer>
                        <a href="https://flour.mysxl.cn">👉Website: flour.mysxl.cn👈</a>
                    </footer>
                </div>
+            <h2>⚡❗More Portfolio files coming up❗⚡</h2>
 
            </div>
 
            <!-- Added blog page content -->
            <div class="page-content" id="blog-content">
-               <h2>My Blog</h2>
-               <p>Here are some of the posts that I have written on my blog. However, this page is still in construction so there is only some templates...</p>
+               <h2>📚My Blog🖊</h2>
+               <p></p>
                <!-- Add more blog posts-->
                <div class="post">
-                   <h3>Title Title</h3>
-                   <span>Posted on July ??, 2023 by Me</span>
-                   <!-- Added random image as background image -->
-                   <div style="background-image: url('https://source.unsplash.com/random/800x400'); height: 400px; background-size: cover; background-position: center;"></div>
-                   <p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text </p>
+                   <h2>⛔⚠️THIS PART IS STILL IN CONSTRUCTION⚠️⛔</h2>
+                   <span>Come back later to see my progress!</span>
                    <footer>
-                       <!-- Replaced read more button with return to top icon -->
-                       <i class="fa fa-arrow-up return-to-top"></i>
                    </footer>
                </div>
-
-               <div class="post">
-                   <h3>Title Title</h3>
-                   <span>Posted on July ??, 2023 by Me</span>
-                   <!-- Deleted Bing daily wallpaper as background image -->
-                   <!-- Added random image as background image -->
-                   <div style="background-image: url('https://source.unsplash.com/random/800x400'); height: 400px; background-size: cover; background-position: center;"></div>
-                   <p>Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text Text </p>
-                   <footer>
-                       <!-- Replaced read more button with return to top icon -->
-                       <i class="fa fa-arrow-up return-to-top"></i>
-                   </footer>
-               </div>
-
            </div>
+			<div class="page-content" id="update-content">
+			   <h2>💻 Website Update Logs 🔧</h2>
 
+			   <div class="post">
+				   <h3>July 11, 2023</h3>
+				   <ul>
+                   <li>The website framework was created.</li>
+				<li>Basic experimental fuctions ran locally.</li>
+               </ul>
+			   </div>
+			<div class="post">
+				   <h3>July 12, 2023</h3>
+				<ul>
+                   <li>The website and its files were updated to github.</li>
+                   <li>Basic tests.</li>
+                   <li>Write some content to stack up the website</li>
+               </ul>
+			   </div>
+			<div class="post">
+				   <h3>July 13, 2023</h3>
+				<ul>
+                   <li>The website was on github pages.</li>
+                   <li>Fixed bugs and updated Java script.</li>
+                   <li>Add more CSS styles.</li>
+               </ul>
+			   </div>
+			<div class="post">
+				   <h3>July 14, 2023</h3>
+				<ul>
+                   <li>Purchase and try to configure custom domain.</li>
+                   <li>Fixed bugs and updated Java script.</li>
+                   <li>Add more CSS styles.</li>
+				<li>Add fancy color schemes.</li>
+               </ul>
+			   </div>
+				   <h2>⚡❗More Update logs coming up❗⚡</h2>
+			</div>
+		</div>
         </div>
 
-    </div>
 
     <!-- Added some JavaScript code for interactivity -->
     <script>
-
+		
+		var audio = document.getElementById('music1');
+		audio.volume = 0.5;
+				
         // Get the page content elements
         var homeContent = document.getElementById("home-content");
         var aboutContent = document.getElementById("about-content");
         var contactContent = document.getElementById("contact-content");
         var portfolioContent = document.getElementById("portfolio-content");
         var blogContent = document.getElementById("blog-content");
+		var updateContent = document.getElementById("update-content");
 
         // Get the nav link elements
         var homeLink = document.getElementById("home-link");
@@ -366,6 +371,7 @@
         var contactLink = document.getElementById("contact-link");
         var portfolioLink = document.getElementById("portfolio-link");
         var blogLink = document.getElementById("blog-link");
+		var updateLink = document.getElementById("update-link");
 
         // Add an event listener to the home link
         homeLink.addEventListener("click", function() {
@@ -411,6 +417,14 @@
             blogLink.classList.add("active");
             blogContent.classList.add("active-page-content");
         });
+		
+		updateLink.addEventListener("click", function() {
+            // Remove the active class from all links and contents
+            removeActiveClass();
+            // Add the active class to the blog link and content
+            updateLink.classList.add("active");
+            updateContent.classList.add("active-page-content");
+        });
 
         // Define a function to remove the active class from all links and contents
         function removeActiveClass() {
@@ -419,41 +433,15 @@
             contactLink.classList.remove("active");
             portfolioLink.classList.remove("active");
             blogLink.classList.remove("active");
+			updateLink.classList.remove("active");
             homeContent.classList.remove("active-page-content");
             aboutContent.classList.remove("active-page-content");
             contactContent.classList.remove("active-page-content");
             portfolioContent.classList.remove("active-page-content");
             blogContent.classList.remove("active-page-content");
+			updateContent.classList.remove("active-page-content");
         }
 
-        // Get the return to top icon elements
-        var returnToTopIcons = document.querySelectorAll(".return-to-top");
-
-        // Loop through each icon element
-        for (var i = 0; i < returnToTopIcons.length; i++) {
-          // Add an event listener to each icon element
-          returnToTopIcons[i].addEventListener("click", function() {
-              // Scroll to the top of the page
-              window.scrollTo(0, 0);
-          });
-        }
-
-        // Add an event listener to the window scroll event
-        window.addEventListener("scroll", function() {
-          // Get the current scroll position
-          var scrollPosition = window.pageYOffset;
-          // Loop through each icon element
-          for (var i = 0; i < returnToTopIcons.length; i++) {
-              // If the scroll position is greater than 100 pixels, show the icon element
-              if (scrollPosition > 100) {
-                  returnToTopIcons[i].classList.add("show-return-to-top");
-              }
-              // Otherwise, hide the icon element
-              else {
-                  returnToTopIcons[i].classList.remove("show-return-to-top");
-              }
-          }
-        });
 
     </script>
 </body>
