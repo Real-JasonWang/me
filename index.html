@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <title>Weifeng Wang's Space</title>
+    <title>Weifeng Wang's Space 尉锋の空间</title>
+	<link rel="shortcut icon" href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/AboutPic.jpg" >
     <style>
 		/* As you see this site's copyright belongs to Weifeng Wang */
 		/* So be sure to note the author before you add some of my design to your design! */
@@ -10,6 +11,7 @@
         /* CSS code for styling the blog */
 		
 		h1 {
+			text-align: center;
             background: -webkit-linear-gradient(180deg,
                     #005F51,
                     #00D3FF 25%,
@@ -59,15 +61,17 @@
         }
 
         .container {
-            max-width: 2000px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: auto;
             padding: 20px;
         }
 
         .header {
+			margin: auto;
+			text-align: center;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
         }
 
         .logo {
@@ -76,17 +80,27 @@
             background-image: linear-gradient(to right, #00FFF1, #00D3FF);
 			-webkit-background-clip: text;
 			color: transparent;
+			align-items: center;
         }
 
         .nav {
+			text-align: center;
             display: flex;
-            gap: 15px;
+            gap: 20px;
+			align-items: center;
+			justify-content: center;
         }
 
         .nav a {
+			display: flex;
+			white-space: nowrap;
             text-decoration: none;
-            color: #ffffff; 
-            padding: 10px;
+            color: #ffffff;
+			text-align: center;
+            padding-top: 15px;
+			padding-bottom: 15px;
+			padding-left: 20px;
+			padding-right: 20px;
             border-radius: 20px; /* Added border-radius for rounded buttons */
             transition: all 0.3s; 
         }
@@ -180,22 +194,27 @@
        
     </style>
 </head>
-<body>
-    <div class="container">
-		    <div class="header">
-            <div class="logo">
-              <h1>Weifeng Wang's Space<br>尉锋の空间</h1>
-            </div>
-            <div class="nav">
-                <a href="#" class="active" id="home-link"> Home <br> 主页 </a>
-                <a href="#" id="about-link"> About <br> 关于 </a>
-                <a href="#" id="contact-link"> Contact <br> 联系 </a>
-                <a href="#" id="portfolio-link"> Portfolio <br> 好活 </a>
-                <a href="#" id="blog-link"> Blog <br> 博客 </a>
+	<body>
+		<div class="container">
+			<div class="header">
+				<div class="logo">
+					<h1>Weifeng Wang's Space<br>尉锋の空间</h1>
+				</div>
+			</div>
+			<div class="nav">
+				<a href="#" class="active" id="home-link"> Home <br> 主页 </a>
+				<a href="#" id="about-link"> About <br> 关于 </a>
+				<a href="#" id="contact-link"> Contact <br> 联系 </a>
+				<a href="#" id="portfolio-link"> Portfolio <br> 好活 </a>
+				<a href="#" id="blog-link"> Blog <br> 博客 </a>
 				<a href="#" id="update-link"> Updates <br> 更新 </a>
-                <!-- Add more links-->
-            </div>
-        </div>
+			</div>
+			<!-- Move the page-content div inside the container div -->
+			<div class="page-content">
+				<!-- Add your page content here -->
+			</div>
+	</div>
+
         
         <div class="main">
            <!-- Added page content -->
@@ -294,7 +313,7 @@
                        <a href="https://flour.mysxl.cn">👉Website: flour.mysxl.cn👈</a>
                    </footer>
                </div>
-            <h2>⚡❗More Portfolio files coming up❗⚡</h2>
+            <h2>⚡More portfolios coming up⚡</h2>
 
            </div>
 
@@ -304,7 +323,7 @@
                <p></p>
                <!-- Add more blog posts-->
                <div class="post">
-                   <h2>⛔⚠️THIS PART IS STILL IN CONSTRUCTION⚠️⛔</h2>
+                   <h2>⛔THIS PART IS STILL IN CONSTRUCTION⛔</h2>
                    <span>Come back later to see my progress!</span>
                    <footer>
                    </footer>
@@ -345,11 +364,9 @@
 				<li>Add fancy color schemes.</li>
                </ul>
 			   </div>
-				   <h2>⚡❗More Update logs coming up❗⚡</h2>
+				   <h2>⚡More logs coming up⚡</h2>
 			</div>
 		</div>
-        </div>
-
 
     <!-- Added some JavaScript code for interactivity -->
     <script>
