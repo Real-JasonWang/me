@@ -41,7 +41,8 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #222222; 
-            color: #ffffff; 
+            color: #ffffff;
+			cursor: url('https://github.com/Real-JasonWang/me/raw/main/Pictures/Cur/Arrow.cur'),auto;
         }
 
         @keyframes gradient {
@@ -83,38 +84,39 @@
 
         .nav {
 			text-align: center;
-            display: flex;
-            gap: 20px;
+			display: flex;
+			gap: 20px;
 			align-items: center;
 			justify-content: center;
-        }
-
-        .nav a {
+		}
+		
+		.nav a {
 			display: flex;
 			white-space: nowrap;
-            text-decoration: none;
-            color: #ffffff;
+			text-decoration: none;
+			color: #ffffff;
 			text-align: center;
-            padding-top: 15px;
+			padding-top: 15px;
 			padding-bottom: 15px;
 			padding-left: 20px;
 			padding-right: 20px;
-            border-radius: 20px; /* Added border-radius for rounded buttons */
-            transition: all 0.3s; 
-        }
-
-        .nav a:hover {
-            background: linear-gradient(-45deg, #0067FF, #00AC7E, #3c9, #09f, #66f);
-            background-size: 200% 200%;
-            animation: gradient 8s ease infinite; 
-            transform: scale(1.1); 
-        }
-        .nav a.active {
-            background: linear-gradient(-90deg, #005F51, #9800FF);
-            background-size: 200% 200%;
-            animation: gradient 8s ease infinite; 
-            transform: scale(1.1); 		
-        }
+			border-radius: 20px; /* Added border-radius for rounded buttons */
+			transition: all 0.3s ease-in-out;
+			flex: 1; /* Added flex-grow for evenly distributed buttons */
+		}
+		
+		.nav a:hover {
+			background: linear-gradient(-45deg, #0067FF, #00AC7E, #3c9, #09f, #66f);
+			animation: gradient 8s ease infinite; 
+			transform: scale(1.1); 
+		}
+	
+		.nav a.active {
+			background: linear-gradient(-90deg, #005F51, #9800FF);
+			background-size: 200% 200%;
+			animation: gradient 8s ease infinite; 
+			transform: scale(1.1);     
+		}
 
         .main {
             margin-top: 5px;
@@ -188,16 +190,18 @@
           display:block;
        }
 		
-       
+		button,a:hover{
+			cursor: url(https://github.com/Real-JasonWang/me/raw/main/Pictures/Cur/Hand2.cur), pointer;
+		}
        
     </style>
-</head>
-	<body>
-		<div class="container">
-			<div class="header">
-				<div class="logo">
-					<h1>Weifeng Wang's Space<br>尉锋の空间</h1>
-				</div>
+	</head>
+		<body oncontextmenu="self.event.returnValue=false" onselectstart="return false">
+			<div class="container">
+				<div class="header">
+					<div class="logo" title="🏆You've found the hover-and-accelerate easter egg!">
+						<h1>Weifeng Wang's Space<br>尉锋の空间</h1>
+					</div>
 			</div>
 			<div class="nav">
 				<a href="#" class="active" id="home-link"> Home <br> 主页 </a>
@@ -247,13 +251,12 @@
                        <span>Posted on July 13, 2023 by Weifeng Wang</span>
                    </footer>
                </div>
-			   <audio id="music1" autoplay="autoplay" controls="controls" autostart="true" loop="loop" preload="auto" src="https://github.com/Real-JasonWang/me/raw/main/Music/11.%20Separate%20Ways.mp3">
-			   </audio>
+			   <h2>⏰This is the very end of the current section.🍌</h2>
            </div>
 
            <!-- Added about page content -->
            <div class="page-content" id="about-content">
-			   <h2>🙋About Me 关于📕</h2>
+			   <h2 title="😭I actually like you a lot Yiwss, no matter how many times you scold me...😟">🙋About Me 关于📕</h2>
 
 			   <div class="post">
 				   <p>Hi, I’m a currently a student and I am Chinese, which means I am an Asian. As you can see, my name is Weifeng Wang, and I am apparently a male. 😂</p>
@@ -269,6 +272,7 @@
 				<p>我的一些爱好包括阅读、写作、游戏、airsoft、cosplay和旅行。我也喜欢看科幻电影，尤其是《创：战纪》。我的最爱音乐乐队是Eisbrecher，一个德国工业金属乐队，如果你不知道的话。📚🎵🎧🎥🎮</p>
 				<p>如果你想了解更多关于我的信息，请随时联系我或查看【好活】和【博客】。😊❤️</p>
 			</div>
+			   <h2>⏰This is the very end of the current section.🍌</h2>
 		</div>
   
 
@@ -338,12 +342,8 @@
                        <span>Posted on July 29, 2023 by Weifeng Wang</span>
                    </footer>
                </div>
-			   
-               <div class="post">
                    <h2>⛔THIS PART IS STILL IN CONSTRUCTION⛔</h2>
-                   <span>Come back later to see my progress!</span>
-                   <footer>
-                   </footer>
+                   <span>🚗Come back later to see my progress!🥤</span>
                </div>
            </div>
 			<div class="page-content" id="update-content">
@@ -357,7 +357,7 @@
                </ul>
 			   </div>
 			<div class="post">
-				   <h3>July 12, 2023</h3>
+				   <h3>July 20, 2023</h3>
 				<ul>
                    <li>The website and its files were updated to github.</li>
                    <li>Basic tests.</li>
@@ -365,7 +365,7 @@
                </ul>
 			   </div>
 			<div class="post">
-				   <h3>July 13, 2023</h3>
+				   <h3>July 28, 2023</h3>
 				<ul>
                    <li>The website was on github pages.</li>
                    <li>Fixed bugs and updated Java script.</li>
@@ -373,23 +373,36 @@
                </ul>
 			   </div>
 			<div class="post">
-				   <h3>July 14, 2023</h3>
+				   <h3>August 5, 2023</h3>
 				<ul>
                    <li>Purchase and try to configure custom domain.</li>
                    <li>Fixed bugs and updated Java script.</li>
                    <li>Add more CSS styles.</li>
 				<li>Add fancy color schemes.</li>
                </ul>
-			   </div>
-				   <h2>⚡More logs coming up⚡</h2>
 			</div>
+			<div class="post">
+				   <h3>August 14, 2023</h3>
+				<ul>
+                   <li>Add custom cursors</li>
+                   <li>Fixed bugs and updated Java script.</li>
+                   <li>Updated blogs.</li>
+               </ul>
+			</div>
+			<div class="post">
+				   <h3>August 25, 2023</h3>
+				<ul>
+                   <li>Remove background music</li>
+                   <li>Fixed bugs and updated Java script.</li>
+                   <li>Add blog contents.</li>
+               </ul>
+			</div>
+				<h2>⚡More logs coming up⚡</h2>
 		</div>
+				
 
     <!-- Added some JavaScript code for interactivity -->
     <script>
-		
-		var audio = document.getElementById('music1');
-		audio.volume = 0.5;
 				
         // Get the page content elements
         var homeContent = document.getElementById("home-content");
@@ -475,6 +488,31 @@
             blogContent.classList.remove("active-page-content");
 			updateContent.classList.remove("active-page-content");
         }
+		
+		var keyWords = "Weifeng Wang's Space 尉锋の空间 | ";
+		function titleChange() {
+			var keyList = keyWords.split("");
+			var firstChar = keyList.shift();
+			keyList.push(firstChar);
+			keyWords = keyList.join("");
+			document.title = keyWords;
+		}
+		
+		setInterval(titleChange, 100);
+		
+		// Fuck you F12
+		document.onkeydown = document.onkeyup = document.onkeypress = function (event) {
+			var e = event || window.event || arguments.callee.caller.arguments[0];
+			if (e && e.keyCode == 123) {
+				mAlert();
+				e.returnValue = false;
+				return (false);
+			}
+		}
+		
+		function mAlert() {
+			alert("🤯You little F12 copying bastard! You shall not pass🌋!");
+		}
 
 
     </script>
