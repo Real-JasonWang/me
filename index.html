@@ -20,10 +20,11 @@
 					var(--accent-color) 95%,
 					var(--primary-color));
 			-webkit-text-fill-color: transparent;
-			background-clip: text;
-			background-size: 200% 100%;
-			animation: flowCss 6s infinite linear;
+			-webkit-background-clip: text;
+			-webkit-background-size: 200% 100%;
+			-webkit-animation: flowCss 6s infinite linear;
 			margin-top: 10px;
+			/* Do not change -webkit! */
 		}
 
 		@keyframes flowCss {
