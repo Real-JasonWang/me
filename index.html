@@ -1,858 +1,1040 @@
 <!DOCTYPE html>
-<!As you see this site's copyright belongs to Weifeng Wang>
-<!So be sure to note the author before you add some of my design to your design!>
 <html>
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<title>Weifeng Wang's Space | A Space with Big Dreams</title>
-		<link rel="shortcut icon" href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/AboutPic.jpg">
-		<style>
-			/* Desktop styles */
-			                h1 {
-			                    text-align: center;
-			                    background: -webkit-linear-gradient(180deg,
-			                            #005F51,
-			                            #00D3FF 25%,
-			                            #A600FF 50%,
-			                            #00D3FF 55%,
-			                            #00D3FF 60%,
-			                            #00D3FF 80%,
-			                            #A600FF 95%,
-			                            #005F51);
-			                    -webkit-text-fill-color: transparent;
-			                    -webkit-background-clip: text;
-			                    -webkit-background-size: 200% 100%;
-			                    -webkit-animation: flowCss 12s infinite linear;
-			                }
-			
-			                @-webkit-keyframes flowCss {
-			                    0% {
-			                        background-position: 0 0;
-			                    }
-			
-			                    100% {
-			                        background-position: -400% 0;
-			                    }
-			                }
-			
-			                h1:hover {
-			                    -webkit-animation: flowCss 4s infinite linear;
-								filter: blur(0.5px) brightness(200%) contrast(50%);
-			                }
-			
-			                body {
-			                    font-family: Arial, sans-serif;
-			                    background-color: #222222;
-			                    color: #ffffff;
-			                    cursor: url('https://github.com/Real-JasonWang/me/raw/main/Pictures/Cur/Arrow.cur'), auto;
-			                }
-			
-			                @keyframes gradient {
-			                    0% {
-			                        background-position: 0 12%;
-			                    }
-			
-			                    50% {
-			                        background-position: 100% 100%;
-			                    }
-			
-			                    100% {
-			                        background-position: 0 12%;
-			                    }
-			                }
-			
-			                .container {
-			                    max-width: 80%;
-			                    margin: auto;
-			                    padding: 20px;
-			                }
-			
-			                .header {
-			                    margin: auto;
-			                    text-align: center;
-			                    display: flex;
-			                    align-items: center;
-			                    justify-content: center;
-			                }
-			
-			                .logo {
-			                    font-size: 2rem;
-			                    font-weight: bold;
-			                    background-image: linear-gradient(to right, #00FFF1, #00D3FF);
-			                    -webkit-background-clip: text;
-			                    color: transparent;
-			                    align-items: center;
-			                }
-			
-			                .nav {
-			                    text-align: center;
-			                    display: flex;
-			                    gap: 20px;
-			                    align-items: center;
-			                    justify-content: space-between;
-			                    margin: 0 -10px;
-			                }
-			
-			                .nav a {
-			                    display: flex;
-			                    white-space: nowrap;
-			                    text-decoration: none;
-			                    color: #ffffff;
-			                    text-align: center;
-			                    padding-top: 15px;
-			                    padding-bottom: 15px;
-			                    padding-left: 20px;
-			                    padding-right: 20px;
-			                    border-radius: 20px;
-			                    transition: all 0.3s ease-in-out;
-			                    flex: 1;
-			                    /* Added flex-grow for evenly distributed buttons */
-			                }
-			
-			                .nav a:hover {
-			                    font-weight: bold;
-			                    background: linear-gradient(-45deg, #0067FF, #00AC7E, #3c9, #09f, #66f);
-			                    animation: gradient 8s ease infinite;
-			                    transform: scale(1.1);
-			                }
-			
-			                .nav a.active {
-			                    font-weight: bold;
-			                    background: linear-gradient(-90deg, #005F51, #9800FF);
-			                    background-size: 200% 200%;
-			                    animation: gradient 8s ease infinite;
-			                    transform: scale(1.1);
-								filter: blur(1px) brightness(150%) contrast(150%);
-			                }
-			
-			                .main {
-			                    margin-top: 5px;
-			                    padding-top: 15px;
-			                    padding-bottom: 15px;
-			                    padding-left: 20px;
-			                    padding-right: 20px;
-			                }
-			
-			                .post {
-			                    background-image: linear-gradient(to bottom, #00345f8d, #9900ff41);
-			                    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
-			                    padding: 20px;
-			                    margin-bottom: 20px;
-			                    border-radius: 20px;
-			                }
-			
-			                .post h2 {
-			                    font-size: 1.5rem;
-			                    margin-bottom: 10px;
-			                }
-			
-			                .post p {
-			                    font-size: 1rem;
-			                    line-height: 1.5;
-			                }
-			
-			                .post img {
-			                    max-width: 100%;
-			                    height: auto;
-			                    border-radius: 20px;
-			                }
-			
-			                .post footer {
-			                    display: flex;
-			                    align-items: center;
-			                    justify-content: space-between;
-			                    margin-top: 10px;
-			                }
-			
-			                .post footer span {
-			                    font-size: 0.875rem;
-			                    color: #999999;
-			                }
-			
-			                .post footer a {
-			                    text-decoration: none;
-			                    color: #ffffff;
-			                }
-			
-			                .post footer a:hover {
-			                    color: #00ffff;
-			                }
-			
-			                .post iframe {
-			                    -moz-border-radius: 20px;
-			                    -webkit-border-radius: 20px;
-			                    -khtml-border-radius: 20px;
-			                    border-radius: 20px;
-			                }
-			
-			                .bottom {
-			                    font: small-caps;
-			                    text-align: center;
-			                    color: #999999;
-			                    padding-top: 0px;
-			                    padding-bottom: 20px;
-			                    padding-left: 10px;
-			                    padding-right: 10px;
-			                }
-			
-			                .bottomST {
-			                    font: small-caps;
-			                    text-align: center;
-			                    color: #999999;
-			                    padding: 0px;
-			                }
-			
-			
-			                /* Added page content */
-			                .page-content {
-			                    display: none;
-			                    background-color: #333333;
-			                    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
-			                    padding: 30px;
-			                    margin-bottom: 20px;
-			                    border-radius: 20px;
-			                }
-			
-			                .active-page-content {
-			                    display: block;
-			                }
-			
-			                button,
-			                a:hover {
-			                    cursor: url(https://github.com/Real-JasonWang/me/raw/main/Pictures/Cur/Hand2.cur), pointer;
-			                }
-			
-			                /* Mobile styles */
-			                @media only screen and (max-width: 600px) {
-			
-			                    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-			                    .container {
-			                        max-width: 90%;
-			                    }
-			
-			                    .logo {
-			                        font-size: 1.5rem;
-			                    }
-			
-			                    .nav {
-			                        flex-direction: column;
-			                        gap: 10px;
-			                    }
-			
-			                    .nav a {
-			                        padding-left: 10px;
-			                        padding-right: 10px;
-			                    }
-			
-			                    .post h2 {
-			                        font-size: 1.25rem;
-			                    }
-			
-			                    .post p {
-			                        font-size: 0.875rem;
-			                    }
-			
-			                    .post footer span {
-			                        font-size: 0.75rem;
-			                    }
-			                }
-			
-			                @media only screen and (min-width: 601px) and (max-width: 800px) {
-			
-			                    /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
-			                    .container {
-			                        max-width: 85%;
-			                    }
-			
-			                    .logo {
-			                        font-size: 1.75rem;
-			                    }
-			
-			                    .nav {
-			                        flex-direction: row;
-			                        gap: 15px;
-			                    }
-			
-			                    .nav a {
-			                        padding-left: 15px;
-			                        padding-right: 15px;
-			                    }
-			
-			                    .post h2 {
-			                        font-size: 1.375rem;
-			                    }
-			
-			                    .post p {
-			                        font-size: 0.9375rem;
-			                    }
-			
-			                    .post footer span {
-			                        font-size: 0.8125rem;
-			                    }
-			                }
-			
-			                @media only screen and (min-width: 801px) and (max-width: 1024px) {
-			
-			                    /* tablet, landscape iPad, lo-res laptops ands desktops */
-			                    .container {
-			                        max-width: 80%;
-			                    }
-			
-			                    .logo {
-			                        font-size: 2rem;
-			                    }
-			
-			                    .nav {
-			                        flex-direction: row;
-			                        gap: 20px;
-			                    }
-			
-			                    .nav a {
-			                        padding-left: 20px;
-			                        padding-right: 20px;
-			                    }
-			
-			                    .post h2 {
-			                        font-size: 1.5rem;
-			                    }
-			
-			                    .post p {
-			                        font-size: 1rem;
-			                    }
-			
-			                    .post footer span {
-			                        font-size: 0.875rem;
-			                    }
-			                }
-			
-			                @media only screen and (min-width: 1025px) {
-			
-			                    /* big landscape tablets, laptops, and desktops */
-			                    .container {
-			                        max-width: 75%;
-			                    }
-			
-			                    .logo {
-			                        font-size: 2.25rem;
-			                    }
-			
-			                    .nav {
-			                        flex-direction: row;
-			                        gap: 25px;
-			                    }
-			
-			                    .nav a {
-			                        padding-left: 25px;
-			                        padding-right: 25px
-			                    }
-			
-			                    .post h2 {
-			                        font-size: 1.75rem;
-			                    }
-			
-			                    .post p {
-			                        font-size: 1.125rem;
-			                    }
-			
-			                    .post footer span {
-			                        font-size: 1rem;
-			                    }
-			                }
-			
-			                @media only screen and (min-width: 1281px) {
-			
-			                    /* hi-res laptops and desktops */
-			                    .container {
-			                        max-width: 70%;
-			                    }
-			
-			                    .logo {
-			                        font-size: 2.5rem;
-			                    }
-			
-			                    .nav {
-			                        flex-direction: row;
-			                        gap: 30px;
-			                    }
-			
-			                    .nav a {
-			                        padding-left: 30px;
-			                        padding-right: 30px;
-			                    }
-			
-			                    .post h2 {
-			                        font-size: 2rem;
-			                    }
-			
-			                    .post p {
-			                        font-size: 1.25rem;
-			                    }
-			
-			                    .post footer span {
-			                        font-size: 1.125rem;
-			                    }
-			                }
-		</style>
-	</head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>Weifeng Wang's Space | A Space with Big Dreams</title>
+	<link rel="shortcut icon" href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/AboutPic.jpg">
+	<style>
+		/* This site's copyright belongs to Weifeng Wang, please do not copy my code! */
+		/* ©Weifeng Wang (Jason.W) 2023-20XX, All rights reserved. */
+		h1 {
+			text-align: center;
+			background: -webkit-linear-gradient(180deg,
+					var(--primary-color),
+					var(--secondary-color) 25%,
+					var(--accent-color) 50%,
+					var(--secondary-color) 55%,
+					var(--secondary-color) 60%,
+					var(--secondary-color) 80%,
+					var(--accent-color) 95%,
+					var(--primary-color));
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			background-size: 200% 100%;
+			animation: flowCss 6s infinite linear;
+			margin-top: 10px;
+		}
 
-	<body oncontextmenu="self.event.returnValue=false" onselectstart="return false">
-		<div class="container">
-			<div class="header">
-				<div class="logo" title="🏆You've found the hover-and-accelerate easter egg!">
-					<h1>Weifeng Wang's Space</h1>
-				</div>
+		@keyframes flowCss {
+			0% {
+				background-position: 0 0;
+			}
+
+			100% {
+				background-position: -400% 0;
+			}
+		}
+
+		h1:hover {
+			animation: flowCss 3s infinite linear;
+			filter: brightness(200%);
+		}
+
+		body {
+			font-family: Arial, sans-serif;
+			background-color: var(--background-color);
+			color: var(--text-color);
+			cursor: url('https://github.com/Real-JasonWang/me/raw/main/Pictures/Cur/Arrow.cur'), auto;
+		}
+
+		@keyframes gradient {
+			0% {
+				background-position: 0 12%;
+			}
+
+			50% {
+				background-position: 100% 100%;
+			}
+
+			100% {
+				background-position: 0 12%;
+			}
+		}
+
+		.container {
+			max-width: 90%;
+			margin: auto;
+			padding-top: 0px;
+			padding-left: 0px;
+			padding-right: 0px;
+			padding-bottom: 0px;
+		}
+
+		.header {
+			margin: auto;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.logo {
+			font-size: 2rem;
+			font-weight: bold;
+			background-image: linear-gradient(to right, #00FFF1, #00D3FF);
+			background-clip: text;
+			color: transparent;
+			align-items: center;
+			padding: 0px;
+		}
+
+		.nav {
+			text-align: center;
+			display: flex;
+			gap: 20px;
+			align-items: center;
+			justify-content: space-between;
+			margin: 0 -10px;
+		}
+
+		.nav a {
+			display: flex;
+			white-space: nowrap;
+			text-decoration: none;
+			color: var(--text-color);
+			text-align: center;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			padding-left: 20px;
+			padding-right: 20px;
+			border-radius: 20px;
+			transition: all 0.3s ease-in-out;
+			flex: 1;
+		}
+
+		.nav a:hover {
+			font-weight: bold;
+			background: linear-gradient(-45deg, var(--nav-1-color), var(--nav-2-color), var(--nav-3-color));
+			box-shadow: 0 0 10px var(--nav-1-color);
+			animation: gradient 8s ease infinite;
+			transform: scale(1.1);
+		}
+
+		.nav a.active {
+			font-weight: bold;
+			background: linear-gradient(-90deg, var(--nav-a1-color), var(--nav-a2-color));
+			box-shadow: 0 0 15px var(--nav-a1-color);
+			background-size: 200% 150%;
+			animation: gradient 8s ease infinite;
+			transform: scale(1.1);
+			filter: brightness(150%) contrast(150%);
+		}
+
+		.main {
+			margin-top: 5px;
+			padding-top: 30px;
+			padding-bottom: 10px;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		.post {
+			background-image: linear-gradient(to bottom, var(--post-1-color), var(--post-2-color));
+			box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+			padding: 20px;
+			margin-bottom: 20px;
+			border-radius: 20px;
+			transition: box-shadow 0.5s ease;
+		}
+
+		.post:hover {
+			box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+		}
+
+		.post h2 {
+			font-size: 1.5rem;
+			margin-bottom: 10px;
+		}
+
+		.post p {
+			font-size: 1rem;
+			line-height: 1.5;
+		}
+
+		.post img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 20px;
+		}
+
+		.post footer {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 10px;
+		}
+
+		.post footer span {
+			font-size: 0.875rem;
+			color: var(--footer-color);
+		}
+
+		.post footer a {
+			text-decoration: none;
+			color: var(--text-color);
+		}
+
+		.post footer a:hover {
+			color: var(--text-color-selected);
+		}
+
+		.post iframe {
+			-moz-border-radius: 20px;
+			-webkit-border-radius: 20px;
+			-khtml-border-radius: 20px;
+			border-radius: 20px;
+		}
+
+		.bottom {
+			font: small-caps;
+			text-align: center;
+			color: #999999;
+			padding-top: 0px;
+			padding-bottom: 20px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+
+		.bottomST {
+			font: small-caps;
+			text-align: center;
+			color: #999999;
+			padding: 0px;
+		}
+
+		.page-content {
+			display: none;
+			background-color: var(--content-color);
+			box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+			padding: 30px;
+			margin-bottom: 20px;
+			border-radius: 20px;
+		}
+
+		.active-page-content {
+			display: block;
+		}
+
+		button,
+		a:hover {
+			cursor: url(https://github.com/Real-JasonWang/me/raw/main/Pictures/Cur/Hand2.cur), pointer;
+		}
+
+		@media only screen and (max-width: 600px) {
+			.container {
+				max-width: 90%;
+			}
+
+			.logo {
+				font-size: 1.5rem;
+			}
+
+			.nav {
+				flex-direction: column;
+				gap: 10px;
+			}
+
+			.nav a {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+
+			.post h2 {
+				font-size: 1.25rem;
+			}
+
+			.post p {
+				font-size: 0.875rem;
+			}
+
+			.post footer span {
+				font-size: 0.75rem;
+			}
+		}
+
+		@media only screen and (min-width: 601px) and (max-width: 800px) {
+			.container {
+				max-width: 85%;
+			}
+
+			.logo {
+				font-size: 1.75rem;
+			}
+
+			.nav {
+				flex-direction: row;
+				gap: 15px;
+			}
+
+			.nav a {
+				padding-left: 15px;
+				padding-right: 15px;
+			}
+
+			.post h2 {
+				font-size: 1.375rem;
+			}
+
+			.post p {
+				font-size: 0.9375rem;
+			}
+
+			.post footer span {
+				font-size: 0.8125rem;
+			}
+		}
+
+		@media only screen and (min-width: 801px) and (max-width: 1024px) {
+			.container {
+				max-width: 80%;
+			}
+
+			.logo {
+				font-size: 2rem;
+			}
+
+			.nav {
+				flex-direction: row;
+				gap: 20px;
+			}
+
+			.nav a {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+
+			.post h2 {
+				font-size: 1.5rem;
+			}
+
+			.post p {
+				font-size: 1rem;
+			}
+
+			.post footer span {
+				font-size: 0.875rem;
+			}
+		}
+
+		@media only screen and (min-width: 1025px) {
+			.container {
+				max-width: 75%;
+			}
+
+			.logo {
+				font-size: 2.25rem;
+			}
+
+			.nav {
+				flex-direction: row;
+				gap: 25px;
+			}
+
+			.nav a {
+				padding-left: 25px;
+				padding-right: 25px;
+			}
+
+			.post h2 {
+				font-size: 1.75rem;
+			}
+
+			.post p {
+				font-size: 1.125rem;
+			}
+
+			.post footer span {
+				font-size: 1rem;
+			}
+		}
+
+		@media only screen and (min-width: 1281px) {
+			.container {
+				max-width: 70%;
+			}
+
+			.logo {
+				font-size: 2.5rem;
+			}
+
+			.nav {
+				flex-direction: row;
+				gap: 30px;
+			}
+
+			.nav a {
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+
+			.post h2 {
+				font-size: 2rem;
+			}
+
+			.post p {
+				font-size: 1.25rem;
+			}
+
+			.post footer span {
+				font-size: 1.125rem;
+			}
+		}
+
+		.toggle-button {
+			position: -webkit-sticky;
+			background-color: var(--primary-color);
+			color: var(--background-color);
+			padding: 10px 20px;
+			border: none;
+			border-radius: 20px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+			box-shadow: 0 0 10px var(--primary-color);
+		}
+
+		.toggle-button:hover {
+			background-color: var(--accent-color);
+			box-shadow: 0 0 15px var(--accent-color);
+		}
+
+		.light-mode {
+			--primary-color: #27618a;
+			--secondary-color: #a74bfd;
+			--accent-color: #2f8c78;
+			--nav-1-color: #80b0f6;
+			--nav-2-color: #a4d9fd;
+			--nav-3-color: #a6a6f7;
+			--nav-a1-color: #436964;
+			--nav-a2-color: #9f71bd;
+			--background-color: #DDD0C8;
+			--text-color: #333333;
+			--text-color-selected: #4ef1fdb1;
+			--content-color: #bababa;
+			--post-1-color: #8ababdb1;
+			--post-2-color: #9a91ca;
+			--footer-color: #a3caf6;
+		}
+
+		.dark-mode {
+			--primary-color: #005F51;
+			--secondary-color: #00D3FF;
+			--accent-color: #A600FF;
+			--nav-1-color: #0067FF;
+			--nav-2-color: #09f;
+			--nav-3-color: #66f;
+			--nav-a1-color: #005F51;
+			--nav-a2-color: #9800FF;
+			--background-color: #222222;
+			--text-color: #ffffff;
+			--text-color-selected: #00ffff;
+			--content-color: #333333;
+			--post-1-color: #00345f8d;
+			--post-2-color: #9900ff41;
+			--footer-color: #999999;
+		}
+
+		.popup {
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: #00000080;
+		}
+
+		.popup-content {
+			background-image: linear-gradient(to bottom, #19001082, #06003be3);
+			margin: 10% auto;
+			padding: 20px;
+			border: 2px solid #0a3855;
+			width: 80%;
+			border-radius: 20px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		}
+
+		.privacy {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 18px;
+			text-align: justify;
+			color: #d3d3d3;
+		}
+
+		.agree {
+			background-color: #2c233f;
+			border: none;
+			color: white;
+			padding: 15px 32px;
+			border-radius: 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			margin: 4px 2px;
+			cursor: pointer;
+		}
+
+		.agree:hover {
+			background-color: #4872a1;
+		}
+	</style>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<body oncontextmenu="self.event.returnValue=false" onselectstart="return false" class="dark-mode">
+	<button class="toggle-button" onclick="toggleMode()">🌞🌙</button>
+	<div class="container">
+		<div class="header">
+			<div class="logo" title="🏆You've found the hover-and-accelerate easter egg!">
+				<h1>Weifeng Wang's Space</h1>
 			</div>
-			<div class="nav">
-				<a href="#" class="active" id="home-link"> Home
-					<br>
-				</a>
-				<a href="#" id="about-link"> About </a>
-				<a href="#" id="contact-link"> Contact </a>
-				<a href="#" id="portfolio-link"> Portfolio </a>
-				<a href="#" id="blog-link"> Blog </a>
-				<a href="#" id="update-link"> Updates </a>
-			</div>
-			<!-- Move the page-content div inside the container div -->
-			<div class="page-content">
-				<!-- Add page content here -->
+		</div>
+		<div class="nav">
+			<a href="#" class="active" id="home-link"> Home🏠 </a>
+			<a href="#" id="about-link"> About🔮 </a>
+			<a href="#" id="contact-link"> Contact📞 </a>
+			<a href="#" id="portfolio-link"> Portfolio📚 </a>
+			<a href="#" id="blog-link"> Blog📢 </a>
+			<a href="#" id="update-link"> Updates🌠 </a>
+		</div>
+
+	</div>
+
+	<div class="main">
+		<div id="popup" class="popup">
+			<div class="popup-content">
+				<h2><strong>🚧Privacy Policy🚦</strong></h2>
+				<strong>If you disagree with this policy, please close the website immediately.<br></strong>
+				<p>
+					Weifeng Wang operates the website "Weifeng Wang's Space" at https://weifengwang.com/.
+					I take your privacy seriously. To better protect your privacy,
+					I provide this privacy policy notice explaining the way your personal information
+					is collected and used.😘
+				</p>
+				<p><strong>🧡Collection of Routine Information</strong></p>
+				<p>
+					This website track basic information about its visitors.
+					This information includes, but is not limited to, IP addresses, browser details,
+					timestamps and referring pages. None of this information can personally identify specific
+					visitors to this website. The information is tracked for routine
+					administration and maintenance purposes.
+				</p>
+				<p><strong>💛Cookies</strong></p>
+				<p>
+					Well, we are not interested in your data. So, we decided that this website never uses cookies to
+					store information about a visitor's preferences nor history so there is no way better serve the
+					visitor and/or present the visitor with customized content, deep apologies.
+				</p>
+				<p><strong>💙Advertisement and Other Third Parties</strong></p>
+				<p>
+					Though this site has no advertisements, advertising partners and other third parties may use
+					cookies, scripts and/or web beacons to track
+					visitor activities on this website to display advertisements
+					and other useful information. Such tracking is done directly by the third parties through their
+					servers and is subject to their privacy policies. This website has no access or
+					control over these cookies, scripts and/or web beacons that may be used by third parties.
+					So, please be careful on other websites with advertisements!
+				</p>
+				<p><strong>💚Security</strong></p>
+				<p>
+					The security of your personal information is important to me, but remember that no
+					method of transmission over the Internet, or method of electronic storage, is 100% secure.
+					While I strive to use commercially acceptable means to protect your personal information,
+					I cannot guarantee its absolute security.
+				</p>
+				<p><strong>💜Changes To This Privacy Policy</strong></p>
+				<p>
+					This Privacy Policy is effective as of 2024-01 and will remain in effect except concerning
+					any changes in its provisions in the future, which will be in effect immediately after being posted
+					on
+					this page.
+					I reserve the right to update or change my Privacy Policy at any time and you
+					should check this Privacy Policy periodically. If I make any material changes to this Privacy
+					Policy, I will notify you either through the email address you have provided me or by
+					placing a prominent notice on my website.
+				</p>
+				<p><strong>💗Contact Information</strong></p>
+				<p>
+					For any questions or concerns regarding the privacy policy,
+					please send me an email at wangweifeng0316@foxmail.com
+				</p>
+				<h2>💕Thank you.💞</h2>
+				<button class="agree" onclick="closePopup()">Okay, thank you!</button>
 			</div>
 		</div>
 
-
-		<div class="main">
-			<div class="page-content active-page-content" id="home-content">
-				<h2 title="🤔Amber, I have to confess something... I love you... really I do...😫">🏠Home Page🌳
-				</h2>
-				<div class="post">
-					<h2>🚀Welcome to my Space: A Space with Big Dreams🚀</h2>
-					<p>Hello, fellow netizens! 👋</p>
-					<p> You have just landed on my space, a beta version of my personal website. And let me tell
-						you, you are in for a treat! 🍭</p>
-					<p> This is where I will share with you my thoughts, opinions, experiences, and passions.
-						Whether it&rsquo;s about travel, music, books, movies, games, or anything else that sparks
-						my interest, you will find it here. 🌎🎵📚🎥🎮</p>
-					<p>But wait, there&rsquo;s more! This is not just a blog, it&rsquo;s also a showcase of my
-						projects. I&rsquo;m a creative person who loves to learn new skills and try new things. I
-						will post some of my works here, such as art, photography, writing, and more. You will see
-						how I grow and improve as I pursue my hobbies and goals. 🎨📷💻✍️</p>
-					<p>And the best part is, this is only the beginning! This is a beta version of my space, which
-						means it is still under construction and development. I have so many ideas and plans for
-						this website, and I can&rsquo;t wait to share them with you. You will see some changes and
-						updates as I make this space better and more awesome. 🔧🔨🚧</p>
-					<p>So what are you waiting for? Bookmark this website and come back soon to see my progress. You
-						are all amazing and I appreciate your support. Thank you for being here! 😊❤️ This is my
-						space, and you are all invited. Let&rsquo;s have some fun and explore the world together!
-						🚀🌟</p>
-					<img src="https://source.unsplash.com/random/800x400" alt="Random image">
-					<p>⚠ The picture here is from unsplash, which maybe copyrighted works, so please do not download
-						and use it for commercial purposes! ⚠</p>
-					<footer>
-						<span>Posted on July 13, 2023 by Weifeng Wang</span>
-					</footer>
-				</div>
-				<h2>⏰This is the very end of the current section.🍌</h2>
-			</div>
-
-			<!-- Add about page content -->
-			<div class="page-content" id="about-content">
-				<h2 title="😭I actually like you a lot Amber, no matter how many times you scold me...hated me...😟">
-					🙋About Me📕</h2>
-
-				<div class="post">
-					<p>Hi, I’m a currently a student and I am Chinese, which means I am an Asian. As you can see, my
-						name is Weifeng Wang, and I am apparently a male. 😂</p>
-					<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/AboutPic.jpg" alt="AboutPic">
-					<p>Some of my skills include a little bit of html, basic cinematography, Python, leading study
-						groups and more. I also enjoy learning new technologies and cool stuff that is on the trend.
-						Also, I have been self-studying weapons-free combat and wrestling! 🥊📸💻👊</p>
-					<p>Some of my hobbies include reading, writing, gaming, airsoft, cosplay, and traveling. I also
-						like to watch sci-fi movies, especially Tron: Legacy. My favourite music band is Eisbrecher,
-						a German industrial metal band, in case you don’t know. 📚🎵🎧🎥🎮</p>
-					<p>If you want to know more about me, feel free to contact me or check out my [portfolio] and
-						[blog]. 😊❤️</p>
-				</div>
-				<h2>⏰This is the very end of the current section.🍌</h2>
-			</div>
-
-
-
-			<!-- Add contact page content -->
-			<div title="😟I saw you yesterday, why did you pretended not seeing me? I promised I will be better... and that's what I have done in last 6 months! 💔" class="page-content" id="contact-content">
-				<h2>😊Contact Me❤️</h2>
-				<div class="post">
-					<p>If you have any questions, feedback, or suggestions, you can reach me through the following
-						ways:</p>
-					<ul>
-						<li>Email: 1771015689@qq.com</li>
-						<li>Phone: +86 15872354218</li>
-						<li>QQ: 1771015689</li>
-						<li>Linkedin: weifengwang0316</li>
-						<li>Bilibili: https://space.bilibili.com/516946215 @JW_王sir</li>
-					</ul>
-					<p>I will try to reply as soon as possible. Thank you for your interest! 🍭</p>
-				</div>
-			</div>
-
-			<!-- Add portfolio page content -->
-			<div class="page-content" id="portfolio-content">
-				<h2>🏆My Portfolio🎉</h2>
-				<p>Here are some of the projects that I have worked on or contributed to. You can click on the
-					images to see more details or visit the live websites.</p>
-				<div class="post">
-					<h3>🖥️Brand Design Website: RunX📡</h3>
-					<iframe src="https://runxexperimental.github.io/RunX/" width="90%" height="500px" name="RunX" scrolling="Yes" noresize="noresize" frameborder="0" id="RunX"></iframe>
-					<p>This is the first ever html project. It is partially responsive and modern website that
-						showcases my products and services. Actually, this is a annual assessment of Design at my
-						Grade 8.</p>
-					<footer>
-						<a href="https://runxexperimental.github.io/RunX/">👉Visit full website👈</a>
-					</footer>
-				</div>
-
-				<div class="post">
-					<h3>🎬WHBC Acdemic Movie: FLOUR📽️</h3>
-					<iframe src="https://player.bilibili.com/player.html?aid=&bvid=BV1oL411k7jU&cid=516946215&page=1&autoplay=0" allowfullscreen="allowfullscreen" width="90%" height="500px" scrolling="no" frameborder="0"></iframe>
-					<p>This is a project that our school organizes. It is a thriller that tells a crime story and
-						SWAT. It is inspired by the John Wick series and SCP: Overlord. Also, I have previously made
-						a movie website by sxl (strikingly in China), so it sometimes does not load under some
-						international network conditions.</p>
-					<footer>
-						<a href="https://flour.mysxl.cn">👉Visit full website👈</a>
-					</footer>
-				</div>
-
-				<div class="post">
-					<h3>🛋️"Road to ACE" Kindle Book Series📚</h3>
-					<iframe src="https://www.amazon.com/dp/B0CGV8S6LT" width="90%" height="500px" name="RtA" scrolling="Yes" noresize="noresize" frameborder="0" id="RtA"></iframe>
-					<p>This is a book series I wrote and it is published on amazon by kindle self-publish. It is
-						about the life in international school and experiences going through studies, activities,
-						and sometimes, love relationships, as it is often considered as a important part of teenage
-						life. You can find it out by clicking the link below.</p>
-					<footer>
-						<a href="https://www.amazon.com/dp/B0CGV8S6LT">👉Visit full website👈</a>
-					</footer>
-				</div>
-
-				<div class="post">
-					<h3>🔈Debate Society × CS Club Activity Website📕</h3>
-					<iframe src="https://real-jasonwang.github.io/AiSocietyProject" width="90%" height="500px" name="RunX" scrolling="Yes" noresize="noresize" frameborder="0" id="AiSociety"></iframe>
-					<p>This is a project that is requested by WHBC Debate Society and CS club, non-paid. I use
-						advanced fluent design to design the website according to the requested design and add
-						advance CSS and JS effects, an international quality I must say.</p>
-					<footer>
-						<a href="https://real-jasonwang.github.io/AiSocietyProject">👉Visit full website👈</a>
-					</footer>
-				</div>
-
-				<div class="post">
-					<h3>💪My Linkedin Website!🥇</h3>
-					<p>This is my Linkedin account!: https://www.linkedin.com/in/weifengwang0316/</p>
-					<footer>
-						<a href="https://www.linkedin.com/in/weifengwang0316/">👉Visit full website👈</a>
-					</footer>
-				</div>
-				<h2>⚡More portfolios coming up⚡</h2>
-
-			</div>
-
-			<!-- Add blog page content -->
-			<div class="page-content" id="blog-content">
-				<h2>📚My Blog🎓</h2>
-				<p></p>
-				<div class="post">
-					<h3>🏆Check out my Coursera Certificates!🏮</h3>
-					<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/Trophy/3x3.png" alt="3x3">
-					<p>👇This is the full-course coursera certificates that I have earned in 2022-2023, if you wish
-						to see more or download these certificates, you can download them at the link below and
-						verify them by checking out the links on the certificates👇</p>
-					<footer>
-						<a href="https://github.com/Real-JasonWang/me/raw/main/Pictures/Trophy/CourseraCertificateWWF.zip">👉Download
-							From Servers👈</a>
-						<span>Posted on July 29, 2023 by Weifeng Wang</span>
-					</footer>
-				</div>
-
-				<div class="post">
-					<h3>😊My USAP Certificates!⚡</h3>
-					<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/usap3x3.png" alt="usap3x3">
-					<p>👆This is the certificates that I have earned in two USAPS!👆</p>
-					<footer>
-						<span>Posted on August 11, 2023 by Weifeng Wang</span>
-					</footer>
-				</div>
-
-				<div class="post">
-					<h3>💻OUCC Certificates (Senior · High Distinction)🏆</h3>
-					<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/OUCC2.jpg" alt="OUCC2">
-					<p>👆These are my OUCC Certificates: both regional and national👆</p>
-					<footer>
-						<span>Posted on August 23, 2023 by Weifeng Wang</span>
-					</footer>
-				</div>
-
-				<div class="post">
-					<h3>😀My Film Festival Awards!🎦</h3>
-					<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/Cinematography.jpg" alt="Cinematography">
-					<p>👆See my cos and achievements on the film festival award ceremony!👆</p>
-					<footer>
-						<span>Posted on August 29, 2023 by Weifeng Wang</span>
-					</footer>
-				</div>
-				<h2>⛔THIS PART IS STILL IN CONSTRUCTION⛔</h2>
-				<span>🚗Come back later to see my progress!🥤</span>
-			</div>
-		</div>
-		<div class="page-content" id="update-content">
-			<h2>💻 Website Update Logs🔧</h2>
-
+		<div class="page-content active-page-content" id="home-content">
+			<h2 title="🤔Amber, I have to confess something... I love you... really I do...😫">🏠Home Page🌳
+			</h2>
 			<div class="post">
-				<h3>July 11, 2023</h3>
-				<ul>
-					<li>The website framework was created.</li>
-					<li>Basic experimental fuctions ran locally.</li>
-				</ul>
+				<h2>🚀Welcome to Weifeng Wang's Space: A Space with Big Dreams🚀</h2>
+				<p>Hello, fellow netizens! 👋</p>
+				<p> You have just landed on my personal website. And let me tell
+					you, you are in for a treat! 🍭</p>
+				<p> This is where I will share with you my thoughts, opinions, experiences, and passions.
+					Whether it&rsquo;s about travel, music, books, movies, games, or anything else that sparks
+					my interest, you will find it here. 🌎🎵📚🎥🎮</p>
+				<p>But wait, there&rsquo;s more! This is not just a blog, it&rsquo;s also a showcase of my
+					projects. I&rsquo;m a creative person who loves to learn new skills and try new things. I
+					will post some of my works here, such as art, photography, writing, and more. You will see
+					how I grow and improve as I pursue my hobbies and goals. 🎨📷💻✍️</p>
+				<p>And the best part is, this is only the beginning! This is a beta version of my space, which
+					means it is still under construction and development. I have so many ideas and plans for
+					this website, and I can&rsquo;t wait to share them with you. You will see some changes and
+					updates as I make this space better and more awesome. 🔧🔨🚧</p>
+				<p>So what are you waiting for? Bookmark this website and come back soon to see my progress. You
+					are all amazing and I appreciate your support. Thank you for being here! 😊❤️ This is my
+					space, and you are all invited. Let&rsquo;s have some fun and explore the world together!
+					🚀🌟</p>
+				<img src="https://source.unsplash.com/random/800x400"
+					alt="if you see this, it means a random picture from unsplash cannot be loaded😟">
+				<p>⚠ The picture here is from unsplash, if it violates your rights, please contact me as soon as
+					possible⚠</p>
+				<footer>
+					<span>Posted on July 13, 2023 by Weifeng Wang</span>
+				</footer>
 			</div>
-			<div class="post">
-				<h3>July 20, 2023</h3>
-				<ul>
-					<li>The website and its files were updated to github.</li>
-					<li>Ran Basic tests.</li>
-					<li>Wrote some content to stack up the website</li>
-				</ul>
-			</div>
-			<div class="post">
-				<h3>July 28, 2023</h3>
-				<ul>
-					<li>The website was on github pages.</li>
-					<li>Fixed bugs and updated Java script.</li>
-					<li>Added more CSS styles.</li>
-				</ul>
-			</div>
-			<div class="post">
-				<h3>August 5, 2023</h3>
-				<ul>
-					<li>Purchased and try to configure custom domain.</li>
-					<li>Fixed bugs and updated Java script.</li>
-					<li>Added more CSS styles.</li>
-					<li>Added fancy color schemes.</li>
-				</ul>
-			</div>
-			<div class="post">
-				<h3>August 14, 2023</h3>
-				<ul>
-					<li>Added custom cursors.</li>
-					<li>Fixed bugs and updated Java script.</li>
-					<li>Updated blogs.</li>
-				</ul>
-			</div>
-			<div class="post">
-				<h3>August 25, 2023</h3>
-				<ul>
-					<li>Removed background music.</li>
-					<li>Fixed bugs and updated Java script.</li>
-					<li>Added blog contents.</li>
-				</ul>
-			</div>
-			<div class="post">
-				<h3>August 27, 2023</h3>
-				<ul>
-					<li>Updated blogs.</li>
-					<li>Added blog contents.</li>
-				</ul>
-			</div>
-			<div class="post">
-				<h3>September 8, 2023</h3>
-				<ul>
-					<li>Removed Chinese.</li>
-					<li>Updated UX design.</li>
-					<li>Planning to make moblie version.</li>
-					<li>Added portfolio contents.</li>
-					<li>Fixed minor grammar issues.</li>
-				</ul>
-			</div>
-			<div class="post">
-				<h3>November 10, 2023</h3>
-				<ul>
-					<li>Rewrite class</li>
-					<li>Updated UX design to Microsoft fluent design.</li>
-					<li>Compatiable with mobile and iPad</li>
-					<li>Epic fix of rendering problems</li>
-				</ul>
-			</div>
-			<div class="post">
-				<h3>January 2, 2024</h3>
-				<ul>
-					<li>Added blog & contents</li>
-				</ul>
-			</div>
-			<h2>⚡More logs coming up⚡</h2>
+			<h2>🌎This is the end of the line, buddy!⛔</h2>
 		</div>
 
-		<div class="bottom">
-			<span>Copyright © </span>
-			<div class="bottomST"></div>
-			<span> Weifeng Wang</span>
+		<div class="page-content" id="about-content">
+			<h2 title="😭I actually like you a lot Amber, no matter how many times you scold me...hated me...😟">
+				🙋About Me📕</h2>
+
+			<div class="post">
+				<h2>Basic introduction👋</h2>
+				<p>Hi, I’m a currently a student and I am Chinese, which means I am an Asian. As you can see, my
+					name is Weifeng Wang, and I am apparently a male. 😂</p>
+				<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/AboutPic.jpg"
+					alt="if you see this, it means a picture related to me cannot be loaded😟">
+			</div>
+			<div class="post">
+				<h2>My skills💪</h2>
+				<p>Some of my skills include "a little bit" of HTML, basic cinematography, Python, leading study
+					groups and more. I also enjoy learning new technologies and cool stuff that is on the trend.
+					Also, I have been self-studying weapons-free combat and wrestling! I am also a newbie
+					designer, and all of my skills are basically self-taught.🥊📸💻👊</p>
+			</div>
+			<div class="post">
+				<h2>My hobbies😀</h2>
+				<p>Some of my hobbies include reading, writing, gaming, airsoft, cosplay, and traveling. I also
+					like to watch sci-fi movies, especially Tron: Legacy. My favourite music band is Eisbrecher,
+					a German industrial metal band, in case you don't know. 📚🎵🎧🎥🎮</p>
+			</div>
+			<h2>If you want to know more about me, feel free to contact me or check out my [portfolio] and
+				[blog]. 😊❤️🍌</h2>
 		</div>
 
+		<div class="page-content" id="contact-content">
+			<h2
+				title="😟I saw you yesterday, why did you pretended not seeing me? I promised I will be better... and that's what I have done in last 6 months! 💔">
+				😊Contact Me❤️</h2>
+			<div class="post">
+				<p>💫If you have any questions, feedback, or suggestions, you can contact me through: </p>
+				<ul>
+					<li>Email_1: 1771015689@qq.com</li>
+					<li>Email_2: wangweifeng0316@foxmail.com</li>
+					<li>Phone: +86 15872354218</li>
+					<li>Weixin_ID: knight-errantOfAmber</li>
+					<li>QQ: 1771015689</li>
+				</ul>
+				<p>I will try to reply as soon as possible. Thank you for your interest! 🍭</p>
+			</div>
+			<div class="post">
+				<p>These are my social media accounts, you can follow them if you are interested!🥓</p>
+				<ul>
+					<li>Linkedin: weifengwang0316</li>
+					<li>Bilibili_UID: 516946215 @JW_王sir</li>
+					<li>Himalaya: @科技小王</li>
+				</ul>
+				<p>Thank you for your subscribtion!🍰</p>
+			</div>
+		</div>
 
-		<script>
-			// Get the page content elements
-						                var homeContent = document.getElementById("home-content");
-						                var aboutContent = document.getElementById("about-content");
-						                var contactContent = document.getElementById("contact-content");
-						                var portfolioContent = document.getElementById("portfolio-content");
-						                var blogContent = document.getElementById("blog-content");
-						                var updateContent = document.getElementById("update-content");
-						
-						                // Get the nav link elements
-						                var homeLink = document.getElementById("home-link");
-						                var aboutLink = document.getElementById("about-link");
-						                var contactLink = document.getElementById("contact-link");
-						                var portfolioLink = document.getElementById("portfolio-link");
-						                var blogLink = document.getElementById("blog-link");
-						                var updateLink = document.getElementById("update-link");
-						
-						                // Add an event listener to the home link
-						                homeLink.addEventListener("click", function () {
-						                    removeActiveClass();
-						                    homeLink.classList.add("active");
-						                    homeContent.classList.add("active-page-content");
-						                });
-						
-						                // Add an event listener to the about link
-						                aboutLink.addEventListener("click", function () {
-						                    removeActiveClass();
-						                    aboutLink.classList.add("active");
-						                    aboutContent.classList.add("active-page-content");
-						                });
-						
-						                // Add an event listener to the contact link
-						                contactLink.addEventListener("click", function () {
-						                    removeActiveClass();
-						                    contactLink.classList.add("active");
-						                    contactContent.classList.add("active-page-content");
-						                });
-						
-						                // Add an event listener to the portfolio link
-						                portfolioLink.addEventListener("click", function () {
-						                    removeActiveClass();
-						                    portfolioLink.classList.add("active");
-						                    portfolioContent.classList.add("active-page-content");
-						                });
-						
-						                // Add an event listener to the blog link
-						                blogLink.addEventListener("click", function () {
-						                    removeActiveClass();
-						                    blogLink.classList.add("active");
-						                    blogContent.classList.add("active-page-content");
-						                });
-						
-						                updateLink.addEventListener("click", function () {
-						                    removeActiveClass();
-						                    updateLink.classList.add("active");
-						                    updateContent.classList.add("active-page-content");
-						                });
-						
-						                // Define a function to remove the active class from all links and contents
-						                function removeActiveClass() {
-						                    homeLink.classList.remove("active");
-						                    aboutLink.classList.remove("active");
-						                    contactLink.classList.remove("active");
-						                    portfolioLink.classList.remove("active");
-						                    blogLink.classList.remove("active");
-						                    updateLink.classList.remove("active");
-						                    homeContent.classList.remove("active-page-content");
-						                    aboutContent.classList.remove("active-page-content");
-						                    contactContent.classList.remove("active-page-content");
-						                    portfolioContent.classList.remove("active-page-content");
-						                    blogContent.classList.remove("active-page-content");
-						                    updateContent.classList.remove("active-page-content");
-						                }
-						
-						                var keyWords = "Weifeng Wang's Space | A Space with Big Dreams | ";
-						                function titleChange() {
-						                    var keyList = keyWords.split("");
-						                    var firstChar = keyList.shift();
-						                    keyList.push(firstChar);
-						                    keyWords = keyList.join("");
-						                    document.title = keyWords;
-						                }
-						
-						                setInterval(titleChange, 100);
-						
-						                // Fuck you F12
-						                document.onkeydown = document.onkeyup = document.onkeypress = function (event) {
-						                    var e = event || window.event || arguments.callee.caller.arguments[0];
-						                    if (e && e.keyCode == 123) {
-						                        mAlert();
-						                        e.returnValue = false;
-						                        return (false);
-						                    }
-						                }
-						
-						                function mAlert() {
-						                    alert("🤯You little F12 copying bastard! You shall not pass🌋!");
-						                }
-						
-						                var date = null;
-						                date = setTimeout(time, 1000);
-						                function time() {
-						                    clearTimeout(date);
-						                    dt = new Date();
-						                    var y = dt.getFullYear();
-						                    document.querySelector(".bottomST").innerHTML = y;
-						                    t = setTimeout(time, 1000);
-						                }
-						
-						
-						const fpsDiv = document.createElement("div");
-						
-						fpsDiv.style.position = "fixed";
-						fpsDiv.style.bottom = "10px";
-						fpsDiv.style.right = "10px";
-						fpsDiv.style.width = "100px";
-						fpsDiv.style.height = "40px";
-						fpsDiv.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; 
-						fpsDiv.style.color = "white";
-						fpsDiv.style.fontFamily = "Arial";
-						fpsDiv.style.fontSize = "24px";
-						fpsDiv.style.textAlign = "center";
-						fpsDiv.style.lineHeight = "40px";
-						fpsDiv.style.border = "2px solid white";
-						fpsDiv.style.borderRadius = "10px";
-						fpsDiv.style.boxShadow = "0 0 10px 5px rgba(0, 0, 0, 0.5)"; 
-						
-						document.body.appendChild(fpsDiv);
-						
-						
-						const times = [];
-						
-						let fps;
-						
-						function refreshLoop() {
-						
-						  window.requestAnimationFrame(() => {
-						
-						    const now = performance.now();
-						
-						    while (times.length > 0 && times[0] <= now - 1000) {
-						      times.shift();
-						    }
-						
-						    times.push(now);
-						
-						    fps = times.length;
-						
-						    fpsDiv.textContent = "FPS: " + fps;
-						
-						    refreshLoop();
-						  });
-						}
-						
-						refreshLoop();
-		</script>
-	</body>
+		<div class="page-content" id="portfolio-content">
+			<h2>🏆My Portfolio🎉</h2>
+			<p>Here are some of the projects that I have worked on or contributed to. You can click on the
+				images to see more details or visit the live websites.</p>
+			<div class="post">
+				<h3>🖥️Brand Design Website: RunX📡</h3>
+				<iframe src="https://runxexperimental.github.io/RunX/" width="90%" height="500px" name="RunX"
+					scrolling="Yes" noresize="noresize" frameborder="0" id="RunX"></iframe>
+				<p>This is the first ever html project. It is partially responsive and modern website that
+					showcases my products and services. Actually, this is a annual assessment of Design at my
+					Grade 8.</p>
+				<footer>
+					<a href="https://runxexperimental.github.io/RunX/">👉Visit my first website👈</a>
+				</footer>
+			</div>
+
+			<div class="post">
+				<h3>🎬WHBC Acdemic Movie: FLOUR📽️</h3>
+				<iframe
+					src="https://player.bilibili.com/player.html?aid=&bvid=BV1oL411k7jU&cid=516946215&page=1&autoplay=0"
+					allowfullscreen="allowfullscreen" width="90%" height="500px" scrolling="no"
+					frameborder="0"></iframe>
+				<p>This is a project that our school organizes. It is a thriller that tells a crime story and
+					SWAT. It is inspired by the John Wick series and SCP: Overlord. Also, I have previously made
+					a movie website by sxl (strikingly in China), so it sometimes does not load under some
+					international network conditions.</p>
+				<footer>
+					<a href="https://flour.mysxl.cn">👉Visit the movie website👈</a>
+				</footer>
+			</div>
+
+			<div class="post">
+				<h3>🛋️"Road to ACE" Kindle Book Series📚</h3>
+				<iframe src="https://www.amazon.com/dp/B0CGV8S6LT" width="90%" height="500px" name="RtA" scrolling="Yes"
+					noresize="noresize" frameborder="0" id="RtA"></iframe>
+				<p>This is a book series I wrote and it is published on amazon by kindle self-publish. It is
+					about the life in international school and experiences going through studies, activities,
+					and sometimes, love relationships, as it is often considered as a important part of teenage
+					life. You can find it out by clicking the link below.</p>
+				<footer>
+					<a href="https://www.amazon.com/dp/B0CGV8S6LT">👉Purchase the book for only 0.99 USD!👈</a>
+				</footer>
+			</div>
+
+			<div class="post">
+				<h3>🔈Debate Society × CS Club Activity Website📕</h3>
+				<iframe src="https://real-jasonwang.github.io/AiSocietyProject" width="90%" height="500px" name="RunX"
+					scrolling="Yes" noresize="noresize" frameborder="0" id="AiSociety"></iframe>
+				<p>This is a project that is requested by WHBC Debate Society and CS club, non-paid. I use
+					advanced fluent design to design the website according to the requested design and add
+					advance CSS and JS effects, an international quality I must say.</p>
+				<footer>
+					<a href="https://real-jasonwang.github.io/AiSocietyProject">👉Visit official website👈</a>
+				</footer>
+			</div>
+
+			<div class="post">
+				<h3>💻CHC hardware club website🐂</h3>
+				<iframe src="https://real-jasonwang.github.io/chc_hardware_club/" width="90%" height="600px" name="RunX"
+					scrolling="Yes" noresize="noresize" frameborder="0" id="AiSociety"></iframe>
+				<p>This is the website I bulit for my own club CHC hardware club, you can find more about my
+					club in the website!</p>
+				<footer>
+					<a href="https://real-jasonwang.github.io/chc_hardware_club/">👉Visit Club website👈</a>
+				</footer>
+			</div>
+
+			<div class="post">
+				<h3>💪My Linkedin Website!🥇</h3>
+				<p>This is my Linkedin account!: https://www.linkedin.com/in/weifengwang0316/</p>
+				<footer>
+					<a href="https://www.linkedin.com/in/weifengwang0316/">👉View my job profile👈</a>
+				</footer>
+			</div>
+			<h2>⚡More portfolios coming up⚡</h2>
+
+		</div>
+
+		<div class="page-content" id="blog-content">
+			<h2>📚My Blog🎓</h2>
+			<p></p>
+			<div class="post">
+				<h3>🏆Check out my Coursera Certificates!🏮</h3>
+				<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/Trophy/3x3.png"
+					alt="if you see this, it means a picture related to Coursera cannot be loaded😟">
+				<p>👇This is the full-course coursera certificates that I have earned in 2022-2023, if you wish
+					to see more or download these certificates, you can download them at the link below and
+					verify them by checking out the links on the certificates👇</p>
+				<footer>
+					<a href="https://github.com/Real-JasonWang/me/raw/main/Pictures/Trophy/CourseraCertificateWWF.zip">👉Download
+						From Servers👈</a>
+					<span>Posted on July 29, 2023 by Weifeng Wang</span>
+				</footer>
+			</div>
+
+			<div class="post">
+				<h3>😊My USAP Certificates!⚡</h3>
+				<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/usap3x3.png"
+					alt="if you see this, it means a picture related to USAP cannot be loaded😟">
+				<p>👆This is the certificates that I have earned in two USAPS!👆</p>
+				<footer>
+					<a href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/usap3x3.png">👉Download
+						From Servers👈</a>
+					<span>Posted on August 11, 2023 by Weifeng Wang</span>
+				</footer>
+			</div>
+
+			<div class="post">
+				<h3>💻OUCC Certificates (Senior · High Distinction)🏆</h3>
+				<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/OUCC2.jpg"
+					alt="if you see this, it means a picture related to OUCC cannot be loaded😟">
+				<p>👆These are my OUCC Certificates: both regional and national👆</p>
+				<footer>
+					<a href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/OUCC2.jpg">👉Download
+						From Servers👈</a>
+					<span>Posted on October 23, 2023 by Weifeng Wang</span>
+				</footer>
+			</div>
+
+			<div class="post">
+				<h3>😀My Film Festival Awards!🎦</h3>
+				<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/Cinematography.jpg"
+					alt="if you see this, it means a picture related to film festival cannot be loaded😟">
+				<p>👆See my cos and achievements on the film festival award ceremony!👆</p>
+				<footer>
+					<a href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/Cinematography.jpg">👉Download
+						From Servers👈</a>
+					<span>Posted on December 10, 2023 by Weifeng Wang</span>
+				</footer>
+			</div>
+			<h2>⚡More blogs coming up⚡</h2>
+		</div>
+	</div>
+	<div class="page-content" id="update-content">
+		<h2>💻 Website Update Logs🔧</h2>
+
+		<div class="post">
+			<h3>🍉July 11, 2023</h3>
+			<ul>
+				<li>The website framework was created.</li>
+				<li>Basic experimental fuctions ran locally.</li>
+			</ul>
+		</div>
+		<div class="post">
+			<h3>🍉July 20, 2023</h3>
+			<ul>
+				<li>The website and its files were updated to github.</li>
+				<li>Ran Basic tests.</li>
+				<li>Wrote some content to stack up the website</li>
+			</ul>
+		</div>
+		<div class="post">
+			<h3>🍉July 28, 2023</h3>
+			<ul>
+				<li>The website was on github pages.</li>
+				<li>Fixed bugs and updated Java script.</li>
+				<li>Added more CSS styles.</li>
+			</ul>
+		</div>
+		<div class="post">
+			<h3>🥥August 5, 2023</h3>
+			<ul>
+				<li>Purchased and try to configure custom domain.</li>
+				<li>Fixed bugs and updated Java script.</li>
+				<li>Added more CSS styles.</li>
+				<li>Added fancy color schemes.</li>
+			</ul>
+		</div>
+		<div class="post">
+			<h3>🥥August 14, 2023</h3>
+			<ul>
+				<li>Added custom cursors.</li>
+				<li>Fixed bugs and updated Java script.</li>
+				<li>Updated blogs.</li>
+			</ul>
+		</div>
+		<div class="post">
+			<h3>🥥August 25, 2023</h3>
+			<ul>
+				<li>Removed background music.</li>
+				<li>Fixed bugs and updated Java script.</li>
+				<li>Added blog contents.</li>
+			</ul>
+		</div>
+		<div class="post">
+			<h3>🥥August 27, 2023</h3>
+			<ul>
+				<li>Updated blogs.</li>
+				<li>Added blog contents.</li>
+			</ul>
+		</div>
+		<div class="post">
+			<h3>🏫September 8, 2023</h3>
+			<ul>
+				<li>Removed Chinese.</li>
+				<li>Updated UX design.</li>
+				<li>Planning to make moblie version.</li>
+				<li>Added portfolio contents.</li>
+				<li>Fixed minor grammar issues.</li>
+			</ul>
+		</div>
+		<div class="post">
+			<h3>🍁November 10, 2023</h3>
+			<ul>
+				<li>Rewrite class</li>
+				<li>Updated UX design to Microsoft fluent design.</li>
+				<li>Compatiable with mobile and iPad</li>
+				<li>Epic fix of rendering problems</li>
+			</ul>
+		</div>
+		<div class="post">
+			<h3>🏮January 2, 2024</h3>
+			<ul>
+				<li>Added blog & contents</li>
+			</ul>
+		</div>
+		<h2>⚡More logs coming up⚡</h2>
+	</div>
+
+	<div class="bottom">
+		<span>Copyright © </span>
+		<div class="bottomST"></div>
+		<span> Weifeng Wang, <br>All rights reserved.</span>
+	</div>
+
+	<script>
+
+		var popup = document.getElementById("popup");
+
+		function closePopup() {
+			popup.style.display = "none";
+		}
+
+		var homeContent = document.getElementById("home-content");
+		var aboutContent = document.getElementById("about-content");
+		var contactContent = document.getElementById("contact-content");
+		var portfolioContent = document.getElementById("portfolio-content");
+		var blogContent = document.getElementById("blog-content");
+		var updateContent = document.getElementById("update-content");
+
+		var homeLink = document.getElementById("home-link");
+		var aboutLink = document.getElementById("about-link");
+		var contactLink = document.getElementById("contact-link");
+		var portfolioLink = document.getElementById("portfolio-link");
+		var blogLink = document.getElementById("blog-link");
+		var updateLink = document.getElementById("update-link");
+
+		homeLink.addEventListener("click", function () {
+			removeActiveClass();
+			homeLink.classList.add("active");
+			homeContent.classList.add("active-page-content");
+		});
+
+		aboutLink.addEventListener("click", function () {
+			removeActiveClass();
+			aboutLink.classList.add("active");
+			aboutContent.classList.add("active-page-content");
+		});
+
+		contactLink.addEventListener("click", function () {
+			removeActiveClass();
+			contactLink.classList.add("active");
+			contactContent.classList.add("active-page-content");
+		});
+
+		portfolioLink.addEventListener("click", function () {
+			removeActiveClass();
+			portfolioLink.classList.add("active");
+			portfolioContent.classList.add("active-page-content");
+		});
+
+		blogLink.addEventListener("click", function () {
+			removeActiveClass();
+			blogLink.classList.add("active");
+			blogContent.classList.add("active-page-content");
+		});
+
+		updateLink.addEventListener("click", function () {
+			removeActiveClass();
+			updateLink.classList.add("active");
+			updateContent.classList.add("active-page-content");
+		});
+
+		function removeActiveClass() {
+			homeLink.classList.remove("active");
+			aboutLink.classList.remove("active");
+			contactLink.classList.remove("active");
+			portfolioLink.classList.remove("active");
+			blogLink.classList.remove("active");
+			updateLink.classList.remove("active");
+			homeContent.classList.remove("active-page-content");
+			aboutContent.classList.remove("active-page-content");
+			contactContent.classList.remove("active-page-content");
+			portfolioContent.classList.remove("active-page-content");
+			blogContent.classList.remove("active-page-content");
+			updateContent.classList.remove("active-page-content");
+		}
+
+		var keyWords = "Weifeng Wang's Space | A Space with Big Dreams | ";
+		function titleChange() {
+			var keyList = keyWords.split("");
+			var firstChar = keyList.shift();
+			keyList.push(firstChar);
+			keyWords = keyList.join("");
+			document.title = keyWords;
+		}
+
+		setInterval(titleChange, 100);
+
+		// Fuck you F12
+		document.onkeydown = document.onkeyup = document.onkeypress = function (event) {
+			var e = event || window.event || arguments.callee.caller.arguments[0];
+			if (e && e.keyCode == 123) {
+				mAlert();
+				e.returnValue = false;
+				return (false);
+			}
+		}
+
+		function mAlert() {
+			alert("🤯You little F12 copying bastard! You shall not pass🌋!");
+		}
+
+		var date = null;
+		date = setTimeout(time, 1000);
+		function time() {
+			clearTimeout(date);
+			dt = new Date();
+			var y = dt.getFullYear();
+			document.querySelector(".bottomST").innerHTML = y;
+			t = setTimeout(time, 1000);
+		}
+
+		const fpsDiv = document.createElement("div");
+		fpsDiv.style.position = "fixed";
+		fpsDiv.style.bottom = "5px";
+		fpsDiv.style.right = "5px";
+		fpsDiv.style.width = "100px";
+		fpsDiv.style.height = "24px";
+		fpsDiv.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+		fpsDiv.style.color = "white";
+		fpsDiv.style.fontFamily = "Arial";
+		fpsDiv.style.fontSize = "12px";
+		fpsDiv.style.textAlign = "center";
+		fpsDiv.style.lineHeight = "24px";
+		fpsDiv.style.border = "2px solid white";
+		fpsDiv.style.borderRadius = "20px";
+		fpsDiv.style.boxShadow = "0 0 10px 5px rgba(0, 0, 0, 0.5)";
+
+		document.body.appendChild(fpsDiv);
+
+		const times = [];
+		let fps;
+		function refreshLoop() {
+			window.requestAnimationFrame(() => {
+				const now = performance.now();
+				while (times.length > 0 && times[0] <= now - 1000) {
+					times.shift();
+				}
+				times.push(now);
+				fps = times.length;
+				fpsDiv.textContent = "FPS: " + fps;
+				refreshLoop();
+			});
+		}
+		refreshLoop();
+
+		function toggleMode() {
+			document.body.classList.toggle("light-mode");
+			document.body.classList.toggle("dark-mode");
+		}
+	</script>
+</body>
 
 </html>
