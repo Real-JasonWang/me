@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-	<title>Weifeng Wang's Space | A Space with Big Dreams</title>
+	<title>Weifeng Wang's Space | V4</title>
 	<link rel="shortcut icon" href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/AboutPic.jpg">
 	<style>
 		/* This site's copyright belongs to Weifeng Wang, please do not copy my code! */
@@ -446,6 +446,7 @@
 			--post-1-color: #8ababdb1;
 			--post-2-color: #9a91ca;
 			--footer-color: #a3caf6;
+			--menu-color: #ddd0c8ee;
 		}
 
 		.dark-mode {
@@ -464,11 +465,12 @@
 			--post-1-color: #00345f8d;
 			--post-2-color: #9900ff41;
 			--footer-color: #999999;
+			--menu-color: #222222ee;
 		}
 
 		.popup {
 			position: fixed;
-			z-index: 1;
+			z-index: 100;
 			left: 0;
 			top: 0;
 			width: 100%;
@@ -519,11 +521,52 @@
 			word-break: break-all;
 			word-wrap: break-word;
 		}
+
+		@media only screen and (max-width: 600px) {
+			.nav {
+				position: fixed;
+				width: 100%;
+				height: 100vh;
+				top: 0;
+				left: -100%;
+				flex-direction: column;
+				gap: 30px;
+				background-color: var(--menu-color);
+				transition: 0.3s;
+				-webkit-backdrop-filter: blur(50%);
+			}
+
+			.nav.active {
+				left: 0;
+			}
+
+			.menu-toggle {
+				display: block;
+				position: fixed;
+				top: 20px;
+				right: 20px;
+				z-index: 50;
+				cursor: pointer;
+			}
+
+			.menu-toggle span,
+			.menu-toggle:before,
+			.menu-toggle:after {
+				content: '';
+				display: block;
+				width: 30px;
+				height: 3px;
+				background: var(--text-color);
+				margin: 5px 0;
+				transition: 0.3s;
+			}
+		}
 	</style>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <body oncontextmenu="self.event.returnValue=false" onselectstart="return false" class="dark-mode">
+	<div class="menu-toggle"></div>
 	<button class="toggle-button" onclick="toggleMode()">🌞🌙</button>
 	<div class="container">
 		<div class="header">
@@ -535,7 +578,7 @@
 			<a href="#" class="active" id="home-link"> Home🏠 </a>
 			<a href="#" id="about-link"> About🔮 </a>
 			<a href="#" id="contact-link"> Contact📞 </a>
-			<a href="#" id="portfolio-link"> Portfolio📚 </a>
+			<a href="#" id="portfolio-link"> Projects📚 </a>
 			<a href="#" id="blog-link"> Blogs📢 </a>
 			<a href="#" id="update-link"> Updates🌠 </a>
 		</div>
@@ -617,7 +660,7 @@
 			</h2>
 			<div class="post">
 				<p>🔥🔥My Online Exibition!🔥🔥</p>
-				<iframe src="https://real-jasonwang.github.io/ArtExhibition1/" width="80%" height="300px" name="RunX"
+				<iframe src="https://real-jasonwang.github.io/ArtExhibition1/" width="80%" height="200px" name="RunX"
 					scrolling="Yes" noresize="noresize" frameborder="0" id="Art1"></iframe>
 				<footer>
 					<a href="https://real-jasonwang.github.io/ArtExhibition1/" target="_blank">👉Visit the gallery in
@@ -678,7 +721,7 @@
 					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 					loading="lazy"></iframe>
 			</div>
-			<h2>If you want to know more about me, feel free to contact me or check out my [portfolio] and
+			<h2>If you want to know more about me, feel free to contact me or check out my [projects] and
 				[blog]. 😊❤️🍌</h2>
 		</div>
 
@@ -720,7 +763,7 @@
 		</div>
 
 		<div class="page-content" id="portfolio-content">
-			<h2>🏆My Portfolio🎉</h2>
+			<h2>🏆My Projects🎉</h2>
 			<p>Here are some of the projects that I have worked on or contributed to. You can click on the
 				images to see more details or visit the live websites.</p>
 			<div class="post">
@@ -796,7 +839,7 @@
 					<a href="https://www.linkedin.com/in/weifengwang0316/" target="_blank">👉View my job profile👈</a>
 				</footer>
 			</div>
-			<h2>⚡More portfolios coming up⚡</h2>
+			<h2>⚡More projects coming up⚡</h2>
 
 		</div>
 
@@ -927,10 +970,10 @@
 				<li>Removed Chinese.</li>
 				<li>Updated UX design.</li>
 				<li>Planning to make moblie version.</li>
-				<li>Added portfolio contents.</li>
+				<li>Added projects contents.</li>
 				<li>Fixed minor grammar issues.</li>
 			</ul>
-		</div>a
+		</div>
 		<div class="post">
 			<h2>V2.5</h2>
 			<h3>🎃November 10, 2023</h3>
@@ -982,6 +1025,16 @@
 			<h3>🎇Feburary 1, 2024</h3>
 			<ul>
 				<li>Updated new art gallery!</li>
+			</ul>
+		</div>
+
+		<div class="post">
+			<h2>V4.0</h2>
+			<h3>🎇Feburary 10, 2024</h3>
+			<ul>
+				<li>Happy New Year! (Traditional)</li>
+				<li>Updated new mobile menu</li>
+				<li>Updated extra contents</li>
 			</ul>
 		</div>
 
@@ -1070,7 +1123,7 @@
 			updateContent.classList.remove("active-page-content");
 		}
 
-		var keyWords = "Weifeng Wang's Space | A Space with Big Dreams | ";
+		var keyWords = "Weifeng Wang's Space | Jason❤Amber! | ";
 		function titleChange() {
 			var keyList = keyWords.split("");
 			var firstChar = keyList.shift();
@@ -1144,6 +1197,33 @@
 			document.body.classList.toggle("light-mode");
 			document.body.classList.toggle("dark-mode");
 		}
+
+		document.addEventListener('DOMContentLoaded', function () {
+			const toggleButton = document.querySelector('.menu-toggle');
+			const nav = document.querySelector('.nav');
+			const navLinks = document.querySelectorAll('.nav a');
+
+			toggleButton.addEventListener('click', function () {
+				nav.classList.toggle('active');
+			});
+
+			navLinks.forEach(link => {
+				link.addEventListener('click', () => {
+					nav.classList.remove('active');
+				});
+			});
+
+			navLinks.forEach(link => {
+				link.addEventListener('click', function (e) {
+					e.preventDefault();
+					const targetId = this.getAttribute('href');
+					const targetElement = document.querySelector(targetId);
+					if (targetElement) {
+						targetElement.scrollIntoView({ behavior: 'smooth' });
+					}
+				});
+			});
+		});
 
 	</script>
 </body>
