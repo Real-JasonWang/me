@@ -1,1058 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-	<title>Weifeng Wang's Space | V4</title>
-	<link rel="shortcut icon" href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/AboutPic.jpg">
-	<style>
-		/* This site's copyright belongs to Weifeng Wang, please do not copy my code! */
-		/* ©Weifeng Wang (Jason.W) 2024, All rights reserved. */
-		h1 {
-			text-align: center;
-			background: -webkit-linear-gradient(180deg,
-					var(--primary-color),
-					var(--secondary-color) 25%,
-					var(--accent-color) 50%,
-					var(--secondary-color) 55%,
-					var(--secondary-color) 60%,
-					var(--secondary-color) 80%,
-					var(--accent-color) 95%,
-					var(--primary-color));
-			-webkit-text-fill-color: transparent;
-			-webkit-background-clip: text;
-			-webkit-background-size: 200% 100%;
-			-webkit-animation: flowCss 6s infinite linear;
-			margin-top: 10px;
-			/* Do not change -webkit! */
-		}
-
-		@keyframes flowCss {
-			0% {
-				background-position: 0 0;
-			}
-
-			100% {
-				background-position: -400% 0;
-			}
-		}
-
-		h1:hover {
-			-webkit-animation: flowCss 3s infinite linear;
-			filter: brightness(200%);
-		}
-
-		body {
-			font-family: Arial, sans-serif;
-			background-color: var(--background-color);
-			color: var(--text-color);
-			cursor: url('https://github.com/Real-JasonWang/me/raw/main/Pictures/Cur/Arrow.cur'), auto;
-		}
-
-		@keyframes gradient {
-			0% {
-				background-position: 0 12%;
-			}
-
-			50% {
-				background-position: 100% 100%;
-			}
-
-			100% {
-				background-position: 0 12%;
-			}
-		}
-
-		.container {
-			max-width: 90%;
-			margin: auto;
-			padding-top: 0px;
-			padding-left: 0px;
-			padding-right: 0px;
-			padding-bottom: 0px;
-		}
-
-		.header {
-			margin: auto;
-			text-align: center;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
-
-		.logo {
-			font-size: 2rem;
-			font-weight: bold;
-			background-image: linear-gradient(to right, #00FFF1, #00D3FF);
-			-webkit-background-clip: text;
-			color: transparent;
-			align-items: center;
-			padding: 0px;
-		}
-
-		.nav {
-			text-align: center;
-			display: flex;
-			gap: 20px;
-			align-items: center;
-			justify-content: space-between;
-			margin: 0 -10px;
-		}
-
-		.nav a {
-			display: flex;
-			white-space: nowrap;
-			text-decoration: none;
-			color: var(--text-color);
-			text-align: center;
-			padding-top: 15px;
-			padding-bottom: 15px;
-			padding-left: 20px;
-			padding-right: 20px;
-			border-radius: 20px;
-			transition: all 0.3s ease-in-out;
-			flex: 1;
-		}
-
-		.nav a:hover {
-			font-weight: bold;
-			background: linear-gradient(-45deg, var(--nav-1-color), var(--nav-2-color), var(--nav-3-color));
-			box-shadow: 0 0 10px var(--nav-1-color);
-			animation: gradient 8s ease infinite;
-			transform: scale(1.1);
-		}
-
-		.nav a.active {
-			font-weight: bold;
-			background: linear-gradient(-90deg, var(--nav-a1-color), var(--nav-a2-color));
-			box-shadow: 0 0 15px var(--nav-a1-color);
-			background-size: 200% 150%;
-			animation: gradient 8s ease infinite;
-			transform: scale(1.1);
-			filter: brightness(150%) contrast(150%);
-		}
-
-		.main {
-			margin-top: 5px;
-			padding-top: 30px;
-			padding-bottom: 10px;
-			padding-left: 20px;
-			padding-right: 20px;
-		}
-
-		.post {
-			background-image: linear-gradient(to bottom, var(--post-1-color), var(--post-2-color));
-			box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-			padding: 20px;
-			margin-bottom: 20px;
-			border-radius: 20px;
-			transition: box-shadow 0.5s ease;
-		}
-
-		.post:hover {
-			box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
-		}
-
-		.post h2 {
-			font-size: 1.5rem;
-			margin-bottom: 10px;
-		}
-
-		.post p {
-			font-size: 1rem;
-			line-height: 1.5;
-		}
-
-		.post img {
-			max-width: 100%;
-			height: auto;
-			border-radius: 20px;
-		}
-
-		.post footer {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			margin-top: 10px;
-		}
-
-		.post footer span {
-			font-size: 0.875rem;
-			color: var(--footer-color);
-		}
-
-		.post footer a {
-			text-decoration: none;
-			color: var(--text-color);
-		}
-
-		.post footer a:hover {
-			color: var(--text-color-selected);
-		}
-
-		.post iframe {
-			-moz-border-radius: 20px;
-			-webkit-border-radius: 20px;
-			-khtml-border-radius: 20px;
-			border-radius: 20px;
-		}
-
-		.bottom {
-			font: small-caps;
-			text-align: center;
-			color: #999999;
-			padding-top: 0px;
-			padding-bottom: 20px;
-			padding-left: 10px;
-			padding-right: 10px;
-		}
-
-		.bottomST {
-			font: small-caps;
-			text-align: center;
-			color: #999999;
-			padding: 0px;
-		}
-
-		.bottom footer {
-			display: center;
-			align-items: center;
-			justify-content: space-between;
-			margin-top: 10px;
-		}
-
-		.bottom footer span {
-			font-size: 0.875rem;
-			color: var(--footer-color);
-		}
-
-		.bottom footer a {
-			text-decoration: none;
-			color: #999999;
-		}
-
-		.bottom footer a:hover {
-			color: var(--text-color-selected);
-		}
-
-		.page-content {
-			display: none;
-			background-color: var(--content-color);
-			box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
-			padding: 30px;
-			margin-bottom: 20px;
-			border-radius: 20px;
-		}
-
-		.active-page-content {
-			display: block;
-		}
-
-		button,
-		a:hover {
-			cursor: url(https://github.com/Real-JasonWang/me/raw/main/Pictures/Cur/Hand2.cur), pointer;
-		}
-
-		@media only screen and (max-width: 600px) {
-			.container {
-				max-width: 90%;
-			}
-
-			.logo {
-				font-size: 1.5rem;
-			}
-
-			.nav {
-				flex-direction: column;
-				gap: 10px;
-			}
-
-			.nav a {
-				padding-left: 10px;
-				padding-right: 10px;
-			}
-
-			.post h2 {
-				font-size: 1.25rem;
-			}
-
-			.post p {
-				font-size: 0.875rem;
-			}
-
-			.post footer span {
-				font-size: 0.75rem;
-			}
-		}
-
-		@media only screen and (min-width: 601px) and (max-width: 800px) {
-			.container {
-				max-width: 85%;
-			}
-
-			.logo {
-				font-size: 1.75rem;
-			}
-
-			.nav {
-				flex-direction: row;
-				gap: 15px;
-			}
-
-			.nav a {
-				padding-left: 15px;
-				padding-right: 15px;
-			}
-
-			.post h2 {
-				font-size: 1.375rem;
-			}
-
-			.post p {
-				font-size: 0.9375rem;
-			}
-
-			.post footer span {
-				font-size: 0.8125rem;
-			}
-		}
-
-		@media only screen and (min-width: 801px) and (max-width: 1024px) {
-			.container {
-				max-width: 80%;
-			}
-
-			.logo {
-				font-size: 2rem;
-			}
-
-			.nav {
-				flex-direction: row;
-				gap: 20px;
-			}
-
-			.nav a {
-				padding-left: 20px;
-				padding-right: 20px;
-			}
-
-			.post h2 {
-				font-size: 1.5rem;
-			}
-
-			.post p {
-				font-size: 1rem;
-			}
-
-			.post footer span {
-				font-size: 0.875rem;
-			}
-		}
-
-		@media only screen and (min-width: 1025px) {
-			.container {
-				max-width: 75%;
-			}
-
-			.logo {
-				font-size: 2.25rem;
-			}
-
-			.nav {
-				flex-direction: row;
-				gap: 25px;
-			}
-
-			.nav a {
-				padding-left: 25px;
-				padding-right: 25px;
-			}
-
-			.post h2 {
-				font-size: 1.75rem;
-			}
-
-			.post p {
-				font-size: 1.125rem;
-			}
-
-			.post footer span {
-				font-size: 1rem;
-			}
-		}
-
-		@media only screen and (min-width: 1281px) {
-			.container {
-				max-width: 70%;
-			}
-
-			.logo {
-				font-size: 2.5rem;
-			}
-
-			.nav {
-				flex-direction: row;
-				gap: 30px;
-			}
-
-			.nav a {
-				padding-left: 30px;
-				padding-right: 30px;
-			}
-
-			.post h2 {
-				font-size: 2rem;
-			}
-
-			.post p {
-				font-size: 1.25rem;
-			}
-
-			.post footer span {
-				font-size: 1.125rem;
-			}
-		}
-
-		.toggle-button {
-			position: -webkit-sticky;
-			background-color: var(--primary-color);
-			color: var(--background-color);
-			padding: 10px 20px;
-			border: none;
-			border-radius: 20px;
-			cursor: pointer;
-			transition: background-color 0.3s ease;
-			box-shadow: 0 0 10px var(--primary-color);
-		}
-
-		.toggle-button:hover {
-			background-color: var(--accent-color);
-			box-shadow: 0 0 15px var(--accent-color);
-		}
-
-		.light-mode {
-			--primary-color: #27618a;
-			--secondary-color: #a74bfd;
-			--accent-color: #2f8c78;
-			--nav-1-color: #80b0f6;
-			--nav-2-color: #a4d9fd;
-			--nav-3-color: #a6a6f7;
-			--nav-a1-color: #436964;
-			--nav-a2-color: #9f71bd;
-			--background-color: #DDD0C8;
-			--text-color: #333333;
-			--text-color-selected: #4ef1fdb1;
-			--content-color: #bababa;
-			--post-1-color: #8ababdb1;
-			--post-2-color: #9a91ca;
-			--footer-color: #a3caf6;
-			--menu-color: #ddd0c8ee;
-		}
-
-		.dark-mode {
-			--primary-color: #005F51;
-			--secondary-color: #00D3FF;
-			--accent-color: #A600FF;
-			--nav-1-color: #0067FF;
-			--nav-2-color: #09f;
-			--nav-3-color: #66f;
-			--nav-a1-color: #005F51;
-			--nav-a2-color: #9800FF;
-			--background-color: #222222;
-			--text-color: #ffffff;
-			--text-color-selected: #00ffff;
-			--content-color: #333333;
-			--post-1-color: #00345f8d;
-			--post-2-color: #9900ff41;
-			--footer-color: #999999;
-			--menu-color: #222222ee;
-		}
-
-		.popup {
-			position: fixed;
-			z-index: 100;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			overflow: auto;
-			background-color: #00000080;
-		}
-
-		.popup-content {
-			background-image: linear-gradient(to bottom, #19001082, #06003be3);
-			margin: 10% auto;
-			padding: 20px;
-			border: 2px solid #0a3855;
-			width: 80%;
-			border-radius: 20px;
-			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-		}
-
-		.privacy {
-			font-family: Arial, Helvetica, sans-serif;
-			font-size: 18px;
-			text-align: justify;
-			color: #d3d3d3;
-		}
-
-		.agree {
-			background-color: #2c233f;
-			border: none;
-			color: white;
-			padding: 15px 32px;
-			border-radius: 20px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 16px;
-			margin: 4px 2px;
-			cursor: pointer;
-		}
-
-		.agree:hover {
-			background-color: #4872a1;
-		}
-
-		.li {
-			display: block;
-			float: left;
-			white-space: normal;
-			word-break: break-all;
-			word-wrap: break-word;
-		}
-
-		@media only screen and (max-width: 600px) {
-			.nav {
-				position: fixed;
-				width: 100%;
-				height: 100vh;
-				top: 0;
-				left: -100%;
-				flex-direction: column;
-				gap: 30px;
-				background-color: var(--menu-color);
-				transition: 0.3s;
-				-webkit-backdrop-filter: blur(50%);
-			}
-
-			.nav.active {
-				left: 0;
-			}
-
-			.menu-toggle {
-				display: block;
-				position: fixed;
-				top: 20px;
-				right: 20px;
-				z-index: 50;
-				cursor: pointer;
-			}
-
-			.menu-toggle span,
-			.menu-toggle:before,
-			.menu-toggle:after {
-				content: '';
-				display: block;
-				width: 30px;
-				height: 3px;
-				background: var(--text-color);
-				margin: 5px 0;
-				transition: 0.3s;
-			}
-		}
-	</style>
-</head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<body oncontextmenu="self.event.returnValue=false" onselectstart="return false" class="dark-mode">
-	<div class="menu-toggle"></div>
-	<button class="toggle-button" onclick="toggleMode()">🌞🌙</button>
-	<div class="container">
-		<div class="header">
-			<div class="logo" title="🏆You've found the hover-and-accelerate easter egg!">
-				<h1>Weifeng Wang's Space</h1>
-			</div>
-		</div>
-		<div class="nav">
-			<a href="#" class="active" id="home-link"> Home🏠 </a>
-			<a href="#" id="about-link"> About🔮 </a>
-			<a href="#" id="contact-link"> Contact📞 </a>
-			<a href="#" id="portfolio-link"> Projects📚 </a>
-			<a href="#" id="blog-link"> Blogs📢 </a>
-			<a href="#" id="update-link"> Updates🌠 </a>
-		</div>
-
-	</div>
-
-	<div class="main">
-		<div id="popup" class="popup">
-			<div class="popup-content">
-				<h2><strong>🚧User(Privacy) Policy🚦</strong></h2>
-				<strong>If you disagree with this policy, please close the website immediately.<br></strong>
-				<div>
-					<h2>🔽🔽🔽🔽🔽</h2>
-					<p>This website is <strong>NOT optimised</strong> for mobile devices. Desktop and pad platforms are
-						highly recommended.<br>Browsers that support <strong>latest webkit</strong> are highly
-						recommended.
-					</p>
-				</div>
-				<p>
-					Weifeng Wang operates the website "Weifeng Wang's Space" at https://weifengwang.com/.
-					I take your privacy seriously. To better protect your privacy,
-					I provide this privacy policy notice explaining the way your personal information
-					is collected and used.😘
-				</p>
-				<p><strong>🧡Collection of Routine Information</strong></p>
-				<p>
-					This website track basic information about its visitors.
-					This information includes, but is not limited to, IP addresses, browser details,
-					timestamps and referring pages. None of this information can personally identify specific
-					visitors to this website. The information is tracked for routine
-					administration and maintenance purposes.
-				</p>
-				<p><strong>💛Cookies</strong></p>
-				<p>
-					Well, we are not interested in your data. So, we decided that this website never uses cookies to
-					store information about a visitor's preferences nor history so there is no way better serve the
-					visitor and/or present the visitor with customized content, deep apologies.
-				</p>
-				<p><strong>💙Advertisement and Other Third Parties</strong></p>
-				<p>
-					Though this site has no advertisements, advertising partners and other third parties may use
-					cookies, scripts and/or web beacons to track
-					visitor activities on this website to display advertisements
-					and other useful information. Such tracking is done directly by the third parties through their
-					servers and is subject to their privacy policies. This website has no access or
-					control over these cookies, scripts and/or web beacons that may be used by third parties.
-					So, please be careful on other websites with advertisements!
-				</p>
-				<p><strong>💚Security</strong></p>
-				<p>
-					The security of your personal information is important to me, but remember that no
-					method of transmission over the Internet, or method of electronic storage, is 100% secure.
-					While I strive to use commercially acceptable means to protect your personal information,
-					I cannot guarantee its absolute security.
-				</p>
-				<p><strong>💜Changes To This Privacy Policy</strong></p>
-				<p>
-					This Privacy Policy is effective as of 2024-01 and will remain in effect except concerning
-					any changes in its provisions in the future, which will be in effect immediately after being posted
-					on
-					this page.
-					I reserve the right to update or change my Privacy Policy at any time and you
-					should check this Privacy Policy periodically. If I make any material changes to this Privacy
-					Policy, I will notify you either through the email address you have provided me or by
-					placing a prominent notice on my website.
-				</p>
-				<p><strong>💗Contact Information</strong></p>
-				<p>
-					For any questions or concerns regarding the privacy policy,
-					please send me an email at wangweifeng0316@foxmail.com
-				</p>
-				<h2>💕Thank you.💞</h2>
-				<button class="agree" onclick="closePopup()">Okay, thank you!</button>
-			</div>
-		</div>
-		<div class="page-content active-page-content" id="home-content">
-			<h2 title="🤔Amber, I have to confess something... I love you... really I do...😫">🍃Scroll Down to view
-				more👇
-			</h2>
-			<div class="post">
-				<p>🔥🔥My Online Exibition!🔥🔥</p>
-				<iframe src="https://real-jasonwang.github.io/ArtExhibition1/" width="80%" height="200px" name="RunX"
-					scrolling="Yes" noresize="noresize" frameborder="0" id="Art1"></iframe>
-				<footer>
-					<a href="https://real-jasonwang.github.io/ArtExhibition1/" target="_blank">👉Visit the gallery in
-						new tab👈</a>
-				</footer>
-			</div>
-			<div class="post">
-				<h2>🚀Welcome to Weifeng Wang's Space</h2>
-				<p>Hello!👋</p>
-				<p> You have just landed on my personal website.🍭</p>
-				<p> This is where I will share with you my thoughts, opinions, experiences, and passions.
-					Whether it&rsquo;s about travel, music, books, movies, games, or anything else that sparks
-					my interest, you will find it here. 🌎🎵📚🎥🎮</p>
-				<p>But wait, there&rsquo;s more! This is not just a blog, it&rsquo;s also a showcase of my
-					projects. I&rsquo;m a creative person who loves to learn new skills and try new things. I
-					will post some of my works here, such as art, photography, writing, and more.🎨📷💻✍️</p>
-				<p>So what are you waiting for? Bookmark this website and come back soon to see my progress. You
-					are all amazing and I appreciate your support. Thank you for being here! 😊❤️ This is my
-					space, and you are all invited. Let&rsquo;s have some fun and explore the world together!
-					🚀🌟</p>
-				<img src="https://source.unsplash.com/random/900x300"
-					alt="if you see this, it means a random picture from unsplash cannot be loaded😟">
-				<p>⚠ The picture here is from unsplash, if it violates your rights, please contact me as soon as
-					possible⚠</p>
-				<footer>
-					<span>Posted on July 13, 2023 by Weifeng Wang</span>
-				</footer>
-			</div>
-			<h2>🌎This is the end of the line, buddy!⛔</h2>
-		</div>
-
-		<div class="page-content" id="about-content">
-			<h2 title="😭I actually like you a lot Amber, no matter how many times you scold me...hated me...😟">
-				🙋About Me📕</h2>
-
-			<div class="post">
-				<h2>Basic introduction👋</h2>
-				<p>Hi, I’m a currently a student and I am Chinese, which means I am an Asian. As you can see, my
-					name is Weifeng Wang, and I am apparently a male. 😂</p>
-				<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/AboutPic.jpg"
-					alt="if you see this, it means a picture related to me cannot be loaded😟">
-			</div>
-			<div class="post">
-				<h2>My skills💪</h2>
-				<p>Some of my skills include "a little bit" of HTML, basic cinematography, Python, leading study
-					groups and more. I also enjoy learning new technologies and cool stuff that is on the trend.
-					Also, I have been self-studying weapons-free combat and wrestling! I am also a newbie
-					designer, and all of my skills are basically self-taught.🥊📸💻👊</p>
-			</div>
-			<div class="post">
-				<h2>My hobbies😀</h2>
-				<p>Some of my hobbies include reading, writing, gaming, airsoft, cosplay, and traveling. I also
-					like to watch sci-fi movies, especially Tron: Legacy. My favourite music band is Eisbrecher,
-					a German industrial metal band, in case you don't know. 📚🎵🎧🎥🎮</p>
-				<iframe style="border-radius:12px"
-					src="https://open.spotify.com/embed/playlist/0c7cNLBgsi30KQQxVS3vMI?utm_source=generator"
-					width="90%" height="152" frameBorder="0" allowfullscreen=""
-					allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-					loading="lazy"></iframe>
-			</div>
-			<h2>If you want to know more about me, feel free to contact me or check out my [projects] and
-				[blog]. 😊❤️🍌</h2>
-		</div>
-
-		<div class="page-content" id="contact-content">
-			<h2
-				title="😟I saw you yesterday, why did you pretended not seeing me? I promised I will be better... and that's what I have done in last 6 months! 💔">
-				😊Contact Me❤️</h2>
-			<div class="post">
-				<p>💫If you have any questions, feedback, or suggestions, you can contact me through: </p>
-				<ul>
-					<li>Email_1: 1771015689@qq.com</li>
-					<li>Email_2: wangweifeng0316@foxmail.com</li>
-					<li>Phone: +86 15872354218</li>
-					<li>Weixin_ID: knight-errantOfAmber</li>
-					<li>QQ: 1771015689</li>
-				</ul>
-				<p>I will try to reply as soon as possible. Thank you for your interest! 🍭</p>
-			</div>
-			<div class="post">
-				<p>These are my social media accounts, you can follow them if you are interested!🥓</p>
-				<ul>
-					<li>Linkedin: weifengwang0316</li>
-					<li>Bilibili_UID: 516946215 @JW_王sir</li>
-					<li>Himalaya: @科技小王</li>
-					<li>DMOJ(CA): Weifeng_Wang</li>
-				</ul>
-				<p>Thank you for your subscribtion!🍰</p>
-			</div>
-			<div class="post">
-				<h2>Leave me your comments here: </h2>
-				<p>(Powered by 123guestbook.com)</p>
-				<img src="https://picsum.photos/300/200"
-					alt="if you see this, it means a random picture from picsum cannot be loaded😟">
-				<footer>
-					<a href="https://weifengwang.123guestbook.com/#" target="_blank">👉Redirect to Weifeng Wang's
-						Guestbook👈</a>
-				</footer>
-			</div>
-		</div>
-
-		<div class="page-content" id="portfolio-content">
-			<h2>🏆My Projects🎉</h2>
-			<p>Here are some of the projects that I have worked on or contributed to. You can click on the
-				images to see more details or visit the live websites.</p>
-			<div class="post">
-				<h3>🖥️Brand Design Website: RunX📡</h3>
-				<iframe src="https://runxexperimental.github.io/RunX/" width="90%" height="500px" name="RunX"
-					scrolling="Yes" noresize="noresize" frameborder="0" id="RunX"></iframe>
-				<p>This is the first ever html project. It is partially responsive and modern website that
-					showcases my products and services. Actually, this is a annual assessment of Design at my
-					Grade 8.</p>
-				<footer>
-					<a href="https://runxexperimental.github.io/RunX/" target="_blank">👉Visit my first website👈</a>
-				</footer>
-			</div>
-
-			<div class="post">
-				<h3>🎬WHBC Acdemic Movie: FLOUR📽️</h3>
-				<iframe
-					src="https://player.bilibili.com/player.html?aid=&bvid=BV1oL411k7jU&cid=516946215&page=1&autoplay=0"
-					allowfullscreen="allowfullscreen" width="90%" height="500px" scrolling="no"
-					frameborder="0"></iframe>
-				<p>This is a project that our school organizes. It is a thriller that tells a crime story and
-					SWAT. It is inspired by the John Wick series and SCP: Overlord. Also, I have previously made
-					a movie website by sxl (strikingly in China), so it sometimes does not load under some
-					international network conditions.</p>
-				<footer>
-					<a href="https://flour.mysxl.cn" target="_blank">👉Visit the movie website👈</a>
-				</footer>
-			</div>
-
-			<div class="post">
-				<h3>🛋️"Road to ACE" Kindle Book Series📚</h3>
-				<iframe src="https://www.amazon.com/dp/B0CGV8S6LT" width="90%" height="500px" name="RtA" scrolling="Yes"
-					noresize="noresize" frameborder="0" id="RtA"></iframe>
-				<p>This is a book series I wrote and it is published on amazon by kindle self-publish. It is
-					about the life in international school and experiences going through studies, activities,
-					and sometimes, love relationships, as it is often considered as a important part of teenage
-					life. You can find it out by clicking the link below.</p>
-				<footer>
-					<a href="https://www.amazon.com/dp/B0CGV8S6LT" target="_blank">👉Purchase the book for only 0.99
-						USD!👈</a>
-				</footer>
-			</div>
-
-			<div class="post">
-				<h3>🔈Debate Society × CS Club Activity Website📕</h3>
-				<iframe src="https://real-jasonwang.github.io/AiSocietyProject" width="90%" height="500px" name="RunX"
-					scrolling="Yes" noresize="noresize" frameborder="0" id="AiSociety"></iframe>
-				<p>This is a project that is requested by WHBC Debate Society and CS club, non-paid. I use
-					advanced fluent design to design the website according to the requested design and add
-					advance CSS and JS effects, an international quality I must say.</p>
-				<footer>
-					<a href="https://real-jasonwang.github.io/AiSocietyProject" target="_blank">👉Visit official
-						website👈</a>
-				</footer>
-			</div>
-
-			<div class="post">
-				<h3>💻CHC hardware club website🐂</h3>
-				<iframe src="https://real-jasonwang.github.io/chc_hardware_club/" width="90%" height="600px" name="RunX"
-					scrolling="Yes" noresize="noresize" frameborder="0" id="AiSociety"></iframe>
-				<p>This is the website I bulit for my own club CHC hardware club, you can find more about my
-					club in the website!</p>
-				<footer>
-					<a href="https://real-jasonwang.github.io/chc_hardware_club/" target="_blank">👉Visit Club
-						website👈</a>
-				</footer>
-			</div>
-
-			<div class="post">
-				<h3>💪My Linkedin Website!🥇</h3>
-				<p>This is my Linkedin account!: https://www.linkedin.com/in/weifengwang0316/</p>
-				<footer>
-					<a href="https://www.linkedin.com/in/weifengwang0316/" target="_blank">👉View my job profile👈</a>
-				</footer>
-			</div>
-			<h2>⚡More projects coming up⚡</h2>
-
-		</div>
-
-		<div class="page-content" id="blog-content">
-			<h2>📚My Blog🎓</h2>
-			<p></p>
-			<div class="post">
-				<h3>🏆Check out my Coursera Certificates!🏮</h3>
-				<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/Trophy/3x3.png"
-					alt="if you see this, it means a picture related to Coursera cannot be loaded😟">
-				<p>👇This is the full-course coursera certificates that I have earned in 2022-2023, if you wish
-					to see more or download these certificates, you can download them at the link below and
-					verify them by checking out the links on the certificates👇</p>
-				<footer>
-					<a href="https://github.com/Real-JasonWang/me/raw/main/Pictures/Trophy/CourseraCertificateWWF.zip">👉Download
-						From Servers👈</a>
-					<span>Posted on July 29, 2023 by Weifeng Wang</span>
-				</footer>
-			</div>
-
-			<div class="post">
-				<h3>😊My USAP Certificates!⚡</h3>
-				<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/usap3x3.png"
-					alt="if you see this, it means a picture related to USAP cannot be loaded😟">
-				<p>👆This is the certificates that I have earned in two USAPS!👆</p>
-				<footer>
-					<a href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/usap3x3.png">👉Download
-						From Servers👈</a>
-					<span>Posted on August 11, 2023 by Weifeng Wang</span>
-				</footer>
-			</div>
-
-			<div class="post">
-				<h3>💻OUCC Certificates (Senior · High Distinction)🏆</h3>
-				<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/OUCC2.jpg"
-					alt="if you see this, it means a picture related to OUCC cannot be loaded😟">
-				<p>👆These are my OUCC Certificates: both regional and national👆</p>
-				<footer>
-					<a href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/OUCC2.jpg">👉Download
-						From Servers👈</a>
-					<span>Posted on October 23, 2023 by Weifeng Wang</span>
-				</footer>
-			</div>
-
-			<div class="post">
-				<h3>😀My Film Festival Awards!🎦</h3>
-				<img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/Cinematography.jpg"
-					alt="if you see this, it means a picture related to film festival cannot be loaded😟">
-				<p>👆See my cos and achievements on the film festival award ceremony!👆</p>
-				<footer>
-					<a href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/Cinematography.jpg">👉Download
-						From Servers👈</a>
-					<span>Posted on December 10, 2023 by Weifeng Wang</span>
-				</footer>
-			</div>
-			<h2>⚡More blogs coming up⚡</h2>
-		</div>
-	</div>
-	<div class="page-content" id="update-content">
-		<h2>💻 Website Update Logs🔧</h2>
-
-		<div class="post">
-			<h2>V0.1</h2>
-			<h3>🍉July 11, 2023</h3>
-			<ul>
-				<li>The website framework was created.</li>
-				<li>Basic experimental fuctions ran locally.</li>
-			</ul>
-		</div>
-		<div class="post">
-			<h2>V0.2</h2>
-			<h3>🍉July 20, 2023</h3>
-			<ul>
-				<li>The website and its files were updated to github.</li>
-				<li>Ran Basic tests.</li>
-				<li>Wrote some content to stack up the website</li>
-			</ul>
-		</div>
-		<div class="post">
-			<h2>V1.0</h2>
-			<h3>🍉July 28, 2023</h3>
-			<ul>
-				<li>The website was on github pages.</li>
-				<li>Fixed bugs and updated Java script.</li>
-				<li>Added more CSS styles.</li>
-			</ul>
-		</div>
-		<div class="post">
-			<h2>V1.1</h2>
-			<h3>🥥August 5, 2023</h3>
-			<ul>
-				<li>Purchased and try to configure custom domain.</li>
-				<li>Fixed bugs and updated Java script.</li>
-				<li>Added more CSS styles.</li>
-				<li>Added fancy color schemes.</li>
-			</ul>
-		</div>
-		<div class="post">
-			<h2>V1.2</h2>
-			<h3>🥥August 14, 2023</h3>
-			<ul>
-				<li>Added custom cursors.</li>
-				<li>Fixed bugs and updated Java script.</li>
-				<li>Updated blogs.</li>
-			</ul>
-		</div>
-		<div class="post">
-			<h2>V1.3</h2>
-			<h3>🥥August 25, 2023</h3>
-			<ul>
-				<li>Removed background music.</li>
-				<li>Fixed bugs and updated Java script.</li>
-				<li>Added blog contents.</li>
-			</ul>
-		</div>
-		<div class="post">
-			<h2>V1.4</h2>
-			<h3>🥥August 27, 2023</h3>
-			<ul>
-				<li>Updated blogs.</li>
-				<li>Added blog contents.</li>
-			</ul>
-		</div>
-		<div class="post">
-			<h2>V2.0</h2>
-			<h3>🏫September 8, 2023</h3>
-			<ul>
-				<li>Removed Chinese.</li>
-				<li>Updated UX design.</li>
-				<li>Planning to make moblie version.</li>
-				<li>Added projects contents.</li>
-				<li>Fixed minor grammar issues.</li>
-			</ul>
-		</div>
-		<div class="post">
-			<h2>V2.5</h2>
-			<h3>🎃November 10, 2023</h3>
-			<ul>
-				<li>Rewrite class</li>
-				<li>Updated UX design to Microsoft fluent design.</li>
-				<li>Compatiable with mobile and iPad</li>
-				<li>Epic fix of rendering problems</li>
-			</ul>
-		</div>
-		<div class="post">
-			<h2>V2.6</h2>
-			<h3>🎄December 31, 2024</h3>
-			<ul>
-				<li>Added blog & contents</li>
-			</ul>
-		</div>
-
-		<div class="post">
-			<h2>V2.7</h2>
-			<h3>🏮January 2, 2024</h3>
-			<ul>
-				<li>Developed experimental FPS indicator</li>
-				<li>fixed bugs</li>
-			</ul>
-		</div>
-
-		<div class="post">
-			<h2>V3.0</h2>
-			<h3>🏮January 13, 2024</h3>
-			<ul>
-				<li>Added experimental dark mode and light mode</li>
-				<li>fixed rendering bugs</li>
-			</ul>
-		</div>
-
-		<div class="post">
-			<h2>V3.2</h2>
-			<h3>🏮January 28, 2024</h3>
-			<ul>
-				<li>Fixed light mode color scheme</li>
-				<li>Add user policy (notice) </li>
-				<li>Updated user policy</li>
-			</ul>
-		</div>
-
-		<div class="post">
-			<h2>V3.3</h2>
-			<h3>🎇Feburary 1, 2024</h3>
-			<ul>
-				<li>Updated new art gallery!</li>
-			</ul>
-		</div>
-
-		<div class="post">
-			<h2>V4.0</h2>
-			<h3>🎇Feburary 10, 2024</h3>
-			<ul>
-				<li>Happy New Year! (Traditional)</li>
-				<li>Updated new mobile menu</li>
-				<li>Updated extra contents</li>
-			</ul>
-		</div>
-
-		<h2>⚡More logs coming up⚡</h2>
-	</div>
-
-	<div class="bottom">
-		<footer>
-			<a href="https://www.ssltrust.com.au/security-report?domain=weifengwang.com" target="_blank">👉Check
-				website security through ssltrust.com👈</a>
-		</footer>
-		<p></p>
-		<div class="bottomST"></div>
-	</div>
-
-	<script>
-
-		var popup = document.getElementById("popup");
+<!DOCTYPE html> <html> <head> <meta http-equiv="Content-Type" content="text/html;charset=utf-8"> <title>Weifeng Wang's Space | V4</title> <link rel="shortcut icon" href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/AboutPic.jpg"> <style>h1{text-align:center;background:-webkit-linear-gradient(180deg,var(--primary-color),var(--secondary-color) 25%,var(--accent-color) 50%,var(--secondary-color) 55%,var(--secondary-color) 60%,var(--secondary-color) 80%,var(--accent-color) 95%,var(--primary-color));-webkit-text-fill-color:transparent;-webkit-background-clip:text;-webkit-background-size:200% 100%;-webkit-animation:flowCss 6s infinite linear;margin-top:10px}@keyframes flowCss{0%{background-position:0 0}100%{background-position:-400% 0}}h1:hover{-webkit-animation:flowCss 3s infinite linear;filter:brightness(200%)}body{font-family:Arial,sans-serif;background-color:var(--background-color);color:var(--text-color);cursor:url(https://github.com/Real-JasonWang/me/raw/main/Pictures/Cur/Arrow.cur),auto}@keyframes gradient{0%{background-position:0 12%}50%{background-position:100% 100%}100%{background-position:0 12%}}.container{max-width:90%;margin:auto;padding-top:0;padding-left:0;padding-right:0;padding-bottom:0}.header{margin:auto;text-align:center;display:flex;align-items:center;justify-content:center}.logo{font-size:2rem;font-weight:700;background-image:linear-gradient(to right,#00FFF1,#00D3FF);-webkit-background-clip:text;color:transparent;align-items:center;padding:0}.nav{text-align:center;display:flex;gap:15px;align-items:center;justify-content:center;margin-left:10px;margin-right:10px}.nav a{display:flex;white-space:nowrap;text-decoration:none;color:var(--text-color);text-align:center;padding-top:15px;padding-bottom:15px;padding-left:20px;padding-right:20px;border-radius:20px;transition:all .3s ease-in-out;flex:auto}.nav a:hover{background:linear-gradient(-45deg,var(--nav-1-color),var(--nav-2-color),var(--nav-3-color));box-shadow:0 0 10px var(--nav-1-color);animation:gradient 8s ease infinite;transform:scale(1.05)}.nav a.active{font-weight:700;background:linear-gradient(-90deg,var(--nav-a1-color),var(--nav-a2-color));box-shadow:0 0 15px var(--nav-a1-color);background-size:200% 150%;animation:gradient 8s ease infinite;transform:scale(1.1);filter:brightness(150%) contrast(150%)}.main{margin-top:5px;padding-top:30px;padding-bottom:10px;padding-left:20px;padding-right:20px}.post{background-image:linear-gradient(to bottom,var(--post-1-color),var(--post-2-color));box-shadow:0 0 10px rgba(0,255,255,.5);padding:20px;margin-bottom:20px;border-radius:20px;transition:box-shadow .5s ease}.post:hover{box-shadow:0 0 15px rgba(255,0,255,.5)}.post h2{font-size:1.5rem;margin-bottom:10px}.post p{font-size:1rem;line-height:1.5}.post img{max-width:100%;height:auto;border-radius:20px}.post footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px}.post footer span{font-size:.875rem;color:var(--footer-color)}.post footer a{text-decoration:none;color:var(--text-color)}.post footer a:hover{color:var(--text-color-selected)}.post iframe{-moz-border-radius:20px;-webkit-border-radius:20px;-khtml-border-radius:20px;border-radius:20px}.bottom{font:small-caps;text-align:center;color:#999;padding-top:0;padding-bottom:20px;padding-left:10px;padding-right:10px}.bottomST{font:small-caps;text-align:center;color:#999;padding:0}.bottom footer{display:center;align-items:center;justify-content:space-between;margin-top:10px}.bottom footer span{font-size:.875rem;color:var(--footer-color)}.bottom footer a{text-decoration:none;color:#999}.bottom footer a:hover{color:var(--text-color-selected)}.page-content{display:none;background-color:var(--content-color);box-shadow:0 0 5px rgba(0,255,255,.5);padding:30px;margin-bottom:20px;border-radius:20px}.active-page-content{display:block}button,a:hover{cursor:url(https://github.com/Real-JasonWang/me/raw/main/Pictures/Cur/Hand2.cur),pointer}@media only screen and (max-width:600px){.container{max-width:90%}.logo{font-size:1.5rem}.nav{flex-direction:column;gap:10px}.nav a{padding-left:10px;padding-right:10px}.post h2{font-size:1.25rem}.post p{font-size:.875rem}.post footer span{font-size:.75rem}}@media only screen and (min-width:601px) and (max-width:800px){.container{max-width:85%}.logo{font-size:1.75rem}.nav{flex-direction:row;gap:15px}.nav a{padding-left:15px;padding-right:15px}.post h2{font-size:1.375rem}.post p{font-size:.9375rem}.post footer span{font-size:.8125rem}}@media only screen and (min-width:801px) and (max-width:1024px){.container{max-width:80%}.logo{font-size:2rem}.nav{flex-direction:row;gap:20px}.nav a{padding-left:20px;padding-right:20px}.post h2{font-size:1.5rem}.post p{font-size:1rem}.post footer span{font-size:.875rem}}@media only screen and (min-width:1025px){.container{max-width:75%}.logo{font-size:2.25rem}.nav{flex-direction:row;gap:25px}.nav a{padding-left:25px;padding-right:25px}.post h2{font-size:1.75rem}.post p{font-size:1.125rem}.post footer span{font-size:1rem}}@media only screen and (min-width:1281px){.container{max-width:70%}.logo{font-size:2.5rem}.nav{flex-direction:row;gap:30px}.nav a{padding-left:30px;padding-right:30px}.post h2{font-size:2rem}.post p{font-size:1.25rem}.post footer span{font-size:1.125rem}}.toggle-button{position:-webkit-sticky;background-color:var(--primary-color);color:var(--background-color);padding:10px 20px;border:none;border-radius:20px;cursor:pointer;transition:background-color .3s ease;box-shadow:0 0 10px var(--primary-color)}.toggle-button:hover{background-color:var(--accent-color);box-shadow:0 0 15px var(--accent-color)}.light-mode{--primary-color:#27618a;--secondary-color:#a74bfd;--accent-color:#2f8c78;--nav-1-color:#80b0f6;--nav-2-color:#a4d9fd;--nav-3-color:#a6a6f7;--nav-a1-color:#436964;--nav-a2-color:#9f71bd;--background-color:#DDD0C8;--text-color:#333;--text-color-selected:#4ef1fdb1;--content-color:#bababa;--post-1-color:#8ababdb1;--post-2-color:#9a91ca;--footer-color:#a3caf6;--menu-color:#ddd0c8ee}.dark-mode{--primary-color:#005F51;--secondary-color:#00D3FF;--accent-color:#A600FF;--nav-1-color:#0067FF;--nav-2-color:#09f;--nav-3-color:#66f;--nav-a1-color:#005F51;--nav-a2-color:#9800FF;--background-color:#222;--text-color:#fff;--text-color-selected:#0ff;--content-color:#333;--post-1-color:#00345f8d;--post-2-color:#90f41;--footer-color:#999;--menu-color:#222ee}.popup{position:fixed;z-index:100;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:#00080}.popup-content{background-image:linear-gradient(to bottom,#19001082,#06003be3);margin:10% auto;padding:20px;border:2px solid #0a3855;width:80%;border-radius:20px;box-shadow:0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19)}.privacy{font-family:Arial,Helvetica,sans-serif;font-size:18px;text-align:justify;color:#d3d3d3}.agree{background-color:#2c233f;border:none;color:#fff;padding:15px 32px;border-radius:20px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;margin:4px 2px;cursor:pointer}.agree:hover{background-color:#4872a1}.li{display:block;float:left;white-space:normal;word-break:break-all;word-wrap:break-word}@media only screen and (max-width:970px){.nav{position:fixed;width:100%;height:100vh;top:0;left:-100%;flex-direction:column;gap:30px;background-color:var(--menu-color);transition:.3s;-webkit-backdrop-filter:blur(50%)}.nav.active{left:0}.menu-toggle{display:block;position:fixed;top:20px;right:20px;z-index:50;cursor:pointer}.menu-toggle span,.menu-toggle:before,.menu-toggle:after{content:'';display:block;width:30px;height:3px;background:var(--text-color);margin:5px 0;transition:.3s}}</style></head><meta name="viewport" content="width=device-width,initial-scale=1"> <body oncontextmenu="self.event.returnValue=false" onselectstart="return false" class="dark-mode"> <div class="menu-toggle"></div> <button class="toggle-button" onclick="toggleMode()">🌞🌙</button> <div class="container"> <div class="header"> <div class="logo" title="🏆You've found the hover-and-accelerate easter egg!"> <h1>Weifeng Wang's Space</h1> </div> </div> <div class="nav"> <a href="#" class="active" id="home-link"> Home🏠 </a> <a href="#" id="about-link"> About🔮 </a> <a href="#" id="contact-link"> Contact📞 </a> <a href="#" id="portfolio-link"> Projects📚 </a> <a href="#" id="blog-link"> Blogs📢 </a> <a href="#" id="update-link"> Updates🌠 </a> <a href="#" id="tools-link"> Tools💝 </a> </div> </div> <div class="main"> <div id="popup" class="popup"> <div class="popup-content"> <h2><strong>🚧User(Privacy) Policy🚦</strong></h2> <strong>If you disagree with this policy, please close the website immediately.<br></strong> <div> <h2>🔽🔽🔽🔽🔽</h2> <p>This website is <strong>NOT optimised</strong> for mobile devices. Desktop and pad platforms are highly recommended.<br>Browsers that support <strong>latest webkit</strong> are highly recommended. </p> </div> <p> Weifeng Wang operates the website "Weifeng Wang's Space" at https://weifengwang.com/. I take your privacy seriously. To better protect your privacy, I provide this privacy policy notice explaining the way your personal information is collected and used.😘 </p> <p><strong>🧡Collection of Routine Information</strong></p> <p> This website track basic information about its visitors. This information includes, but is not limited to, IP addresses, browser details, timestamps and referring pages. None of this information can personally identify specific visitors to this website. The information is tracked for routine administration and maintenance purposes. </p> <p><strong>💛Cookies</strong></p> <p> Well, we are not interested in your data. So, we decided that this website never uses cookies to store information about a visitor's preferences nor history so there is no way better serve the visitor and/or present the visitor with customized content, deep apologies. </p> <p><strong>💙Advertisement and Other Third Parties</strong></p> <p> Though this site has no advertisements, advertising partners and other third parties may use cookies, scripts and/or web beacons to track visitor activities on this website to display advertisements and other useful information. Such tracking is done directly by the third parties through their servers and is subject to their privacy policies. This website has no access or control over these cookies, scripts and/or web beacons that may be used by third parties. So, please be careful on other websites with advertisements! </p> <p><strong>💚Security</strong></p> <p> The security of your personal information is important to me, but remember that no method of transmission over the Internet, or method of electronic storage, is 100% secure. While I strive to use commercially acceptable means to protect your personal information, I cannot guarantee its absolute security. </p> <p><strong>💜Changes To This Privacy Policy</strong></p> <p> This Privacy Policy is effective as of 2024-01 and will remain in effect except concerning any changes in its provisions in the future, which will be in effect immediately after being posted on this page. I reserve the right to update or change my Privacy Policy at any time and you should check this Privacy Policy periodically. If I make any material changes to this Privacy Policy, I will notify you either through the email address you have provided me or by placing a prominent notice on my website. </p> <p><strong>💗Contact Information</strong></p> <p> For any questions or concerns regarding the privacy policy, please send me an email at wangweifeng0316@foxmail.com </p> <h2>💕Thank you.💞</h2> <button class="agree" onclick="closePopup()">Okay, thank you!</button> </div> </div> <div class="page-content active-page-content" id="home-content"> <h2 title="🤔Amber, I have to confess something... I love you... really I do...😫">🍃Scroll Down to view more👇 </h2> <div class="post"> <p>🔥🔥My Online Exibition!🔥🔥</p> <iframe src="https://real-jasonwang.github.io/ArtExhibition1/" width="80%" height="200px" name="RunX" scrolling="Yes" noresize="noresize" frameborder="0" id="Art1"></iframe> <footer> <a href="https://real-jasonwang.github.io/ArtExhibition1/" target="_blank">👉Visit the gallery in new tab👈</a> </footer> </div> <div class="post"> <h2>🚀Welcome to Weifeng Wang's Space</h2> <p>Hello!👋</p> <p> You have just landed on my personal website.🍭</p> <p> This is where I will share with you my thoughts, opinions, experiences, and passions. Whether it&rsquo;s about travel, music, books, movies, games, or anything else that sparks my interest, you will find it here. 🌎🎵📚🎥🎮</p> <p>But wait, there&rsquo;s more! This is not just a blog, it&rsquo;s also a showcase of my projects. I&rsquo;m a creative person who loves to learn new skills and try new things. I will post some of my works here, such as art, photography, writing, and more.🎨📷💻✍️</p> <p>So what are you waiting for? Bookmark this website and come back soon to see my progress. You are all amazing and I appreciate your support. Thank you for being here! 😊❤️ This is my space, and you are all invited. Let&rsquo;s have some fun and explore the world together! 🚀🌟</p> <img src="https://source.unsplash.com/random/900x300" alt="if you see this, it means a random picture from unsplash cannot be loaded😟"> <p>⚠ The picture here is from unsplash, if it violates your rights, please contact me as soon as possible⚠</p> <footer> <span>Posted on July 13, 2023 by Weifeng Wang</span> </footer> </div> <h2>🌎This is the end of the line, buddy!⛔</h2> </div> <div class="page-content" id="about-content"> <h2 title="😭I actually like you a lot Amber, no matter how many times you scold me...hated me...😟"> 🙋About Me📕</h2> <div class="post"> <h2>Basic introduction👋</h2> <p>Hi, I’m a currently a student and I am Chinese, which means I am an Asian. As you can see, my name is Weifeng Wang, and I am apparently a male. 😂</p> <img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/AboutPic.jpg" alt="if you see this, it means a picture related to me cannot be loaded😟"> </div> <div class="post"> <h2>My skills💪</h2> <p>Some of my skills include "a little bit" of HTML, basic cinematography, Python, leading study groups and more. I also enjoy learning new technologies and cool stuff that is on the trend. Also, I have been self-studying weapons-free combat and wrestling! I am also a newbie designer, and all of my skills are basically self-taught.🥊📸💻👊</p> </div> <div class="post"> <h2>My hobbies😀</h2> <p>Some of my hobbies include reading, writing, gaming, airsoft, cosplay, and traveling. I also like to watch sci-fi movies, especially Tron: Legacy. My favourite music band is Eisbrecher, a German industrial metal band, in case you don't know. 📚🎵🎧🎥🎮</p> <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0c7cNLBgsi30KQQxVS3vMI?utm_source=generator" width="90%" height="152" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> </div> <h2>If you want to know more about me, feel free to contact me or check out my [projects] and [blog]. 😊❤️🍌</h2> </div> <div class="page-content" id="contact-content"> <h2 title="😟I saw you yesterday, why did you pretended not seeing me? I promised I will be better... and that's what I have done in last 6 months! 💔"> 😊Contact Me❤️</h2> <div class="post"> <p>💫If you have any questions, feedback, or suggestions, you can contact me through: </p> <ul> <li>Email_1: 1771015689@qq.com</li> <li>Email_2: wangweifeng0316@foxmail.com</li> <li>Phone: +86 15872354218</li> <li>Weixin_ID: knight-errantOfAmber</li> <li>QQ: 1771015689</li> </ul> <p>I will try to reply as soon as possible. Thank you for your interest! 🍭</p> </div> <div class="post"> <p>These are my social media accounts, you can follow them if you are interested!🥓</p> <ul> <li>Linkedin: weifengwang0316</li> <li>Bilibili_UID: 516946215 @JW_王sir</li> <li>Himalaya: @科技小王</li> <li>DMOJ(CA): Weifeng_Wang</li> </ul> <p>Thank you for your subscribtion!🍰</p> </div> <div class="post"> <h2>Leave me your comments here: </h2> <p>(Powered by 123guestbook.com)</p> <img src="https://picsum.photos/300/200" alt="if you see this, it means a random picture from picsum cannot be loaded😟"> <footer> <a href="https://weifengwang.123guestbook.com/#" target="_blank">👉Redirect to Weifeng Wang's Guestbook👈</a> </footer> </div> </div> <div class="page-content" id="portfolio-content"> <h2>🏆My Projects🎉</h2> <p>Here are some of the projects that I have worked on or contributed to. You can click on the images to see more details or visit the live websites.</p> <div class="post"> <h3>🖥️Brand Design Website: RunX📡</h3> <iframe src="https://runxexperimental.github.io/RunX/" width="90%" height="500px" name="RunX" scrolling="Yes" noresize="noresize" frameborder="0" id="RunX"></iframe> <p>This is the first ever html project. It is partially responsive and modern website that showcases my products and services. Actually, this is a annual assessment of Design at my Grade 8.</p> <footer> <a href="https://runxexperimental.github.io/RunX/" target="_blank">👉Visit my first website👈</a> </footer> </div> <div class="post"> <h3>🎬WHBC Acdemic Movie: FLOUR📽️</h3> <iframe src="https://player.bilibili.com/player.html?aid=&bvid=BV1oL411k7jU&cid=516946215&page=1&autoplay=0" allowfullscreen="allowfullscreen" width="90%" height="500px" scrolling="no" frameborder="0"></iframe> <p>This is a project that our school organizes. It is a thriller that tells a crime story and SWAT. It is inspired by the John Wick series and SCP: Overlord. Also, I have previously made a movie website by sxl (strikingly in China), so it sometimes does not load under some international network conditions.</p> <footer> <a href="https://flour.mysxl.cn" target="_blank">👉Visit the movie website👈</a> </footer> </div> <div class="post"> <h3>🛋️"Road to ACE" Kindle Book Series📚</h3> <iframe src="https://www.amazon.com/dp/B0CGV8S6LT" width="90%" height="500px" name="RtA" scrolling="Yes" noresize="noresize" frameborder="0" id="RtA"></iframe> <p>This is a book series I wrote and it is published on amazon by kindle self-publish. It is about the life in international school and experiences going through studies, activities, and sometimes, love relationships, as it is often considered as a important part of teenage life. You can find it out by clicking the link below.</p> <footer> <a href="https://www.amazon.com/dp/B0CGV8S6LT" target="_blank">👉Purchase the book for only 0.99 USD!👈</a> </footer> </div> <div class="post"> <h3>🔈Debate Society × CS Club Activity Website📕</h3> <iframe src="https://real-jasonwang.github.io/AiSocietyProject" width="90%" height="500px" name="RunX" scrolling="Yes" noresize="noresize" frameborder="0" id="AiSociety"></iframe> <p>This is a project that is requested by WHBC Debate Society and CS club, non-paid. I use advanced fluent design to design the website according to the requested design and add advance CSS and JS effects, an international quality I must say.</p> <footer> <a href="https://real-jasonwang.github.io/AiSocietyProject" target="_blank">👉Visit official website👈</a> </footer> </div> <div class="post"> <h3>💻CHC hardware club website🐂</h3> <iframe src="https://real-jasonwang.github.io/chc_hardware_club/" width="90%" height="600px" name="RunX" scrolling="Yes" noresize="noresize" frameborder="0" id="AiSociety"></iframe> <p>This is the website I bulit for my own club CHC hardware club, you can find more about my club in the website!</p> <footer> <a href="https://real-jasonwang.github.io/chc_hardware_club/" target="_blank">👉Visit Club website👈</a> </footer> </div> <div class="post"> <h3>💪My Linkedin Website!🥇</h3> <p>This is my Linkedin account!: https://www.linkedin.com/in/weifengwang0316/</p> <footer> <a href="https://www.linkedin.com/in/weifengwang0316/" target="_blank">👉View my job profile👈</a> </footer> </div> <h2>⚡More projects coming up⚡</h2> </div> <div class="page-content" id="blog-content"> <h2>📚My Blog🎓</h2> <p></p> <div class="post"> <h3>🏆Check out my Coursera Certificates!🏮</h3> <img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/Trophy/3x3.png" alt="if you see this, it means a picture related to Coursera cannot be loaded😟"> <p>👇This is the full-course coursera certificates that I have earned in 2022-2023, if you wish to see more or download these certificates, you can download them at the link below and verify them by checking out the links on the certificates👇</p> <footer> <a href="https://github.com/Real-JasonWang/me/raw/main/Pictures/Trophy/CourseraCertificateWWF.zip">👉Download From Servers👈</a> <span>Posted on July 29, 2023 by Weifeng Wang</span> </footer> </div> <div class="post"> <h3>😊My USAP Certificates!⚡</h3> <img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/usap3x3.png" alt="if you see this, it means a picture related to USAP cannot be loaded😟"> <p>👆This is the certificates that I have earned in two USAPS!👆</p> <footer> <a href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/usap3x3.png">👉Download From Servers👈</a> <span>Posted on August 11, 2023 by Weifeng Wang</span> </footer> </div> <div class="post"> <h3>💻OUCC Certificates (Senior · High Distinction)🏆</h3> <img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/OUCC2.jpg" alt="if you see this, it means a picture related to OUCC cannot be loaded😟"> <p>👆These are my OUCC Certificates: both regional and national👆</p> <footer> <a href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/OUCC2.jpg">👉Download From Servers👈</a> <span>Posted on October 23, 2023 by Weifeng Wang</span> </footer> </div> <div class="post"> <h3>😀My Film Festival Awards!🎦</h3> <img src="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/Cinematography.jpg" alt="if you see this, it means a picture related to film festival cannot be loaded😟"> <p>👆See my cos and achievements on the film festival award ceremony!👆</p> <footer> <a href="https://raw.githubusercontent.com/Real-JasonWang/me/main/Pictures/Cinematography.jpg">👉Download From Servers👈</a> <span>Posted on December 10, 2023 by Weifeng Wang</span> </footer> </div> <h2>⚡More blogs coming up⚡</h2> </div> </div> <div class="page-content" id="update-content"> <h2>💻 Website Update Logs🔧</h2> <div class="post"> <h2>V0.1</h2> <h3>🍉July 11, 2023</h3> <ul> <li>The website framework was created.</li> <li>Basic experimental fuctions ran locally.</li> </ul> </div> <div class="post"> <h2>V0.2</h2> <h3>🍉July 20, 2023</h3> <ul> <li>The website and its files were updated to github.</li> <li>Ran Basic tests.</li> <li>Wrote some content to stack up the website</li> </ul> </div> <div class="post"> <h2>V1.0</h2> <h3>🍉July 28, 2023</h3> <ul> <li>The website was on github pages.</li> <li>Fixed bugs and updated Java script.</li> <li>Added more CSS styles.</li> </ul> </div> <div class="post"> <h2>V1.1</h2> <h3>🥥August 5, 2023</h3> <ul> <li>Purchased and try to configure custom domain.</li> <li>Fixed bugs and updated Java script.</li> <li>Added more CSS styles.</li> <li>Added fancy color schemes.</li> </ul> </div> <div class="post"> <h2>V1.2</h2> <h3>🥥August 14, 2023</h3> <ul> <li>Added custom cursors.</li> <li>Fixed bugs and updated Java script.</li> <li>Updated blogs.</li> </ul> </div> <div class="post"> <h2>V1.3</h2> <h3>🥥August 25, 2023</h3> <ul> <li>Removed background music.</li> <li>Fixed bugs and updated Java script.</li> <li>Added blog contents.</li> </ul> </div> <div class="post"> <h2>V1.4</h2> <h3>🥥August 27, 2023</h3> <ul> <li>Updated blogs.</li> <li>Added blog contents.</li> </ul> </div> <div class="post"> <h2>V2.0</h2> <h3>🏫September 8, 2023</h3> <ul> <li>Removed Chinese.</li> <li>Updated UX design.</li> <li>Planning to make moblie version.</li> <li>Added projects contents.</li> <li>Fixed minor grammar issues.</li> </ul> </div> <div class="post"> <h2>V2.5</h2> <h3>🎃November 10, 2023</h3> <ul> <li>Rewrite class</li> <li>Updated UX design to Microsoft fluent design.</li> <li>Compatiable with mobile and iPad</li> <li>Epic fix of rendering problems</li> </ul> </div> <div class="post"> <h2>V2.6</h2> <h3>🎄December 31, 2024</h3> <ul> <li>Added blog & contents</li> </ul> </div> <div class="post"> <h2>V2.7</h2> <h3>🏮January 2, 2024</h3> <ul> <li>Developed experimental FPS indicator</li> <li>fixed bugs</li> </ul> </div> <div class="post"> <h2>V3.0</h2> <h3>🏮January 13, 2024</h3> <ul> <li>Added experimental dark mode and light mode</li> <li>fixed rendering bugs</li> </ul> </div> <div class="post"> <h2>V3.2</h2> <h3>🏮January 28, 2024</h3> <ul> <li>Fixed light mode color scheme</li> <li>Add user policy (notice) </li> <li>Updated user policy</li> </ul> </div> <div class="post"> <h2>V3.3</h2> <h3>🎇Feburary 1, 2024</h3> <ul> <li>Updated new art gallery!</li> </ul> </div> <div class="post"> <h2>V4.0</h2> <h3>🎇Feburary 10, 2024</h3> <ul> <li>Happy New Year! (Traditional)</li> <li>Updated new mobile menu</li> <li>Updated extra contents</li> </ul> </div> <h2>⚡More logs coming up⚡</h2> </div> <div class="page-content" id="tools-content"> <div class="post"> <div id="meal-decision-module"></div> </div> <div class="post"> <h2>What Movie to Watch?[Beta]</h2> <p>Try different combinations!</p> <select id="genre"> <option value="Drama">Drama</option> <option value="Action & Adventure">Action & Adventure</option> <option value="Sci-Fi & Fantasy">Sci-Fi & Fantasy</option> <option value="Romance">Romance</option> <option value="Thriller & Horror">Thriller & Horror</option> <option value="Comedy & Family">Comedy & Family</option> <option value="Animation">Animation</option> </select> <select id="mood"> <option value="Happy">Happy</option> <option value="Fine">Fine</option> <option value="Sad">Sad</option> </select> <button id="recommendBtn">Recommend Movie</button> <div id="recommendation"></div> </div> </div> <div class="bottom"> <footer> <a href="https://www.ssltrust.com.au/security-report?domain=weifengwang.com" target="_blank">👉Check website security through ssltrust.com👈</a> </footer> <p></p> <div class="bottomST"></div> </div> <script>var popup = document.getElementById("popup");
 
 		function closePopup() {
 			popup.style.display = "none";
@@ -1064,6 +10,7 @@
 		var portfolioContent = document.getElementById("portfolio-content");
 		var blogContent = document.getElementById("blog-content");
 		var updateContent = document.getElementById("update-content");
+		var toolsContent = document.getElementById("tools-content");
 
 		var homeLink = document.getElementById("home-link");
 		var aboutLink = document.getElementById("about-link");
@@ -1071,6 +18,7 @@
 		var portfolioLink = document.getElementById("portfolio-link");
 		var blogLink = document.getElementById("blog-link");
 		var updateLink = document.getElementById("update-link");
+		var toolsLink = document.getElementById("tools-link");
 
 		homeLink.addEventListener("click", function () {
 			removeActiveClass();
@@ -1108,22 +56,34 @@
 			updateContent.classList.add("active-page-content");
 		});
 
+		toolsLink.addEventListener("click", function () {
+			removeActiveClass();
+			toolsLink.classList.add("active");
+			toolsContent.classList.add("active-page-content");
+		});
+
 		function removeActiveClass() {
+
 			homeLink.classList.remove("active");
 			aboutLink.classList.remove("active");
 			contactLink.classList.remove("active");
 			portfolioLink.classList.remove("active");
 			blogLink.classList.remove("active");
 			updateLink.classList.remove("active");
+			toolsLink.classList.remove("active");
+
 			homeContent.classList.remove("active-page-content");
 			aboutContent.classList.remove("active-page-content");
 			contactContent.classList.remove("active-page-content");
 			portfolioContent.classList.remove("active-page-content");
 			blogContent.classList.remove("active-page-content");
 			updateContent.classList.remove("active-page-content");
+			toolsContent.classList.remove("active-page-content");
+
 		}
 
 		var keyWords = "Weifeng Wang's Space | Jason❤Amber! | ";
+
 		function titleChange() {
 			var keyList = keyWords.split("");
 			var firstChar = keyList.shift();
@@ -1225,7 +185,300 @@
 			});
 		});
 
-	</script>
-</body>
+		(function () {
+			const container = document.querySelector('#meal-decision-module');
+			container.innerHTML = `
+        <style>
+            #meal-decision-module .btn {
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: var(--accent-color);
+                color: var(--text-color);
+                border: none;
+                border-radius: 20px;
+                margin-top: 10px;
+				display: flex;
+				align-items:center
+            }
+            #meal-decision-module p {
+                margin: 10px 0;
+            }
+        </style>
+        <div class="meal-decision-container">
+            <h2>What to Eat Now？</h2>
+            <button class="btn" id="decideButton">I will have...</button>
+            <p id="mealTime"></p>
+            <h2 id="mealSuggestion"></h2>
+        </div>
+    `;
 
-</html>
+			const mealTimes = {
+				breakfast: [
+					"Fried Eggs", "Oatmeal", "Toast", "Cereal with Milk",
+					"Pancakes", "Waffles", "Bagel with Cream Cheese", "Fruit Salad",
+					"Yogurt Parfait", "Smoothie", "Avocado Toast", "Croissant",
+					"Breakfast Burrito", "Granola Bar", "Porridge", "Veggie Omelette",
+					"Breakfast Sandwich", "French Toast", "Breakfast Tacos", "Muffins",
+					"Scrambled Eggs", "English Muffin", "Bacon", "Sausage",
+					"Hash Browns", "Biscuits and Gravy", "Quiche", "Crepes",
+					"Breakfast Pizza", "Baked Beans", "Huevos Rancheros", "Cornflakes",
+					"Chia Pudding", "Egg Benedict", "Scones", "Fruit Smoothie",
+					"Belgian Waffles", "Greek Yogurt", "Porridge with Honey", "Banana Bread",
+					"Almond Butter Toast", "Breakfast Bowl", "Raspberry Jam on Toast", "Protein Shake",
+					"Overnight Oats", "Peanut Butter and Jelly Sandwich", "Spinach and Feta Wrap",
+					"Cottage Cheese with Pineapple", "Cottage Cheese with Pineapple",
+					"Sweet Potato Hash", "Green Smoothie", "Keto Pancakes", "Vegan Banana Bread",
+					"Egg and Avocado Salad", "Maple Syrup Granola", "Blueberry Muffins", "Ham and Cheese Croissant",
+					"Coconut Yogurt", "Pumpkin Spice Latte", "Chorizo and Eggs", "Apple Cinnamon Porridge",
+					"Turkey Sausage Breakfast Sandwich", "Matcha Smoothie Bowl", "Acai Bowl",
+					"Raspberry Oatmeal", "Corned Beef Hash", "Zucchini Bread", "Latte Macchiato", "Blackberry Yogurt Parfait"
+				],
+				lunch: [
+					"Sweet and Sour Pork over Rice", "Tomato and Egg Stir-Fry with Rice", "Beef Noodle Soup", "Vegetable Salad",
+					"Chicken Caesar Wrap", "Turkey Sandwich", "Veggie Burger", "Quinoa Salad",
+					"Sushi Rolls", "Pasta Salad", "Grilled Cheese Sandwich", "Chicken Tacos",
+					"Falafel Wrap", "Tuna Salad Sandwich", "BBQ Chicken Pizza", "Ramen",
+					"Fish and Chips", "Spaghetti Carbonara", "Pad Thai", "Burrito Bowl",
+					"Lamb Gyro", "Cobb Salad", "Pulled Pork Sandwich", "Chicken Quesadilla",
+					"Beef Stroganoff", "Vegetarian Chili", "Shrimp Tacos", "Margherita Pizza",
+					"Egg Salad Sandwich", "Chicken Alfredo Pasta", "Caprese Salad", "Vegetable Stir Fry",
+					"Pork Banh Mi", "Chicken Parmesan", "Salmon Salad", "Ratatouille",
+					"Lentil Soup", "Pesto Pasta", "Turkey Burger", "Philly Cheese Steak",
+					"Chicken Fried Rice", "Kale Salad", "Mushroom Risotto", "Fajitas",
+					"Curry Chicken", "Eggplant Parmesan", "Beef Tacos", "Caesar Salad", "Roast Beef Sandwich",
+					"Spicy Tuna Roll", "Vegetable Quiche", "Mango Chicken Salad",
+					"Greek Gyro", "Pasta Primavera", "Lobster Roll", "Falafel Salad",
+					"Buffalo Chicken Wrap", "Avocado Sushi", "Thai Beef Salad", "Bacon Lettuce Tomato (BLT) Sandwich",
+					"Chicken Souvlaki", "Black Bean Burger", "Soba Noodles", "French Onion Soup",
+					"Roasted Beet Salad", "Crispy Tofu Bowl", "Seafood Chowder", "Vegan Mac and Cheese",
+					"Portobello Mushroom Burger", "Chicken Satay", "Kimchi Fried Rice", "Jerk Chicken", "Asparagus Soup"
+				],
+				dinner: [
+					"Kung Pao Chicken", "Spaghetti", "Sushi", "Vegetarian Pizza",
+					"Steak", "Salmon with Vegetables", "Roast Chicken", "Lasagna",
+					"Grilled Lamb Chops", "Duck Confit", "Vegetable Curry", "Beef Bourguignon",
+					"Chicken Tikka Masala", "Risotto", "Fish Tacos", "Pork Chops",
+					"Shrimp Scampi", "Tofu Stir Fry", "Paella", "Rack of Lamb",
+					"Chicken Marsala", "Quiche Lorraine", "Seafood Pasta", "Vegetable Paella",
+					"Meatloaf", "Stuffed Peppers", "Moussaka", "Fried Chicken",
+					"Beef Wellington", "Gnocchi", "Chicken Enchiladas", "Stir Fried Vegetables",
+					"Baked Salmon", "Coq Au Vin", "Peking Duck", "Ravioli",
+					"Pot Roast", "Vegetable Lasagna", "Tandoori Chicken", "Pork Belly",
+					"Lobster Thermidor", "Vegan Burger", "Shepherd's Pie", "Carbonara",
+					"Beef Tacos", "Thai Green Curry", "Biryani", "Goulash",
+					"Chicken and Waffles", "Black Bean Soup", "Szechuan Beef", "Cajun Chicken Pasta", "Garlic Butter Shrimp",
+					"Ratatouille with Quinoa", "Lemon Herb Salmon", "Beef Taco Salad",
+					"Pork Tenderloin with Apples", "Spicy Veggie Stir Fry", "Moroccan Chicken", "Teriyaki Tofu",
+					"Italian Sausage and Peppers", "Jambalaya", "Veal Marsala", "Vegan Lentil Stew",
+					"Spaghetti Squash with Marinara", "Thai Curry Soup", "Pan Seared Duck Breast",
+					"Mushroom Stroganoff", "Grilled Swordfish", "Baked Ziti", "Vegetable Korma",
+					"Cuban Pork with Black Beans", "Chicken Fajita Bowl", "Salmon Poke Bowl", "Wild Mushroom Risotto",
+					"Lamb Kofta with Tzatziki"
+				]
+			};
+
+
+			function getMealTime() {
+				const now = new Date();
+				const hours = now.getHours();
+				if (hours < 11) {
+					return 'breakfast';
+				} else if (hours < 17) {
+					return 'lunch';
+				} else {
+					return 'dinner';
+				}
+			}
+
+			function getSuggestion(mealTime) {
+				const meals = mealTimes[mealTime];
+				const suggestion = meals[Math.floor(Math.random() * meals.length)];
+				return suggestion;
+			}
+
+			document.getElementById("decideButton").addEventListener("click", () => {
+				const mealTime = getMealTime();
+				const suggestion = getSuggestion(mealTime);
+				document.getElementById("mealTime").textContent = `Now it is probably ${mealTime === 'breakfast' ? 'breakfast time! ' : mealTime === 'lunch' ? 'lunch time! ' : 'dinner time! '} I will recommend you：`;
+				document.getElementById("mealSuggestion").textContent = suggestion;
+			});
+		})();
+
+		(function () {
+			const movies = [
+				{ name: "Fast & Furious", genre: "Action", moods: ["Happy"] },
+				{ name: "Interstellar", genre: "Sci-Fi", moods: ["Fine"] },
+				{ name: "Titanic", genre: "Romance", moods: ["Sad"] },
+				{ name: "The Matrix", genre: "Sci-Fi", moods: ["Fine"] },
+				{ name: "Inception", genre: "Sci-Fi", moods: ["Fine"] },
+				{ name: "The Godfather", genre: "Crime", moods: ["Fine"] },
+				{ name: "Forrest Gump", genre: "Drama", moods: ["Happy"] },
+				{ name: "Gladiator", genre: "Action", moods: ["Sad"] },
+				{ name: "Jurassic Park", genre: "Sci-Fi", moods: ["Fine"] },
+				{ name: "The Lion King", genre: "Animation", moods: ["Sad"] },
+				{ name: "Pulp Fiction", genre: "Crime", moods: ["Happy"] },
+				{ name: "Fight Club", genre: "Drama", moods: ["Fine"] },
+				{ name: "Avatar", genre: "Sci-Fi", moods: ["Fine"] },
+				{ name: "The Shawshank Redemption", genre: "Drama", moods: ["Happy"] },
+				{ name: "Batman: The Dark Knight", genre: "Action", moods: ["Fine"] },
+				{ name: "Harry Potter series", genre: "Fantasy", moods: ["Happy"] },
+				{ name: "The Avengers", genre: "Action", moods: ["Happy"] },
+				{ name: "Toy Story", genre: "Animation", moods: ["Happy"] },
+				{ name: "Finding Nemo", genre: "Animation", moods: ["Happy"] },
+				{ name: "Gone Girl", genre: "Thriller", moods: ["Fine"] },
+				{ name: "The Grand Budapest Hotel", genre: "Comedy", moods: ["Happy"] },
+				{ name: "La La Land", genre: "Musical", moods: ["Happy"] },
+				{ name: "Mad Max: Fury Road", genre: "Action", moods: ["Happy"] },
+				{ name: "Moonlight", genre: "Drama", moods: ["Sad"] },
+				{ name: "Inglourious Basterds", genre: "War", moods: ["Happy"] },
+				{ name: "Pan's Labyrinth", genre: "Fantasy", moods: ["Fine"] },
+				{ name: "Django Unchained", genre: "Action", moods: ["Happy"] },
+				{ name: "The Lord of the Rings", genre: "Fantasy", moods: ["Fine"] },
+				{ name: "Star Wars: New Order", genre: "Sci-Fi", moods: ["Happy"] },
+				{ name: "Back to the Future", genre: "Sci-Fi", moods: ["Happy"] },
+				{ name: "Raiders of the Lost Ark", genre: "Adventure", moods: ["Happy"] },
+				{ name: "The Terminator", genre: "Sci-Fi", moods: ["Fine"] },
+				{ name: "Alien", genre: "Sci-Fi", moods: ["Fine"] },
+				{ name: "Blade Runner 2049", genre: "Sci-Fi", moods: ["Fine"] },
+				{ name: "Coco", genre: "Animation", moods: ["Happy"] },
+				{ name: "The Truman Show", genre: "Drama", moods: ["Fine"] },
+				{ name: "Dead Poets Society", genre: "Drama", moods: ["Sad"] },
+				{ name: "The Grand Budapest Hotel", genre: "Comedy", moods: ["Happy"] },
+				{ name: "The Social Network", genre: "Biography", moods: ["Fine"] },
+				{ name: "Her", genre: "Romance", moods: ["Fine"] },
+				{ name: "Gone with the Wind", genre: "Drama", moods: ["Sad"] },
+				{ name: "Casablanca", genre: "Romance", moods: ["Fine"] },
+				{ name: "Psycho", genre: "Thriller", moods: ["Sad"] },
+				{ name: "Vertigo", genre: "Mystery", moods: ["Fine"] },
+				{ name: "The Silence of the Lambs", genre: "Thriller", moods: ["Sad"] },
+				{ name: "City of God", genre: "Crime", moods: ["Fine"] },
+				{ name: "Oldboy", genre: "Thriller", moods: ["Fine"] },
+				{ name: "Amadeus", genre: "Biography", moods: ["Fine"] },
+				{ name: "A Clockwork Orange", genre: "Sci-Fi", moods: ["Fine"] },
+				{ name: "The Shining", genre: "Horror", moods: ["Fine"] },
+				{ name: "Jaws", genre: "Thriller", moods: ["Fine"] },
+				{ name: "Rocky", genre: "Sport", moods: ["Happy"] },
+				{ name: "The Godfather Part II", genre: "Crime", moods: ["Fine"] },
+				{ name: "One Flew Over the Cuckoo's Nest", genre: "Drama", moods: ["Sad"] },
+				{ name: "Good Will Hunting", genre: "Drama", moods: ["Happy"] },
+				{ name: "The Pianist", genre: "Biography", moods: ["Sad"] },
+				{ name: "There Will Be Blood", genre: "Drama", moods: ["Fine"] },
+				{ name: "No Country for Old Men", genre: "Thriller", moods: ["Fine"] },
+				{ name: "Whiplash", genre: "Drama & People's Stories", moods: ["Happy"] },
+				{ name: "Eternal Sunshine of the Spotless Mind", genre: "Sci-Fi & Fantasy", moods: ["Sad"] },
+				{ name: "The Grand Budapest Hotel", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "The Prestige", genre: "Sci-Fi & Fantasy", moods: ["Fine"] },
+				{ name: "12 Angry Men", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "Schindler's List", genre: "Drama & People's Stories", moods: ["Sad"] },
+				{ name: "Raging Bull", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "Up", genre: "Animation", moods: ["Happy"] },
+				{ name: "Wall-E", genre: "Animation", moods: ["Fine"] },
+				{ name: "The Incredibles", genre: "Animation", moods: ["Happy"] },
+				{ name: "Spirited Away", genre: "Animation", moods: ["Fine"] },
+				{ name: "Ratatouille", genre: "Animation", moods: ["Happy"] },
+				{ name: "Inside Out", genre: "Animation", moods: ["Happy"] },
+				{ name: "Braveheart", genre: "Action & Adventure", moods: ["Happy"] },
+				{ name: "The Silence of the Lambs", genre: "Thriller & Horror", moods: ["Sad"] },
+				{ name: "Saving Private Ryan", genre: "Action & Adventure", moods: ["Fine"] },
+				{ name: "Coco", genre: "Animation", moods: ["Happy"] },
+				{ name: "The Green Mile", genre: "Drama & People's Stories", moods: ["Sad"] },
+				{ name: "Forrest Gump", genre: "Drama & People's Stories", moods: ["Happy"] },
+				{ name: "The Departed", genre: "Thriller & Horror", moods: ["Fine"] },
+				{ name: "Gladiator", genre: "Action & Adventure", moods: ["Sad"] },
+				{ name: "Catch Me If You Can", genre: "Drama & People's Stories", moods: ["Happy"] },
+				{ name: "The Wolf of Wall Street", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "Amélie", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "Slumdog Millionaire", genre: "Drama & People's Stories", moods: ["Happy"] },
+				{ name: "Zootopia", genre: "Animation", moods: ["Happy"] },
+				{ name: "The Big Lebowski", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "The Sixth Sense", genre: "Thriller & Horror", moods: ["Sad"] },
+				{ name: "The Truman Show", genre: "Comedy & Family", moods: ["Fine"] },
+				{ name: "The King's Speech", genre: "Drama & People's Stories", moods: ["Happy"] },
+				{ name: "Black Swan", genre: "Thriller & Horror", moods: ["Sad"] },
+				{ name: "Moonrise Kingdom", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "Little Miss Sunshine", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "The Social Network", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "The Curious Case of Benjamin Button", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "Drive", genre: "Action & Adventure", moods: ["Fine"] },
+				{ name: "Birdman", genre: "Comedy & Family", moods: ["Fine"] },
+				{ name: "The Imitation Game", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "Dunkirk", genre: "Action & Adventure", moods: ["Fine"] },
+				{ name: "The Revenant", genre: "Action & Adventure", moods: ["Fine"] },
+				{ name: "Room", genre: "Drama & People's Stories", moods: ["Sad"] },
+				{ name: "The Hateful Eight", genre: "Action & Adventure", moods: ["Fine"] },
+				{ name: "The Grand Budapest Hotel", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "Madagascar", genre: "Animation", moods: ["Happy"] },
+				{ name: "Shrek", genre: "Animation", moods: ["Happy"] },
+				{ name: "Kung Fu Panda", genre: "Animation", moods: ["Happy"] },
+				{ name: "The Help", genre: "Drama & People's Stories", moods: ["Happy"] },
+				{ name: "The Artist", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "Silver Linings Playbook", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "The Theory of Everything", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "A Beautiful Mind", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "The Grand Budapest Hotel", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "Les Misérables", genre: "Drama & People's Stories", moods: ["Sad"] },
+				{ name: "Life of Pi", genre: "Adventure & Exploration", moods: ["Fine"] },
+				{ name: "The Great Gatsby", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "Argo", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "Million Dollar Baby", genre: "Drama & People's Stories", moods: ["Sad"] },
+				{ name: "The Aviator", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "The Pursuit of Happyness", genre: "Drama & People's Stories", moods: ["Happy"] },
+				{ name: "American Sniper", genre: "Action & Adventure", moods: ["Fine"] },
+				{ name: "The Martian", genre: "Sci-Fi & Fantasy", moods: ["Happy"] },
+				{ name: "Gravity", genre: "Sci-Fi & Fantasy", moods: ["Fine"] },
+				{ name: "Interstellar", genre: "Sci-Fi & Fantasy", moods: ["Fine"] },
+				{ name: "Inception", genre: "Sci-Fi & Fantasy", moods: ["Fine"] },
+				{ name: "Django Unchained", genre: "Action & Adventure", moods: ["Happy"] },
+				{ name: "The King's Speech", genre: "Drama & People's Stories", moods: ["Happy"] },
+				{ name: "Slumdog Millionaire", genre: "Drama & People's Stories", moods: ["Happy"] },
+				{ name: "The Social Network", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "12 Years a Slave", genre: "Drama & People's Stories", moods: ["Sad"] },
+				{ name: "Spotlight", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "Gone Girl", genre: "Thriller & Horror", moods: ["Fine"] },
+				{ name: "The Imitation Game", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "Joker", genre: "Drama & People's Stories", moods: ["Sad"] },
+				{ name: "The Blind Side", genre: "Drama & People's Stories", moods: ["Happy"] },
+				{ name: "The Shape of Water", genre: "Sci-Fi & Fantasy", moods: ["Fine"] },
+				{ name: "Green Book", genre: "Drama & People's Stories", moods: ["Happy"] },
+				{ name: "Ford v Ferrari", genre: "Drama & People's Stories", moods: ["Happy"] },
+				{ name: "Jojo Rabbit", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "Parasite", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "1917", genre: "Action & Adventure", moods: ["Fine"] },
+				{ name: "Little Women", genre: "Drama & People's Stories", moods: ["Fine"] },
+				{ name: "Once Upon a Time in Hollywood", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "Knives Out", genre: "Comedy & Family", moods: ["Happy"] },
+				{ name: "Uncut Gems", genre: "Thriller & Horror", moods: ["Fine"] },
+				{ name: "The Lighthouse", genre: "Thriller & Horror", moods: ["Fine"] },
+				{ name: "Midsommar", genre: "Thriller & Horror", moods: ["Sad"] },
+				{ name: "Us", genre: "Thriller & Horror", moods: ["Fine"] },
+				{ name: "Hereditary", genre: "Thriller & Horror", moods: ["Sad"] },
+				{ name: "The Witch", genre: "Thriller & Horror", moods: ["Sad"] },
+				{ name: "Get Out", genre: "Thriller & Horror", moods: ["Fine"] },
+				{ name: "It", genre: "Thriller & Horror", moods: ["Fine"] },
+				{ name: "A Quiet Place", genre: "Thriller & Horror", moods: ["Fine"] },
+				{ name: "The Babadook", genre: "Thriller & Horror", moods: ["Sad"] },
+				{ name: "The Conjuring", genre: "Thriller & Horror", moods: ["Fine"] },
+				{ name: "Annihilation", genre: "Sci-Fi & Fantasy", moods: ["Fine"] },
+				{ name: "Arrival", genre: "Sci-Fi & Fantasy", moods: ["Fine"] },
+				{ name: "Ex Machina", genre: "Sci-Fi & Fantasy", moods: ["Fine"] },
+				{ name: "The Lobster", genre: "Comedy & Family", moods: ["Happy"] }
+				// Placeholder for more movie data
+			];
+
+
+			function recommendMovie() {
+				var genre = document.getElementById("genre").value;
+				var mood = document.getElementById("mood").value;
+				var filteredMovies = movies.filter(movie => movie.genre === genre && movie.moods.includes(mood));
+
+				if (filteredMovies.length > 0) {
+					let index = Math.floor(Math.random() * filteredMovies.length);
+					document.getElementById("recommendation").innerText = "I recommend：" + filteredMovies[index].name;
+				} else {
+					document.getElementById("recommendation").innerText = "Sorry... We currently don't include the type of film you requested.";
+				}
+			}
+
+			document.getElementById("recommendBtn").addEventListener('click', recommendMovie);
+		})();</script> </body> </html>
