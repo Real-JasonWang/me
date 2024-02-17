@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Page Not Found😭</title>
+    <style>
+        /* This site's copyright belongs to Weifeng Wang, please do not copy my code! */
+        /* ©Weifeng Wang (Jason.W) 2024, All rights reserved. */
+        h1 {
+            text-align: center;
+            background: -webkit-linear-gradient(180deg,
+                    var(--primary-color),
+                    var(--secondary-color) 25%,
+                    var(--accent-color) 50%,
+                    var(--secondary-color) 55%,
+                    var(--secondary-color) 60%,
+                    var(--secondary-color) 80%,
+                    var(--accent-color) 95%,
+                    var(--primary-color));
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-background-size: 200% 100%;
+            -webkit-animation: flowCss 6s infinite linear;
+            margin-top: 10px;
+            /* Do not change -webkit! */
+        }
+
+        @keyframes flowCss {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: -400% 0;
+            }
+        }
+
+        h1:hover {
+            -webkit-animation: flowCss 3s infinite linear;
+            filter: brightness(200%);
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            cursor: url('https://github.com/Real-JasonWang/me/raw/main/Pictures/Cur/Arrow.cur'), auto;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0 12%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
+
+            100% {
+                background-position: 0 12%;
+            }
+        }
+
+        .container {
+            max-width: 90%;
+            margin: auto;
+            padding-top: 0px;
+            padding-left: 0px;
+            padding-right: 0px;
+            padding-bottom: 0px;
+        }
+
+        .header {
+            margin: auto;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background-image: linear-gradient(to right, #00FFF1, #00D3FF);
+            -webkit-background-clip: text;
+            color: transparent;
+            align-items: center;
+            padding: 0px;
+        }
+
+        .nav {
+            text-align: center;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .nav a {
+            display: flex;
+            white-space: nowrap;
+            text-decoration: none;
+            color: var(--text-color);
+            text-align: center;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease-in-out;
+            flex: auto;
+        }
+
+        .nav a:hover {
+            background: linear-gradient(-45deg, var(--nav-1-color), var(--nav-2-color), var(--nav-3-color));
+            box-shadow: 0 0 10px var(--nav-1-color);
+            animation: gradient 8s ease infinite;
+            transform: scale(1.05);
+        }
+
+        .nav a.active {
+            font-weight: bold;
+            background: linear-gradient(-90deg, var(--nav-a1-color), var(--nav-a2-color));
+            box-shadow: 0 0 15px var(--nav-a1-color);
+            background-size: 200% 150%;
+            animation: gradient 8s ease infinite;
+            transform: scale(1.1);
+            filter: brightness(150%) contrast(150%);
+        }
+
+        .main {
+            margin-top: 5px;
+            padding-top: 30px;
+            padding-bottom: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .post {
+            background-image: linear-gradient(to bottom, var(--post-1-color), var(--post-2-color));
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            transition: box-shadow 0.5s ease;
+        }
+
+        .post:hover {
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+        }
+
+        .post h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .post p {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        .post footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .post footer span {
+            font-size: 0.875rem;
+            color: var(--footer-color);
+        }
+
+        .post footer a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        .post footer a:hover {
+            color: var(--text-color-selected);
+        }
+
+        .post iframe {
+            -moz-border-radius: 20px;
+            -webkit-border-radius: 20px;
+            -khtml-border-radius: 20px;
+            border-radius: 20px;
+        }
+
+        .bottom {
+            font: small-caps;
+            text-align: center;
+            color: #999999;
+            padding-top: 0px;
+            padding-bottom: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .bottomST {
+            font: small-caps;
+            text-align: center;
+            color: #999999;
+            padding: 0px;
+        }
+
+        .bottom footer {
+            display: center;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .bottom footer span {
+            font-size: 0.875rem;
+            color: var(--footer-color);
+        }
+
+        .bottom footer a {
+            text-decoration: none;
+            color: #999999;
+        }
+
+        .bottom footer a:hover {
+            color: var(--text-color-selected);
+        }
+
+        .page-content {
+            display: none;
+            background-color: var(--content-color);
+            box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+        }
+
+        .active-page-content {
+            display: block;
+        }
+
+        button,
+        a:hover {
+            cursor: url(https://github.com/Real-JasonWang/me/raw/main/Pictures/Cur/Hand2.cur), pointer;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                max-width: 90%;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav a {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .post h2 {
+                font-size: 1.25rem;
+            }
+
+            .post p {
+                font-size: 0.875rem;
+            }
+
+            .post footer span {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media only screen and (min-width: 601px) and (max-width: 800px) {
+            .container {
+                max-width: 85%;
+            }
+
+            .logo {
+                font-size: 1.75rem;
+            }
+
+            .nav {
+                flex-direction: row;
+                gap: 15px;
+            }
+
+            .nav a {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .post h2 {
+                font-size: 1.375rem;
+            }
+
+            .post p {
+                font-size: 0.9375rem;
+            }
+
+            .post footer span {
+                font-size: 0.8125rem;
+            }
+        }
+
+        @media only screen and (min-width: 801px) and (max-width: 1024px) {
+            .container {
+                max-width: 80%;
+            }
+
+            .logo {
+                font-size: 2rem;
+            }
+
+            .nav {
+                flex-direction: row;
+                gap: 20px;
+            }
+
+            .nav a {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .post h2 {
+                font-size: 1.5rem;
+            }
+
+            .post p {
+                font-size: 1rem;
+            }
+
+            .post footer span {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media only screen and (min-width: 1025px) {
+            .container {
+                max-width: 75%;
+            }
+
+            .logo {
+                font-size: 2.25rem;
+            }
+
+            .nav {
+                flex-direction: row;
+                gap: 25px;
+            }
+
+            .nav a {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .post h2 {
+                font-size: 1.75rem;
+            }
+
+            .post p {
+                font-size: 1.125rem;
+            }
+
+            .post footer span {
+                font-size: 1rem;
+            }
+        }
+
+        @media only screen and (min-width: 1281px) {
+            .container {
+                max-width: 70%;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .nav {
+                flex-direction: row;
+                gap: 30px;
+            }
+
+            .nav a {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .post h2 {
+                font-size: 2rem;
+            }
+
+            .post p {
+                font-size: 1.25rem;
+            }
+
+            .post footer span {
+                font-size: 1.125rem;
+            }
+        }
+
+        .toggle-button {
+            position: -webkit-sticky;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .toggle-button:hover {
+            background-color: var(--accent-color);
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        .light-mode {
+            --primary-color: #27618a;
+            --secondary-color: #a74bfd;
+            --accent-color: #2f8c78;
+            --nav-1-color: #80b0f6;
+            --nav-2-color: #a4d9fd;
+            --nav-3-color: #a6a6f7;
+            --nav-a1-color: #436964;
+            --nav-a2-color: #9f71bd;
+            --background-color: #DDD0C8;
+            --text-color: #333333;
+            --text-color-selected: #4ef1fdb1;
+            --content-color: #bababa;
+            --post-1-color: #8ababdb1;
+            --post-2-color: #9a91ca;
+            --footer-color: #a3caf6;
+            --menu-color: #ddd0c8ee;
+        }
+
+        .dark-mode {
+            --primary-color: #005F51;
+            --secondary-color: #00D3FF;
+            --accent-color: #A600FF;
+            --nav-1-color: #0067FF;
+            --nav-2-color: #09f;
+            --nav-3-color: #66f;
+            --nav-a1-color: #005F51;
+            --nav-a2-color: #9800FF;
+            --background-color: #222222;
+            --text-color: #ffffff;
+            --text-color-selected: #00ffff;
+            --content-color: #333333;
+            --post-1-color: #00345f8d;
+            --post-2-color: #9900ff41;
+            --footer-color: #999999;
+            --menu-color: #222222ee;
+        }
+
+        .popup {
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: #00000080;
+        }
+
+        .popup-content {
+            background-image: linear-gradient(to bottom, #19001082, #06003be3);
+            margin: 10% auto;
+            padding: 20px;
+            border: 2px solid #0a3855;
+            width: 80%;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .privacy {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            text-align: justify;
+            color: #d3d3d3;
+        }
+
+        .agree {
+            background-color: #2c233f;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            border-radius: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+        .agree:hover {
+            background-color: #4872a1;
+        }
+
+        .li {
+            display: block;
+            float: left;
+            white-space: normal;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+
+        @media only screen and (max-width: 970px) {
+            .nav {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                top: 0;
+                left: -110%;
+                flex-direction: column;
+                gap: 30px;
+                background-color: var(--menu-color);
+                transition: 0.3s;
+            }
+
+            .nav.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 50;
+                cursor: pointer;
+            }
+
+            .menu-toggle span,
+            .menu-toggle:before,
+            .menu-toggle:after {
+                content: '';
+                display: block;
+                width: 30px;
+                height: 3px;
+                background: var(--text-color);
+                margin: 5px 0;
+                transition: 0.3s;
+            }
+        }
+
+        .shortselect {
+            background: var(--accent-color);
+            color: var(--text-color);
+            height: 28px;
+            width: 180px;
+            line-height: 28px;
+            border: 1px solid #9bc0dd;
+            border-radius: 20px;
+        }
+
+        .post .choosebtn {
+            cursor: pointer;
+            height: 28px;
+            width: 180px;
+            line-height: 28px;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border-radius: 20px;
+            border: 1px solid #9bc0dd;
+        }
+
+        .post .grandbtn {
+            padding: 10px 20px;
+            font-size: 15px;
+            cursor: pointer;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 20px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center
+        }
+
+        .quote {
+            color: #999999;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        /* This site's copyright belongs to Weifeng Wang, please do not copy my code! */
+        /* ©Weifeng Wang (Jason.W) 2024, All rights reserved. */
+    </style>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<body oncontextmenu="self.event.returnValue=false" onselectstart="return false" class="dark-mode">
+    <div class="container">
+        <div class="header">
+            <div class="logo" title="🏆You've found the hover-and-accelerate easter egg!">
+                <h1>404 Not found!</h1>
+            </div>
+            <p>version 1.0</p>
+        </div>
+    </div>
+    </div>
+    <div class="main">
+        <div class="post">
+            <h2>Oops! Page not found.👾</h2>
+            <p>We can't seem to find the page you're looking for.</p>
+            <p>The best solution is to click the link below👇</p>
+            <footer>
+                <a href="https://weifengwang.com/">👉Go Back Home👈</a>
+            </footer>
+        </div>
+    </div>
+    <div class="bottom">
+        <footer>
+            <span>© Weifeng Wang (Jason.W) , All rights reserved.</span>
+        </footer>
+    </div>
+    </div>
+</body>
+
+</html>
