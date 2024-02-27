@@ -528,12 +528,11 @@
 				width: 100%;
 				height: 100vh;
 				top: 0;
-				left: -100%;
+				left: -110%;
 				flex-direction: column;
 				gap: 30px;
 				background-color: var(--menu-color);
 				transition: 0.3s;
-				-webkit-backdrop-filter: blur(50%);
 			}
 
 			.nav.active {
@@ -562,6 +561,46 @@
 			}
 		}
 
+		.shortselect {
+			background: var(--accent-color);
+			color: var(--text-color);
+			height: 28px;
+			width: 180px;
+			line-height: 28px;
+			border: 1px solid #9bc0dd;
+			border-radius: 20px;
+		}
+
+		.post .choosebtn {
+			cursor: pointer;
+			height: 28px;
+			width: 180px;
+			line-height: 28px;
+			background-color: var(--primary-color);
+			color: var(--text-color);
+			border-radius: 20px;
+			border: 1px solid #9bc0dd;
+		}
+
+		.post .grandbtn {
+			padding: 10px 20px;
+			font-size: 15px;
+			cursor: pointer;
+			background-color: var(--accent-color);
+			color: var(--text-color);
+			border: none;
+			border-radius: 20px;
+			margin-top: 10px;
+			display: flex;
+			align-items: center
+		}
+
+		.quote {
+			color: #999999;
+			margin-bottom: 10px;
+			text-align: center;
+		}
+
 		/* This site's copyright belongs to Weifeng Wang, please do not copy my code! */
 		/* ©Weifeng Wang (Jason.W) 2024, All rights reserved. */
 	</style>
@@ -586,7 +625,6 @@
 			<a href="#" id="update-link"> Updates🌠 </a>
 			<a href="#" id="tools-link"> Tools💝 </a>
 		</div>
-
 	</div>
 
 	<div class="main">
@@ -1042,16 +1080,26 @@
 			</ul>
 		</div>
 
+		<div class="post">
+			<h2>V4.2</h2>
+			<h3>🎇Feburary 27, 2024</h3>
+			<ul>
+				<li>Added tremendous amounts of tools</li>
+				<li>Add new stuff on footer</li>
+			</ul>
+		</div>
+
 		<h2>⚡More logs coming up⚡</h2>
 	</div>
 	<div class="page-content" id="tools-content">
+		<h2>Secure & Lite Tools for smart people💖</h2>
 		<div class="post">
 			<div id="meal-decision-module"></div>
 		</div>
 		<div class="post">
-			<h2>What Movie to Watch?[Beta]</h2>
-			<p>Try different combinations!</p>
-			<select id="genre">
+			<h2>What Movie to Watch?🎦</h2>
+			<p>Total 150+ movies! Try different combinations!</p>
+			<select id="genre" class="shortselect">
 				<option value="Drama">Drama</option>
 				<option value="Action & Adventure">Action & Adventure</option>
 				<option value="Sci-Fi & Fantasy">Sci-Fi & Fantasy</option>
@@ -1060,18 +1108,50 @@
 				<option value="Comedy & Family">Comedy & Family</option>
 				<option value="Animation">Animation</option>
 			</select>
-			<select id="mood">
+			<select id="mood" class="shortselect">
 				<option value="Happy">Happy</option>
 				<option value="Fine">Fine</option>
 				<option value="Sad">Sad</option>
 			</select>
-			<button id="recommendBtn">Recommend Movie</button>
+			<button id="recommendBtn" class="choosebtn">Recommend Movie</button>
 			<div id="recommendation"></div>
+		</div>
+		<div class="post">
+			<h2>TheUselessWebLite++🌏</h2>
+			<p>Pick a random website that is more interesting than the original version.</p>
+			<p>And it does not store cookies!</p>
+			<button id="randomWebsiteButton" class="grandbtn">Random Website</button>
+		</div>
+		<div class="post">
+			<h2>HastheWorldEndedLite++😱</h2>
+			<p>A much simpler module for detecting whether the large hadron collider has destroyed the world compared to
+				the original website.</p>
+			<h2>[0ms] NOPE.💞</h2>
+		</div>
+		<div class="post">
+			<h2>TheBookOfAnswersLite++🧠</h2>
+			<p>ZERO cookies, NO tracking information, 100% anonymous</p>
+			<p>How to use it:</p>
+			<ul>
+				<li>Think of just one question you want to ask.</li>
+				<li>Pray to whatever you believe in.</li>
+				<li>Click the button.</li>
+			</ul>
+			<button id="askButton" onclick="flipTheBook()" class="grandbtn">Flip the book!</button>
+			<h2 id="answer" style="display:none;"></h2>
 		</div>
 	</div>
 
 	<div class="bottom">
 		<footer>
+			<div id="timer" class="quote">
+				This website is online for: <span id="years">0</span> years,
+				<span id="days">0</span> days,
+				<span id="hours">0</span> hours,
+				<span id="minutes">0</span> minutes, and
+				<span id="seconds">0</span> seconds.
+			</div>
+			<div class="quote" id="quoteDisplay"></div>
 			<a href="https://www.ssltrust.com.au/security-report?domain=weifengwang.com" target="_blank">👉Check
 				website security through ssltrust.com👈</a>
 		</footer>
@@ -1274,7 +1354,7 @@
         <style>
             #meal-decision-module .btn {
                 padding: 10px 20px;
-                font-size: 16px;
+                font-size: 15px;
                 cursor: pointer;
                 background-color: var(--accent-color);
                 color: var(--text-color);
@@ -1289,7 +1369,7 @@
             }
         </style>
         <div class="meal-decision-container">
-            <h2>What to Eat Now？</h2>
+            <h2>What to Eat Now？🍴🥢</h2>
             <button class="btn" id="decideButton">I will have...</button>
             <p id="mealTime"></p>
             <h2 id="mealSuggestion"></h2>
@@ -1557,13 +1637,377 @@
 
 				if (filteredMovies.length > 0) {
 					let index = Math.floor(Math.random() * filteredMovies.length);
-					document.getElementById("recommendation").innerText = "I recommend：" + filteredMovies[index].name;
+					document.getElementById("recommendation").innerHTML = "<h2>I recommend：" + filteredMovies[index].name + "</h2>";
 				} else {
-					document.getElementById("recommendation").innerText = "Sorry... We currently don't include the type of film you requested.";
+					document.getElementById("recommendation").innerHTML = "<h2>Sorry... We currently don't include the type of film you requested.</h2>";
 				}
 			}
 
 			document.getElementById("recommendBtn").addEventListener('click', recommendMovie);
+		})();
+
+		(function () {
+			let websites = [
+				"https://sliding.toys/mystic-square/8-puzzle/daily/",
+				"https://longdogechallenge.com/",
+				"https://maze.toys/mazes/mini/daily/",
+				"https://optical.toys",
+				"https://paint.toys/",
+				"https://puginarug.com",
+				"https://alwaysjudgeabookbyitscover.com",
+				"https://clicking.toys/peg-solitaire/english/",
+				"https://weirdorconfusing.com/",
+				"https://checkbox.toys/scale/",
+				"https://binarypiano.com/",
+				"https://mondrianandme.com/",
+				"https://onesquareminesweeper.com/",
+				"https://cursoreffects.com",
+				"http://floatingqrcode.com/",
+				"https://thatsthefinger.com/",
+				"https://cant-not-tweet-this.com/",
+				"http://heeeeeeeey.com/",
+				"http://corndog.io/",
+				"http://eelslap.com/",
+				"http://www.staggeringbeauty.com/",
+				"http://burymewithmymoney.com/",
+				"https://smashthewalls.com/",
+				"https://jacksonpollock.org/",
+				"http://endless.horse/",
+				"http://drawing.garden/",
+				"https://www.trypap.com/",
+				"http://www.republiquedesmangues.fr/",
+				"http://www.movenowthinklater.com/",
+				"https://sliding.toys/klotski/easy-street/",
+				"https://paint.toys/calligram/",
+				"https://checkboxrace.com/",
+				"http://www.rrrgggbbb.com/",
+				"http://www.koalastothemax.com/",
+				"https://rotatingsandwiches.com/",
+				"http://www.everydayim.com/",
+				"http://randomcolour.com/",
+				"http://maninthedark.com/",
+				"http://cat-bounce.com/",
+				"http://chrismckenzie.com/",
+				"https://thezen.zone/",
+				"http://ninjaflex.com/",
+				"http://ihasabucket.com/",
+				"http://corndogoncorndog.com/",
+				"http://www.hackertyper.com/",
+				"https://pointerpointer.com",
+				"http://imaninja.com/",
+				"http://www.partridgegetslucky.com/",
+				"http://www.ismycomputeron.com/",
+				"http://www.nullingthevoid.com/",
+				"http://www.muchbetterthanthis.com/",
+				"http://www.yesnoif.com/",
+				"http://lacquerlacquer.com",
+				"http://potatoortomato.com/",
+				"http://iamawesome.com/",
+				"https://strobe.cool/",
+				"http://thisisnotajumpscare.com/",
+				"http://doughnutkitten.com/",
+				"http://crouton.net/",
+				"http://corgiorgy.com/",
+				"http://www.wutdafuk.com/",
+				"http://unicodesnowmanforyou.com/",
+				"http://chillestmonkey.com/",
+				"http://scroll-o-meter.club/",
+				"http://www.crossdivisions.com/",
+				"http://tencents.info/",
+				"https://boringboringboring.com/",
+				"http://www.patience-is-a-virtue.org/",
+				"http://pixelsfighting.com/",
+				"http://isitwhite.com/",
+				"https://existentialcrisis.com/",
+				"http://onemillionlols.com/",
+				"http://www.omfgdogs.com/",
+				"http://oct82.com/",
+				"http://chihuahuaspin.com/",
+				"http://www.blankwindows.com/",
+				"http://tunnelsnakes.com/",
+				"http://www.trashloop.com/",
+				"http://spaceis.cool/",
+				"http://www.doublepressure.com/",
+				"http://www.donothingfor2minutes.com/",
+				"http://buildshruggie.com/",
+				"http://buzzybuzz.biz/",
+				"http://yeahlemons.com/",
+				"http://wowenwilsonquiz.com",
+				"https://thepigeon.org/",
+				"http://notdayoftheweek.com/",
+				"http://www.amialright.com/",
+				"https://greatbignothing.com/",
+				"https://zoomquilt.org/",
+				"https://dadlaughbutton.com/",
+				"https://remoji.com/",
+				"http://papertoilet.com/",
+				"https://loopedforinfinity.com/",
+				"https://end.city/",
+				"https://www.bouncingdvdlogo.com/",
+				"https://toms.toys",
+				"https://clicking.toys/flip-grid/neat-nine/3-holes/",
+				"https://optical.toys/are-they-moving-rainbows/",
+				"https://neal.fun/",
+				"https://www.ascii-middle-finger.com/",
+				"https://www.hypnotoad.com/",
+				"http://beesbeesbees.com/",
+				"https://www.shadyurl.com/",
+				"http://www.fallingfalling.com/",
+				"http://www.ouaismaisbon.ch/",
+				"https://www.rainymood.com/",
+				"http://www.hasthelargehadroncolliderdestroyedtheworldyet.com/",
+				"https://www.theuselessweb.com/",
+			];
+
+			function shuffleArray(array) {
+				for (let i = array.length - 1; i > 0; i--) {
+					let j = Math.floor(Math.random() * (i + 1));
+					[array[i], array[j]] = [array[j], array[i]];
+				}
+			}
+
+			shuffleArray(websites);
+
+			document.getElementById("randomWebsiteButton").addEventListener("click", function () {
+				if (websites.length === 0) {
+					alert("All websites have been explored! Please refresh to start over.");
+					return;
+				}
+				let website = websites.shift();
+				this.textContent = "Another Random Website";
+				window.open(website, '_blank').focus();
+			});
+		})();
+
+		(function () {
+			const quotes = [
+				"The journey of a thousand miles begins with one step. - Lao Tzu",
+				"Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment. - Buddha",
+				"The whole secret of existence is to have no fear. - Buddha",
+				"Life is really simple, but we insist on making it complicated. - Confucius",
+				"He who knows, does not speak. He who speaks, does not know. - Lao Tzu",
+				"To be beautiful means to be yourself. You don’t need to be accepted by others. You need to accept yourself. - Thich Nhat Hanh",
+				"Sitting quietly, doing nothing, spring comes, and the grass grows by itself. - Zen Proverb",
+				"The only Zen you find on the tops of mountains is the Zen you bring up there. - Robert M. Pirsig",
+				"In the beginner’s mind there are many possibilities, but in the expert’s, there are few. - Shunryu Suzuki",
+				"If you are unable to find the truth right where you are, where else do you expect to find it? - Dogen",
+				"To understand everything is to forgive everything. - Buddha",
+				"Let go, or be dragged. - Zen Proverb",
+				"The obstacle is the path. - Zen Proverb",
+				"Fall seven times, stand up eight. - Japanese Proverb",
+				"The mind is everything; what you think, you become. - Buddha",
+				"Peace comes from within. Do not seek it without. - Buddha",
+				"Adopt the pace of nature: her secret is patience. - Ralph Waldo Emerson",
+				"Nature does not hurry, yet everything is accomplished. - Lao Tzu",
+				"When you realize nothing is lacking, the whole world belongs to you. - Lao Tzu",
+				"Happiness is not something ready made. It comes from your own actions. - Dalai Lama",
+				"You will not be punished for your anger, you will be punished by your anger. - Buddha",
+				"What you think, you become. What you feel, you attract. What you imagine, you create. - Buddha",
+				"Do not let the behavior of others destroy your inner peace. - Dalai Lama",
+				"Knowing others is intelligence; knowing yourself is true wisdom. - Lao Tzu",
+				"Mastering others is strength; mastering yourself is true power. - Lao Tzu",
+				"Be kind whenever possible. It is always possible. - Dalai Lama",
+				"Time is a created thing. To say 'I don’t have time,' is like saying, 'I don’t want to.' - Lao Tzu",
+				"The best time to plant a tree was 20 years ago. The second best time is now. - Chinese Proverb",
+				"An inch of time is an inch of gold but you can't buy that inch of time with an inch of gold. - Chinese Proverb",
+				"The more you know, the less you need. - Yvon Chouinard",
+				"Slow down and everything you are chasing will come around and catch you. - John De Paola",
+				"Your work is to discover your work and then with all your heart to give yourself to it. - Buddha",
+				"It does not matter how slowly you go as long as you do not stop. - Confucius"
+			];
+
+
+			function showRandomQuote() {
+				const quoteDisplay = document.getElementById('quoteDisplay');
+				const randomIndex = Math.floor(Math.random() * quotes.length);
+				quoteDisplay.textContent = quotes[randomIndex];
+			}
+
+			window.onload = showRandomQuote;
+		})();
+
+		(function () {
+			function updateTimeSince(startDate) {
+				const now = new Date();
+				const duration = now - startDate;
+				const seconds = Math.floor(duration / 1000 % 60);
+				const minutes = Math.floor(duration / 1000 / 60 % 60);
+				const hours = Math.floor(duration / (1000 * 60 * 60) % 24);
+				const days = Math.floor(duration / (1000 * 60 * 60 * 24) % 365.25);
+				const years = Math.floor(duration / (1000 * 60 * 60 * 24 * 365.25));
+
+				document.getElementById('years').textContent = years;
+				document.getElementById('days').textContent = days;
+				document.getElementById('hours').textContent = hours;
+				document.getElementById('minutes').textContent = minutes;
+				document.getElementById('seconds').textContent = seconds;
+
+				setTimeout(() => updateTimeSince(startDate), 1000);
+			}
+
+			const startDate = new Date('July 28, 2023 00:00:00');
+			updateTimeSince(startDate);
+		})();
+
+		(function () {
+			const answers = [
+				"Yes, but don't rely on it too much.",
+				"The future is murky, ask again.",
+				"No, now is not the time.",
+				"Focus on your other options.",
+				"Definitely.",
+				"No.",
+				"Looks good.",
+				"Please don't count on it.",
+				"It's unclear right now.",
+				"There's a strong possibility.",
+				"Absolutely.",
+				"The stars say no.",
+				"Highly doubtful.",
+				"Yes, definitely.",
+				"You may rely on it.",
+				"As I see it, yes.",
+				"Most likely.",
+				"Outlook good.",
+				"Yes.",
+				"Signs point to yes.",
+				"Reply hazy, try again.",
+				"Ask again later.",
+				"Better not tell you now.",
+				"Cannot predict now.",
+				"Concentrate and ask again.",
+				"Don't count on it.",
+				"My reply is no.",
+				"My sources say no.",
+				"Outlook not so good.",
+				"Very doubtful.",
+				"It is certain.",
+				"It is decidedly so.",
+				"Without a doubt.",
+				"Yes - definitely.",
+				"Definitely not.",
+				"You shouldn't expect it.",
+				"It seems unlikely.",
+				"Chances aren't good.",
+				"Uncertain, try again.",
+				"That's a secret.",
+				"Focus and ask again.",
+				"Maybe, but work on it.",
+				"Not a chance.",
+				"Quite likely.",
+				"Good prospects.",
+				"Not so promising.",
+				"It's a possibility.",
+				"Too early to predict.",
+				"Absolutely not.",
+				"Your efforts will be rewarded.",
+				"Now is a good time to try something new.",
+				"Trust your instincts.",
+				"The outcome will be unexpected.",
+				"Patience will reveal the answer.",
+				"A close friend offers the solution.",
+				"Success lies in attention to detail.",
+				"A pleasant surprise is waiting for you.",
+				"Reevaluate your priorities.",
+				"Adventure awaits you.",
+				"Be open to change.",
+				"Creativity will guide your next steps.",
+				"Listen to advice from someone close.",
+				"A challenge will test your abilities.",
+				"Expect a significant change soon.",
+				"The answer is within reach.",
+				"Seek happiness in simple things.",
+				"A positive attitude brings success.",
+				"New opportunities are on the horizon.",
+				"Your inner wisdom is your best guide.",
+				"An old problem will be resolved.",
+				"Be cautious of overconfidence.",
+				"A moment of clarity brings understanding.",
+				"Your ambition will pay off.",
+				"Compromise is the key to success.",
+				"A forgotten friend will reappear.",
+				"The time for action is now.",
+				"Avoid unnecessary risks.",
+				"Your talents will be recognized.",
+				"Persistence will overcome any obstacle.",
+				"A journey begins with a single step.",
+				"Good things come to those who wait.",
+				"Embrace the unknown.",
+				"A significant person will offer support.",
+				"Hard work will result in achievement.",
+				"Your kindness will be repaid.",
+				"A hidden talent will emerge.",
+				"Face your fears with courage.",
+				"A financial opportunity arises.",
+				"Personal growth brings fulfillment.",
+				"An unexpected ally will appear.",
+				"Joy comes from giving.",
+				"A secret will be revealed.",
+				"Be true to your values.",
+				"Love is closer than you think.",
+				"An important decision awaits.",
+				"Health and happiness are intertwined.",
+				"A lost item will be found.",
+				"Peace comes from within.",
+				"The wind is changing direction.",
+				"A new perspective will come.",
+				"The moon suggests a different path.",
+				"Sunshine follows the rain.",
+				"The tides are turning.",
+				"A leap of faith is required.",
+				"Seize the day, make it yours.",
+				"The answer lies in the past.",
+				"A rare opportunity will present itself.",
+				"Your intuition speaks the truth.",
+				"The stars are aligning in your favor.",
+				"A moment of patience is crucial.",
+				"Change is your ally, not your enemy.",
+				"The path is challenging, but rewarding.",
+				"A light will guide you in darkness.",
+				"An old acquaintance will bring new opportunities.",
+				"Trust in the journey, not the destination.",
+				"An unexpected event will shape your future.",
+				"Wisdom comes from unexpected places.",
+				"Your greatest challenge becomes your biggest strength.",
+				"Laughter is the key to resolving a conflict.",
+				"A message from afar will bring joy.",
+				"The simplest solution is often the best.",
+				"A dream offers insight into a dilemma.",
+				"Nature holds the answers you seek.",
+				"A creative endeavor opens new doors.",
+				"Let go of what no longer serves you.",
+				"A celebration is in your near future.",
+				"An act of kindness will go a long way.",
+				"Your courage will be tested.",
+				"A dispute will be resolved amicably.",
+				"The unknown is not to be feared.",
+				"A sacrifice will lead to gains.",
+				"An investment in time pays dividends.",
+				"True friendship stands the test of time.",
+				"A small mistake will lead to big lessons.",
+				"Happiness comes from within, not from possessions.",
+				"A breakthrough moment is on the horizon.",
+				"Trust will be built through a challenge.",
+				"A gesture of goodwill opens new paths.",
+				"Patience is your ally this week.",
+				"A curious discovery will be made.",
+				"Reconnect with your roots for answers.",
+				"Innovation solves an old problem.",
+				"A balanced approach is key.",
+				"Someone's true colors will be revealed.",
+				"Harmony in relationships brings peace.",
+				"Your efforts are closer to fruition.",
+				"A strategic shift brings progress.",
+				"Embrace your uniqueness; it's your strength.",
+			];
+
+
+			window.flipTheBook = function () {
+				const answer = answers[Math.floor(Math.random() * answers.length)];
+				document.getElementById('answer').innerHTML = answer;
+				document.getElementById('answer').style.display = 'block';
+				document.getElementById('askButton').textContent = 'Ask again...';
+			};
 		})();
 
 	</script>
