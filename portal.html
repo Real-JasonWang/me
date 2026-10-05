@@ -1,94 +1,519 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" class="bg-black">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal to Old Website | Jason Wang</title>
+    <title>Archive Portal | Jason Wang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=DM+Sans:wght@400;500;600;700&family=Geist:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Geist', 'sans-serif'],
+                        display: ['"Covered By Your Grace"', 'cursive'],
+                        mono: ['"DM Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        acid: '#DFFF00',
+                        cyan: '#00F0FF',
+                        neo: '#F8D8FF'
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        * { box-sizing: border-box; }
         body {
             margin: 0;
-            min-height: 100vh;
-            background: #030305;
+            overflow: hidden;
+            background-color: #030305;
             color: #e2e8f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            text-align: center;
-            padding: 24px;
         }
-        .portal-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(16px);
-            border-radius: 28px;
-            padding: 44px 32px;
-            max-width: 480px;
-            width: 100%;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+
+        #wave-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            z-index: 0;
+            pointer-events: none;
+            transform: translateZ(0);
+            will-change: transform;
+            backface-visibility: hidden;
         }
-        .icon-box {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 20px;
+
+        .ambient-bg {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background: #020203;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .ambient-mist-base {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 110% 80% at 50% 35%, rgba(6, 12, 22, 0.5) 0%, rgba(2, 2, 3, 0.92) 70%, #020203 100%);
+            pointer-events: none;
+        }
+
+        .ambient-glow {
+            position: absolute;
             border-radius: 50%;
-            background: rgba(0, 240, 255, 0.08);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #00F0FF;
-            font-size: 24px;
+            mix-blend-mode: screen;
+            pointer-events: none;
+            will-change: transform, opacity;
         }
-        h2 {
-            margin: 0 0 12px;
-            font-size: 1.4rem;
-            color: #ffffff;
-            font-weight: 600;
+
+        .mist-cyan {
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(0, 240, 255, 0.05) 35%, rgba(0, 240, 255, 0.015) 60%, transparent 80%);
+            width: 75vw;
+            height: 75vw;
+            top: 5%;
+            left: -15%;
+            filter: blur(140px);
+            opacity: 0.85;
+            animation: mist-float-1 32s infinite alternate ease-in-out;
         }
-        p {
-            color: #94a3b8;
-            font-size: 0.92rem;
-            line-height: 1.6;
-            margin: 0 0 24px;
+
+        .mist-acid {
+            background: radial-gradient(circle, rgba(223, 255, 0, 0.09) 0%, rgba(223, 255, 0, 0.035) 35%, rgba(223, 255, 0, 0.01) 60%, transparent 80%);
+            width: 65vw;
+            height: 65vw;
+            top: 35%;
+            left: 25%;
+            filter: blur(130px);
+            opacity: 0.8;
+            animation: mist-float-2 38s infinite alternate ease-in-out;
         }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 24px;
-            border-radius: 9999px;
-            background: #00F0FF;
-            color: #030305;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: all 0.2s ease;
+
+        .mist-neo {
+            background: radial-gradient(circle, rgba(248, 216, 255, 0.11) 0%, rgba(220, 160, 255, 0.04) 40%, rgba(180, 120, 255, 0.01) 65%, transparent 80%);
+            width: 70vw;
+            height: 70vw;
+            top: -10%;
+            right: -10%;
+            filter: blur(150px);
+            opacity: 0.85;
+            animation: mist-float-3 34s infinite alternate ease-in-out;
         }
-        .btn:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
+
+        .mist-horizon {
+            background: radial-gradient(ellipse 90% 50% at 50% 60%, rgba(0, 240, 255, 0.06) 0%, rgba(248, 216, 255, 0.04) 30%, rgba(223, 255, 0, 0.025) 60%, transparent 100%);
+            width: 100vw;
+            height: 70vh;
+            bottom: -10%;
+            left: 0;
+            filter: blur(120px);
+            opacity: 0.75;
+            animation: mist-pulse 24s infinite alternate ease-in-out;
+        }
+
+        .ambient-vignette {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 85% 85% at 50% 50%, transparent 40%, rgba(2, 2, 3, 0.6) 100%);
+            pointer-events: none;
+        }
+
+        @keyframes mist-float-1 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(8vw, 6vh) scale(1.08); }
+            100% { transform: translate(-4vw, 10vh) scale(0.95); }
+        }
+
+        @keyframes mist-float-2 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-7vw, -5vh) scale(1.06); }
+            100% { transform: translate(5vw, -8vh) scale(0.92); }
+        }
+
+        @keyframes mist-float-3 {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-8vw, 8vh) scale(1.05); }
+            100% { transform: translate(-3vw, -4vh) scale(0.96); }
+        }
+
+        @keyframes mist-pulse {
+            0% { opacity: 0.6; transform: translateY(0) scale(1); }
+            50% { opacity: 0.85; transform: translateY(-2vh) scale(1.03); }
+            100% { opacity: 0.65; transform: translateY(1vh) scale(0.98); }
+        }
+
+        .glass-panel {
+            background: rgba(15, 15, 20, 0.4);
+            backdrop-filter: blur(24px) saturate(150%);
+            -webkit-backdrop-filter: blur(24px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow:
+                inset 0 0 20px rgba(255, 255, 255, 0.02),
+                0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .rainbow-text {
+            background: linear-gradient(to right, #DFFF00, #00F0FF, #F8D8FF, #F5E7FF, #DFFF00);
+            background-size: 200% auto;
+            color: #fff;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 6s linear infinite;
+        }
+
+        .rainbow-border {
+            position: relative;
+        }
+
+        .rainbow-border::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(to right, #DFFF00, #00F0FF, #F8D8FF, #F5E7FF, #DFFF00);
+            background-size: 200% auto;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: shine 6s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .progress-bar-fill {
+            animation: fillProgress 2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes fillProgress {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            .mist-cyan, .mist-acid, .mist-neo {
+                filter: blur(50px) !important;
+                mix-blend-mode: normal !important;
+                opacity: 0.55 !important;
+            }
+            .mist-horizon {
+                filter: blur(40px) !important;
+                opacity: 0.5 !important;
+            }
+            .glass-panel {
+                backdrop-filter: blur(12px) saturate(130%) !important;
+                -webkit-backdrop-filter: blur(12px) saturate(130%) !important;
+            }
         }
     </style>
 </head>
-<body>
-    <div class="portal-card">
-        <div class="icon-box">
-            <i class="fa-solid fa-clock-rotate-left"></i>
-        </div>
-        <h2>正在前往旧版网站...</h2>
-        <p>Redirecting to Archived Website.<br>如果页面没有自动跳转，请点击下方按钮：</p>
-        <a href="./old/" class="btn">
-            <span>立即进入旧版</span>
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
+
+<body class="antialiased selection:bg-neo selection:text-white flex items-center justify-center min-h-screen p-4 sm:p-6 relative">
+
+    <!-- Ambient Glow Background -->
+    <div class="ambient-bg">
+        <div class="ambient-mist-base"></div>
+        <div class="ambient-glow mist-cyan"></div>
+        <div class="ambient-glow mist-acid"></div>
+        <div class="ambient-glow mist-neo"></div>
+        <div class="ambient-glow mist-horizon"></div>
+        <div class="ambient-vignette"></div>
     </div>
+
+    <!-- 3D Particle Wave Canvas -->
+    <canvas id="wave-canvas"></canvas>
+
+    <!-- Main Portal Modal Card -->
+    <div class="relative z-10 w-full max-w-md">
+        <div class="glass-panel p-8 sm:p-10 rounded-[32px] sm:rounded-[36px] text-center border border-white/10 relative overflow-hidden">
+            
+            <!-- Brand Badge -->
+            <div class="flex items-center justify-center gap-2.5 mb-6">
+                <div class="w-7 h-7 rounded-full rainbow-border bg-white/5 flex items-center justify-center">
+                    <i class="fa-solid fa-layer-group text-white text-[10px]"></i>
+                </div>
+                <span class="font-display font-bold text-sm tracking-tight text-white">JASON<span class="rainbow-text ml-1">WANG</span></span>
+            </div>
+
+            <!-- Portal Center Icon -->
+            <div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mx-auto mb-6 text-cyan border-cyan/30 shadow-[0_0_30px_rgba(0,240,255,0.25)]">
+                <i class="fa-solid fa-clock-rotate-left text-2xl transition-transform duration-700 hover:rotate-180"></i>
+            </div>
+
+            <!-- Status Indicator Badge -->
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium text-cyan bg-cyan/10 border border-cyan/20 mb-4">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan"></span>
+                </span>
+                <span>ARCHIVE PORTAL</span>
+            </div>
+
+            <!-- Headings -->
+            <h1 class="font-display text-2xl sm:text-3xl font-bold text-white mb-3 tracking-tight">
+                Redirecting to <span class="rainbow-text">Archived Site</span>
+            </h1>
+
+            <p class="text-gray-400 text-sm leading-relaxed mb-6 font-sans">
+                You are transitioning to the archived portfolio version. If your browser does not redirect automatically, please proceed below.
+            </p>
+
+            <!-- Animated Progress Bar -->
+            <div class="w-full bg-white/5 rounded-full h-1.5 mb-3 overflow-hidden border border-white/10">
+                <div class="h-full bg-gradient-to-r from-acid via-cyan to-neo rounded-full progress-bar-fill"></div>
+            </div>
+
+            <div class="flex justify-between items-center text-[11px] font-mono text-gray-500 mb-6 px-1">
+                <span>Transitioning</span>
+                <span id="countdown-text">Redirecting in <span id="countdown-seconds" class="text-cyan">2</span>s...</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col gap-3">
+                <a href="./old/" id="redirect-btn"
+                    class="group w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-cyan hover:bg-cyan/90 text-[#030305] font-display font-bold text-sm tracking-wide shadow-[0_0_25px_rgba(0,240,255,0.35)] hover:shadow-[0_0_35px_rgba(0,240,255,0.6)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300">
+                    <span>Enter Archive Now</span>
+                    <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                </a>
+
+                <a href="./index.html"
+                    class="inline-flex items-center justify-center gap-1.5 text-xs font-mono text-gray-400 hover:text-white transition-colors duration-200 py-1">
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                    <span>Return to Current Site</span>
+                </a>
+            </div>
+
+            <!-- Destination Info -->
+            <div class="mt-8 pt-5 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-gray-500">
+                <span>Target: <span class="text-gray-400">./old/</span></span>
+                <span>Version: <span class="text-gray-400">V1 Archive</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Redirection Script & Wave Animation -->
     <script>
-        setTimeout(function() {
+        // Countdown and Redirect
+        let remainingSeconds = 2;
+        const countdownEl = document.getElementById('countdown-seconds');
+        
+        const countdownInterval = setInterval(() => {
+            remainingSeconds--;
+            if (countdownEl && remainingSeconds >= 0) {
+                countdownEl.textContent = remainingSeconds;
+            }
+        }, 1000);
+
+        setTimeout(function () {
+            clearInterval(countdownInterval);
             window.location.href = './old/';
-        }, 1500);
+        }, 2000);
+
+        // Three.js Wave Animation (Matched to index.html)
+        window.addEventListener('DOMContentLoaded', () => {
+            const waveCanvas = document.getElementById('wave-canvas');
+            if (!waveCanvas || typeof THREE === 'undefined') return;
+
+            const isMobile = window.innerWidth < 768 || /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+            const scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0x020203, isMobile ? 0.038 : 0.035);
+
+            const camera = new THREE.PerspectiveCamera(isMobile ? 60 : 55, window.innerWidth / window.innerHeight, 0.1, 150);
+            camera.position.set(0, 8, 26);
+            camera.lookAt(0, -2, 0);
+
+            const renderer = new THREE.WebGLRenderer({
+                canvas: waveCanvas,
+                alpha: true,
+                antialias: !isMobile,
+                powerPreference: "high-performance",
+                precision: isMobile ? "mediump" : "highp"
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(isMobile ? Math.min(window.devicePixelRatio, 1.5) : Math.min(window.devicePixelRatio, 2));
+
+            const texCanvas = document.createElement('canvas');
+            texCanvas.width = 64;
+            texCanvas.height = 64;
+            const texCtx = texCanvas.getContext('2d');
+
+            const grad = texCtx.createRadialGradient(32, 32, 0, 32, 32, 32);
+            grad.addColorStop(0, 'rgba(255,255,255,1)');
+            grad.addColorStop(0.2, 'rgba(255,255,255,0.8)');
+            grad.addColorStop(0.5, 'rgba(255,255,255,0.2)');
+            grad.addColorStop(1, 'rgba(255,255,255,0)');
+            texCtx.fillStyle = grad;
+            texCtx.fillRect(0, 0, 64, 64);
+
+            texCtx.strokeStyle = '#ffffff';
+            texCtx.lineWidth = 2;
+            texCtx.lineCap = 'round';
+            texCtx.shadowBlur = 8;
+            texCtx.shadowColor = '#ffffff';
+            texCtx.beginPath();
+            texCtx.moveTo(32, 8); texCtx.lineTo(32, 56);
+            texCtx.moveTo(8, 32); texCtx.lineTo(56, 32);
+            texCtx.stroke();
+            const particleTexture = new THREE.CanvasTexture(texCanvas);
+
+            const particleCount = isMobile ? 16000 : 45000;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const sizes = new Float32Array(particleCount);
+            const phases = new Float32Array(particleCount);
+
+            for (let i = 0; i < particleCount; i++) {
+                const radius = 65 * Math.sqrt(Math.random());
+                const theta = Math.random() * 2 * Math.PI;
+                const px = radius * Math.cos(theta);
+                const pz = radius * Math.sin(theta) * 0.55;
+
+                positions[i * 3] = px;
+                positions[i * 3 + 1] = 0;
+                positions[i * 3 + 2] = pz;
+
+                sizes[i] = Math.random() * (isMobile ? 3.0 : 3.5) + 0.6;
+                phases[i] = Math.random() * Math.PI * 2;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('aSize', new THREE.BufferAttribute(sizes, 1));
+            geometry.setAttribute('aPhase', new THREE.BufferAttribute(phases, 1));
+
+            const material = new THREE.ShaderMaterial({
+                uniforms: {
+                    uTime: { value: 0 },
+                    uTexture: { value: particleTexture }
+                },
+                vertexShader: `
+                    uniform float uTime;
+                    attribute float aSize;
+                    attribute float aPhase;
+                    varying vec3 vColor;
+                    
+                    void main() {
+                        vec3 pos = position;
+                        float t = uTime * 1.2;
+                        
+                        float wave1 = sin(pos.x * 0.15 + t) * 1.2;
+                        float wave2 = cos(pos.z * 0.1 + t * 0.8) * 1.5;
+                        float wave3 = sin((pos.x + pos.z) * 0.08 - t * 0.6) * 0.8;
+                        float wave4 = cos((pos.x - pos.z) * 0.2 + t * 1.2) * 0.4;
+                        float h = wave1 + wave2 + wave3 + wave4;
+                        
+                        pos.y = h + sin(t * 3.0 + aPhase) * 0.35;
+                        
+                        pos.x -= cos(pos.x * 0.15 + t) * 0.45 * h;
+                        pos.z -= sin(pos.z * 0.1 + t * 0.8) * 0.45 * h;
+                        
+                        float hue = fract(pos.x * 0.015 + pos.z * 0.015 + t * 0.1);
+                        vec3 c1 = vec3(0.875, 1.0, 0.0);
+                        vec3 c2 = vec3(0.0, 0.941, 1.0);
+                        vec3 c3 = vec3(0.439, 0.0, 1.0);
+                        
+                        vec3 rainbow;
+                        float h_val = hue * 3.0;
+                        if (h_val < 1.0) {
+                            rainbow = mix(c1, c2, h_val);
+                        } else if (h_val < 2.0) {
+                            rainbow = mix(c2, c3, h_val - 1.0);
+                        } else {
+                            rainbow = mix(c3, c1, h_val - 2.0);
+                        }
+                        
+                        float lightness = clamp(0.1 + (pos.y + 3.0) / 8.0, 0.05, 1.0);
+                        vColor = rainbow * lightness;
+                        
+                        vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
+                        gl_PointSize = aSize * (50.0 / -mvPosition.z);
+                        gl_Position = projectionMatrix * mvPosition;
+                    }
+                `,
+                fragmentShader: `
+                    uniform sampler2D uTexture;
+                    varying vec3 vColor;
+                    
+                    void main() {
+                        vec4 texColor = texture2D(uTexture, gl_PointCoord);
+                        gl_FragColor = vec4(vColor * texColor.rgb, texColor.a * 0.9);
+                    }
+                `,
+                transparent: true,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false
+            });
+
+            const mesh = new THREE.Points(geometry, material);
+            mesh.position.y = -6;
+            scene.add(mesh);
+
+            const clock = new THREE.Clock();
+            let isAnimating = true;
+
+            const renderFrame = () => {
+                material.uniforms.uTime.value = clock.getElapsedTime();
+                renderer.render(scene, camera);
+            };
+
+            const animateWave = () => {
+                if (isAnimating) {
+                    renderFrame();
+                    requestAnimationFrame(animateWave);
+                }
+            };
+            requestAnimationFrame(animateWave);
+
+            // Keep rendering active during touch and scroll interactions
+            const onScrollTouch = () => {
+                renderFrame();
+            };
+            window.addEventListener('scroll', onScrollTouch, { passive: true });
+            window.addEventListener('touchmove', onScrollTouch, { passive: true });
+
+            // Ignore height-only resize fluctuations caused by mobile address bar collapse/expand
+            let lastWidth = window.innerWidth;
+            let lastHeight = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                const newWidth = window.innerWidth;
+                const newHeight = window.innerHeight;
+                if (isMobile && newWidth === lastWidth && Math.abs(newHeight - lastHeight) < 120) {
+                    return;
+                }
+                lastWidth = newWidth;
+                lastHeight = newHeight;
+                camera.aspect = newWidth / newHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(newWidth, newHeight);
+            });
+
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    isAnimating = false;
+                } else if (!isAnimating) {
+                    isAnimating = true;
+                    clock.start();
+                    requestAnimationFrame(animateWave);
+                }
+            });
+        });
     </script>
 </body>
+
 </html>

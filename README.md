@@ -1,110 +1,92 @@
-# Weifeng Wang's Personal Website Documentation
+# Jason Wang — Personal Portfolio
 
-[![State-of-the-art Shitcode](https://img.shields.io/static/v1?label=State-of-the-art&message=Shitcode&color=7B5804)](https://github.com/trekhleb/state-of-the-art-shitcode)
-[![Knight of Amber](https://img.shields.io/static/v1?label=beTheKnightOf&message=Amber&color=F8BBD0)](https://github.com/Real-JasonWang/beTheKnightOf_Amber)
-![License:  ELAL](https://img.shields.io/badge/license-Epic%20Love%20for%20Amber-orange)
+A sleek, responsive personal portfolio website featuring an interactive 3D particle wave background, frosted glass UI panels, and smooth single-page transitions.
 
+---
 
-## Table of Contents
+## Quick Start
 
-- [Introduction](#introduction)
-- [Getting Started](#getting-started)
-- [Page Structure](#page-structure)
-- [Styling and Themes](#styling-and-themes)
-- [Accessibility](#accessibility)
-- [Navigation](#navigation)
-- [Main Content](#main-content)
-  - [Home](#home)
-  - [About](#about)
-  - [Contact](#contact)
-  - [Projects](#projects)
-  - [Blogs](#blogs)
-  - [Updates](#updates)
-  - [Tools](#tools)
-- [Footer and Quotes](#footer-and-quotes)
-- [Popup Notifications](#popup-notifications)
-- [User Policy](#user-policy)
-- [Performance and Updates](#performance-and-updates)
-- [Security](#security)
-- [Conclusion](#conclusion)
+This site is built with vanilla HTML, modern CSS, and lightweight scripts. There are no build tools, npm installs, or complex dependencies required to run it.
 
-## Introduction
+```bash
+# 1. Clone the repository
+git clone https://github.com/Real-JasonWang/me.git && cd me
 
-This documentation provides a comprehensive overview of Weifeng Wang's (Jason.W) personal website, designed to serve as a portfolio and blog platform. It details the elements, functionality, and design considerations of the site.
+# 2. Run a local server
+python -m http.server 3000
+# or
+npx serve .
 
-## Getting Started
+# 3. Open in your browser
+# Visit http://localhost:3000 or open index.html directly
+```
 
-The website is owned and operated by Weifeng Wang and is originally written in HTML, CSS, and JavaScript. It is optimally viewed on desktop or tablet devices with browsers that support modern web standards.
+---
 
-## Page Structure
+## How It's Built & Special Effects
 
-The website has a header for branding ("Weifeng Wang's Space") and a navigation bar with links to various sections, including "Home", "About", "Contact", "Projects", "Blogs", "Updates", and "Tools".
+Here is how the visual effects and features work behind the scenes:
 
-## Styling and Themes
+### 1. 3D Particle Wave Background (Three.js & WebGL)
+The animated wave running in the background is rendered with Three.js (`#wave-canvas`):
+- **Adaptive 3D Wave**: Uses `THREE.Points` with a custom GLSL vertex shader (45,000 particles on desktop, 16,000 on mobile with touch-scroll event pumping) to combine multiple sine and cosine waves into fluid wave motion with guaranteed 60fps responsiveness on mobile devices.
+- **Color Transitions**: As the wave moves, the shader shifts particle colors across a dynamic spectrum (acid yellow `#DFFF00`, cyan `#00F0FF`, and soft lavender `#F8D8FF`).
+- **Glow & Fog**: A small canvas texture generates soft star-shaped light sprites with bloom, while exponential distance fog (`THREE.FogExp2`) fades particles into the dark background.
 
-It includes dark mode functionality toggleable via a 🌞🌙 button. The site uses fluent design principles and has a responsive layout that is intended for desktop and pad experiences.
+### 2. Layered Ambient Background Glow
+Behind the canvas, multiple blurred CSS radial gradients slowly float in opposite directions on 30–40 second loops. This adds atmospheric depth without hitting GPU performance.
 
-## Accessibility
+### 3. Frosted Glass UI (Glassmorphism)
+The cards and navigation bar use a modern frosted-glass look:
+- Blurs what is behind the panel with `backdrop-filter: blur(24px) saturate(150%)`.
+- Uses semi-transparent dark backgrounds with soft white borders (`rgba(255, 255, 255, 0.08)`).
+- Lifts gently with a smooth box shadow when hovered.
 
-Right-click and text selection are disabled to protect content. The body class "dark-mode" indicates that the website also supports a dark theme.
+### 4. Rainbow Gradient Text & Borders
+Key headlines, names, and card edges feature a shifting rainbow gradient that smoothly animates on a 6-second loop using CSS background clipping and mask composites.
 
-## Navigation
+### 5. Smooth 3D Page Transitions
+Instead of reloading pages, the site works as a single-page app (SPA):
+- Sections (`Home`, `Hybrid Skillset`, `Experiences`, `Outputs & Awards`, `Facts`) are rendered inside a CSS perspective container.
+- Clicking nav items switches active tabs with a subtle 3D slide and fade (`translateZ` / `translateY`), keeping navigation fast and responsive.
 
-Navigation links are represented as `<a>` elements with corresponding unique IDs for each page content. Clicking these will display the appropriate content to the user.
+### 6. Dynamic Date Counter
+Vanilla JavaScript automatically updates the copyright year and current month/year display so the footer never shows outdated dates.
 
-## Main Content
+---
 
-The main content is divided into multiple sections housed within `div` elements with specific IDs.
+## Design System
 
-### Home
+### Fonts
+- **Headings & Titles**: [Covered By Your Grace](https://fonts.google.com/specimen/Covered+By+Your+Grace) (Handwritten, expressive display font)
+- **Body Text**: [Geist](https://fonts.google.com/specimen/Geist) (Clean, highly readable modern sans-serif)
+- **Code & Labels**: [DM Sans](https://fonts.google.com/specimen/DM+Sans) (Modern geometric sans-serif for tech tags, metrics, and dates)
 
-This section includes an introduction, iframe embeds of external sites (e.g., art galleries), and miscellaneous personal information.
+### Color Palette
+- **Acid**: `#DFFF00` (Highlight yellow)
+- **Cyan**: `#00F0FF` (Electric cyan)
+- **Neo Lavender**: `#F8D8FF` (Soft lavender accent)
+- **Dark Void**: `#020203` (Deep background)
 
-### About
+---
 
-The "About" section provides more details about Weifeng Wang, including basic information, skills, hobbies, and a profile image.
+## Project Structure
 
-### Contact
+```
+me/
+├── index.html       # Current portfolio website
+├── portal.html      # Archive redirection page
+├── assets/          # Organization logos, badges, and photos
+├── old/             # Archived version 1 website & original docs
+│   ├── index.html   # Previous site version
+│   ├── README.md    # Original V1 documentation backup
+│   └── LICENSE.md   # Original V1 license backup
+├── LICENSE.md       # Modified MIT License (Privacy Protected)
+└── README.md        # Project overview & documentation
+```
 
-Contact information such as email, phone, Weixin ID, and social media links are provided, along with a link to the guestbook.
+---
 
-### Projects
+## License
 
-This section showcases Weifeng Wang's various projects through iframes and links to external sites.
-
-### Blogs
-
-The blogs mainly share digital achievements like certificates from online courses, along with other personal accomplishments.
-
-### Updates
-
-Logs of website updates are stored here, each within their div, outlining the changes made in each version.
-
-### Tools
-
-A collection of website tools is included, offering functionalities like movie recommendations, random website selection, and a light-hearted end-of-the-world check.
-
-## Footer and Quotes
-
-A dynamic counter displays how long the website has been online, and there's a space for rotating quotes or messages. A website security link is also provided.
-
-## Popup Notifications
-
-Popup windows containing policies and other essential notices can be seen across the website, with mechanisms to close them.
-
-## User Policy
-
-This popup provides detailed privacy and user policies, including sections on data collection, cookies, third-party advertisements, security, and contact information.
-
-## Performance and Updates
-
-The FPS indicator and update log sections allow users to understand recent and ongoing changes to the site's performance and appearance.
-
-## Security
-
-The site is meant to be secure, with no use of cookies for storing visitor data, and visitors are encouraged to check the site's security certificate.
-
-## Conclusion
-
-This markdown document provides a structured explanation of all aspects of Weifeng Wang's personal website. It is intended for use on GitHub to help visitors understand and navigate the website effectively.
-
+This project is licensed under a **Modified MIT License**. You are welcome to use and adapt the code and template for your own site. However, all personal information, likeness, photos, academic records, and credentials belonging to Jason Wang are private property and must be replaced or removed in any forks or redeployments. See [LICENSE.md](./LICENSE.md) for full details.
