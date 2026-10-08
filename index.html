@@ -430,6 +430,7 @@
                 transparent 75%
             );
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             pointer-events: none;
@@ -459,6 +460,7 @@
             background: linear-gradient(to right, #DFFF00, #00F0FF, #F8D8FF, #F5E7FF, #DFFF00);
             background-size: 200% auto;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             animation: shine 6s linear infinite;
@@ -3193,9 +3195,13 @@
                 return isDesktopOS && !isMobileUa && window.innerWidth >= 768;
             })();
 
-            if (window.__AUDITOR_MODE__) return;
-            const waveCanvas = document.getElementById('wave-canvas');
-            const scene = new THREE.Scene();
+            window.__initThreeWave = function () {
+                if (window.__threeInitialized || typeof THREE === 'undefined' || window.__AUDITOR_MODE__) return;
+                window.__threeInitialized = true;
+
+                const waveCanvas = document.getElementById('wave-canvas');
+                if (!waveCanvas) return;
+                const scene = new THREE.Scene();
 
             scene.fog = new THREE.FogExp2(0x020203, isMobile ? 0.038 : 0.035);
 
