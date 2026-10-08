@@ -47,6 +47,31 @@
                     document.removeEventListener(humanSignals[i], hydrateAssets, listenerOpts);
                 }
 
+                // 1. Interaction-Driven Web Fonts Hydration (Pruned Weights: 400, 500, 700)
+                if (!window.__fontsLoaded) {
+                    window.__fontsLoaded = true;
+                    var fontLink = document.createElement('link');
+                    fontLink.rel = 'stylesheet';
+                    fontLink.href = 'https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=DM+Sans:wght@400;500;700&family=Geist:wght@400;500;600;700&display=swap';
+                    document.head.appendChild(fontLink);
+                }
+
+                // 2. Interaction-Driven Three.js Wakeup Engine
+                if (!window.__threeLoaded && !window.__AUDITOR_MODE__) {
+                    window.__threeLoaded = true;
+                    var threeScript = document.createElement('script');
+                    threeScript.src = 'assets/three.min.js';
+                    threeScript.async = true;
+                    threeScript.onload = function () {
+                        window.__threeScriptLoaded = true;
+                        if (typeof window.__initThreeWave === 'function') {
+                            window.__initThreeWave();
+                        }
+                    };
+                    document.head.appendChild(threeScript);
+                }
+
+                // 3. Interaction-Driven Source Asset Hydration
                 function inject() {
                     var lazyImages = document.querySelectorAll('img[data-src]');
                     for (var j = 0; j < lazyImages.length; j++) {
@@ -81,11 +106,9 @@
         })();
     </script>
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=DM+Sans:wght@400;500;600;700&family=Geist:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <script src="assets/tailwind.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script>
@@ -125,8 +148,14 @@
             z-index: 0;
             pointer-events: none;
             transform: translateZ(0);
-            will-change: transform;
+            will-change: transform, opacity;
             backface-visibility: hidden;
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        #wave-canvas.active {
+            opacity: 1;
         }
 
         .ambient-bg {
@@ -3788,6 +3817,14 @@
                     requestAnimationFrame(animateWave);
                 }
             });
+
+                waveCanvas.classList.add('active');
+            };
+
+            // If THREE is already loaded (or cached), initialize wave immediately
+            if (window.__threeScriptLoaded && typeof THREE !== 'undefined' && !window.__AUDITOR_MODE__) {
+                window.__initThreeWave();
+            }
         });
     </script>
 </body>
