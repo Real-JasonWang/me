@@ -708,6 +708,7 @@
 
                 <div class="flex items-center gap-3 sm:gap-4 shrink-0">
                     <a href="https://fandm.joinhandshake.com/profiles/wang" target="_blank" rel="noopener noreferrer"
+                        aria-label="Hire Jason Now (opens in a new tab)"
                         class="hidden md:inline-flex radiant-word text-sm lg:text-base font-mono font-bold tracking-wide items-center gap-1.5 cursor-pointer whitespace-nowrap">
                         <span>Hire Jason Now</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px] lg:text-xs"></i>
@@ -731,6 +732,7 @@
                 data-target="outputs-awards">Outputs & Awards</span>
             <span role="button" tabindex="0" class="nav-link mobile-nav-link text-lg font-mono py-1.5" data-target="facts">Facts</span>
             <a href="https://fandm.joinhandshake.com/profiles/wang" target="_blank" rel="noopener noreferrer"
+                aria-label="Hire Jason Now (opens in a new tab)"
                 class="py-2 flex items-center justify-between cursor-pointer group">
                 <span class="radiant-word text-lg font-mono font-bold">Hire Jason Now</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-xs text-cyan"></i>
@@ -3020,11 +3022,11 @@
             });
 
             document.querySelectorAll('a[target="_blank"]').forEach(a => {
-                if (!a.querySelector('.sr-only') && !a.getAttribute('aria-label')) {
-                    const sr = document.createElement('span');
-                    sr.className = 'sr-only';
-                    sr.textContent = ' (opens in a new tab)';
-                    a.appendChild(sr);
+                if (!a.getAttribute('aria-label')) {
+                    const label = (a.textContent || '').replace(/\s+/g, ' ').trim();
+                    if (label) {
+                        a.setAttribute('aria-label', `${label} (opens in a new tab)`);
+                    }
                 }
             });
 
