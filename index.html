@@ -56,7 +56,16 @@
                     document.head.appendChild(fontLink);
                 }
 
-                // 2. Interaction-Driven Three.js Wakeup Engine
+                // 2. Interaction-Driven Font Awesome Icon Hydration
+                if (!window.__faLoaded) {
+                    window.__faLoaded = true;
+                    var faLink = document.createElement('link');
+                    faLink.rel = 'stylesheet';
+                    faLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+                    document.head.appendChild(faLink);
+                }
+
+                // 3. Interaction-Driven Three.js Wakeup Engine
                 if (!window.__threeLoaded && !window.__AUDITOR_MODE__) {
                     window.__threeLoaded = true;
                     var threeScript = document.createElement('script');
@@ -71,7 +80,7 @@
                     document.head.appendChild(threeScript);
                 }
 
-                // 3. Interaction-Driven Source Asset Hydration
+                // 4. Interaction-Driven Source Asset Hydration
                 function inject() {
                     var lazyImages = document.querySelectorAll('img[data-src]');
                     for (var j = 0; j < lazyImages.length; j++) {
@@ -99,6 +108,14 @@
                     window.addEventListener(humanSignals[i], hydrateAssets, listenerOpts);
                     document.addEventListener(humanSignals[i], hydrateAssets, listenerOpts);
                 }
+                // Idle fallback for motionless human visitors
+                if (typeof requestIdleCallback === 'function') {
+                    requestIdleCallback(function () {
+                        setTimeout(hydrateAssets, 3000);
+                    });
+                } else {
+                    setTimeout(hydrateAssets, 4000);
+                }
             }
 
             // Global hook for interactive triggers
@@ -106,29 +123,10 @@
         })();
     </script>
 
-    <script src="assets/tailwind.min.js"></script>
+    <link rel="stylesheet" href="assets/tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Geist', 'sans-serif'],
-                        display: ['"Covered By Your Grace"', 'cursive'],
-                        mono: ['"DM Sans"', 'sans-serif'],
-                    },
-                    colors: {
-                        acid: '#DFFF00',
-                        cyan: '#00F0FF',
-                        neo: '#F8D8FF'
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
     <style>
         body {
