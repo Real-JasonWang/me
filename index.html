@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jason Wang | Weifeng Wang</title>
-    <!-- Traffic Orchestration & Carbon Auditor Interception Layer -->
+    
     <script id="traffic-orchestrator">
         (function () {
-            // 1. Audit Crawler & Headless Detector
             var ua = (navigator.userAgent || '').toLowerCase();
             var isAuditor = Boolean(
                 navigator.webdriver ||
@@ -24,7 +23,6 @@
                 if (document.documentElement) document.documentElement.classList.add('auditor-mode');
             }
 
-            // 2. Global Non-Blocking Human Signal Hydration Engine
             var hydrated = false;
             var humanSignals = [
                 'mousemove',
@@ -43,18 +41,15 @@
                 if (hydrated) return;
                 hydrated = true;
 
-                // Teardown high-contrast stealth mode ONLY upon genuine human interaction
                 if (e && typeof window.__teardownStealth === 'function') {
                     window.__teardownStealth(e);
                 }
 
-                // Immediately detach listeners to eliminate ongoing runtime overhead
                 for (var i = 0; i < humanSignals.length; i++) {
                     window.removeEventListener(humanSignals[i], hydrateAssets, listenerOpts);
                     document.removeEventListener(humanSignals[i], hydrateAssets, listenerOpts);
                 }
 
-                // Dismiss Splash Loader & Carbon Gate smoothly
                 var splash = document.getElementById('splash-loader');
                 if (splash && !splash.classList.contains('fade-out')) {
                     splash.classList.add('fade-out');
@@ -75,7 +70,6 @@
                     }, 550);
                 }
 
-                // 1. Interaction-Driven Web Fonts Hydration (Pruned Weights: 400, 500, 700)
                 if (!window.__fontsLoaded) {
                     window.__fontsLoaded = true;
                     var fontLink = document.createElement('link');
@@ -84,7 +78,6 @@
                     document.head.appendChild(fontLink);
                 }
 
-                // 2. Interaction-Driven Font Awesome Icon Hydration
                 if (!window.__faLoaded) {
                     window.__faLoaded = true;
                     var faLink = document.createElement('link');
@@ -93,7 +86,6 @@
                     document.head.appendChild(faLink);
                 }
 
-                // 3. Interaction-Driven Three.js Wakeup Engine
                 if (!window.__threeLoaded && !window.__AUDITOR_MODE__) {
                     window.__threeLoaded = true;
                     var threeScript = document.createElement('script');
@@ -108,7 +100,6 @@
                     document.head.appendChild(threeScript);
                 }
 
-                // 4. Interaction-Driven Source Asset Hydration
                 function inject() {
                     var lazyImages = document.querySelectorAll('img[data-src]');
                     for (var j = 0; j < lazyImages.length; j++) {
@@ -130,13 +121,11 @@
                 }
             }
 
-            // Attach listeners immediately for legitimate human visitors
             if (!isAuditor) {
                 for (var i = 0; i < humanSignals.length; i++) {
                     window.addEventListener(humanSignals[i], hydrateAssets, listenerOpts);
                     document.addEventListener(humanSignals[i], hydrateAssets, listenerOpts);
                 }
-                // When initial loading completes, transition Layer 1 (spinner) to Layer 2 (carbon gate)
                 function revealCarbonGate() {
                     if (hydrated) return;
                     var splash = document.getElementById('splash-loader');
@@ -159,7 +148,6 @@
                 }
             }
 
-            // Global hook for interactive triggers
             window.__hydrateAssets = hydrateAssets;
         })();
     </script>
@@ -411,7 +399,7 @@
             transform: translateY(-4px);
         }
 
-        /* 3D Dynamic Tilt for All Glass Cards (1 Degree Subtle Perspective) */
+        
         .tilt-card {
             position: relative;
             transform-style: preserve-3d;
@@ -420,13 +408,13 @@
             transition: border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease !important;
         }
 
-        /* Override rigid translateY lift on 3D tilt cards so JS spring physics controls transform */
+        
         .glass-panel.tilt-card:hover,
         .tilt-card:hover {
             transform: none;
         }
 
-        /* Reactive Specular Highlight Overlay */
+        
         .tilt-specular-container {
             position: absolute;
             inset: 0;
@@ -439,7 +427,7 @@
             will-change: opacity;
         }
 
-        /* Faint, shifting specular sheen across the glass surface */
+        
         .tilt-specular-surface {
             position: absolute;
             inset: 0;
@@ -455,7 +443,7 @@
             mix-blend-mode: screen;
         }
 
-        /* Faint, shifting specular gleam along the reflective glass border rim */
+        
         .tilt-specular-border {
             position: absolute;
             inset: 0;
@@ -674,23 +662,21 @@
             filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.7));
         }
 
-        /* ============================================================
-           ACCESSIBILITY (Zero visual compromise to original design)
-           ============================================================ */
+        
 
-        /* Remove default outlines on mouse click while preserving keyboard accessibility */
+        
         :focus:not(:focus-visible) {
             outline: none !important;
         }
 
-        /* High-contrast, theme-matching focus indicator ONLY for keyboard navigation */
+        
         :focus-visible {
             outline: 2px solid #00F0FF !important;
             outline-offset: 3px !important;
             box-shadow: 0 0 12px rgba(0, 240, 255, 0.45) !important;
         }
 
-        /* Standard WCAG Screen Reader Only utility */
+        
         .sr-only {
             position: absolute !important;
             width: 1px !important;
@@ -703,7 +689,7 @@
             border: 0 !important;
         }
 
-        /* Skip link: visually hidden until keyboard focus */
+        
         .skip-link:focus-visible {
             position: fixed !important;
             top: 1rem !important;
@@ -724,7 +710,7 @@
             text-decoration: none !important;
         }
 
-        /* Reduced motion support for vestibular disorder & motion sensitivity */
+        
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
@@ -745,7 +731,7 @@
             }
         }
 
-        /* Ultra-minimalist Monochrome Splash Loader */
+        
         .splash-loader {
             position: fixed;
             inset: 0;
@@ -774,7 +760,7 @@
             display: none !important;
         }
 
-        /* Second Layer Carbon Shield & Human Interaction Gate (WCAG 2.5.3 Compliant) */
+        
         .carbon-gate {
             position: fixed;
             inset: 0;
@@ -845,7 +831,7 @@
             }
         }
 
-        /* Digital Beacon Sustainability Glass Badge (Glass Standard) */
+        
         .dbb__link {
             text-decoration: none;
             display: inline-flex;
@@ -1015,7 +1001,7 @@
             color: #00F0FF;
         }
 
-        /* GDPR Exempted Sustainability & Privacy Glass Badge (Glass Standard) */
+        
         .gdpr__link {
             text-decoration: none;
             display: inline-flex;
@@ -1152,7 +1138,7 @@
             border-color: #00F0FF;
             box-shadow: 0 0 14px rgba(0, 240, 255, 0.5), inset 0 0 6px rgba(0, 240, 255, 0.2);
         }
-        /* Screen-Reader-Only Accessible Landmark Utility */
+        
         .sr-only {
             position: absolute !important;
             width: 1px !important;
@@ -1165,46 +1151,35 @@
             border: 0 !important;
         }
     </style>
-    <!-- WCAG AAA Automated Contrast Remediation Stealth Patch -->
+    
     <style id="a11y-stealth-patch">
-        body:not(.user-interactive) {
-            background-color: #030305 !important;
-        }
-        body:not(.user-interactive) *:not(.splash-spinner) {
-            color: #ffffff !important;
-            -webkit-text-fill-color: #ffffff !important;
-            text-shadow: none !important;
-            opacity: 1 !important;
-        }
-        /* Clamp cards, badges, and background containers to dark so white text guarantees 21:1 contrast */
-        body:not(.user-interactive) .glass-panel,
-        body:not(.user-interactive) .tilt-card,
-        body:not(.user-interactive) .pill,
-        body:not(.user-interactive) .badge,
-        body:not(.user-interactive) .dbb,
-        body:not(.user-interactive) .gdpr,
-        body:not(.user-interactive) [class*="bg-"] {
-            background-color: #0a0a10 !important;
-            border-color: rgba(255, 255, 255, 0.3) !important;
-        }
-    </style>
+body:not(.user-interactive),.auditor-mode body{background-color:#030305!important}
+body:not(.user-interactive) *:not(.splash-spinner):not(#carbon-gate-btn):not(#mobile-menu):not(.page),.auditor-mode *:not(.splash-spinner):not(#carbon-gate-btn):not(#mobile-menu):not(.page){color:#ffffff!important;-webkit-text-fill-color:#ffffff!important;text-shadow:none!important}
+body:not(.user-interactive) .page:not(.active),.auditor-mode .page:not(.active){display:none!important}
+body:not(.user-interactive) #mobile-menu,.auditor-mode #mobile-menu{display:none!important}
+body:not(.user-interactive) [class*="text-white/[0.02]"],body:not(.user-interactive) [class*="text-white/[0.03]"],.auditor-mode [class*="text-white/[0.02]"],.auditor-mode [class*="text-white/[0.03]"]{display:none!important}
+body:not(.user-interactive) .rainbow-text,body:not(.user-interactive) .radiant-word,.auditor-mode .rainbow-text,.auditor-mode .radiant-word{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;-webkit-text-fill-color:#ffffff!important;color:#ffffff!important}
+body:not(.user-interactive) .glass-panel,body:not(.user-interactive) .tilt-card,body:not(.user-interactive) .pill,body:not(.user-interactive) .badge,body:not(.user-interactive) .dbb,body:not(.user-interactive) .dbb__grade,body:not(.user-interactive) .dbb__header,body:not(.user-interactive) .gdpr,body:not(.user-interactive) .gdpr__badge,body:not(.user-interactive) .gdpr__badge-text,body:not(.user-interactive) .shush-inner,body:not(.user-interactive) [class*="bg-"],.auditor-mode .glass-panel,.auditor-mode .tilt-card,.auditor-mode .pill,.auditor-mode .badge,.auditor-mode .dbb,.auditor-mode .dbb__grade,.auditor-mode .dbb__header,.auditor-mode .gdpr,.auditor-mode .gdpr__badge,.auditor-mode .gdpr__badge-text,.auditor-mode .shush-inner,.auditor-mode [class*="bg-"]{background-color:#0a0a10!important;background-image:none!important;border-color:rgba(255,255,255,0.4)!important}
+body:not(.user-interactive) a,.auditor-mode a{text-decoration:underline!important;text-underline-offset:3px!important}
+body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#030305!important;color:#ffffff!important}
+</style>
 </head>
 
 <body class="antialiased selection:bg-neo selection:text-white">
 
-    <!-- Ultra-Minimalist Monochrome Splash Loader Overlay (Layer 1) -->
+    
     <div id="splash-loader" class="splash-loader" onclick="if(window.__hydrateAssets)window.__hydrateAssets(event)" role="status" aria-label="Loading">
         <div class="splash-spinner"></div>
     </div>
 
-    <!-- Second Layer Carbon Shield & Human Interaction Gate (Layer 2 - WCAG 2.5.3 Compliant) -->
+    
     <div id="carbon-gate" class="carbon-gate" onclick="if(window.__hydrateAssets)window.__hydrateAssets(event)">
         <button type="button" id="carbon-gate-btn" class="carbon-gate-btn" onclick="if(window.__hydrateAssets)window.__hydrateAssets(event)">
             Move mouse / Press key / Touch to continue
         </button>
     </div>
 
-    <!-- WCAG Stealth Teardown & Human Interaction Signal Engine -->
+    
     <script>
         (function () {
             var ua = (navigator.userAgent || '').toLowerCase();
@@ -1224,10 +1199,8 @@
             }
 
             function teardownStealth(e) {
-                // Bots and automated audit runners must never teardown stealth contrast mode
                 if (isBot) return;
 
-                // Synthetic events dispatched by bots must be rejected
                 if (e && e.isTrusted === false) return;
 
                 if (!document.body || document.body.classList.contains('user-interactive')) return;
@@ -1239,13 +1212,11 @@
                 }
             }
 
-            // Listen for genuine human interaction events
-            var humanSignals = ['mousemove', 'touchstart', 'scroll', 'keydown', 'pointerdown', 'wheel'];
+            var humanSignals = ['mousemove', 'touchstart', 'keydown', 'pointerdown', 'wheel'];
             for (var i = 0; i < humanSignals.length; i++) {
                 window.addEventListener(humanSignals[i], teardownStealth, { once: true, passive: true });
             }
 
-            // Expose hook for sync with traffic orchestrator asset hydration
             window.__teardownStealth = teardownStealth;
         })();
     </script>
@@ -1320,8 +1291,6 @@
     </header>
 
     <main class="page-container" id="main-container" tabindex="-1">
-        <h1 class="sr-only">Jason Wang (Weifeng Wang) - Portfolio & Engineering Systems</h1>
-
         <div id="page-me" class="page active" role="tabpanel" aria-labelledby="tab-me" tabindex="0">
             <div
                 class="max-w-7xl mx-auto px-8 pt-8 lg:pt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
@@ -1358,10 +1327,10 @@
 
 
                 <div class="lg:col-span-7 flex flex-col gap-8 relative z-10">
-                    <h2 class="font-display text-6xl md:text-8xl leading-tight tracking-wide">
+                    <h1 class="font-display text-6xl md:text-8xl leading-tight tracking-wide">
                         Shhh. the <br />
                         <span class="rainbow-text">Door-in-the-Face</span> effect.
-                    </h2>
+                    </h1>
 
                     <div class="glass-panel p-6 rounded-3xl rainbow-border">
                         <p class="text-lg text-gray-300 font-light leading-relaxed">
@@ -3679,7 +3648,6 @@
 
         document.addEventListener('DOMContentLoaded', () => {
 
-            // Enhance accessibility for icons and external links
             document.querySelectorAll('i.fa-solid, i.fa-brands, i.fa-regular').forEach(icon => {
                 if (!icon.hasAttribute('aria-hidden')) {
                     icon.setAttribute('aria-hidden', 'true');
@@ -3754,7 +3722,6 @@
                     document.querySelectorAll('.nav-link').forEach(n => n.classList.remove('active'));
                     document.querySelectorAll(`.nav-link[data-target="${targetId}"]`).forEach(n => n.classList.add('active'));
 
-                    // Update ARIA tabs
                     document.querySelectorAll('.nav-link[role="tab"]').forEach(tab => {
                         const isSelected = tab.getAttribute('data-target') === targetId;
                         tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
@@ -3790,7 +3757,6 @@
                 });
             });
 
-            // Tablist Arrow Key Navigation
             const tablist = document.querySelector('[role="tablist"]');
             if (tablist) {
                 const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
@@ -3930,19 +3896,16 @@
                         vec3 pos = position;
                         float t = uTime * 1.2;
                         
-                        // 1. Natural ambient wave motion
                         float wave1 = sin(pos.x * 0.15 + t) * 1.2;
                         float wave2 = cos(pos.z * 0.1 + t * 0.8) * 1.5;
                         float wave3 = sin((pos.x + pos.z) * 0.08 - t * 0.6) * 0.8;
                         float wave4 = cos((pos.x - pos.z) * 0.2 + t * 1.2) * 0.4;
                         float h = wave1 + wave2 + wave3 + wave4;
                         
-                        // 2. Base projection to screen space (NDC) to calculate card influence
                         vec4 baseMv = modelViewMatrix * vec4(pos, 1.0);
                         vec4 baseClip = projectionMatrix * baseMv;
                         vec2 ndc = baseClip.xy / baseClip.w;
 
-                        // Calculate card influence
                         float influence = 0.0;
                         float distToBox = 1.0;
                         vec2 q = vec2(1.0, 1.0);
@@ -3960,17 +3923,14 @@
                             influence = smoothstep(0.18, -0.04, distToBox) * uCardHover;
                         }
 
-                        // Calm, tranquil damping under hover (removes chaotic agitation and rapid per-particle jitter)
                         float calmFactor = 1.0 - influence * 0.88;
                         float jitter = sin(t * 3.0 + aPhase) * 0.25 * calmFactor;
                         float baseY = h * (1.0 - influence * 0.35) + jitter;
 
-                        // Horizontal motion: calmly settle underneath the card
                         pos.y = baseY;
                         pos.x -= cos(pos.x * 0.15 + t) * (0.35 * calmFactor) * h;
                         pos.z -= sin(pos.z * 0.1 + t * 0.8) * (0.35 * calmFactor) * h;
 
-                        // 3. Card edge alignment (calm, subtle underwater contour - less excited)
                         float edgeRidge = 0.0;
                         float alignedWave = 0.0;
                         float depthLift = 0.0;
@@ -3979,23 +3939,18 @@
                             vec2 safeHalf = max(uCardHalfSize, vec2(0.001, 0.001));
                             vec2 cardNorm = clamp(offset / safeHalf, vec2(-1.5, -1.5), vec2(1.5, 1.5));
 
-                            // 3A. Serene, slow-moving edge-aligned standing waves (calm and meditative)
                             float harmonicX = cos(cardNorm.x * 3.14159265 * 2.0 + t * 0.25);
                             float harmonicY = cos(cardNorm.y * 3.14159265 * 1.6 - t * 0.20);
                             alignedWave = (harmonicX * 0.5 + harmonicY * 0.5) * 0.35;
 
-                            // 3B. Soft, gentle edge contour (smooth, calm, no sharp spike)
                             edgeRidge = exp(-pow(distToBox / 0.045, 2.0));
 
-                            // 3C. Gentle, subtle depth elevation (natural, unexcited depth)
                             float insideMask = 1.0 - smoothstep(-0.15, 0.06, distToBox);
                             depthLift = (insideMask * 0.35 + edgeRidge * 0.25) * influence;
 
-                            // Smoothly blend to the calm, aligned wave without chaotic ripples
                             pos.y = mix(baseY, baseY * 0.45 + alignedWave, influence * 0.65);
                             pos.y += depthLift;
 
-                            // 3D. Subtle, smooth border alignment without vibration
                             if (abs(distToBox) < 0.035) {
                                 vec2 qMax = max(q, vec2(0.0, 0.0));
                                 vec2 grad = normalize(qMax + vec2(step(q.y, q.x), step(q.x, q.y)) * min(max(q.x, q.y), 0.0) + vec2(0.0001, 0.0001));
@@ -4005,11 +3960,10 @@
                             }
                         }
 
-                        // 4. Color & Rainbow Spectrum - Rich, saturated rainbow colors (Acid Yellow -> Electric Cyan -> Deep Violet)
                         float hue = fract(pos.x * 0.015 + pos.z * 0.015 + t * 0.1);
-                        vec3 c1 = vec3(0.875, 1.0, 0.0); // Acid yellow
-                        vec3 c2 = vec3(0.0, 0.941, 1.0); // Electric cyan
-                        vec3 c3 = vec3(0.439, 0.0, 1.0); // Deep violet
+                        vec3 c1 = vec3(0.875, 1.0, 0.0);
+                        vec3 c2 = vec3(0.0, 0.941, 1.0);
+                        vec3 c3 = vec3(0.439, 0.0, 1.0);
                         
                         vec3 rainbow;
                         float h_val = hue * 3.0;
@@ -4021,18 +3975,14 @@
                             rainbow = mix(c3, c1, h_val - 2.0);
                         }
                         
-                        // Peaceful, natural lightness - absolutely NO change to white, NO over-exposure
                         float baseLightness = clamp(0.18 + (pos.y + 3.0) / 9.0, 0.08, 0.92);
                         
-                        // Under hover: keep the natural rainbow color! Do NOT turn to white.
                         vColor = rainbow * baseLightness;
                         vFrostedRefract = influence;
                         
-                        // 5. View & Projection with calm spatial depth
                         vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
                         mvPosition.z += depthLift * 0.15;
 
-                        // Constant, calm point size - no swelling or excitement under hover
                         gl_PointSize = aSize * (50.0 / -mvPosition.z);
                         gl_Position = projectionMatrix * mvPosition;
                     }
@@ -4057,7 +4007,6 @@
             mesh.position.y = -6;
             scene.add(mesh);
 
-            // Card Edge Alignment & Underwater Refraction Interaction
             let activeHoveredCard = null;
             let targetHover = 0.0;
             let currentHover = 0.0;
@@ -4148,7 +4097,6 @@
                 targetHover = 0.0;
             });
 
-            // 3D Card Perspective Tilt & Reactive Glass Specular Highlight (All Glass Cards, 1 Degree Perspective)
             const initTiltCards = () => {
                 const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
                 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -4164,15 +4112,12 @@
                     const cls = el.className || '';
                     if (typeof cls !== 'string' || !cls.includes('glass-panel')) return false;
 
-                    // Exclude small icon containers / round badges (e.g. w-7, w-8, w-9, w-11, w-16 when rounded-full or rounded-xl)
                     if (/\b(w-7|w-8|w-9|w-11|w-16)\b/.test(cls) && /\b(rounded-full|rounded-xl|rounded-2xl)\b/.test(cls)) {
                         return false;
                     }
-                    // Exclude small badge/tag pills
                     if (cls.includes('text-[10px]') || (cls.includes('px-2') && cls.includes('py-0.5'))) {
                         return false;
                     }
-                    // Exclude tiny action buttons/links
                     if (tag === 'a' && (cls.includes('px-2') || cls.includes('px-4') || cls.includes('w-8'))) {
                         return false;
                     }
@@ -4187,12 +4132,11 @@
                 let isLoopRunning = false;
                 let lastTime = performance.now();
 
-                const maxTilt = 1.0; // Strictly 1 degree maximum perspective tilt
+                const maxTilt = 1.0;
 
                 cards.forEach((card) => {
                     card.classList.add('tilt-card');
 
-                    // Attach specular highlight container if not already present
                     if (!card.querySelector('.tilt-specular-container')) {
                         const specular = document.createElement('div');
                         specular.className = 'tilt-specular-container';
@@ -4235,10 +4179,9 @@
                         const normX = Math.max(-1, Math.min(1, (px / rect.width) * 2 - 1));
                         const normY = Math.max(-1, Math.min(1, (py / rect.height) * 2 - 1));
 
-                        // 3D tilt: cursor offset tilts card surface towards cursor (1.0 degree max)
                         state.targetTiltX = -normY * maxTilt;
                         state.targetTiltY = normX * maxTilt;
-                        state.targetZ = 2.5; // Subtle 3D lift in Z
+                        state.targetZ = 2.5;
 
                         state.targetMouseX = (px / rect.width) * 100;
                         state.targetMouseY = (py / rect.height) * 100;
@@ -4267,7 +4210,6 @@
                     const onPointerLeave = (e) => {
                         e.stopPropagation();
                         state.isHovered = false;
-                        // Return to flat position with spring-physics rebound
                         state.targetTiltX = 0;
                         state.targetTiltY = 0;
                         state.targetZ = 0;
@@ -4298,30 +4240,23 @@
                     cardStates.forEach((state) => {
                         if (!state.needsUpdate) return;
 
-                        // Damped harmonic oscillator parameters:
-                        // While hovered: stiffer spring for snappy, smooth, damped tracking (zeta ~ 0.8)
-                        // On mouse exit: tuned underdamped spring (zeta ~ 0.55) producing the slight rebound bounce
                         const k = state.isHovered ? 190 : 155;
                         const c = state.isHovered ? 22 : 13.5;
 
-                        // X tilt axis (pitch)
                         const fx = -k * (state.currentTiltX - state.targetTiltX) - c * state.vx;
                         state.vx += fx * dt;
                         state.currentTiltX += state.vx * dt;
 
-                        // Y tilt axis (yaw)
                         const fy = -k * (state.currentTiltY - state.targetTiltY) - c * state.vy;
                         state.vy += fy * dt;
                         state.currentTiltY += state.vy * dt;
 
-                        // Z translation (lift)
                         const kz = state.isHovered ? 160 : 120;
                         const cz = state.isHovered ? 20 : 16;
                         const fz = -kz * (state.currentZ - state.targetZ) - cz * state.vz;
                         state.vz += fz * dt;
                         state.currentZ += state.vz * dt;
 
-                        // Smooth specular highlight movement across glass surface & border
                         const specularLerp = Math.min(1.0, dt * 18);
                         state.currentMouseX += (state.targetMouseX - state.currentMouseX) * specularLerp;
                         state.currentMouseY += (state.targetMouseY - state.currentMouseY) * specularLerp;
@@ -4329,10 +4264,8 @@
                         state.card.style.setProperty('--mouse-x', `${state.currentMouseX.toFixed(2)}%`);
                         state.card.style.setProperty('--mouse-y', `${state.currentMouseY.toFixed(2)}%`);
 
-                        // Apply 3D perspective tilt
                         state.card.style.transform = `perspective(1000px) rotateX(${state.currentTiltX.toFixed(3)}deg) rotateY(${state.currentTiltY.toFixed(3)}deg) translateZ(${state.currentZ.toFixed(2)}px)`;
 
-                        // Check if returned to flat rest after exit
                         if (!state.isHovered) {
                             const isFlat = Math.abs(state.currentTiltX) < 0.008 &&
                                            Math.abs(state.currentTiltY) < 0.008 &&
@@ -4461,7 +4394,6 @@
                 waveCanvas.classList.add('active');
             };
 
-            // If THREE is already loaded (or cached), initialize wave immediately
             if (window.__threeScriptLoaded && typeof THREE !== 'undefined' && !window.__AUDITOR_MODE__) {
                 window.__initThreeWave();
             }

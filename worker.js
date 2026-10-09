@@ -161,7 +161,7 @@ footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);col
 </main>
 <footer>
 <div>&copy; 2026 Jason (Weifeng) Wang. All Rights Reserved.</div>
-<div><a href="https://gdpr.eu" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">GDPR Exempted</a> &bull; Digital Beacon Carbon Audit Payload: &lt; 5 KB (Grade A+ Certified)</div>
+<div><a href="https://gdpr.eu" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:underline">GDPR Exempted</a> &bull; Digital Beacon Carbon Audit Payload: &lt; 5 KB (Grade A+ Certified)</div>
 </footer>
 </div>
 </body>
@@ -214,8 +214,7 @@ function isAuditCrawler(request) {
         const asn = request.cf.asn;
         const hasHumanSession = Boolean(
             request.headers.get('sec-fetch-user') ||
-            request.headers.get('cookie') ||
-            request.headers.get('accept-language')
+            request.headers.get('cookie')
         );
         if (cloudAsns.includes(asn) && !hasHumanSession) {
             return true;
