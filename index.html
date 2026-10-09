@@ -495,13 +495,21 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: shine 6s linear infinite;
-            display: inline-flex;
-            align-items: center;
             font-weight: 700;
             text-decoration: none;
             position: relative;
             padding-bottom: 2px;
             transition: opacity 0.2s ease;
+        }
+
+        .nav-hire-link {
+            display: none !important;
+        }
+
+        @media (min-width: 768px) {
+            .nav-hire-link {
+                display: inline-flex !important;
+            }
         }
 
         .radiant-word i {
@@ -1169,7 +1177,7 @@
                 <div class="flex items-center gap-3 sm:gap-4 shrink-0">
                     <a href="https://fandm.joinhandshake.com/profiles/wang" target="_blank" rel="noopener noreferrer"
                         aria-label="Hire Jason Now (opens in a new tab)"
-                        class="hidden md:inline-flex radiant-word text-sm lg:text-base font-mono font-bold tracking-wide items-center gap-1.5 cursor-pointer whitespace-nowrap">
+                        class="nav-hire-link hidden md:inline-flex radiant-word text-sm lg:text-base font-mono font-bold tracking-wide items-center gap-1.5 cursor-pointer whitespace-nowrap">
                         <span>Hire Jason Now</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px] lg:text-xs"></i>
                     </a>
