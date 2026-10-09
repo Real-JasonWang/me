@@ -747,6 +747,176 @@
         @keyframes splash-spin {
             to { transform: rotate(360deg); }
         }
+
+        /* Digital Beacon Sustainability Glass Badge (Glass Standard) */
+        .dbb__link {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            outline: none;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .dbb__link:hover {
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .dbb__link:focus-visible .dbb {
+            border-color: #00F0FF;
+            box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.4), 0 8px 25px rgba(0, 240, 255, 0.2);
+        }
+
+        .dbb {
+            font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            text-align: center;
+            width: auto;
+            min-width: 148px;
+            padding: 7px 14px 8px;
+            border-radius: 18px;
+            background: rgba(15, 15, 20, 0.35);
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f8fafc;
+            box-sizing: border-box;
+            box-shadow:
+                inset 0 1px 1px rgba(255, 255, 255, 0.12),
+                inset 0 0 12px rgba(255, 255, 255, 0.02),
+                0 8px 24px rgba(0, 0, 0, 0.4);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dbb__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 4px;
+            width: 100%;
+        }
+
+        .dbb__grade {
+            font-family: 'DM Sans', ui-monospace, monospace, sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            line-height: 1;
+            padding: 2.5px 6px;
+            border-radius: 6px;
+            background: rgba(0, 240, 255, 0.12);
+            border: 1px solid rgba(0, 240, 255, 0.4);
+            color: #00F0FF;
+            box-shadow: 0 0 8px rgba(0, 240, 255, 0.25), inset 0 0 4px rgba(0, 240, 255, 0.1);
+            letter-spacing: 0.04em;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .dbb__link:hover .dbb__grade {
+            background: rgba(223, 255, 0, 0.15);
+            border-color: #DFFF00;
+            color: #DFFF00;
+            box-shadow: 0 0 12px rgba(223, 255, 0, 0.4), inset 0 0 6px rgba(223, 255, 0, 0.15);
+        }
+
+        .dbb::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 18px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(0, 240, 255, 0.1), rgba(223, 255, 0, 0.18));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0.6;
+            transition: opacity 0.35s ease;
+        }
+
+        .dbb__link:hover .dbb {
+            background: rgba(18, 24, 38, 0.55);
+            border-color: rgba(0, 240, 255, 0.35);
+            box-shadow:
+                inset 0 1px 2px rgba(255, 255, 255, 0.22),
+                inset 0 0 16px rgba(0, 240, 255, 0.06),
+                0 12px 30px rgba(0, 0, 0, 0.6),
+                0 0 20px rgba(0, 240, 255, 0.2);
+        }
+
+        .dbb__link:hover .dbb::before {
+            opacity: 1;
+        }
+
+        .dbb__logo {
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.1;
+            height: auto;
+            overflow: visible;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+        }
+
+        .dbb__logo__o {
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+            text-indent: -9999px;
+            position: relative;
+            vertical-align: middle;
+            margin: 0 2px;
+        }
+
+        .dbb__logo__o:after {
+            content: "";
+            display: block;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0, 240, 255, 0.2);
+            border: 1.5px solid #00F0FF;
+            box-shadow: 0 0 10px #00F0FF, 0 0 4px #00F0FF, inset 0 0 4px #00F0FF;
+            box-sizing: border-box;
+            animation: dbb-beacon-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes dbb-beacon-pulse {
+            0%, 100% {
+                box-shadow: 0 0 8px #00F0FF, 0 0 3px #00F0FF, inset 0 0 3px #00F0FF;
+                border-color: #00F0FF;
+            }
+            50% {
+                box-shadow: 0 0 14px #DFFF00, 0 0 6px #DFFF00, inset 0 0 5px #DFFF00;
+                border-color: #DFFF00;
+            }
+        }
+
+        .dbb__stats {
+            font-family: 'DM Sans', ui-monospace, monospace, sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #94a3b8;
+            letter-spacing: 0.04em;
+            transition: color 0.3s ease;
+        }
+
+        .dbb__link:hover .dbb__stats {
+            color: #00F0FF;
+        }
     </style>
 </head>
 
@@ -912,12 +1082,20 @@
                     </div>
                     <div
                         class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs font-mono text-gray-400">
-                        <span>&copy; <span class="auto-year">2026</span> Jason Wang (Weifeng Wang)</span>
+                        <span>&copy; <span class="auto-date">October 2026</span> Jason Wang</span>
                         <span class="text-white/20">•</span>
-                        <span class="auto-date text-gray-300 font-medium">October 2026</span>
-                        <span class="text-white/20 hidden sm:inline">•</span>
-                        <span class="text-gray-500 hidden sm:inline">All Rights Reserved</span>
+                        <span class="text-gray-500">ARR</span>
                     </div>
+
+                    <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Digital Beacon Carbon Footprint Audit Grade A+: 40.47 KB | 0.013g CO2">
+                        <div class="dbb">
+                            <div class="dbb__header">
+                                <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
+                                <span class="dbb__grade">A+</span>
+                            </div>
+                            <div class="dbb__stats">40.47 KB | 0.013g</div>
+                        </div>
+                    </a>
                 </footer>
             </div>
         </div>
@@ -1083,12 +1261,20 @@
                     </div>
                     <div
                         class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs font-mono text-gray-400">
-                        <span>&copy; <span class="auto-year">2026</span> Jason Wang (Weifeng Wang)</span>
+                        <span>&copy; <span class="auto-date">October 2026</span> Jason Wang</span>
                         <span class="text-white/20">•</span>
-                        <span class="auto-date text-gray-300 font-medium">October 2026</span>
-                        <span class="text-white/20 hidden sm:inline">•</span>
-                        <span class="text-gray-500 hidden sm:inline">All Rights Reserved</span>
+                        <span class="text-gray-500">ARR</span>
                     </div>
+
+                    <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Digital Beacon Carbon Footprint Audit Grade A+: 40.47 KB | 0.013g CO2">
+                        <div class="dbb">
+                            <div class="dbb__header">
+                                <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
+                                <span class="dbb__grade">A+</span>
+                            </div>
+                            <div class="dbb__stats">40.47 KB | 0.013g</div>
+                        </div>
+                    </a>
                 </footer>
             </div>
         </div>
@@ -1273,12 +1459,20 @@
                     </div>
                     <div
                         class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs font-mono text-gray-400">
-                        <span>&copy; <span class="auto-year">2026</span> Jason Wang (Weifeng Wang)</span>
+                        <span>&copy; <span class="auto-date">October 2026</span> Jason Wang</span>
                         <span class="text-white/20">•</span>
-                        <span class="auto-date text-gray-300 font-medium">October 2026</span>
-                        <span class="text-white/20 hidden sm:inline">•</span>
-                        <span class="text-gray-500 hidden sm:inline">All Rights Reserved</span>
+                        <span class="text-gray-500">ARR</span>
                     </div>
+
+                    <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Digital Beacon Carbon Footprint Audit Grade A+: 40.47 KB | 0.013g CO2">
+                        <div class="dbb">
+                            <div class="dbb__header">
+                                <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
+                                <span class="dbb__grade">A+</span>
+                            </div>
+                            <div class="dbb__stats">40.47 KB | 0.013g</div>
+                        </div>
+                    </a>
                 </footer>
             </div>
         </div>
@@ -1985,12 +2179,20 @@
                     </div>
                     <div
                         class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs font-mono text-gray-400">
-                        <span>&copy; <span class="auto-year">2026</span> Jason Wang (Weifeng Wang)</span>
+                        <span>&copy; <span class="auto-date">October 2026</span> Jason Wang</span>
                         <span class="text-white/20">•</span>
-                        <span class="auto-date text-gray-300 font-medium">October 2026</span>
-                        <span class="text-white/20 hidden sm:inline">•</span>
-                        <span class="text-gray-500 hidden sm:inline">All Rights Reserved</span>
+                        <span class="text-gray-500">ARR</span>
                     </div>
+
+                    <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Digital Beacon Carbon Footprint Audit Grade A+: 40.47 KB | 0.013g CO2">
+                        <div class="dbb">
+                            <div class="dbb__header">
+                                <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
+                                <span class="dbb__grade">A+</span>
+                            </div>
+                            <div class="dbb__stats">40.47 KB | 0.013g</div>
+                        </div>
+                    </a>
                 </footer>
             </div>
         </div>
@@ -2871,12 +3073,20 @@
                     </div>
                     <div
                         class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs font-mono text-gray-400">
-                        <span>&copy; <span class="auto-year">2026</span> Jason Wang (Weifeng Wang)</span>
+                        <span>&copy; <span class="auto-date">October 2026</span> Jason Wang</span>
                         <span class="text-white/20">•</span>
-                        <span class="auto-date text-gray-300 font-medium">October 2026</span>
-                        <span class="text-white/20 hidden sm:inline">•</span>
-                        <span class="text-gray-500 hidden sm:inline">All Rights Reserved</span>
+                        <span class="text-gray-500">ARR</span>
                     </div>
+
+                    <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Digital Beacon Carbon Footprint Audit Grade A+: 40.47 KB | 0.013g CO2">
+                        <div class="dbb">
+                            <div class="dbb__header">
+                                <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
+                                <span class="dbb__grade">A+</span>
+                            </div>
+                            <div class="dbb__stats">40.47 KB | 0.013g</div>
+                        </div>
+                    </a>
                 </footer>
             </div>
         </div>
