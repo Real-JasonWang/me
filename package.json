@@ -7,3 +7,4 @@
     "build:css": "npx -p tailwindcss@3 tailwindcss -i input.css -o assets/tailwind.css --minify"
   }
 }
+

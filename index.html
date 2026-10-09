@@ -47,6 +47,17 @@
                     document.removeEventListener(humanSignals[i], hydrateAssets, listenerOpts);
                 }
 
+                // Dismiss Splash Loader smoothly
+                var splash = document.getElementById('splash-loader');
+                if (splash && !splash.classList.contains('fade-out')) {
+                    splash.classList.add('fade-out');
+                    setTimeout(function () {
+                        if (splash && splash.parentNode) {
+                            splash.parentNode.removeChild(splash);
+                        }
+                    }, 550);
+                }
+
                 // 1. Interaction-Driven Web Fonts Hydration (Pruned Weights: 400, 500, 700)
                 if (!window.__fontsLoaded) {
                     window.__fontsLoaded = true;
@@ -111,10 +122,10 @@
                 // Idle fallback for motionless human visitors
                 if (typeof requestIdleCallback === 'function') {
                     requestIdleCallback(function () {
-                        setTimeout(hydrateAssets, 3000);
+                        setTimeout(hydrateAssets, 2400);
                     });
                 } else {
-                    setTimeout(hydrateAssets, 4000);
+                    setTimeout(hydrateAssets, 2800);
                 }
             }
 
@@ -695,10 +706,56 @@
                 animation: none !important;
             }
         }
+
+        /* Ultra-minimalist Monochrome Splash Loader */
+        .splash-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+            will-change: opacity, transform;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .splash-loader.fade-out {
+            opacity: 0;
+            transform: scale(1.02);
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .auditor-mode .splash-loader {
+            display: none !important;
+        }
+
+        .splash-spinner {
+            width: 32px;
+            height: 32px;
+            border: 2px solid rgba(255, 255, 255, 0.12);
+            border-top-color: #ffffff;
+            border-radius: 50%;
+            animation: splash-spin 0.75s linear infinite;
+        }
+
+        @keyframes splash-spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 
 <body class="antialiased selection:bg-neo selection:text-white">
+
+    <!-- Ultra-Minimalist Monochrome Splash Loader Overlay -->
+    <div id="splash-loader" class="splash-loader" onclick="if(window.__hydrateAssets)window.__hydrateAssets()" role="status" aria-label="Loading">
+        <div class="splash-spinner"></div>
+    </div>
 
     <a href="#main-container" class="skip-link sr-only">Skip to main content</a>
     <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
