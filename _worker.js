@@ -145,7 +145,7 @@ footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);col
 </main>
 <footer>
 <div>&copy; 2026 Jason (Weifeng) Wang. All Rights Reserved.</div>
-<div>Digital Beacon Carbon Audit Payload: &lt; 5 KB (Grade A+ Certified)</div>
+<div><a href="https://gdpr.eu" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none">GDPR Exempted</a> &bull; Digital Beacon Carbon Audit Payload: &lt; 5 KB (Grade A+ Certified)</div>
 </footer>
 </div>
 </body>
