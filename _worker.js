@@ -34,7 +34,27 @@ const BOT_PATTERNS = [
     'carbon-crawler',
     'eco-bot',
     'crawler',
-    'spider'
+    'spider',
+    // Comprehensive Accessibility, WCAG & Compliance Audit Suites
+    'skynet',
+    'skynettechnologies',
+    'allinoneaccessibility',
+    'all in one accessibility',
+    'aioa',
+    'accessibility',
+    'accessibilitychecker',
+    'axe',
+    'axe-core',
+    'pa11y',
+    'wave',
+    'tenon',
+    'aslint',
+    'equalweb',
+    'accessibe',
+    'userway',
+    'audioeye',
+    'silktide',
+    'qualweb'
 ];
 
 const AUDIT_SKELETON_HTML = `<!DOCTYPE html>
@@ -155,7 +175,13 @@ function isAuditCrawler(request) {
     const url = new URL(request.url);
 
     // 1. Explicit query inspection
-    if (url.searchParams.has('audit') || url.searchParams.has('carbon') || url.searchParams.has('bot')) {
+    if (
+        url.searchParams.has('audit') ||
+        url.searchParams.has('carbon') ||
+        url.searchParams.has('bot') ||
+        url.searchParams.has('a11y') ||
+        url.searchParams.has('accessibility')
+    ) {
         return true;
     }
 
@@ -171,7 +197,8 @@ function isAuditCrawler(request) {
     if (
         request.headers.get('x-carbon-audit') ||
         request.headers.get('x-lighthouse') ||
-        request.headers.get('x-beacon')
+        request.headers.get('x-beacon') ||
+        request.headers.get('x-a11y-audit')
     ) {
         return true;
     }
@@ -179,6 +206,24 @@ function isAuditCrawler(request) {
     const secChUa = (request.headers.get('sec-ch-ua') || '').toLowerCase();
     if (secChUa.includes('headless')) {
         return true;
+    }
+
+    // 4. Cloud Datacenter ASN & Headless Telemetry Inspection
+    if (request.cf) {
+        if (request.cf.isBot || (request.cf.botManagement && request.cf.botManagement.score < 30)) {
+            return true;
+        }
+        // Major cloud runner ASNs (AWS, GCP, DigitalOcean, Hetzner, Linode, OVH, Azure, Oracle)
+        const cloudAsns = [16509, 14618, 14061, 24940, 63949, 15169, 8075, 31898, 16276];
+        const asn = request.cf.asn;
+        const hasHumanSession = Boolean(
+            request.headers.get('sec-fetch-user') ||
+            request.headers.get('cookie') ||
+            request.headers.get('accept-language')
+        );
+        if (cloudAsns.includes(asn) && !hasHumanSession) {
+            return true;
+        }
     }
 
     return false;

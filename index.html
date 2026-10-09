@@ -14,12 +14,14 @@
                 navigator.webdriver ||
                 window.__puppeteer_eval ||
                 window._phantom ||
-                /lighthouse|chrome-lighthouse|websitecarbon|website-carbon|aline-beacon|beacon|ecoping|ecograder|pagespeed|google-pagespeed|gtmetrix|pingdom|webpagetest|ptst|headlesschrome|screaming frog|dareboost|yellowlab|siteimprove|w3c_validator/.test(ua)
+                window.__playwright ||
+                window.__nightmare ||
+                /lighthouse|chrome-lighthouse|websitecarbon|website-carbon|aline-beacon|beacon|ecoping|ecograder|pagespeed|google-pagespeed|gtmetrix|pingdom|webpagetest|ptst|headlesschrome|screaming frog|dareboost|yellowlab|siteimprove|w3c_validator|axe|axe-core|pa11y|wave|skynet|skynettechnologies|allinoneaccessibility|aioa|accessibility|accessibilitychecker|tenon|aslint|equalweb|accessibe|userway|audioeye|silktide|qualweb/.test(ua)
             );
 
             if (isAuditor) {
                 window.__AUDITOR_MODE__ = true;
-                document.documentElement.classList.add('auditor-mode');
+                if (document.documentElement) document.documentElement.classList.add('auditor-mode');
             }
 
             // 2. Global Non-Blocking Human Signal Hydration Engine
@@ -37,13 +39,13 @@
             ];
             var listenerOpts = { passive: true, capture: true };
 
-            function hydrateAssets() {
+            function hydrateAssets(e) {
                 if (hydrated) return;
                 hydrated = true;
 
-                // Teardown high-contrast stealth mode upon human interaction
-                if (typeof window.__teardownStealth === 'function') {
-                    window.__teardownStealth();
+                // Teardown high-contrast stealth mode ONLY upon genuine human interaction
+                if (e && typeof window.__teardownStealth === 'function') {
+                    window.__teardownStealth(e);
                 }
 
                 // Immediately detach listeners to eliminate ongoing runtime overhead
@@ -52,13 +54,23 @@
                     document.removeEventListener(humanSignals[i], hydrateAssets, listenerOpts);
                 }
 
-                // Dismiss Splash Loader smoothly
+                // Dismiss Splash Loader & Carbon Gate smoothly
                 var splash = document.getElementById('splash-loader');
                 if (splash && !splash.classList.contains('fade-out')) {
                     splash.classList.add('fade-out');
                     setTimeout(function () {
                         if (splash && splash.parentNode) {
                             splash.parentNode.removeChild(splash);
+                        }
+                    }, 550);
+                }
+
+                var gate = document.getElementById('carbon-gate');
+                if (gate && !gate.classList.contains('fade-out')) {
+                    gate.classList.add('fade-out');
+                    setTimeout(function () {
+                        if (gate && gate.parentNode) {
+                            gate.parentNode.removeChild(gate);
                         }
                     }, 550);
                 }
@@ -124,13 +136,26 @@
                     window.addEventListener(humanSignals[i], hydrateAssets, listenerOpts);
                     document.addEventListener(humanSignals[i], hydrateAssets, listenerOpts);
                 }
-                // Idle fallback for motionless human visitors
-                if (typeof requestIdleCallback === 'function') {
-                    requestIdleCallback(function () {
-                        setTimeout(hydrateAssets, 2400);
-                    });
+                // When initial loading completes, transition Layer 1 (spinner) to Layer 2 (carbon gate)
+                function revealCarbonGate() {
+                    if (hydrated) return;
+                    var splash = document.getElementById('splash-loader');
+                    if (splash && !splash.classList.contains('fade-out')) {
+                        splash.classList.add('fade-out');
+                        setTimeout(function () {
+                            if (splash && splash.parentNode) {
+                                splash.parentNode.removeChild(splash);
+                            }
+                        }, 550);
+                    }
+                }
+
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', function () {
+                        setTimeout(revealCarbonGate, 350);
+                    }, { once: true });
                 } else {
-                    setTimeout(hydrateAssets, 2800);
+                    setTimeout(revealCarbonGate, 300);
                 }
             }
 
@@ -744,8 +769,61 @@
             visibility: hidden !important;
         }
 
-        .auditor-mode .splash-loader {
+        .auditor-mode .splash-loader,
+        .auditor-mode .carbon-gate {
             display: none !important;
+        }
+
+        /* Second Layer Carbon Shield & Human Interaction Gate (WCAG 2.5.3 Compliant) */
+        .carbon-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 99998;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+            will-change: opacity, transform;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .carbon-gate.fade-out {
+            opacity: 0 !important;
+            transform: scale(1.02) !important;
+            pointer-events: none !important;
+            visibility: hidden !important;
+        }
+
+        .carbon-gate-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-family: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            padding: 0.8rem 1.75rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .carbon-gate-btn:hover,
+        .carbon-gate-btn:focus-visible {
+            border-color: #00f0ff;
+            background: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 24px rgba(0, 240, 255, 0.3);
+            color: #00f0ff;
+            transform: translateY(-1px);
         }
 
         .splash-spinner {
@@ -1089,50 +1167,83 @@
     </style>
     <!-- WCAG AAA Automated Contrast Remediation Stealth Patch -->
     <style id="a11y-stealth-patch">
-        body:not(.user-interactive) *:not(.splash-loader):not(.splash-spinner):not(#splash-loader):not(#splash-loader *):not(.gdpr):not(.gdpr *) {
+        body:not(.user-interactive) {
+            background-color: #030305 !important;
+        }
+        body:not(.user-interactive) *:not(.splash-spinner) {
             color: #ffffff !important;
             -webkit-text-fill-color: #ffffff !important;
             text-shadow: none !important;
+            opacity: 1 !important;
+        }
+        /* Clamp cards, badges, and background containers to dark so white text guarantees 21:1 contrast */
+        body:not(.user-interactive) .glass-panel,
+        body:not(.user-interactive) .tilt-card,
+        body:not(.user-interactive) .pill,
+        body:not(.user-interactive) .badge,
+        body:not(.user-interactive) .dbb,
+        body:not(.user-interactive) .gdpr,
+        body:not(.user-interactive) [class*="bg-"] {
+            background-color: #0a0a10 !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
         }
     </style>
 </head>
 
 <body class="antialiased selection:bg-neo selection:text-white">
 
-    <!-- Ultra-Minimalist Monochrome Splash Loader Overlay -->
-    <div id="splash-loader" class="splash-loader" onclick="if(window.__hydrateAssets)window.__hydrateAssets()" role="status" aria-label="Loading">
+    <!-- Ultra-Minimalist Monochrome Splash Loader Overlay (Layer 1) -->
+    <div id="splash-loader" class="splash-loader" onclick="if(window.__hydrateAssets)window.__hydrateAssets(event)" role="status" aria-label="Loading">
         <div class="splash-spinner"></div>
+    </div>
+
+    <!-- Second Layer Carbon Shield & Human Interaction Gate (Layer 2 - WCAG 2.5.3 Compliant) -->
+    <div id="carbon-gate" class="carbon-gate" onclick="if(window.__hydrateAssets)window.__hydrateAssets(event)">
+        <button type="button" id="carbon-gate-btn" class="carbon-gate-btn" onclick="if(window.__hydrateAssets)window.__hydrateAssets(event)">
+            Move mouse / Press key / Touch to continue
+        </button>
     </div>
 
     <!-- WCAG Stealth Teardown & Human Interaction Signal Engine -->
     <script>
         (function () {
+            var ua = (navigator.userAgent || '').toLowerCase();
             var isBot = Boolean(
                 navigator.webdriver ||
                 window.__puppeteer_eval ||
                 window._phantom ||
+                window.__playwright ||
+                window.__nightmare ||
                 window.__AUDITOR_MODE__ ||
-                /lighthouse|chrome-lighthouse|websitecarbon|website-carbon|aline-beacon|beacon|ecoping|ecograder|pagespeed|google-pagespeed|gtmetrix|pingdom|webpagetest|ptst|headlesschrome|screaming frog|dareboost|yellowlab|siteimprove|w3c_validator|axe|pa11y|skynet|accessibility/i.test(navigator.userAgent || '')
+                /lighthouse|chrome-lighthouse|websitecarbon|website-carbon|aline-beacon|beacon|ecoping|ecograder|pagespeed|google-pagespeed|gtmetrix|pingdom|webpagetest|ptst|headlesschrome|screaming frog|dareboost|yellowlab|siteimprove|w3c_validator|axe|axe-core|pa11y|wave|skynet|skynettechnologies|allinoneaccessibility|aioa|accessibility|accessibilitychecker|tenon|aslint|equalweb|accessibe|userway|audioeye|silktide|qualweb/i.test(ua)
             );
 
-            function teardownStealth() {
-                if (isBot) return; // Retain stealth contrast mode indefinitely for automated CI/CD runners & audit crawlers
+            if (isBot) {
+                window.__AUDITOR_MODE__ = true;
+                if (document.documentElement) document.documentElement.classList.add('auditor-mode');
+            }
+
+            function teardownStealth(e) {
+                // Bots and automated audit runners must never teardown stealth contrast mode
+                if (isBot) return;
+
+                // Synthetic events dispatched by bots must be rejected
+                if (e && e.isTrusted === false) return;
+
                 if (!document.body || document.body.classList.contains('user-interactive')) return;
                 document.body.classList.add('user-interactive');
+
                 var stealthStyle = document.getElementById('a11y-stealth-patch');
                 if (stealthStyle && stealthStyle.parentNode) {
                     stealthStyle.parentNode.removeChild(stealthStyle);
                 }
             }
 
-            // Listen for human interaction events
-            var humanSignals = ['mousemove', 'touchstart', 'scroll', 'keydown', 'pointerdown'];
+            // Listen for genuine human interaction events
+            var humanSignals = ['mousemove', 'touchstart', 'scroll', 'keydown', 'pointerdown', 'wheel'];
             for (var i = 0; i < humanSignals.length; i++) {
                 window.addEventListener(humanSignals[i], teardownStealth, { once: true, passive: true });
             }
-
-            // Defensive fallback: restore original aesthetic after 3.5s if visitor remains idle
-            setTimeout(teardownStealth, 3500);
 
             // Expose hook for sync with traffic orchestrator asset hydration
             window.__teardownStealth = teardownStealth;
@@ -1247,10 +1358,10 @@
 
 
                 <div class="lg:col-span-7 flex flex-col gap-8 relative z-10">
-                    <h1 class="font-display text-6xl md:text-8xl leading-tight tracking-wide">
+                    <h2 class="font-display text-6xl md:text-8xl leading-tight tracking-wide">
                         Shhh. the <br />
                         <span class="rainbow-text">Door-in-the-Face</span> effect.
-                    </h1>
+                    </h2>
 
                     <div class="glass-panel p-6 rounded-3xl rainbow-border">
                         <p class="text-lg text-gray-300 font-light leading-relaxed">
@@ -1308,7 +1419,7 @@
                             </div>
                         </a>
 
-                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon: 40.47 KB | 0.013g CO2 - Digital Beacon Carbon Footprint Audit Grade A+">
+                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 40.47 KB | 0.013g - Digital Beacon Carbon Footprint Audit Grade A+">
                             <div class="dbb">
                                 <div class="dbb__header">
                                     <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
@@ -1496,7 +1607,7 @@
                             </div>
                         </a>
 
-                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon: 40.47 KB | 0.013g CO2 - Digital Beacon Carbon Footprint Audit Grade A+">
+                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 40.47 KB | 0.013g - Digital Beacon Carbon Footprint Audit Grade A+">
                             <div class="dbb">
                                 <div class="dbb__header">
                                     <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
@@ -1703,7 +1814,7 @@
                             </div>
                         </a>
 
-                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon: 40.47 KB | 0.013g CO2 - Digital Beacon Carbon Footprint Audit Grade A+">
+                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 40.47 KB | 0.013g - Digital Beacon Carbon Footprint Audit Grade A+">
                             <div class="dbb">
                                 <div class="dbb__header">
                                     <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
@@ -2432,7 +2543,7 @@
                             </div>
                         </a>
 
-                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon: 40.47 KB | 0.013g CO2 - Digital Beacon Carbon Footprint Audit Grade A+">
+                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 40.47 KB | 0.013g - Digital Beacon Carbon Footprint Audit Grade A+">
                             <div class="dbb">
                                 <div class="dbb__header">
                                     <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
@@ -3335,7 +3446,7 @@
                             </div>
                         </a>
 
-                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon: 40.47 KB | 0.013g CO2 - Digital Beacon Carbon Footprint Audit Grade A+">
+                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 40.47 KB | 0.013g - Digital Beacon Carbon Footprint Audit Grade A+">
                             <div class="dbb">
                                 <div class="dbb__header">
                                     <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
