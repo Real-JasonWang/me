@@ -116,6 +116,7 @@ footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);col
 <a href="#about">About</a>
 <a href="#affiliations">Affiliations</a>
 <a href="#awards">Honors</a>
+<a href="#carbon">Furthermore</a>
 <a href="https://fandm.joinhandshake.com/profiles/wang" target="_blank" rel="noopener">Handshake</a>
 </nav>
 </header>
@@ -158,10 +159,18 @@ footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);col
 </ul>
 </div>
 </section>
+<section id="carbon">
+<h2>Furthermore &amp; Digital Sustainability</h2>
+<div class="card">
+<p><strong>Absolute Privacy by Architecture:</strong> Zero tracking cookies, zero surveillance scripts, and zero personal data collection. GDPR exempted by design.</p>
+<p><strong>Grade A+ Certified Carbon Footprint:</strong> This website is hosted on 100% renewable energy and emits only <strong>0.013g CO2</strong> per page view &mdash; cleaner than <strong>99%</strong> of all tested websites worldwide.</p>
+<p>Under the Sustainable Web Design model (SWDM v4), pages exceeding the 2.4 MB HTTP Archive average fail sustainability standards. Weifeng Wang's portfolio guarantees an ultra-lean cold-load payload, achieving peak ecological efficiency with zero tracking cookies.</p>
+</div>
+</section>
 </main>
 <footer>
 <div>&copy; 2026 Jason (Weifeng) Wang. All Rights Reserved.</div>
-<div><a href="https://gdpr.eu" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:underline">GDPR Exempted</a> &bull; Digital Beacon Carbon Audit Payload: &lt; 5 KB (Grade A+ Certified)</div>
+<div><a href="https://gdpr.eu" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:underline">GDPR Exempted</a> &bull; Digital Beacon Carbon Audit: <a href="https://digitalbeacon.co/report/weifengwang-com" target="_blank" rel="noopener" style="color:var(--acid);text-decoration:underline">Grade A+ (0.013g CO2 &bull; Cleaner than 99%)</a></div>
 </footer>
 </div>
 </body>

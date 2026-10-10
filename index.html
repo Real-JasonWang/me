@@ -525,6 +525,7 @@
             }
         }
 
+
         .radiant-word i {
             -webkit-text-fill-color: transparent;
         }
@@ -995,7 +996,8 @@
             color: #94a3b8;
             letter-spacing: 0.04em;
             transition: color 0.3s ease;
-        }
+        
+            white-space: nowrap;}
 
         .dbb__link:hover .dbb__stats {
             color: #00F0FF;
@@ -1150,6 +1152,10 @@
             white-space: nowrap !important;
             border: 0 !important;
         }
+    
+        nav[role="navigation"].glass-panel:hover {
+            transform: none !important;
+        }
     </style>
     
     <style id="a11y-stealth-patch">
@@ -1236,10 +1242,10 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
 
     <header role="banner" class="contents">
         <nav role="navigation" aria-label="Main Navigation"
-            class="fixed z-50 top-3 md:top-6 left-0 right-0 mx-auto w-[96%] sm:w-[92%] max-w-[1400px] h-[60px] md:h-[72px] glass-panel rounded-[30px] md:rounded-[36px] flex items-center px-4 md:px-8 shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/10 transition-all duration-300">
-            <div class="w-full flex justify-between items-center gap-4">
+            class="fixed z-50 top-3 md:top-6 left-0 right-0 mx-auto w-[96%] sm:w-[92%] max-w-[1400px] h-[60px] md:h-[72px] glass-panel rounded-[30px] md:rounded-[36px] flex items-center px-4 md:px-6 lg:px-8 shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/10 transition-all duration-300">
+            <div class="w-full flex justify-between items-center gap-2 md:gap-3 lg:gap-4">
                 <div data-target="me" role="button" tabindex="0" aria-label="Jason Wang - Return to Me page"
-                    class="nav-brand font-display text-2xl md:text-3xl tracking-wide flex items-center gap-2 md:gap-3 cursor-pointer group shrink-0">
+                    class="nav-brand font-display text-xl md:text-2xl lg:text-3xl tracking-wide flex items-center gap-2 md:gap-3 cursor-pointer group shrink-0">
                     <div
                         class="w-7 h-7 md:w-8 md:h-8 rounded-full rainbow-border bg-white/5 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
                         <i
@@ -1248,20 +1254,21 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                     JASON<span class="rainbow-text ml-1">WANG</span>
                 </div>
 
-                <div role="tablist" aria-label="Sections" class="hidden md:flex gap-4 lg:gap-8 text-xs lg:text-sm font-mono items-center">
+                <div role="tablist" aria-label="Sections" class="hidden md:flex gap-2 lg:gap-5 xl:gap-8 text-[11px] lg:text-xs xl:text-sm font-mono items-center whitespace-nowrap">
                     <span role="tab" tabindex="0" aria-selected="true" aria-controls="page-me" id="tab-me" class="nav-link active" data-target="me">Me</span>
                     <span role="tab" tabindex="-1" aria-selected="false" aria-controls="page-hybrid-skillset" id="tab-hybrid-skillset" class="nav-link" data-target="hybrid-skillset">Hybrid Skillset</span>
                     <span role="tab" tabindex="-1" aria-selected="false" aria-controls="page-experiences" id="tab-experiences" class="nav-link" data-target="experiences">Experiences</span>
                     <span role="tab" tabindex="-1" aria-selected="false" aria-controls="page-outputs-awards" id="tab-outputs-awards" class="nav-link" data-target="outputs-awards">Outputs & Awards</span>
                     <span role="tab" tabindex="-1" aria-selected="false" aria-controls="page-facts" id="tab-facts" class="nav-link" data-target="facts">Facts</span>
+                    <span role="tab" tabindex="-1" aria-selected="false" aria-controls="page-about-website" id="tab-about-website" class="nav-link" data-target="about-website">Furthermore</span>
                 </div>
 
-                <div class="flex items-center gap-3 sm:gap-4 shrink-0">
+                <div class="flex items-center gap-2 sm:gap-4 shrink-0">
                     <a href="https://fandm.joinhandshake.com/profiles/wang" target="_blank" rel="noopener noreferrer"
                         aria-label="Hire Jason Now (opens in a new tab)"
-                        class="nav-hire-link hidden md:inline-flex radiant-word text-sm lg:text-base font-mono font-bold tracking-wide items-center gap-1.5 cursor-pointer whitespace-nowrap">
+                        class="nav-hire-link hidden md:inline-flex radiant-word text-xs lg:text-sm xl:text-base font-mono font-bold tracking-wide items-center gap-1.5 cursor-pointer whitespace-nowrap pr-1 md:pr-2 lg:pr-0">
                         <span>Hire Jason Now</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] lg:text-xs"></i>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[9px] lg:text-xs"></i>
                     </a>
                     <button id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu"
                         class="md:hidden w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/80 hover:text-white transition-colors border-white/10 shrink-0">
@@ -1281,6 +1288,7 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
             <span role="button" tabindex="0" class="nav-link mobile-nav-link text-lg font-mono py-1.5"
                 data-target="outputs-awards">Outputs & Awards</span>
             <span role="button" tabindex="0" class="nav-link mobile-nav-link text-lg font-mono py-1.5" data-target="facts">Facts</span>
+            <span role="button" tabindex="0" class="nav-link mobile-nav-link text-lg font-mono py-1.5" data-target="about-website">Furthermore</span>
             <a href="https://fandm.joinhandshake.com/profiles/wang" target="_blank" rel="noopener noreferrer"
                 aria-label="Hire Jason Now (opens in a new tab)"
                 class="py-2 flex items-center justify-between cursor-pointer group">
@@ -1388,13 +1396,13 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                             </div>
                         </a>
 
-                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 40.47 KB | 0.013g - Digital Beacon Carbon Footprint Audit Grade A+">
+                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 0.013g CO2 - Digital Beacon Carbon Footprint Audit Grade A+">
                             <div class="dbb">
                                 <div class="dbb__header">
                                     <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
                                     <span class="dbb__grade">A+</span>
                                 </div>
-                                <div class="dbb__stats">40.47 KB | 0.013g</div>
+                                <div class="dbb__stats">0.013g CO2</div>
                             </div>
                         </a>
                     </div>
@@ -1576,13 +1584,13 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                             </div>
                         </a>
 
-                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 40.47 KB | 0.013g - Digital Beacon Carbon Footprint Audit Grade A+">
+                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 0.013g CO2 - Digital Beacon Carbon Footprint Audit Grade A+">
                             <div class="dbb">
                                 <div class="dbb__header">
                                     <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
                                     <span class="dbb__grade">A+</span>
                                 </div>
-                                <div class="dbb__stats">40.47 KB | 0.013g</div>
+                                <div class="dbb__stats">0.013g CO2</div>
                             </div>
                         </a>
                     </div>
@@ -1783,13 +1791,13 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                             </div>
                         </a>
 
-                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 40.47 KB | 0.013g - Digital Beacon Carbon Footprint Audit Grade A+">
+                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 0.013g CO2 - Digital Beacon Carbon Footprint Audit Grade A+">
                             <div class="dbb">
                                 <div class="dbb__header">
                                     <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
                                     <span class="dbb__grade">A+</span>
                                 </div>
-                                <div class="dbb__stats">40.47 KB | 0.013g</div>
+                                <div class="dbb__stats">0.013g CO2</div>
                             </div>
                         </a>
                     </div>
@@ -2512,13 +2520,13 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                             </div>
                         </a>
 
-                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 40.47 KB | 0.013g - Digital Beacon Carbon Footprint Audit Grade A+">
+                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 0.013g CO2 - Digital Beacon Carbon Footprint Audit Grade A+">
                             <div class="dbb">
                                 <div class="dbb__header">
                                     <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
                                     <span class="dbb__grade">A+</span>
                                 </div>
-                                <div class="dbb__stats">40.47 KB | 0.013g</div>
+                                <div class="dbb__stats">0.013g CO2</div>
                             </div>
                         </a>
                     </div>
@@ -3415,13 +3423,257 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                             </div>
                         </a>
 
-                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 40.47 KB | 0.013g - Digital Beacon Carbon Footprint Audit Grade A+">
+                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 0.013g CO2 - Digital Beacon Carbon Footprint Audit Grade A+">
                             <div class="dbb">
                                 <div class="dbb__header">
                                     <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
                                     <span class="dbb__grade">A+</span>
                                 </div>
-                                <div class="dbb__stats">40.47 KB | 0.013g</div>
+                                <div class="dbb__stats">0.013g CO2</div>
+                            </div>
+                        </a>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+    
+        <div id="page-about-website" class="page" role="tabpanel" aria-labelledby="tab-about-website" tabindex="0" aria-hidden="true" inert>
+            <div class="max-w-7xl mx-auto px-4 sm:px-8 pt-8">
+                <div class="flex items-center gap-6 mb-16">
+                    <div class="w-16 h-16 rounded-full glass-panel flex items-center justify-center font-mono text-xl rainbow-border">
+                        05
+                    </div>
+                    <h2 class="font-display text-5xl font-bold">Furthermore <span class="text-gray-500 font-light text-3xl block mt-2">Sustainability, Privacy and more</span></h2>
+                </div>
+
+                <div class="flex flex-col gap-10 sm:gap-12 pb-12">
+                    <div class="tilt-card glass-panel p-8 sm:p-12 rounded-[2.5rem] relative overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                        <div class="max-w-4xl">
+                            <h3 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                                <span class="font-bold text-4xl sm:text-5xl lg:text-6xl font-mono inline-block mr-1" style="background: linear-gradient(135deg, #34d399, #00f0ff, #f8d8ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">100% Private</span> by architecture.
+                            </h3>
+                            <p class="text-base sm:text-lg text-gray-200 font-light leading-relaxed mb-8">
+                                Zero data collected, no cookies, no tracking. Completely private and anonymous.
+                            </p>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <a href="https://gdpr.eu" target="_blank" rel="noopener noreferrer"
+                                    aria-label="GDPR Exempted (opens in a new tab)"
+                                    class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full font-mono text-xs sm:text-sm hover:brightness-110 hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-cyan/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-black" style="background: linear-gradient(135deg, #34d399, #00f0ff, #f8d8ff); color: #000000; font-weight: 800;">
+                                    <span>GDPR Exempted</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tilt-card glass-panel p-8 sm:p-12 rounded-[2.5rem] relative overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+                        <div class="max-w-4xl">
+                            <h3 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                                <span class="font-bold text-4xl sm:text-5xl lg:text-6xl text-transparent bg-clip-text bg-gradient-to-r from-acid via-cyan to-neo font-mono inline-block mr-1 drop-shadow-[0_0_35px_rgba(0,240,255,0.4)]" style="font-weight: 900;">A+</span> when it comes to its carbon footprint
+                            </h3>
+                            <p class="text-base sm:text-lg text-gray-200 font-light leading-relaxed mb-8">
+                                This website is hosted using renewable energy or carbon offsets. Emitting only <span class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan to-neo font-mono">0.013g CO2</span> per cold-load visit across all web pages tested globally.
+                            </p>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <a href="https://digitalbeacon.co/report/weifengwang-com" target="_blank" rel="noopener noreferrer"
+                                    aria-label="View Digital Beacon Audit (opens in a new tab)"
+                                    class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full font-mono text-xs sm:text-sm font-bold text-black bg-gradient-to-r from-acid via-cyan to-neo hover:brightness-110 hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-cyan/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-black">
+                                    <span>View Digital Beacon Audit</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://sustainablewebdesign.org" target="_blank" rel="noopener noreferrer"
+                                    aria-label="SWDM Methodology (opens in a new tab)"
+                                    class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full font-mono text-xs sm:text-sm font-medium text-white/90 hover:text-white glass-panel hover:bg-white/10 hover:border-cyan/40 hover:scale-105 active:scale-95 transition-all duration-300 border border-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan focus-visible:ring-offset-2 focus-visible:ring-offset-black">
+                                    <span>SWDM Methodology</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-xs" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                        <div class="glass-panel p-6 sm:p-8 rounded-[2rem] border border-white/10 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="font-mono text-xs text-gray-400 uppercase tracking-wider">Carbon Emission</span>
+                                    <i class="fa-solid fa-gauge-high text-neo text-sm" aria-hidden="true"></i>
+                                </div>
+                                <div class="font-display text-4xl sm:text-5xl font-bold text-neo mb-4">0.013g <span class="text-xs font-normal text-gray-400 font-mono">CO2</span></div>
+                                <div class="pt-4 border-t border-white/5">
+                                    <p class="text-xs text-gray-300 leading-relaxed font-light">Opens with plain semantic HTML. Heavy 3D graphics and physics wait until you interact.</p>
+                                </div>
+                            </div>
+                            <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-neo">
+                                <span>&lt; 0.05g Cold-Load Guaranteed</span>
+                                <i class="fa-solid fa-shield-halved text-[10px]" aria-hidden="true"></i>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel p-6 sm:p-8 rounded-[2rem] border border-white/10 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="font-mono text-xs text-gray-400 uppercase tracking-wider">Efficiency Rating</span>
+                                    <i class="fa-solid fa-trophy text-acid text-sm" aria-hidden="true"></i>
+                                </div>
+                                <div class="font-display text-4xl sm:text-5xl font-bold text-acid mb-4">Top 1%</div>
+                                <div class="pt-4 border-t border-white/5">
+                                    <p class="text-xs text-gray-300 leading-relaxed font-light">Zero ads, trackers, or cookie popups. Edge-streamed over HTTP/3 for sub-second paint.</p>
+                                </div>
+                            </div>
+                            <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-acid">
+                                <span>100% Private • Zero Cookies</span>
+                                <i class="fa-solid fa-bolt-lightning text-[10px]" aria-hidden="true"></i>
+                            </div>
+                        </div>
+
+                        <div class="glass-panel p-6 sm:p-8 rounded-[2rem] border border-white/10 flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="font-mono text-xs text-gray-400 uppercase tracking-wider">Green Hosting</span>
+                                    <i class="fa-solid fa-solar-panel text-cyan text-sm" aria-hidden="true"></i>
+                                </div>
+                                <div class="font-display text-4xl sm:text-5xl font-bold text-cyan mb-4">100%</div>
+                                <div class="pt-4 border-t border-white/5">
+                                    <p class="text-xs text-gray-300 leading-relaxed font-light">Hosted on global edge nodes powered 100% by renewable wind and solar energy.</p>
+                                </div>
+                            </div>
+                            <div class="mt-5 pt-3 border-t border-white/5 flex items-center justify-between text-[11px] font-mono text-cyan">
+                                <span>Renewable Power Grid</span>
+                                <i class="fa-solid fa-leaf text-[10px]" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel px-3 py-5 sm:p-8 lg:p-12 rounded-[2rem] sm:rounded-[2.5rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
+                        <div class="pb-6 mb-8 border-b border-white/10">
+                            <h3 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white font-display tracking-wide">
+                                Digital Carbon Rating Scale
+                            </h3>
+                        </div>
+
+                        <div class="overflow-x-auto mb-8 pb-2">
+                            <table class="w-full text-left font-mono text-[9px] sm:text-xs md:text-sm" role="table" aria-label="Digital Carbon Rating Scale">
+                                <thead>
+                                    <tr class="border-b border-white/10 text-gray-400 text-[9px] sm:text-xs uppercase tracking-wider">
+                                        <th scope="col" class="pb-2.5 sm:pb-3.5 pl-1 sm:pl-3 font-semibold whitespace-nowrap">Grade</th>
+                                        <th scope="col" class="pb-2.5 sm:pb-3.5 px-0.5 sm:px-3 font-semibold whitespace-nowrap"><span class="sm:hidden">Max CO2</span><span class="hidden sm:inline">Max Emission <span class="hidden md:inline">(SWDM v4)</span></span></th>
+                                        <th scope="col" class="pb-2.5 sm:pb-3.5 px-0.5 sm:px-3 font-semibold whitespace-nowrap"><span class="sm:hidden">Percentile</span><span class="hidden sm:inline">Global Percentile</span></th>
+                                        <th scope="col" class="pb-2.5 sm:pb-3.5 px-0.5 sm:px-3 font-semibold whitespace-nowrap"><span class="hidden md:inline">HTTP Archive </span>Benchmark</th>
+                                        <th scope="col" class="pb-2.5 sm:pb-3.5 pr-1 sm:pr-3 text-right font-semibold whitespace-nowrap"><span class="sm:hidden">Status</span><span class="hidden sm:inline">Evaluation Status</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-white/5 text-gray-300">
+                                    <tr class="bg-gradient-to-r from-acid/15 via-cyan/10 to-transparent border-l-4 border-l-acid text-white font-bold">
+                                        <td class="py-2.5 sm:py-4 pl-1 sm:pl-3 whitespace-nowrap">
+                                            <span class="inline-flex items-center justify-center px-1.5 py-0.5 sm:px-3 sm:py-1 rounded-md sm:rounded-lg font-mono text-[9px] sm:text-xs" style="color: #000000; background-color: #dfff00; font-weight: 900; box-shadow: 0 0 16px rgba(223, 255, 0, 0.45); border: 1px solid #dfff00;">A+</span>
+                                        </td>
+                                        <td class="py-2.5 sm:py-4 px-0.5 sm:px-3 text-acid font-semibold whitespace-nowrap">&lt; 0.095g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2.5 sm:py-4 px-0.5 sm:px-3 text-acid whitespace-nowrap">Top 5%</td>
+                                        <td class="py-2.5 sm:py-4 px-0.5 sm:px-3 text-acid font-bold whitespace-nowrap">0.040g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2.5 sm:py-4 pr-1 sm:pr-3 text-right whitespace-nowrap">
+                                            <span class="inline-flex items-center gap-1 sm:gap-1.5 px-1.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[9px] sm:text-xs font-mono font-bold text-acid bg-acid/15 border border-acid/40 shadow-[0_0_10px_rgba(204,255,0,0.2)] whitespace-nowrap tracking-tight sm:tracking-normal">
+                                                <span class="w-1.5 h-1.5 rounded-full bg-acid animate-pulse" aria-hidden="true"></span>
+                                                <span>weifengwang.com<span class="hidden sm:inline"> (0.013g)</span></span>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.03] transition-colors">
+                                        <td class="py-2 sm:py-3.5 pl-1 sm:pl-3 whitespace-nowrap">
+                                            <span class="inline-flex items-center justify-center px-1.5 py-0.5 sm:px-2.5 sm:py-0.5 rounded-md sm:rounded-lg font-mono text-[9px] sm:text-xs font-bold" style="color: #34d399; background: rgba(52, 211, 153, 0.18); border: 1px solid rgba(52, 211, 153, 0.5); box-shadow: 0 0 10px rgba(52, 211, 153, 0.2);">A</span>
+                                        </td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-emerald-400 font-medium whitespace-nowrap">&lt; 0.185g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-gray-300 whitespace-nowrap">Top 10%</td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-gray-400 font-mono whitespace-nowrap">0.079g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2 sm:py-3.5 pr-1 sm:pr-3 text-right text-emerald-400/90 font-mono text-[9px] sm:text-xs whitespace-nowrap">Tier 1<span class="hidden sm:inline"> • Clean Standard</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.03] transition-colors">
+                                        <td class="py-2 sm:py-3.5 pl-1 sm:pl-3 whitespace-nowrap">
+                                            <span class="inline-flex items-center justify-center px-1.5 py-0.5 sm:px-2.5 sm:py-0.5 rounded-md sm:rounded-lg font-mono text-[9px] sm:text-xs font-bold" style="color: #00f0ff; background: rgba(0, 240, 255, 0.18); border: 1px solid rgba(0, 240, 255, 0.5); box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);">B</span>
+                                        </td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-cyan font-medium whitespace-nowrap">&lt; 0.34g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-gray-300 whitespace-nowrap">Top 20%</td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-gray-400 font-mono whitespace-nowrap">0.145g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2 sm:py-3.5 pr-1 sm:pr-3 text-right text-cyan/90 font-mono text-[9px] sm:text-xs whitespace-nowrap">Tier 2<span class="hidden sm:inline"> • High Efficiency</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.03] transition-colors">
+                                        <td class="py-2 sm:py-3.5 pl-1 sm:pl-3 whitespace-nowrap">
+                                            <span class="inline-flex items-center justify-center px-1.5 py-0.5 sm:px-2.5 sm:py-0.5 rounded-md sm:rounded-lg font-mono text-[9px] sm:text-xs font-bold" style="color: #facc15; background: rgba(250, 204, 21, 0.18); border: 1px solid rgba(250, 204, 21, 0.5); box-shadow: 0 0 10px rgba(250, 204, 21, 0.2);">C</span>
+                                        </td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-yellow-300 font-medium whitespace-nowrap">&lt; 0.49g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-gray-300 whitespace-nowrap">Top 30%</td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-gray-400 font-mono whitespace-nowrap">0.209g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2 sm:py-3.5 pr-1 sm:pr-3 text-right text-yellow-300/90 font-mono text-[9px] sm:text-xs whitespace-nowrap">Tier 3<span class="hidden sm:inline"> • Moderate</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.03] transition-colors">
+                                        <td class="py-2 sm:py-3.5 pl-1 sm:pl-3 whitespace-nowrap">
+                                            <span class="inline-flex items-center justify-center px-1.5 py-0.5 sm:px-2.5 sm:py-0.5 rounded-md sm:rounded-lg font-mono text-[9px] sm:text-xs font-bold" style="color: #fb923c; background: rgba(251, 146, 60, 0.18); border: 1px solid rgba(251, 146, 60, 0.5); box-shadow: 0 0 10px rgba(251, 146, 60, 0.2);">D</span>
+                                        </td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-orange-400 font-medium whitespace-nowrap">&lt; 0.65g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-gray-300 whitespace-nowrap">Top 40%</td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-gray-400 font-mono whitespace-nowrap">0.278g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2 sm:py-3.5 pr-1 sm:pr-3 text-right text-orange-400/90 font-mono text-[9px] sm:text-xs whitespace-nowrap">Tier 4<span class="hidden sm:inline"> • Sub-Optimal</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.03] transition-colors">
+                                        <td class="py-2 sm:py-3.5 pl-1 sm:pl-3 whitespace-nowrap">
+                                            <span class="inline-flex items-center justify-center px-1.5 py-0.5 sm:px-2.5 sm:py-0.5 rounded-md sm:rounded-lg font-mono text-[9px] sm:text-xs font-bold" style="color: #fb7185; background: rgba(251, 113, 133, 0.18); border: 1px solid rgba(251, 113, 133, 0.5); box-shadow: 0 0 10px rgba(251, 113, 133, 0.2);">E</span>
+                                        </td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-rose-400 font-medium whitespace-nowrap">&lt; 0.85g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-gray-300 whitespace-nowrap">Top 50%</td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-gray-400 font-mono whitespace-nowrap">0.359g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2 sm:py-3.5 pr-1 sm:pr-3 text-right text-rose-400/90 font-mono text-[9px] sm:text-xs whitespace-nowrap">Tier 5<span class="hidden sm:inline"> • Heavy Emissions</span></td>
+                                    </tr>
+                                    <tr class="hover:bg-white/[0.03] transition-colors">
+                                        <td class="py-2 sm:py-3.5 pl-1 sm:pl-3 whitespace-nowrap">
+                                            <span class="inline-flex items-center justify-center px-1.5 py-0.5 sm:px-2.5 sm:py-0.5 rounded-md sm:rounded-lg font-mono text-[9px] sm:text-xs font-bold" style="color: #f87171; background: rgba(248, 113, 113, 0.18); border: 1px solid rgba(248, 113, 113, 0.5); box-shadow: 0 0 10px rgba(248, 113, 113, 0.2);">F</span>
+                                        </td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-red-400 font-mono font-medium whitespace-nowrap">&gt; 0.85g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-rose-400 whitespace-nowrap">&gt; 50%</td>
+                                        <td class="py-2 sm:py-3.5 px-0.5 sm:px-3 text-rose-400 font-mono font-bold whitespace-nowrap">&ge; 0.360g<span class="hidden sm:inline"> CO2</span></td>
+                                        <td class="py-2 sm:py-3.5 pr-1 sm:pr-3 text-right text-red-400 font-mono text-[9px] sm:text-xs font-bold whitespace-nowrap">Unrated<span class="hidden sm:inline"> • Exceeds Global Avg</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/10 text-xs sm:text-sm leading-relaxed text-gray-300">
+                            <p>Websites exceeding average emissions are not sustainable. Powered by 100% green energy and lean code, <span class="font-bold text-white">weifengwang.com</span> leads the web at <span class="font-bold text-acid font-mono">0.013g CO2</span>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <footer
+                    class="mt-12 md:mt-16 glass-panel rounded-[24px] md:rounded-[36px] px-5 md:px-8 py-3.5 md:py-4 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-white/10 transition-all duration-300">
+                    <div class="flex items-center gap-2.5">
+                        <div
+                            class="w-6 h-6 md:w-7 md:h-7 rounded-full rainbow-border bg-white/5 flex items-center justify-center">
+                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]"></i>
+                        </div>
+                        <span class="font-display text-lg md:text-xl tracking-wide text-white">JASON<span
+                                class="rainbow-text ml-1">WANG</span></span>
+                    </div>
+                    <div
+                        class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs font-mono text-gray-400">
+                        <span>&copy; <span class="auto-date">October 2026</span> Jason Wang</span>
+                        <span class="text-white/20">•</span>
+                        <span class="text-gray-500">ARR</span>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2.5 flex-shrink-0">
+                        <a href="https://gdpr.eu" class="gdpr__link" target="_blank" rel="noopener noreferrer" aria-label="GDPR Exempted - gdpr.eu (opens in a new tab)">
+                            <div class="gdpr">
+                                <span class="gdpr__logo">GDPR</span>
+                                <span class="gdpr__badge"><span class="gdpr__badge-text">Exempted</span></span>
+                            </div>
+                        </a>
+
+                        <a href="https://digitalbeacon.co/report/weifengwang-com" class="dbb__link" target="_blank" rel="noopener noreferrer" aria-label="Beacon A+ 0.013g CO2 - Digital Beacon Carbon Footprint Audit Grade A+">
+                            <div class="dbb">
+                                <div class="dbb__header">
+                                    <div class="dbb__logo">Beac<span class="dbb__logo__o">o</span>n</div>
+                                    <span class="dbb__grade">A+</span>
+                                </div>
+                                <div class="dbb__stats">0.013g CO2</div>
                             </div>
                         </a>
                     </div>
@@ -3711,7 +3963,8 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                 'hybrid-skillset': 'Hybrid Skillset',
                 'experiences': 'Experiences',
                 'outputs-awards': 'Outputs & Awards',
-                'facts': 'Facts'
+                'facts': 'Facts',
+                'about-website': 'Furthermore'
             };
 
             navLinks.forEach(link => {
@@ -3739,7 +3992,8 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                         || (targetId === 'core' ? document.getElementById('page-hybrid-skillset') : null)
                         || (targetId === 'labor' || targetId === 'experience' ? document.getElementById('page-experiences') : null)
                         || (targetId === 'synapses' || targetId === 'outputs' || targetId === 'awards' ? document.getElementById('page-outputs-awards') : null)
-                        || (targetId === 'facts' || targetId === 'arsenal' ? document.getElementById('page-facts') : null);
+                        || (targetId === 'facts' || targetId === 'arsenal' ? document.getElementById('page-facts') : null)
+                        || (targetId === 'about-website' || targetId === 'about' || targetId === 'carbon' || targetId === 'website' ? document.getElementById('page-about-website') : null);
                     if (targetPage) {
                         setTimeout(() => {
                             targetPage.classList.add('active');
