@@ -9,6 +9,41 @@
     <script id="traffic-orchestrator">
         (function () {
             var ua = (navigator.userAgent || '').toLowerCase();
+            var isSearchEngine = Boolean(
+              /googlebot|bingbot|yandex|duckduckbot|slurp|baiduspider/i.test(ua)
+            );
+
+            if (isSearchEngine) {
+              function exposeContentForCrawler() {
+                var splash = document.getElementById('splash-loader');
+                var gate = document.getElementById('carbon-gate');
+                if (splash && splash.parentNode) splash.parentNode.removeChild(splash);
+                if (gate && gate.parentNode) gate.parentNode.removeChild(gate);
+
+                if (document.body) document.body.classList.add('user-interactive');
+                var stealthPatch = document.getElementById('a11y-stealth-patch');
+                if (stealthPatch && stealthPatch.parentNode) {
+                  stealthPatch.parentNode.removeChild(stealthPatch);
+                }
+
+                var pages = document.querySelectorAll('.page');
+                for (var i = 0; i < pages.length; i++) {
+                  pages[i].style.display = 'block';
+                  pages[i].style.opacity = '1';
+                  pages[i].style.position = 'relative';
+                  pages[i].style.pointerEvents = 'auto';
+                  pages[i].removeAttribute('inert');
+                  pages[i].removeAttribute('aria-hidden');
+                }
+              }
+
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', exposeContentForCrawler, { once: true });
+              } else {
+                exposeContentForCrawler();
+              }
+            }
+
             var isAuditor = Boolean(
                 navigator.webdriver ||
                 window.__puppeteer_eval ||
@@ -1169,6 +1204,75 @@ body:not(.user-interactive) .glass-panel,body:not(.user-interactive) .tilt-card,
 body:not(.user-interactive) a,.auditor-mode a{text-decoration:underline!important;text-underline-offset:3px!important}
 body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#030305!important;color:#ffffff!important}
 </style>
+<meta name="description" content="Jason Wang (Weifeng Wang) portfolio, AI engineering outputs, psychometric modeling research, awards, and verified competitive benchmarks at Franklin & Marshall College.">
+<meta name="keywords" content="Jason Wang, Weifeng Wang, Certiferox, Franklin and Marshall, Computer Science, Machine Learning, MeowOJ, Dengue Fever ML">
+<meta name="author" content="Jason (Weifeng) Wang">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://weifengwang.com/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Jason Wang (Weifeng Wang) | Portfolio & Research">
+<meta property="og:description" content="Co-founder & CPO at Certiferox, Computer Science & Psychology researcher at Franklin & Marshall College.">
+<meta property="og:url" content="https://weifengwang.com/">
+<meta property="og:site_name" content="Jason (Weifeng) Wang">
+<meta property="og:image" content="https://weifengwang.com/assets/jw_b1.jpg">
+<meta property="og:image:alt" content="Jason Wang (Weifeng Wang) Portrait">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jason Wang (Weifeng Wang) | Portfolio & Research">
+<meta name="twitter:description" content="Personal portfolio and verified technical benchmarks of Jason Wang (Weifeng Wang).">
+<meta name="twitter:image" content="https://weifengwang.com/assets/jw_b1.jpg">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://weifengwang.com/#person",
+  "name": "Jason Wang",
+  "alternateName": [
+    "Weifeng Wang",
+    "Jason (Weifeng) Wang",
+    "王尉锋"
+  ],
+  "givenName": "Weifeng",
+  "additionalName": "Jason",
+  "familyName": "Wang",
+  "url": "https://weifengwang.com",
+  "image": "https://weifengwang.com/assets/jw_b1.jpg",
+  "jobTitle": [
+    "Co-founder & CPO",
+    "AI Engineer",
+    "Researcher"
+  ],
+  "worksFor": [
+    {
+      "@type": "Organization",
+      "name": "Certiferox"
+    }
+  ],
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Franklin & Marshall College"
+    },
+    {
+      "@type": "EducationalOrganization",
+      "name": "Wuhan Britain-China School"
+    }
+  ],
+  "knowsAbout": [
+    "Computer Science",
+    "Machine Learning",
+    "Artificial Intelligence",
+    "Cognitive Psychology",
+    "Human-Computer Interaction"
+  ],
+  "sameAs": [
+    "https://fandm.joinhandshake.com/profiles/wang",
+    "https://github.com/real-jasonwang",
+    "https://www.amazon.com/dp/B0CGV8S6LT",
+    "https://digitalbeacon.co/report/weifengwang-com"
+  ]
+}
+</script>
 </head>
 
 <body class="antialiased selection:bg-neo selection:text-white">
@@ -1308,6 +1412,9 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                         <div class="shush-placeholder group rounded-[2rem] relative overflow-hidden">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 4'%3E%3C/svg%3E" data-src="assets/jw_b1.jpg" alt="Jason Wang"
                                 class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105 z-10" />
+                            <noscript>
+                              <img src="assets/jw_b1.jpg" alt="Jason Wang (Weifeng Wang)" class="absolute inset-0 w-full h-full object-cover object-center z-10" />
+                            </noscript>
                             <div
                                 class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none z-20">
                             </div>

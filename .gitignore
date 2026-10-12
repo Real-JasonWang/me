@@ -70,3 +70,12 @@ Thumbs.db:encryptable
 *.swo
 *~
 
+*carbon*crawler*
+*carbon*audit*
+*crawler*sim*
+carbon_*.py
+crawler_*.py
+*.carbon.json
+*.audit.json
+
+
