@@ -2,3 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hire Jason Now Modal - Core Guaranteed Styles */
+#hire-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 99999 !important;
+    background-color: rgba(3, 4, 8, 0.90) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+}
+
+#hire-modal.hidden {
+    display: none !important;
+}
+
+#hire-modal.flex {
+    display: flex !important;
+}
+
+#hire-modal-card {
+    position: relative !important;
+    background-color: #0c0d15 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    max-width: 640px !important;
+    width: 95% !important;
+    margin: auto !important;
+    border-radius: 1.5rem !important;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 240, 255, 0.12) !important;
+    overflow: hidden !important;
+    z-index: 100000 !important;
+}
+
+.hire-input,
+#hire-contact-form input[type="text"],
+#hire-contact-form input[type="email"],
+#hire-contact-form textarea {
+    width: 100% !important;
+    background-color: #141522 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 0.75rem !important;
+    padding: 0.75rem 1rem !important;
+    font-family: 'DM Sans', monospace, sans-serif !important;
+    font-size: 0.9375rem !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+.hire-input::placeholder,
+#hire-contact-form input::placeholder,
+#hire-contact-form textarea::placeholder {
+    color: #6b7280 !important;
+}
+
+.hire-input:focus,
+#hire-contact-form input:focus,
+#hire-contact-form textarea:focus {
+    outline: none !important;
+    border-color: rgba(0, 240, 255, 0.6) !important;
+    box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.35) !important;
+}
+
+#hire-type-btn {
+    background-color: #141522 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 0.75rem !important;
+}
+
+#hire-type-menu {
+    background-color: #0d0f18 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 240, 255, 0.15) !important;
+}
+
+@media (min-width: 640px) {
+    .hire-grid-2 {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1rem !important;
+    }
+}
+
