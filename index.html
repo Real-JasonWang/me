@@ -1368,8 +1368,8 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                 </div>
 
                 <div class="flex items-center gap-2 sm:gap-4 shrink-0">
-                    <a href="https://fandm.joinhandshake.com/profiles/wang" target="_blank" rel="noopener noreferrer"
-                        aria-label="Hire Jason Now (opens in a new tab)"
+                    <a href="#hire-modal" onclick="openHireModal(event)"
+                        aria-label="Hire Jason Now (opens contact form)"
                         class="nav-hire-link hidden md:inline-flex radiant-word text-xs lg:text-[14.5px] xl:text-[17px] 2xl:text-lg font-mono font-bold tracking-wide items-center gap-1.5 cursor-pointer whitespace-nowrap pr-1 md:pr-2 lg:pr-0">
                         <span>Hire Jason Now</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[9px] lg:text-xs"></i>
@@ -1393,8 +1393,8 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                 data-target="outputs-awards">Outputs & Awards</span>
             <span role="button" tabindex="0" class="nav-link mobile-nav-link text-lg font-mono py-1.5" data-target="facts">Facts</span>
             <span role="button" tabindex="0" class="nav-link mobile-nav-link text-lg font-mono py-1.5" data-target="about-website">Furthermore</span>
-            <a href="https://fandm.joinhandshake.com/profiles/wang" target="_blank" rel="noopener noreferrer"
-                aria-label="Hire Jason Now (opens in a new tab)"
+            <a href="#hire-modal" onclick="openHireModal(event)"
+                aria-label="Hire Jason Now (opens contact form)"
                 class="py-2 flex items-center justify-between cursor-pointer group">
                 <span class="radiant-word text-lg font-mono font-bold">Hire Jason Now</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-xs text-cyan"></i>
@@ -3843,8 +3843,8 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                 </div>
 
                 <div class="flex flex-wrap items-center justify-between gap-3 sm:gap-4 mt-6 sm:mt-8">
-                    <a href="https://fandm.joinhandshake.com/profiles/wang" target="_blank" rel="noopener noreferrer"
-                        class="px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl font-mono text-xs sm:text-sm font-bold text-black bg-gradient-to-r from-acid via-cyan to-neo hover:opacity-90 shadow-xl shadow-cyan/25 hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 flex items-center gap-2">
+                    <a href="#hire-modal" onclick="closeWarningModal(); openHireModal(event);"
+                        class="px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl font-mono text-xs sm:text-sm font-bold text-black bg-gradient-to-r from-acid via-cyan to-neo hover:opacity-90 shadow-xl shadow-cyan/25 hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 cursor-pointer">
                         <span>Fine, Let's Connect / Hire Jason</span>
                         <i class="fa-solid fa-arrow-up-right-from-square text-[10px] sm:text-xs"></i>
                     </a>
@@ -3853,6 +3853,195 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                         Dismiss Warning
                     </button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hire Jason Now Contact Modal -->
+    <div id="hire-modal"
+        role="dialog" aria-modal="true" aria-labelledby="hire-modal-title" aria-describedby="hire-modal-desc" aria-hidden="true"
+        class="fixed inset-0 z-[130] bg-black/85 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5 md:p-6 transition-all duration-300 opacity-0"
+        onclick="closeHireModal(event)">
+        <div id="hire-modal-card"
+            class="relative w-full max-w-xl md:max-w-2xl bg-[#0c0d14]/95 border border-white/15 rounded-2xl sm:rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.85),0_0_50px_rgba(0,240,255,0.08)] transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] scale-90 translate-y-6 opacity-0 overflow-hidden flex flex-col max-h-[92vh] sm:max-h-[88vh]"
+            onclick="event.stopPropagation()">
+            <div class="h-[2px] w-full bg-gradient-to-r from-acid via-cyan to-neo shrink-0"></div>
+
+            <div class="flex items-center justify-between px-5 pt-5 pb-3 sm:px-8 sm:pt-6 sm:pb-4 shrink-0">
+                <h2 id="hire-modal-title" class="font-display text-3xl sm:text-4xl md:text-[42px] font-bold tracking-wide leading-tight rainbow-text">
+                    Get in Touch with Jason Directly...
+                </h2>
+                <button type="button" onclick="closeHireModal()" aria-label="Close contact modal"
+                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-all duration-200 hover:rotate-90 hover:scale-105 active:scale-95 cursor-pointer shrink-0">
+                    <i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <div class="px-5 py-3 sm:px-8 sm:py-4 overflow-y-auto overscroll-contain flex-1">
+                <form id="hire-contact-form" action="https://formsubmit.co/843abd1b04fdafc22b85114d09493286" method="POST" onsubmit="handleHireSubmit(event)" novalidate class="flex flex-col gap-3.5 sm:gap-4">
+                    <div style="display:none !important; position:absolute; left:-9999px;" aria-hidden="true">
+                        <label for="hire-fax-hp">Fax</label>
+                        <input type="text" id="hire-fax-hp" name="_honey" tabindex="-1" autocomplete="off" />
+                        <label for="hire-website-hp">Website</label>
+                        <input type="text" id="hire-website-hp" name="website_hp" tabindex="-1" autocomplete="off" />
+                        <input type="hidden" name="_cc" value="wangweifeng0316@gmail.com" />
+                        <input type="hidden" name="_template" value="table" />
+                        <input type="hidden" name="_captcha" value="false" />
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                        <div class="flex flex-col gap-1.5">
+                            <label for="hire-name" class="font-mono text-xs sm:text-sm text-gray-300 font-semibold flex items-center gap-1">
+                                <span>Your Name</span>
+                                <span class="text-cyan">*</span>
+                            </label>
+                            <input type="text" id="hire-name" name="name" required placeholder="Definitely a human"
+                                class="w-full bg-[#141520]/80 border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-cyan/60 focus:ring-1 focus:ring-cyan/40 transition-colors duration-200 font-mono" />
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                            <label for="hire-email" class="font-mono text-xs sm:text-sm text-gray-300 font-semibold flex items-center gap-1">
+                                <span>Your Email</span>
+                                <span class="text-cyan">*</span>
+                            </label>
+                            <input type="email" id="hire-email" name="email" required placeholder="not_spam@company.com"
+                                class="w-full bg-[#141520]/80 border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-cyan/60 focus:ring-1 focus:ring-cyan/40 transition-colors duration-200 font-mono" />
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                        <div class="flex flex-col gap-1.5">
+                            <label for="hire-org" class="font-mono text-xs sm:text-sm text-gray-300 font-semibold">
+                                <span>Company / Organization</span>
+                            </label>
+                            <input type="text" id="hire-org" name="organization" placeholder="NASA / My garage"
+                                class="w-full bg-[#141520]/80 border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-cyan/60 focus:ring-1 focus:ring-cyan/40 transition-colors duration-200 font-mono" />
+                        </div>
+                        <div class="flex flex-col gap-1.5 relative" id="hire-type-dropdown">
+                            <label id="hire-type-label" for="hire-type-btn" class="font-mono text-xs sm:text-sm text-gray-300 font-semibold flex items-center gap-1">
+                                <span>Inquiry Type</span>
+                                <span class="text-cyan">*</span>
+                            </label>
+                            <input type="hidden" id="hire-type" name="inquiry_type" value="Full-Time Role" />
+                            <button type="button" id="hire-type-btn"
+                                role="combobox"
+                                aria-haspopup="listbox"
+                                aria-expanded="false"
+                                aria-controls="hire-type-menu"
+                                aria-labelledby="hire-type-label hire-type-selected"
+                                aria-activedescendant="hire-opt-0"
+                                onclick="toggleHireDropdown(event)"
+                                onkeydown="handleHireDropdownKey(event)"
+                                class="w-full bg-[#141520]/80 border border-white/10 hover:border-white/20 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm sm:text-base text-white flex items-center justify-between focus:outline-none focus:border-cyan/60 focus:ring-1 focus:ring-cyan/40 transition-all duration-200 font-mono cursor-pointer">
+                                <span id="hire-type-selected" class="flex items-center gap-2.5 truncate">
+                                    <i id="hire-type-selected-icon" class="fa-solid fa-briefcase text-xs text-cyan shrink-0" aria-hidden="true"></i>
+                                    <span id="hire-type-selected-text">Full-Time Role</span>
+                                </span>
+                                <i id="hire-type-chevron" class="fa-solid fa-chevron-down text-xs text-cyan transition-transform duration-200 shrink-0" aria-hidden="true"></i>
+                            </button>
+                            <!-- Custom Glass Dropdown Menu -->
+                            <div id="hire-type-menu"
+                                role="listbox"
+                                aria-labelledby="hire-type-label"
+                                tabindex="-1"
+                                class="absolute left-0 right-0 top-full mt-1.5 z-50 bg-[#0d0f18]/95 backdrop-blur-2xl border border-white/15 rounded-xl p-1.5 shadow-[0_15px_35px_rgba(0,0,0,0.85),0_0_25px_rgba(0,240,255,0.12)] hidden flex-col gap-1 transition-all duration-200">
+                                <div id="hire-opt-0" role="option" aria-selected="true" data-index="0" data-value="Full-Time Role" data-icon="fa-solid fa-briefcase text-cyan" onclick="selectHireOption('Full-Time Role', 'fa-solid fa-briefcase text-cyan', 0)"
+                                    class="hire-option px-3 py-2 rounded-lg text-sm sm:text-base font-mono text-cyan bg-cyan/10 flex items-center justify-between cursor-pointer transition-colors duration-150">
+                                    <span class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-briefcase text-xs text-cyan shrink-0" aria-hidden="true"></i>
+                                        <span>Full-Time Role</span>
+                                    </span>
+                                    <i class="fa-solid fa-check text-xs text-cyan opacity-100 transition-opacity shrink-0" aria-hidden="true"></i>
+                                </div>
+                                <div id="hire-opt-1" role="option" aria-selected="false" data-index="1" data-value="Internship / Co-op" data-icon="fa-solid fa-rocket text-acid" onclick="selectHireOption('Internship / Co-op', 'fa-solid fa-rocket text-acid', 1)"
+                                    class="hire-option px-3 py-2 rounded-lg text-sm sm:text-base font-mono text-gray-300 hover:text-cyan hover:bg-cyan/10 flex items-center justify-between cursor-pointer transition-colors duration-150">
+                                    <span class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-rocket text-xs text-acid shrink-0" aria-hidden="true"></i>
+                                        <span>Internship / Co-op</span>
+                                    </span>
+                                    <i class="fa-solid fa-check text-xs text-cyan opacity-0 transition-opacity shrink-0" aria-hidden="true"></i>
+                                </div>
+                                <div id="hire-opt-2" role="option" aria-selected="false" data-index="2" data-value="Research Collaboration" data-icon="fa-solid fa-atom text-neo" onclick="selectHireOption('Research Collaboration', 'fa-solid fa-atom text-neo', 2)"
+                                    class="hire-option px-3 py-2 rounded-lg text-sm sm:text-base font-mono text-gray-300 hover:text-cyan hover:bg-cyan/10 flex items-center justify-between cursor-pointer transition-colors duration-150">
+                                    <span class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-atom text-xs text-neo shrink-0" aria-hidden="true"></i>
+                                        <span>Research Collaboration</span>
+                                    </span>
+                                    <i class="fa-solid fa-check text-xs text-cyan opacity-0 transition-opacity shrink-0" aria-hidden="true"></i>
+                                </div>
+                                <div id="hire-opt-3" role="option" aria-selected="false" data-index="3" data-value="Freelance / Project" data-icon="fa-solid fa-laptop-code text-cyan" onclick="selectHireOption('Freelance / Project', 'fa-solid fa-laptop-code text-cyan', 3)"
+                                    class="hire-option px-3 py-2 rounded-lg text-sm sm:text-base font-mono text-gray-300 hover:text-cyan hover:bg-cyan/10 flex items-center justify-between cursor-pointer transition-colors duration-150">
+                                    <span class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-laptop-code text-xs text-cyan shrink-0" aria-hidden="true"></i>
+                                        <span>Freelance / Project</span>
+                                    </span>
+                                    <i class="fa-solid fa-check text-xs text-cyan opacity-0 transition-opacity shrink-0" aria-hidden="true"></i>
+                                </div>
+                                <div id="hire-opt-4" role="option" aria-selected="false" data-index="4" data-value="Coffee Chat / Networking" data-icon="fa-solid fa-comments text-acid" onclick="selectHireOption('Coffee Chat / Networking', 'fa-solid fa-comments text-acid', 4)"
+                                    class="hire-option px-3 py-2 rounded-lg text-sm sm:text-base font-mono text-gray-300 hover:text-cyan hover:bg-cyan/10 flex items-center justify-between cursor-pointer transition-colors duration-150">
+                                    <span class="flex items-center gap-2.5">
+                                        <i class="fa-solid fa-comments text-xs text-acid shrink-0" aria-hidden="true"></i>
+                                        <span>Coffee Chat / Networking</span>
+                                    </span>
+                                    <i class="fa-solid fa-check text-xs text-cyan opacity-0 transition-opacity shrink-0" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col gap-1.5">
+                        <label for="hire-subject" class="font-mono text-xs sm:text-sm text-gray-300 font-semibold flex items-center gap-1">
+                            <span>Subject</span>
+                            <span class="text-cyan">*</span>
+                        </label>
+                        <input type="text" id="hire-subject" name="subject" required placeholder="Shut up and take my offer"
+                            class="w-full bg-[#141520]/80 border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-cyan/60 focus:ring-1 focus:ring-cyan/40 transition-colors duration-200 font-mono" />
+                    </div>
+
+                    <div class="flex flex-col gap-1.5">
+                        <label for="hire-message" class="font-mono text-xs sm:text-sm text-gray-300 font-semibold flex items-center gap-1">
+                            <span>Message Details</span>
+                            <span class="text-cyan">*</span>
+                        </label>
+                        <textarea id="hire-message" name="message" required rows="3" placeholder="We have snacks, cool projects, and actual budget..."
+                            class="w-full bg-[#141520]/80 border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-cyan/60 focus:ring-1 focus:ring-cyan/40 transition-colors duration-200 font-mono resize-none"></textarea>
+                    </div>
+
+                    <div id="hire-form-alert" class="hidden rounded-xl p-3 text-xs sm:text-sm font-mono border transition-all duration-200" role="alert"></div>
+
+                    <div class="pt-2">
+                        <button type="submit" id="hire-submit-btn"
+                            class="w-full py-3 sm:py-3.5 rounded-xl font-mono text-sm sm:text-base font-bold text-black bg-gradient-to-r from-acid via-cyan to-neo hover:opacity-95 shadow-lg shadow-cyan/25 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span id="hire-btn-text">Send Message</span>
+                            <i id="hire-btn-icon" class="fa-solid fa-paper-plane text-xs sm:text-sm" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="hire-success-view" class="hidden flex flex-col items-center justify-center py-8 sm:py-12 px-4 text-center">
+                    <!-- Clean Rainbow Headline -->
+                    <h3 class="font-display text-4xl sm:text-5xl font-bold tracking-wide rainbow-text mb-3">
+                        Sent!
+                    </h3>
+
+                    <!-- Pragmatic & Concise Copy -->
+                    <p class="text-sm sm:text-base font-mono text-gray-300 max-w-md mx-auto mb-8 leading-relaxed">
+                        Your message has landed in Jason's inbox. Expect a reply shortly. I was going to write a long one, but it threw an OverflowException.
+                    </p>
+
+                    <!-- Woohoo Action Button -->
+                    <button type="button" onclick="closeHireModal()"
+                        class="px-8 py-3.5 sm:px-10 sm:py-4 rounded-xl font-mono text-sm sm:text-base font-bold text-black bg-gradient-to-r from-acid via-cyan to-neo hover:opacity-95 shadow-[0_0_25px_rgba(0,240,255,0.35)] hover:scale-[1.03] active:scale-[0.98] transition-all duration-200 cursor-pointer mx-auto">
+                        Woohoo!
+                    </button>
+                </div>
+            </div>
+
+            <div class="px-5 py-2.5 sm:px-8 sm:py-3 bg-black/40 border-t border-white/5 flex items-center justify-center text-xs sm:text-sm font-mono text-gray-400 shrink-0">
+                <a href="https://fandm.joinhandshake.com/profiles/wang" target="_blank" rel="noopener noreferrer"
+                    class="text-gray-400 hover:text-cyan transition-colors flex items-center gap-1.5">
+                    <span>Prefer Handshake?</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px] sm:text-xs" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -3981,8 +4170,376 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
             }, 300);
         };
 
+        window.openHireModal = function (e) {
+            if (e && typeof e.preventDefault === 'function') e.preventDefault();
+            if (window.__hydrateAssets) window.__hydrateAssets();
+
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu && !mobileMenu.classList.contains('opacity-0')) {
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                if (mobileMenuBtn) mobileMenuBtn.click();
+            }
+
+            const modal = document.getElementById('hire-modal');
+            const card = document.getElementById('hire-modal-card');
+            if (!modal) return;
+
+            const form = document.getElementById('hire-contact-form');
+            const successView = document.getElementById('hire-success-view');
+            const alertBox = document.getElementById('hire-form-alert');
+            if (form) form.classList.remove('hidden');
+            if (successView) {
+                successView.classList.add('hidden');
+                successView.classList.remove('flex');
+            }
+            if (alertBox) {
+                alertBox.classList.add('hidden');
+                alertBox.textContent = '';
+                alertBox.innerHTML = '';
+            }
+
+            // Close dropdown menu if open
+            const dropdownMenu = document.getElementById('hire-type-menu');
+            if (dropdownMenu && !dropdownMenu.classList.contains('hidden')) {
+                dropdownMenu.classList.add('hidden');
+                dropdownMenu.classList.remove('flex');
+                const chevron = document.getElementById('hire-type-chevron');
+                if (chevron) chevron.classList.remove('rotate-180');
+            }
+
+            lastFocusedElementBeforeModal = document.activeElement;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            modal.removeAttribute('aria-hidden');
+
+            requestAnimationFrame(() => {
+                modal.classList.remove('opacity-0');
+                modal.classList.add('opacity-100');
+                if (card) {
+                    card.classList.remove('scale-90', 'translate-y-6', 'opacity-0');
+                    card.classList.add('scale-100', 'translate-y-0', 'opacity-100');
+                }
+                trapFocus(modal);
+                const firstInput = document.getElementById('hire-name');
+                if (firstInput) firstInput.focus();
+            });
+        };
+
+        window.closeHireModal = function (e) {
+            const modal = document.getElementById('hire-modal');
+            const card = document.getElementById('hire-modal-card');
+            if (!modal) return;
+            const dropdownMenu = document.getElementById('hire-type-menu');
+            if (dropdownMenu && !dropdownMenu.classList.contains('hidden')) {
+                dropdownMenu.classList.add('hidden');
+                dropdownMenu.classList.remove('flex');
+                const chevron = document.getElementById('hire-type-chevron');
+                if (chevron) chevron.classList.remove('rotate-180');
+            }
+            modal.setAttribute('aria-hidden', 'true');
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0');
+            if (card) {
+                card.classList.remove('scale-100', 'translate-y-0', 'opacity-100');
+                card.classList.add('scale-90', 'translate-y-6', 'opacity-0');
+            }
+            releaseFocus(modal);
+            setTimeout(() => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, 300);
+        };
+
+        let hireActiveOptionIndex = 0;
+
+        window.toggleHireDropdown = function (e, forceState) {
+            if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+            const menu = document.getElementById('hire-type-menu');
+            const chevron = document.getElementById('hire-type-chevron');
+            const btn = document.getElementById('hire-type-btn');
+            if (!menu) return;
+
+            const shouldOpen = typeof forceState === 'boolean' ? forceState : menu.classList.contains('hidden');
+
+            if (shouldOpen) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                if (chevron) chevron.classList.add('rotate-180');
+                if (btn) btn.setAttribute('aria-expanded', 'true');
+                updateActiveDropdownOption(hireActiveOptionIndex, false);
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                if (chevron) chevron.classList.remove('rotate-180');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            }
+        };
+
+        const updateActiveDropdownOption = function (index, scrollIntoView = true) {
+            const options = document.querySelectorAll('.hire-option');
+            if (options.length === 0) return;
+            if (index < 0) index = 0;
+            if (index >= options.length) index = options.length - 1;
+            hireActiveOptionIndex = index;
+
+            const btn = document.getElementById('hire-type-btn');
+            options.forEach((opt, idx) => {
+                const isFocused = idx === index;
+                if (isFocused) {
+                    opt.classList.add('bg-white/10', 'outline-none', 'ring-1', 'ring-cyan/40');
+                    if (btn) btn.setAttribute('aria-activedescendant', opt.id);
+                    if (scrollIntoView && typeof opt.scrollIntoView === 'function') {
+                        opt.scrollIntoView({ block: 'nearest' });
+                    }
+                } else {
+                    opt.classList.remove('bg-white/10', 'outline-none', 'ring-1', 'ring-cyan/40');
+                }
+            });
+        };
+
+        window.selectHireOption = function (value, iconClass, index) {
+            const input = document.getElementById('hire-type');
+            const selectedText = document.getElementById('hire-type-selected-text');
+            const selectedIcon = document.getElementById('hire-type-selected-icon');
+            if (input) input.value = value;
+            if (selectedText) selectedText.textContent = value;
+            if (selectedIcon && iconClass) selectedIcon.className = `${iconClass} shrink-0`;
+
+            const options = document.querySelectorAll('.hire-option');
+            options.forEach((opt, idx) => {
+                const optVal = opt.getAttribute('data-value') || '';
+                const check = opt.querySelector('i.fa-check');
+                const isMatch = optVal === value;
+                opt.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+                if (isMatch) {
+                    hireActiveOptionIndex = idx;
+                    opt.classList.remove('text-gray-300');
+                    opt.classList.add('text-cyan', 'bg-cyan/10');
+                    if (check) {
+                        check.classList.remove('opacity-0');
+                        check.classList.add('opacity-100');
+                    }
+                } else {
+                    opt.classList.remove('text-cyan', 'bg-cyan/10');
+                    opt.classList.add('text-gray-300');
+                    if (check) {
+                        check.classList.remove('opacity-100');
+                        check.classList.add('opacity-0');
+                    }
+                }
+            });
+
+            window.toggleHireDropdown(null, false);
+            const btn = document.getElementById('hire-type-btn');
+            if (btn) btn.focus();
+        };
+
+        window.handleHireDropdownKey = function (e) {
+            const menu = document.getElementById('hire-type-menu');
+            const isMenuOpen = menu && !menu.classList.contains('hidden');
+            const options = document.querySelectorAll('.hire-option');
+            if (options.length === 0) return;
+
+            switch (e.key) {
+                case 'ArrowDown':
+                    e.preventDefault();
+                    if (!isMenuOpen) {
+                        window.toggleHireDropdown(null, true);
+                    } else {
+                        updateActiveDropdownOption((hireActiveOptionIndex + 1) % options.length);
+                    }
+                    break;
+                case 'ArrowUp':
+                    e.preventDefault();
+                    if (!isMenuOpen) {
+                        window.toggleHireDropdown(null, true);
+                    } else {
+                        updateActiveDropdownOption((hireActiveOptionIndex - 1 + options.length) % options.length);
+                    }
+                    break;
+                case 'Home':
+                    if (isMenuOpen) {
+                        e.preventDefault();
+                        updateActiveDropdownOption(0);
+                    }
+                    break;
+                case 'End':
+                    if (isMenuOpen) {
+                        e.preventDefault();
+                        updateActiveDropdownOption(options.length - 1);
+                    }
+                    break;
+                case 'Enter':
+                case ' ':
+                    if (isMenuOpen) {
+                        e.preventDefault();
+                        const activeOpt = options[hireActiveOptionIndex];
+                        if (activeOpt) {
+                            const val = activeOpt.getAttribute('data-value');
+                            const icon = activeOpt.getAttribute('data-icon');
+                            selectHireOption(val, icon, hireActiveOptionIndex);
+                        }
+                    } else {
+                        e.preventDefault();
+                        window.toggleHireDropdown(null, true);
+                    }
+                    break;
+                case 'Escape':
+                    if (isMenuOpen) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        window.toggleHireDropdown(null, false);
+                        const btn = document.getElementById('hire-type-btn');
+                        if (btn) btn.focus();
+                    }
+                    break;
+                case 'Tab':
+                    if (isMenuOpen) {
+                        window.toggleHireDropdown(null, false);
+                    }
+                    break;
+            }
+        };
+
+        document.addEventListener('click', (e) => {
+            const dropdown = document.getElementById('hire-type-dropdown');
+            const menu = document.getElementById('hire-type-menu');
+            if (menu && !menu.classList.contains('hidden')) {
+                if (!dropdown || !dropdown.contains(e.target)) {
+                    menu.classList.add('hidden');
+                    menu.classList.remove('flex');
+                    const chevron = document.getElementById('hire-type-chevron');
+                    if (chevron) chevron.classList.remove('rotate-180');
+                    const btn = document.getElementById('hire-type-btn');
+                    if (btn) btn.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+
+        window.handleHireSubmit = async function (e) {
+            e.preventDefault();
+            const form = document.getElementById('hire-contact-form');
+            const submitBtn = document.getElementById('hire-submit-btn');
+            const btnText = document.getElementById('hire-btn-text');
+            const btnIcon = document.getElementById('hire-btn-icon');
+            const alertBox = document.getElementById('hire-form-alert');
+            const successView = document.getElementById('hire-success-view');
+
+            const showAlert = (msg, isError = true, isHtml = false) => {
+                if (!alertBox) return;
+                if (isHtml) {
+                    alertBox.innerHTML = msg;
+                } else {
+                    alertBox.textContent = msg;
+                }
+                alertBox.className = isError
+                    ? 'rounded-xl p-3 text-xs sm:text-sm font-mono border border-red-500/40 bg-red-950/40 text-red-200 block transition-all duration-200'
+                    : 'rounded-xl p-3 text-xs sm:text-sm font-mono border border-cyan/40 bg-cyan-950/40 text-cyan-200 block transition-all duration-200';
+            };
+
+            const hideAlert = () => {
+                if (!alertBox) return;
+                alertBox.className = 'hidden';
+                alertBox.textContent = '';
+                alertBox.innerHTML = '';
+            };
+
+            hideAlert();
+
+            // Silent Honeypot check (catches automated scanners transparently)
+            const honey1 = (document.getElementById('hire-fax-hp')?.value || '').trim();
+            const honey2 = (document.getElementById('hire-website-hp')?.value || '').trim();
+            if (honey1 || honey2) {
+                form.classList.add('hidden');
+                successView.classList.remove('hidden');
+                return;
+            }
+
+            // Validate fields
+            const name = (document.getElementById('hire-name')?.value || '').trim();
+            const email = (document.getElementById('hire-email')?.value || '').trim();
+            const organization = (document.getElementById('hire-org')?.value || '').trim();
+            const inquiryType = (document.getElementById('hire-type')?.value || '').trim();
+            const subject = (document.getElementById('hire-subject')?.value || '').trim();
+            const message = (document.getElementById('hire-message')?.value || '').trim();
+
+            if (!name || !email || !subject || !message) {
+                showAlert('Please fill in all required fields (Name, Email, Subject, Message).');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showAlert('Please enter a valid email address.');
+                return;
+            }
+
+            const mailtoSubject = encodeURIComponent(`[Portfolio Inquiry] ${inquiryType}: ${subject} (from ${name})`);
+            const mailtoBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nOrganization: ${organization || 'Not specified'}\nInquiry Type: ${inquiryType}\n\nMessage:\n${message}`);
+            const mailtoUrl = `mailto:wwang3@fandm.edu?cc=wangweifeng0316@gmail.com&subject=${mailtoSubject}&body=${mailtoBody}`;
+
+            submitBtn.disabled = true;
+            if (btnText) btnText.textContent = 'Sending...';
+            if (btnIcon) btnIcon.className = 'fa-solid fa-circle-notch fa-spin text-xs';
+
+            const payload = {
+                name: name,
+                email: email,
+                organization: organization || 'Not specified',
+                inquiry_type: inquiryType,
+                subject: subject,
+                message: message,
+                _replyto: email,
+                _cc: 'wangweifeng0316@gmail.com',
+                _subject: `[Portfolio Inquiry] ${inquiryType}: ${subject} (from ${name})`,
+                _template: 'table',
+                _captcha: 'false',
+                _blacklist: 'crypto, viagra, casino, loan, seo backlinks, telegram'
+            };
+
+            try {
+                const response = await fetch('https://formsubmit.co/ajax/843abd1b04fdafc22b85114d09493286', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await response.json().catch(() => null);
+
+                if (response.ok && (!data || data.success === 'true' || data.success === true || response.status === 200)) {
+                    form.reset();
+                    form.classList.add('hidden');
+                    successView.classList.remove('hidden');
+                    successView.classList.add('flex');
+                } else if (data && data.message && data.message.includes('Activation')) {
+                    showAlert('FormSubmit activation email sent! Please check your email inbox and click "Activate Form" once to complete setup.', false);
+                } else {
+                    const errMsg = (data && data.message) ? data.message : 'Unable to send right now.';
+                    showAlert(`<div>${errMsg}</div><div class="mt-2"><a href="${mailtoUrl}" class="text-cyan underline font-bold">Click here to send via Email App ↗</a></div>`, true, true);
+                }
+            } catch (err) {
+                const isLocalFile = window.location.protocol === 'file:';
+                const tip = isLocalFile
+                    ? 'FormSubmit requires a web server (e.g. GitHub Pages or http://localhost) and cannot receive submissions directly from a local file:// path.'
+                    : 'Network connection issue with FormSubmit service.';
+                showAlert(`<div class="space-y-1.5"><div>${tip}</div><div><a href="${mailtoUrl}" class="inline-flex items-center gap-1.5 text-cyan hover:underline font-bold"><span>Open directly in Email Client (mailto) ↗</span></a></div></div>`, true, true);
+            } finally {
+                submitBtn.disabled = false;
+                if (btnText) btnText.textContent = 'Send Message';
+                if (btnIcon) btnIcon.className = 'fa-solid fa-paper-plane text-xs';
+            }
+        };
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
+                const dropdownMenu = document.getElementById('hire-type-menu');
+                if (dropdownMenu && !dropdownMenu.classList.contains('hidden')) {
+                    toggleHireDropdown();
+                    return;
+                }
                 const lightbox = document.getElementById('image-lightbox');
                 if (lightbox && !lightbox.classList.contains('hidden')) {
                     closeLightbox();
@@ -3990,6 +4547,10 @@ body:not(.user-interactive) .skip-link,.auditor-mode .skip-link{background:#0303
                 const modal = document.getElementById('warning-modal');
                 if (modal && !modal.classList.contains('hidden')) {
                     closeWarningModal();
+                }
+                const hireModal = document.getElementById('hire-modal');
+                if (hireModal && !hireModal.classList.contains('hidden')) {
+                    closeHireModal();
                 }
                 const mobileMenu = document.getElementById('mobile-menu');
                 if (mobileMenu && !mobileMenu.classList.contains('opacity-0')) {
