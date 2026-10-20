@@ -78,4 +78,9 @@ crawler_*.py
 *.carbon.json
 *.audit.json
 
+# Raw mobile captures & intermediate scratch media
+*.heic
+*.HEIC
+assets/tuneform_viz_*.mp4
+
 

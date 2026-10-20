@@ -1,0 +1,3113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>美国研究生博士王尉锋选校</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5/400.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5/500.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5/700.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-sans-sc@5/900.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5/700.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5/900.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5/500.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/jetbrains-mono@5/700.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --bg: #070a13;
+            --bg2: #0b1120;
+            --panel: rgba(255, 255, 255, .035);
+            --panel2: rgba(255, 255, 255, .06);
+            --line: rgba(255, 255, 255, .09);
+            --line2: rgba(255, 255, 255, .16);
+            --tx: #e9edf7;
+            --tx2: #a7b1c9;
+            --tx3: #6d7893;
+            --gold: #f5c451;
+            --teal: #3fd6b4;
+            --orange: #ff9e4f;
+            --violet: #a98cfa;
+            --red: #f4506b;
+            --blue: #5aa9ff;
+            --green: #4ade80;
+            --r: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--tx);
+            font-family: "Noto Sans SC", system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            overflow-x: hidden
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            background:
+                radial-gradient(900px 500px at 12% -5%, rgba(90, 169, 255, .14), transparent 60%),
+                radial-gradient(800px 520px at 88% 8%, rgba(169, 140, 250, .12), transparent 60%),
+                radial-gradient(700px 600px at 50% 110%, rgba(63, 214, 180, .08), transparent 60%)
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background-image: linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: radial-gradient(ellipse at 50% 0%, #000 30%, transparent 75%)
+        }
+
+        ::selection {
+            background: rgba(90, 169, 255, .35)
+        }
+
+        .wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        .mono {
+            font-family: "JetBrains Mono", monospace
+        }
+
+        section {
+            scroll-margin-top: 84px
+        }
+
+        b,
+        strong {
+            font-weight: 700
+        }
+
+        /* ---------- nav ---------- */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(14px);
+            background: rgba(7, 10, 19, .72);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .nav-in {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            height: 62px
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 900;
+            font-size: 16px;
+            letter-spacing: .5px;
+            white-space: nowrap
+        }
+
+        .logo .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 4px;
+            background: conic-gradient(from 200deg, var(--gold), var(--teal), var(--violet), var(--gold));
+            box-shadow: 0 0 14px rgba(245, 196, 81, .6)
+        }
+
+        .logo .x2 {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 10px;
+            color: #0a0d16;
+            background: linear-gradient(135deg, var(--gold), var(--orange));
+            padding: 2px 7px;
+            border-radius: 6px;
+            font-weight: 700;
+            letter-spacing: 1px
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2px;
+            margin-left: auto
+        }
+
+        .nav-links a {
+            color: var(--tx2);
+            text-decoration: none;
+            font-size: 13px;
+            padding: 7px 10px;
+            border-radius: 9px;
+            transition: .2s;
+            white-space: nowrap
+        }
+
+        .nav-links a:hover {
+            color: var(--tx);
+            background: var(--panel2)
+        }
+
+        .btn {
+            cursor: pointer;
+            border: 1px solid var(--line2);
+            background: var(--panel2);
+            color: var(--tx);
+            padding: 8px 16px;
+            border-radius: 11px;
+            font-size: 13.5px;
+            font-family: inherit;
+            font-weight: 500;
+            transition: .2s;
+            white-space: nowrap
+        }
+
+        .btn:hover {
+            background: rgba(255, 255, 255, .12);
+            transform: translateY(-1px)
+        }
+
+        .btn.gold {
+            background: linear-gradient(135deg, rgba(245, 196, 81, .22), rgba(255, 158, 79, .18));
+            border-color: rgba(245, 196, 81, .45);
+            color: #ffe1a1
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, rgba(90, 169, 255, .25), rgba(169, 140, 250, .25));
+            border-color: rgba(120, 160, 255, .45)
+        }
+
+        .btn.sm {
+            padding: 6px 12px;
+            font-size: 12.5px;
+            border-radius: 9px
+        }
+
+        /* ---------- hero ---------- */
+        header.hero {
+            padding: 70px 0 30px;
+            position: relative
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            color: #cfe3ff;
+            border: 1px solid rgba(120, 160, 255, .35);
+            background: rgba(90, 169, 255, .09);
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 20px
+        }
+
+        .badge .pulse {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--teal);
+            box-shadow: 0 0 0 0 rgba(63, 214, 180, .7);
+            animation: pulse 2s infinite
+        }
+
+        @keyframes pulse {
+            70% {
+                box-shadow: 0 0 0 9px rgba(63, 214, 180, 0)
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(63, 214, 180, 0)
+            }
+        }
+
+        h1 {
+            font-family: "Noto Serif SC", serif;
+            font-weight: 900;
+            font-size: clamp(30px, 4.6vw, 52px);
+            line-height: 1.25;
+            letter-spacing: .5px
+        }
+
+        h1 .grad {
+            background: linear-gradient(100deg, var(--gold) 5%, #ffde9a 30%, var(--teal) 62%, var(--violet) 95%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .hero p.sub {
+            margin-top: 16px;
+            max-width: 880px;
+            color: var(--tx2);
+            font-size: 15.5px
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 20px
+        }
+
+        .chip {
+            font-size: 12.5px;
+            color: var(--tx2);
+            border: 1px solid var(--line);
+            background: var(--panel);
+            padding: 6px 13px;
+            border-radius: 999px;
+            transition: .2s
+        }
+
+        .chip:hover {
+            border-color: var(--line2);
+            color: var(--tx);
+            transform: translateY(-1px)
+        }
+
+        .uplist {
+            margin-top: 22px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px
+        }
+
+        .up {
+            background: linear-gradient(160deg, rgba(90, 169, 255, .09), rgba(169, 140, 250, .05));
+            border: 1px solid rgba(120, 160, 255, .28);
+            border-radius: 14px;
+            padding: 14px 16px;
+            transition: .22s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .up:hover {
+            transform: translateY(-3px);
+            border-color: rgba(120, 160, 255, .55)
+        }
+
+        .up .ic {
+            font-size: 19px
+        }
+
+        .up h4 {
+            font-size: 14px;
+            margin: 7px 0 3px
+        }
+
+        .up p {
+            font-size: 12px;
+            color: var(--tx3);
+            line-height: 1.55
+        }
+
+        .up .n {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 11px;
+            color: var(--blue);
+            border: 1px solid rgba(90, 169, 255, .35);
+            padding: 1px 8px;
+            border-radius: 999px
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 13px;
+            margin-top: 34px
+        }
+
+        .stat {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            padding: 16px 18px;
+            position: relative;
+            overflow: hidden;
+            transition: .25s
+        }
+
+        .stat:hover {
+            transform: translateY(-3px);
+            border-color: var(--line2)
+        }
+
+        .stat::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--sc, var(--blue));
+            opacity: .8
+        }
+
+        .stat .num {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 29px;
+            font-weight: 700;
+            color: var(--sc, var(--blue));
+            line-height: 1.1
+        }
+
+        .stat .lbl {
+            font-size: 12px;
+            color: var(--tx3);
+            margin-top: 5px
+        }
+
+        .stat .sub2 {
+            font-size: 11px;
+            color: var(--tx3);
+            margin-top: 2px
+        }
+
+        /* ---------- sections ---------- */
+        .sec {
+            padding: 54px 0
+        }
+
+        .sec-head {
+            margin-bottom: 24px
+        }
+
+        .sec-head .kicker {
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: var(--blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px
+        }
+
+        .sec-head h2 {
+            font-family: "Noto Serif SC", serif;
+            font-size: clamp(23px, 2.8vw, 32px);
+            font-weight: 900
+        }
+
+        .sec-head p {
+            color: var(--tx2);
+            margin-top: 10px;
+            max-width: 860px;
+            font-size: 14.5px
+        }
+
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            padding: 22px
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity .7s ease, transform .7s ease
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: none
+        }
+
+        /* ---------- flow ---------- */
+        .flow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px
+        }
+
+        .fcard {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            padding: 20px;
+            position: relative;
+            transition: .25s
+        }
+
+        .fcard:hover {
+            transform: translateY(-4px);
+            border-color: var(--fc);
+            box-shadow: 0 14px 34px -18px var(--fc)
+        }
+
+        .fcard .step {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 11px;
+            color: var(--fc);
+            letter-spacing: 2px;
+            font-weight: 700
+        }
+
+        .fcard h3 {
+            font-size: 16px;
+            margin: 8px 0
+        }
+
+        .fcard p {
+            font-size: 13px;
+            color: var(--tx2)
+        }
+
+        .fcard .fnum {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 13px;
+            margin-top: 12px;
+            color: var(--fc)
+        }
+
+        .fcard .arr {
+            position: absolute;
+            right: -13px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--tx3);
+            font-size: 15px;
+            z-index: 2
+        }
+
+        /* ---------- weight lab ---------- */
+        .lab-grid {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 16px;
+            align-items: start
+        }
+
+        .wrow {
+            margin-bottom: 16px
+        }
+
+        .wrow .lb {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--tx2);
+            margin-bottom: 7px
+        }
+
+        .wrow .lb b {
+            font-family: "JetBrains Mono", monospace;
+            color: var(--tx)
+        }
+
+        .wrow .lb .d {
+            font-size: 11px;
+            color: var(--tx3);
+            font-weight: 400
+        }
+
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 6px;
+            background: linear-gradient(90deg, var(--wc, var(--blue)) var(--fill, 30%), rgba(255, 255, 255, .09) var(--fill, 30%));
+            outline: none;
+            cursor: pointer
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--wc, var(--blue));
+            box-shadow: 0 0 10px color-mix(in srgb, var(--wc, var(--blue)) 70%, transparent);
+            cursor: grab
+        }
+
+        input[type=range]::-moz-range-thumb {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #fff;
+            border: 3px solid var(--wc, var(--blue));
+            cursor: grab
+        }
+
+        .presets {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 4px
+        }
+
+        .preset {
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 9px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            color: var(--tx2);
+            cursor: pointer;
+            font-family: inherit;
+            transition: .18s
+        }
+
+        .preset:hover {
+            color: var(--tx);
+            border-color: var(--blue);
+            transform: translateY(-1px)
+        }
+
+        .preset.on {
+            color: #cfe3ff;
+            border-color: var(--blue);
+            background: rgba(90, 169, 255, .14)
+        }
+
+        .labnote {
+            font-size: 12px;
+            color: var(--tx3);
+            margin-top: 14px;
+            border-top: 1px dashed var(--line);
+            padding-top: 12px;
+            line-height: 1.7
+        }
+
+        .topstrip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px
+        }
+
+        .tcard {
+            background: rgba(255, 255, 255, .025);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 11px 13px;
+            cursor: pointer;
+            transition: .2s;
+            position: relative
+        }
+
+        .tcard:hover {
+            transform: translateY(-3px);
+            border-color: var(--tc);
+            box-shadow: 0 10px 26px -16px var(--tc)
+        }
+
+        .tcard .pr {
+            position: absolute;
+            top: 9px;
+            right: 10px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 10.5px;
+            padding: 1px 7px;
+            border-radius: 999px
+        }
+
+        .pr.up {
+            color: var(--green);
+            background: rgba(74, 222, 128, .12);
+            border: 1px solid rgba(74, 222, 128, .3)
+        }
+
+        .pr.dn {
+            color: var(--red);
+            background: rgba(244, 80, 107, .12);
+            border: 1px solid rgba(244, 80, 107, .3)
+        }
+
+        .pr.eq {
+            color: var(--tx3);
+            background: var(--panel2);
+            border: 1px solid var(--line)
+        }
+
+        .tcard .nm {
+            font-weight: 900;
+            font-size: 14px
+        }
+
+        .tcard .sc {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--tc);
+            margin: 3px 0 1px
+        }
+
+        .tcard .mt {
+            font-size: 10.5px;
+            color: var(--tx3)
+        }
+
+        .lab-foot {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            margin-top: 14px;
+            flex-wrap: wrap
+        }
+
+        /* ---------- tiers ---------- */
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px
+        }
+
+        .tiercard {
+            cursor: pointer;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: .25s
+        }
+
+        .tiercard:hover {
+            transform: translateY(-4px);
+            border-color: var(--tc)
+        }
+
+        .tiercard::after {
+            content: "";
+            position: absolute;
+            inset: auto -30% -55% -30%;
+            height: 80px;
+            background: var(--tc);
+            opacity: .12;
+            filter: blur(34px)
+        }
+
+        .tiercard .tl {
+            display: flex;
+            align-items: center;
+            gap: 9px
+        }
+
+        .tiercard .big {
+            font-family: "Noto Serif SC", serif;
+            font-weight: 900;
+            font-size: 30px;
+            color: var(--tc);
+            line-height: 1
+        }
+
+        .tiercard .tn {
+            font-weight: 700;
+            font-size: 15px
+        }
+
+        .tiercard .cnt {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 12px;
+            color: var(--tx3);
+            margin-left: auto
+        }
+
+        .tiercard p {
+            font-size: 12.5px;
+            color: var(--tx2);
+            margin-top: 10px
+        }
+
+        .tiercard .eg {
+            font-size: 11.5px;
+            color: var(--tx3);
+            margin-top: 8px;
+            font-family: "JetBrains Mono", monospace
+        }
+
+        .tiercard.active {
+            border-color: var(--tc);
+            box-shadow: 0 0 0 1px var(--tc), 0 12px 30px -16px var(--tc)
+        }
+
+        .tier-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 26px;
+            height: 22px;
+            padding: 0 7px;
+            font-family: "JetBrains Mono", monospace;
+            font-weight: 700;
+            font-size: 12px;
+            border-radius: 7px;
+            color: var(--tc);
+            background: color-mix(in srgb, var(--tc) 14%, transparent);
+            border: 1px solid color-mix(in srgb, var(--tc) 40%, transparent)
+        }
+
+        .v-yes,
+        .v-cond,
+        .v-no {
+            font-size: 12.5px;
+            font-weight: 700;
+            white-space: nowrap
+        }
+
+        .v-yes {
+            color: var(--green)
+        }
+
+        .v-cond {
+            color: var(--orange)
+        }
+
+        .v-no {
+            color: var(--red)
+        }
+
+        /* ---------- charts ---------- */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 14px
+        }
+
+        .chart-panel h3 {
+            font-size: 15px;
+            margin-bottom: 4px
+        }
+
+        .chart-panel .note {
+            font-size: 12px;
+            color: var(--tx3);
+            margin-bottom: 12px
+        }
+
+        .chart-box {
+            position: relative
+        }
+
+        #barBox {
+            height: 560px
+        }
+
+        #donutBox {
+            height: 280px
+        }
+
+        #scatBox {
+            height: 430px
+        }
+
+        .donut-center {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none
+        }
+
+        .donut-center b {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 30px
+        }
+
+        .donut-center span {
+            font-size: 12px;
+            color: var(--tx3)
+        }
+
+        /* ---------- heatmap ---------- */
+        .hmscroll {
+            overflow: auto;
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            background: rgba(255, 255, 255, .015);
+            max-height: 640px
+        }
+
+        .hmscroll::-webkit-scrollbar,
+        .tscroll::-webkit-scrollbar {
+            width: 9px;
+            height: 9px
+        }
+
+        .hmscroll::-webkit-scrollbar-thumb,
+        .tscroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, .14);
+            border-radius: 9px
+        }
+
+        .hm {
+            display: grid;
+            grid-template-columns: 150px repeat(6, minmax(86px, 1fr));
+            min-width: 760px
+        }
+
+        .hm .hc {
+            padding: 9px 10px;
+            font-size: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "JetBrains Mono", monospace;
+            font-weight: 700;
+            font-size: 12.5px;
+            color: #0b0e17;
+            position: relative
+        }
+
+        .hm .hh {
+            position: sticky;
+            top: 0;
+            z-index: 4;
+            background: #0d1322;
+            color: var(--tx3);
+            font-family: "Noto Sans SC", sans-serif;
+            font-size: 11.5px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--line2);
+            justify-content: center
+        }
+
+        .hm .hl {
+            position: sticky;
+            left: 0;
+            z-index: 3;
+            background: #0d1322;
+            justify-content: flex-start;
+            gap: 8px;
+            color: var(--tx);
+            font-family: "Noto Sans SC", sans-serif;
+            font-weight: 700;
+            font-size: 12.5px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255, 255, 255, .05)
+        }
+
+        .hm .hl:hover {
+            color: var(--blue)
+        }
+
+        .hm .hh.corner {
+            z-index: 6;
+            left: 0
+        }
+
+        .hm .hc:hover {
+            outline: 2px solid rgba(255, 255, 255, .55);
+            outline-offset: -2px;
+            z-index: 2
+        }
+
+        .hmlegend {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11.5px;
+            color: var(--tx3);
+            margin-top: 10px
+        }
+
+        .hmlegend .bar {
+            flex: 0 0 180px;
+            height: 9px;
+            border-radius: 6px;
+            background: linear-gradient(90deg, hsl(4, 70%, 46%), hsl(45, 75%, 50%), hsl(90, 65%, 45%), hsl(145, 65%, 42%))
+        }
+
+        /* ---------- table ---------- */
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 14px
+        }
+
+        .search {
+            flex: 1;
+            min-width: 230px;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 0 14px;
+            transition: .2s
+        }
+
+        .search:focus-within {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(90, 169, 255, .15)
+        }
+
+        .search input {
+            flex: 1;
+            background: none;
+            border: none;
+            outline: none;
+            color: var(--tx);
+            font-family: inherit;
+            font-size: 14px;
+            padding: 11px 0
+        }
+
+        .search input::placeholder {
+            color: var(--tx3)
+        }
+
+        .seg {
+            display: flex;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            overflow: hidden
+        }
+
+        .seg button {
+            background: none;
+            border: none;
+            color: var(--tx2);
+            font-family: inherit;
+            font-size: 13px;
+            padding: 10px 14px;
+            cursor: pointer;
+            transition: .15s;
+            border-right: 1px solid var(--line)
+        }
+
+        .seg button:last-child {
+            border-right: none
+        }
+
+        .seg button.on {
+            background: rgba(90, 169, 255, .16);
+            color: #cfe3ff;
+            font-weight: 700
+        }
+
+        .tchips {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .tchip {
+            cursor: pointer;
+            font-size: 12.5px;
+            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: 11px;
+            border: 1px solid var(--line);
+            background: var(--panel);
+            color: var(--tx2);
+            transition: .18s;
+            font-family: inherit
+        }
+
+        .tchip:hover {
+            transform: translateY(-1px);
+            color: var(--tx)
+        }
+
+        .tchip.on {
+            color: var(--tc);
+            border-color: var(--tc);
+            background: color-mix(in srgb, var(--tc) 12%, transparent)
+        }
+
+        .switch {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            cursor: pointer;
+            font-size: 13px;
+            color: var(--tx2);
+            user-select: none
+        }
+
+        .switch input {
+            display: none
+        }
+
+        .switch .tr {
+            width: 38px;
+            height: 21px;
+            border-radius: 999px;
+            background: var(--panel2);
+            border: 1px solid var(--line2);
+            position: relative;
+            transition: .2s;
+            flex: 0 0 auto
+        }
+
+        .switch .tr::after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--tx3);
+            transition: .2s
+        }
+
+        .switch input:checked+.tr {
+            background: rgba(255, 158, 79, .25);
+            border-color: var(--orange)
+        }
+
+        .switch input:checked+.tr::after {
+            left: 19px;
+            background: var(--orange)
+        }
+
+        .switch.bl input:checked+.tr {
+            background: rgba(90, 169, 255, .25);
+            border-color: var(--blue)
+        }
+
+        .switch.bl input:checked+.tr::after {
+            background: var(--blue)
+        }
+
+        .result-line {
+            font-size: 12.5px;
+            color: var(--tx3);
+            margin-left: auto;
+            font-family: "JetBrains Mono", monospace
+        }
+
+        .tscroll {
+            max-height: 820px;
+            overflow: auto;
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            background: rgba(255, 255, 255, .015)
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 1380px
+        }
+
+        thead th {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            background: #0d1322;
+            border-bottom: 1px solid var(--line2);
+            font-size: 12px;
+            color: var(--tx3);
+            text-align: left;
+            padding: 12px 10px;
+            white-space: nowrap;
+            font-weight: 700
+        }
+
+        th[data-k] {
+            cursor: pointer;
+            user-select: none
+        }
+
+        th[data-k]:hover {
+            color: var(--tx)
+        }
+
+        th .arrow {
+            font-size: 10px;
+            margin-left: 4px;
+            color: var(--blue)
+        }
+
+        tbody td {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            font-size: 13.5px;
+            vertical-align: middle
+        }
+
+        tbody tr {
+            cursor: pointer;
+            transition: background .15s;
+            animation: rowIn .4s both
+        }
+
+        @keyframes rowIn {
+            from {
+                opacity: 0;
+                transform: translateY(7px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        tbody tr:hover {
+            background: rgba(90, 169, 255, .06)
+        }
+
+        tbody tr.dim td {
+            color: var(--tx3)
+        }
+
+        tr.tS {
+            box-shadow: inset 3px 0 0 var(--gold)
+        }
+
+        tr.tA {
+            box-shadow: inset 3px 0 0 var(--teal)
+        }
+
+        tr.tB {
+            box-shadow: inset 3px 0 0 var(--orange)
+        }
+
+        tr.tC {
+            box-shadow: inset 3px 0 0 var(--violet)
+        }
+
+        tr.tD {
+            box-shadow: inset 3px 0 0 rgba(244, 80, 107, .5)
+        }
+
+        .rk {
+            font-family: "JetBrains Mono", monospace;
+            font-weight: 700;
+            color: var(--tx3);
+            width: 52px
+        }
+
+        .rk .medal {
+            font-size: 16px
+        }
+
+        .sch .ab {
+            font-weight: 900;
+            font-size: 14.5px
+        }
+
+        .sch .zh {
+            font-size: 12px;
+            color: var(--tx2)
+        }
+
+        .sch .en {
+            font-size: 11px;
+            color: var(--tx3)
+        }
+
+        .scorecell {
+            min-width: 118px
+        }
+
+        .scorecell .v {
+            font-family: "JetBrains Mono", monospace;
+            font-weight: 700;
+            font-size: 13.5px
+        }
+
+        .mini-bar {
+            height: 4px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, .08);
+            margin-top: 5px;
+            overflow: hidden;
+            width: 104px
+        }
+
+        .mini-bar i {
+            display: block;
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--blue), var(--teal));
+            transition: width .5s ease
+        }
+
+        .mini-bar.gd i {
+            background: linear-gradient(90deg, var(--gold), var(--orange))
+        }
+
+        .mini-bar.vt i {
+            background: linear-gradient(90deg, var(--violet), var(--blue))
+        }
+
+        .fundcell .fv {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 12.5px;
+            font-weight: 700
+        }
+
+        .risk {
+            letter-spacing: 1px;
+            font-size: 11px;
+            white-space: nowrap
+        }
+
+        .trk {
+            font-size: 11px;
+            color: var(--tx2);
+            max-width: 150px;
+            line-height: 1.45
+        }
+
+        .ai-v {
+            font-family: "JetBrains Mono", monospace;
+            font-weight: 700;
+            font-size: 14px
+        }
+
+        .ai-v.y {
+            color: var(--green)
+        }
+
+        .ai-v.n {
+            color: var(--red)
+        }
+
+        .tagmini {
+            display: inline-block;
+            font-size: 10.5px;
+            color: var(--tx2);
+            background: var(--panel2);
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            padding: 2px 7px;
+            margin: 1px 3px 1px 0;
+            white-space: nowrap
+        }
+
+        .rowbtns {
+            display: flex;
+            gap: 6px;
+            align-items: center
+        }
+
+        .mini-btn {
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            border: 1px solid var(--line2);
+            background: var(--panel2);
+            color: var(--tx2);
+            cursor: pointer;
+            font-family: inherit;
+            transition: .15s
+        }
+
+        .mini-btn:hover {
+            color: var(--tx);
+            border-color: var(--blue)
+        }
+
+        .star {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: var(--tx3);
+            transition: .18s;
+            padding: 2px
+        }
+
+        .star:hover {
+            transform: scale(1.25)
+        }
+
+        .star.on {
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(245, 196, 81, .6)
+        }
+
+        .cbx {
+            accent-color: var(--blue);
+            width: 15px;
+            height: 15px;
+            cursor: pointer
+        }
+
+        .formula {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            font-size: 13px;
+            color: var(--tx2);
+            background: rgba(90, 169, 255, .06);
+            border: 1px dashed rgba(90, 169, 255, .35);
+            border-radius: 12px;
+            padding: 13px 18px;
+            margin-bottom: 16px
+        }
+
+        .formula b {
+            color: #cfe3ff
+        }
+
+        .formula .op {
+            color: var(--tx3);
+            font-family: "JetBrains Mono", monospace
+        }
+
+        /* ---------- arbitration ---------- */
+        .arb-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px
+        }
+
+        .arb-col h3 {
+            font-size: 16px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .arb-card {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            transition: .2s
+        }
+
+        .arb-card:hover {
+            transform: translateX(4px);
+            border-color: var(--line2)
+        }
+
+        .arb-top {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            flex-wrap: wrap
+        }
+
+        .arb-top .nm {
+            font-weight: 900;
+            font-size: 14.5px
+        }
+
+        .arb-move {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 11.5px;
+            padding: 2px 8px;
+            border-radius: 6px
+        }
+
+        .arb-move.up {
+            color: var(--green);
+            background: rgba(74, 222, 128, .12);
+            border: 1px solid rgba(74, 222, 128, .3)
+        }
+
+        .arb-move.dn {
+            color: var(--red);
+            background: rgba(244, 80, 107, .12);
+            border: 1px solid rgba(244, 80, 107, .3)
+        }
+
+        .arb-card p {
+            font-size: 12.5px;
+            color: var(--tx2);
+            margin-top: 7px
+        }
+
+        /* ---------- why ---------- */
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px
+        }
+
+        .cmp-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            min-width: 0
+        }
+
+        .cmp-table th {
+            background: rgba(255, 255, 255, .05);
+            padding: 10px 12px;
+            text-align: left;
+            font-size: 12px;
+            color: var(--tx3);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .cmp-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, .05);
+            vertical-align: top
+        }
+
+        .quote {
+            border-left: 3px solid var(--gold);
+            background: rgba(245, 196, 81, .06);
+            border-radius: 0 12px 12px 0;
+            padding: 16px 20px;
+            font-family: "Noto Serif SC", serif;
+            font-size: 15.5px;
+            color: #f3e3bd;
+            margin: 18px 0
+        }
+
+        .quote small {
+            display: block;
+            font-family: "Noto Sans SC", sans-serif;
+            color: var(--tx3);
+            margin-top: 8px;
+            font-size: 12px
+        }
+
+        .strike {
+            text-decoration: line-through;
+            color: var(--red);
+            opacity: .75
+        }
+
+        .keepchip {
+            color: var(--teal);
+            border-color: rgba(63, 214, 180, .4);
+            background: rgba(63, 214, 180, .08)
+        }
+
+        .exc-block {
+            margin-bottom: 14px
+        }
+
+        .exc-block .t {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 7px
+        }
+
+        .exc-block .t .c {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 11px;
+            color: var(--tx3);
+            margin-left: 6px
+        }
+
+        .rules {
+            list-style: none
+        }
+
+        .rules li {
+            position: relative;
+            padding: 9px 0 9px 26px;
+            font-size: 13.5px;
+            color: var(--tx2);
+            border-bottom: 1px dashed rgba(255, 255, 255, .07)
+        }
+
+        .rules li::before {
+            content: "✓";
+            position: absolute;
+            left: 2px;
+            color: var(--teal);
+            font-weight: 700
+        }
+
+        .blind-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px
+        }
+
+        .blind {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 13px 14px;
+            transition: .2s
+        }
+
+        .blind:hover {
+            transform: translateY(-3px);
+            border-color: var(--blue)
+        }
+
+        .blind .n {
+            font-weight: 900;
+            font-size: 13.5px
+        }
+
+        .blind .d {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 11px;
+            color: var(--blue);
+            margin: 3px 0
+        }
+
+        .blind .w {
+            font-size: 11.5px;
+            color: var(--tx3)
+        }
+
+        .upg {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 6px
+        }
+
+        .upgcard {
+            background: rgba(255, 255, 255, .025);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 13px 15px;
+            transition: .2s
+        }
+
+        .upgcard:hover {
+            border-color: var(--line2);
+            transform: translateY(-2px)
+        }
+
+        .upgcard .t2 {
+            font-size: 13.5px;
+            font-weight: 900;
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        .upgcard .t2 .pill {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 10px;
+            padding: 1px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(90, 169, 255, .4);
+            color: #9ecbff;
+            background: rgba(90, 169, 255, .1)
+        }
+
+        .upgcard p {
+            font-size: 12.5px;
+            color: var(--tx2);
+            margin-top: 6px;
+            line-height: 1.65
+        }
+
+        .upgcard p b {
+            color: #ffe1a1
+        }
+
+        /* ---------- modal ---------- */
+        .mback {
+            position: fixed;
+            inset: 0;
+            background: rgba(4, 6, 12, .75);
+            backdrop-filter: blur(6px);
+            z-index: 100;
+            display: none;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 5vh 18px;
+            overflow: auto
+        }
+
+        .mback.show {
+            display: flex;
+            animation: fadeIn .2s
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .modal {
+            width: 100%;
+            max-width: 780px;
+            background: #0e1424;
+            border: 1px solid var(--line2);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            animation: pop .28s cubic-bezier(.2, .9, .3, 1.2);
+            box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .7)
+        }
+
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: translateY(24px) scale(.97)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .mclose {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+            background: var(--panel2);
+            color: var(--tx2);
+            cursor: pointer;
+            font-size: 15px;
+            transition: .2s;
+            z-index: 5
+        }
+
+        .mclose:hover {
+            color: var(--tx);
+            border-color: var(--red);
+            transform: rotate(90deg)
+        }
+
+        .mh {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 6px
+        }
+
+        .mh .ab {
+            font-family: "Noto Serif SC", serif;
+            font-weight: 900;
+            font-size: 30px;
+            line-height: 1.15
+        }
+
+        .mh .zz {
+            color: var(--tx2);
+            font-size: 14px;
+            margin-top: 6px
+        }
+
+        .mstats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 18px 0
+        }
+
+        .ms {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 12px 14px
+        }
+
+        .ms .k {
+            font-size: 11px;
+            color: var(--tx3)
+        }
+
+        .ms .v {
+            font-family: "JetBrains Mono", monospace;
+            font-weight: 700;
+            font-size: 18px;
+            margin-top: 3px
+        }
+
+        .mradar-wrap {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 14px;
+            align-items: center;
+            margin: 14px 0
+        }
+
+        .mradar-box {
+            position: relative;
+            height: 250px
+        }
+
+        .dimrows .dr {
+            margin-bottom: 10px
+        }
+
+        .dimrows .dr .dl {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--tx2);
+            margin-bottom: 4px
+        }
+
+        .dimrows .dr .dl b {
+            font-family: "JetBrains Mono", monospace;
+            color: var(--tx)
+        }
+
+        .dimrows .bar {
+            height: 7px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, .08);
+            overflow: hidden
+        }
+
+        .dimrows .bar i {
+            display: block;
+            height: 100%;
+            border-radius: 5px;
+            transition: width .6s ease
+        }
+
+        .mbox {
+            background: rgba(90, 169, 255, .06);
+            border: 1px solid rgba(90, 169, 255, .22);
+            border-radius: 12px;
+            padding: 14px 17px;
+            margin: 12px 0
+        }
+
+        .mbox .bt {
+            font-size: 12px;
+            color: #9ecbff;
+            font-weight: 700;
+            margin-bottom: 5px
+        }
+
+        .mwarn {
+            background: rgba(255, 158, 79, .08);
+            border: 1px solid rgba(255, 158, 79, .35);
+            border-radius: 12px;
+            padding: 14px 17px;
+            margin: 12px 0
+        }
+
+        .mwarn .bt {
+            font-size: 12px;
+            color: var(--orange);
+            font-weight: 700;
+            margin-bottom: 5px
+        }
+
+        .mdiff {
+            background: rgba(244, 80, 107, .07);
+            border: 1px solid rgba(244, 80, 107, .3);
+            border-radius: 12px;
+            padding: 12px 17px;
+            margin: 12px 0;
+            font-size: 13px;
+            color: #f3b8c2
+        }
+
+        .mwhy {
+            font-size: 14.5px;
+            color: var(--tx);
+            line-height: 1.85;
+            margin: 14px 0
+        }
+
+        .mfoot {
+            font-size: 11.5px;
+            color: var(--tx3);
+            border-top: 1px solid var(--line);
+            padding-top: 14px;
+            margin-top: 18px
+        }
+
+        .cm-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px
+        }
+
+        .cm-table td,
+        .cm-table th {
+            border: 1px solid var(--line);
+            padding: 10px 12px;
+            vertical-align: top;
+            text-align: left
+        }
+
+        .cm-table th {
+            background: rgba(255, 255, 255, .04);
+            font-size: 12.5px
+        }
+
+        .cm-table td:first-child {
+            color: var(--tx3);
+            font-size: 12px;
+            white-space: nowrap;
+            width: 96px
+        }
+
+        .cmp-radar-box {
+            position: relative;
+            height: 300px;
+            margin: 14px 0
+        }
+
+        /* ---------- compare bar / toast / fab ---------- */
+        .cmpbar {
+            position: fixed;
+            left: 50%;
+            bottom: 22px;
+            transform: translateX(-50%) translateY(90px);
+            z-index: 80;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: #121a2e;
+            border: 1px solid var(--line2);
+            border-radius: 16px;
+            padding: 11px 16px;
+            box-shadow: 0 18px 50px -12px rgba(0, 0, 0, .7);
+            transition: transform .3s;
+            max-width: 92vw;
+            flex-wrap: wrap
+        }
+
+        .cmpbar.show {
+            transform: translateX(-50%) translateY(0)
+        }
+
+        .cmpbar .cchip {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 12.5px;
+            background: var(--panel2);
+            border: 1px solid var(--line);
+            border-radius: 9px;
+            padding: 5px 10px
+        }
+
+        .cmpbar .cchip b {
+            cursor: pointer;
+            color: var(--tx3)
+        }
+
+        .cmpbar .cchip b:hover {
+            color: var(--red)
+        }
+
+        #toast {
+            position: fixed;
+            top: 76px;
+            right: 22px;
+            z-index: 200;
+            background: #121a2e;
+            border: 1px solid var(--line2);
+            border-left: 3px solid var(--teal);
+            border-radius: 12px;
+            padding: 12px 18px;
+            font-size: 13.5px;
+            box-shadow: 0 14px 40px -10px rgba(0, 0, 0, .6);
+            opacity: 0;
+            transform: translateX(20px);
+            transition: .3s;
+            pointer-events: none;
+            max-width: 340px
+        }
+
+        #toast.show {
+            opacity: 1;
+            transform: none
+        }
+
+        .fab {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 70;
+            width: 44px;
+            height: 44px;
+            border-radius: 13px;
+            border: 1px solid var(--line2);
+            background: #121a2e;
+            color: var(--tx2);
+            cursor: pointer;
+            font-size: 17px;
+            opacity: 0;
+            pointer-events: none;
+            transition: .3s
+        }
+
+        .fab.show {
+            opacity: 1;
+            pointer-events: auto
+        }
+
+        .fab:hover {
+            color: var(--tx);
+            transform: translateY(-3px)
+        }
+
+        footer {
+            border-top: 1px solid var(--line);
+            padding: 34px 0 44px;
+            margin-top: 30px
+        }
+
+        footer p {
+            font-size: 12.5px;
+            color: var(--tx3);
+            max-width: 920px
+        }
+
+        footer .frow {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 14px
+        }
+
+        @media(max-width:1080px) {
+            .hero-stats {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .uplist,
+            .flow-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .lab-grid {
+                grid-template-columns: 1fr
+            }
+
+            .topstrip {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .tier-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .chart-grid,
+            .arb-grid,
+            .why-grid {
+                grid-template-columns: 1fr
+            }
+
+            .blind-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .upg {
+                grid-template-columns: 1fr
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .fcard .arr {
+                display: none
+            }
+
+            .mradar-wrap {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media(max-width:620px) {
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .uplist,
+            .topstrip,
+            .tier-grid {
+                grid-template-columns: 1fr
+            }
+
+            .mstats {
+                grid-template-columns: repeat(2, 1fr)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="wrap nav-in">
+            <div class="logo"><span class="dot"></span>美国研究生博士王尉锋选校<span class="x2">评估</span></div>
+            <div class="nav-links">
+                <a href="#flow">共识流程</a>
+                <a href="#lab">权重实验室</a>
+                <a href="#tiers">层级图谱</a>
+                <a href="#charts">数据图表</a>
+                <a href="#matrix">评分矩阵</a>
+                <a href="#rank">总排名表</a>
+                <a href="#arb">争议裁决</a>
+                <a href="#why">方法论</a>
+            </div>
+            <button class="btn gold" style="margin-left:auto" onclick="dice()">🎲 随机</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="wrap">
+            <div class="badge"><span class="pulse"></span>美国研究生博士王尉锋选校</div>
+            <h1>CS × 认知 / 心理 / HCI<br><span class="grad">美国研究生博士王尉锋选校</span></h1>
+            <div class="chips">
+                <span class="chip">🎓 大二背景</span><span class="chip">💻 主修 CS · 拒重代码</span><span class="chip">🧠 心理 / 社科
+                    / 认知 / HCI</span><span class="chip">⛔ 排除数理化生</span><span class="chip">🚫 排除金融经济</span><span
+                    class="chip">🛑 拒绝 SDE 流水线</span>
+            </div>
+            <div class="uplist">
+                <div class="up"><span class="n">NEW</span>
+                    <div class="ic">🎛️</div>
+                    <h4>权重</h4>
+                    <p>四维权重滑杆重排 TOP12</p>
+                </div>
+                <div class="up"><span class="n">NEW</span>
+                    <div class="ic">🔥</div>
+                    <h4>评分矩阵</h4>
+                    <p>36 所推荐区 × 6 维指标</p>
+                </div>
+                <div class="up"><span class="n">NEW</span>
+                    <div class="ic">🕸️</div>
+                    <h4>雷达图</h4>
+                    <p>每校四维雷达 + 三校雷达叠加对比</p>
+                </div>
+                <div class="up"><span class="n">NEW</span>
+                    <div class="ic">⭐</div>
+                    <h4>收藏 + 导出</h4>
+                    <p>心愿单本地存档 CSV</p>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat" style="--sc:#5aa9ff">
+                    <div class="num" data-to="82">0</div>
+                    <div class="lbl">评估学校总数</div>
+                    <div class="sub2">深度评估</div>
+                </div>
+                <div class="stat" style="--sc:#4ade80">
+                    <div class="num" data-to="36">0</div>
+                    <div class="lbl">推荐区</div>
+                    <div class="sub2">26 无条件 ✅ + 10 条件 ⚠️</div>
+                </div>
+                <div class="stat" style="--sc:#f4506b">
+                    <div class="num" data-to="46">0</div>
+                    <div class="lbl">拒绝</div>
+                    <div class="sub2">文化错位 / 触发硬性排除</div>
+                </div>
+                <div class="stat" style="--sc:#f5c451">
+                    <div class="num" data-to="22">0</div>
+                    <div class="lbl">双AI一致 ✅</div>
+                    <div class="sub2">Gemini ∩ Qwen 共识区</div>
+                </div>
+                <div class="stat" style="--sc:#a98cfa">
+                    <div class="num" data-to="17">0</div>
+                    <div class="lbl">分歧案例</div>
+                    <div class="sub2">实测数据仲裁 · 分歧率20.7%</div>
+                </div>
+                <div class="stat" style="--sc:#ff9e4f">
+                    <div class="num" data-to="4">0</div>
+                    <div class="lbl">子维度</div>
+                    <div class="sub2">产出 · 契合 · 资助 · 自由</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ================= FLOW ================= -->
+        <section id="flow" class="sec">
+            <div class="wrap">
+                <div class="sec-head reveal">
+                    <div class="kicker">Consensus Pipeline</div>
+                    <h2>怎么来的</h2>
+                    <p>独立深评 → 复核 → 实测 → 反思</p>
+                </div>
+                <div class="flow-grid">
+                    <div class="fcard reveal" style="--fc:#5aa9ff">
+                        <div class="step">STEP 01</div>
+                        <h3>深评</h3>
+                        <p>基于库，逐校评估培养、资金与社科</p>
+                        <div class="fnum">结论：✅ 34 · ❌ 48</div><span class="arr">➜</span>
+                    </div>
+                    <div class="fcard reveal" style="--fc:#3fd6b4">
+                        <div class="step">STEP 02</div>
+                        <h3>复核</h3>
+                        <p>以画像重评。</p>
+                        <div class="fnum">结论：✅ 27 · ❌ 55</div><span class="arr">➜</span>
+                    </div>
+                    <div class="fcard reveal" style="--fc:#f5c451">
+                        <div class="step">STEP 03</div>
+                        <h3>CSRankings</h3>
+                        <p>筛选：AI / NLP / Web&IR / CS教育 / HCI / Robotics / Vis。</p>
+                        <div class="fnum">产出数据对账 82 校</div><span class="arr">➜</span>
+                    </div>
+                    <div class="fcard reveal" style="--fc:#a98cfa">
+                        <div class="step">STEP 04</div>
+                        <h3>反思与最终共识</h3>
+                        <p>10 所平反</p>
+                        <div class="fnum">最终：✅26 · ⚠️10 · ❌46</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WEIGHT LAB ================= -->
+        <section id="lab" class="sec">
+            <div class="wrap">
+                <div class="sec-head reveal">
+                    <div class="kicker">Weight Lab · Interactive</div>
+                    <h2>🎛️ 权重 <span style="font-size:14px;color:var(--tx3);font-weight:400">（拖动滑杆，下方 TOP12
+                            与总表综合分实时重算）</span></h2>
+                    <p>四个维度的权重自由调配，系统实时重算 36 所推荐区学校的综合分并重排。<b
+                            style="color:#cfe3ff">重排后，总排名表将以此分数排序。</b></p>
+                </div>
+                <div class="lab-grid">
+                    <div class="panel reveal">
+                        <div class="wrow" style="--wc:#5aa9ff">
+                            <div class="lb"><span>📊 产出 <span class="d">CSRankings 计数归一化</span></span><b
+                                    id="wOutV">30</b></div><input type="range" id="wOut" min="0" max="100" value="30">
+                        </div>
+                        <div class="wrow" style="--wc:#3fd6b4">
+                            <div class="lb"><span>🧬 生态 <span class="d">双AI文化评估</span></span><b id="wFitV">40</b>
+                            </div><input type="range" id="wFit" min="0" max="100" value="40">
+                        </div>
+                        <div class="wrow" style="--wc:#f5c451">
+                            <div class="lb"><span>💰 资助 <span class="d">RA/TA 路径现实度</span></span><b
+                                    id="wFundV">15</b></div><input type="range" id="wFund" min="0" max="100" value="15">
+                        </div>
+                        <div class="wrow" style="--wc:#a98cfa">
+                            <div class="lb"><span>🔀 自由 <span class="d">跨系选课 / 双学位空间</span></span><b
+                                    id="wFreeV">15</b></div><input type="range" id="wFree" min="0" max="100" value="15">
+                        </div>
+                        <div class="presets">
+                            <button class="preset" data-p="60,20,10,10">🔬 产出优先</button>
+                            <button class="preset on" data-p="30,40,15,15">⚖️ 均衡</button>
+                            <button class="preset" data-p="15,35,30,20">🛡️ 资助优先</button>
+                            <button class="preset" data-p="10,60,10,20">🌿 自由优先</button>
+                        </div>
+                        <div class="lab-foot">
+                            <label class="switch bl"><input type="checkbox" id="applyLab"><span
+                                    class="tr"></span>重排</label>
+                            <button class="btn sm" onclick="resetWeights()">↺ 重置</button>
+                        </div>
+                        <div class="labnote">💡 读博，调高研究产出 + 资助。权重仅影响本页展示，不改变终审判定。</div>
+                    </div>
+                </div>
+                <div class="panel reveal">
+                    <h3 style="font-size:15px;margin-bottom:3px">专属 TOP 12</h3>
+                    <div class="note" style="font-size:12px;color:var(--tx3);margin-bottom:12px">仅统计 ✅ 推荐与 ⚠️ 条件推荐校 ·
+                        右上角为相对官方终审排名的变化 · 点击卡片打开详情</div>
+                    <div class="topstrip" id="topStrip"></div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- ================= TIERS ================= -->
+        <section id="tiers" class="sec">
+            <div class="wrap">
+                <div class="sec-head reveal">
+                    <div class="kicker">Tier Map</div>
+                    <h2>五层共识图谱 <span style="font-size:14px;color:var(--tx3);font-weight:400">（点击卡片可直接筛选下方排名表）</span>
+                    </h2>
+                </div>
+                <div class="tier-grid" id="tierGrid"></div>
+            </div>
+        </section>
+
+        <!-- ================= CHARTS ================= -->
+        <section id="charts" class="sec">
+            <div class="wrap">
+                <div class="sec-head reveal">
+                    <div class="kicker">Data Lab</div>
+                    <h2>实测数据可视化</h2>
+                    <p>图表基于 CSRankings 2016–2026 综合计数（七项筛选之和）与教授规模。散点图与柱状图均支持<b style="color:#cfe3ff">点击直接打开学校详情</b>。
+                    </p>
+                </div>
+                <div class="chart-grid reveal">
+                    <div class="panel chart-panel">
+                        <h3>研究产出 TOP 20</h3>
+                        <div class="note">金色=S 双高圣地 · 青色=A 强适配 · 橙色=B 条件平反 · 紫色=C 文化小众 · 红色=D 拒绝区（产出高≠适合）</div>
+                        <div class="chart-box" id="barBox"><canvas id="barChart"></canvas></div>
+                    </div>
+                    <div class="panel chart-panel">
+                        <h3>最终共识分层占比</h3>
+                        <div class="note">82 校终审分布</div>
+                        <div class="chart-box" id="donutBox"><canvas id="donutChart"></canvas>
+                            <div class="donut-center"><b class="mono">82</b><span>评估学校</span></div>
+                        </div>
+                        <div style="margin-top:16px;font-size:12.5px;color:var(--tx2)" id="donutLegend"></div>
+                    </div>
+                </div>
+                <div class="panel chart-panel reveal" style="margin-top:14px">
+                    <h3>产出 × 教授规模 全景散点</h3>
+                    <div class="note">横轴=CSRankings 综合计数，纵轴=相关领域教授数。右上角=产出与体量双高；左上角=小而精（文化型校）。未上榜校（Santa Clara / SJSU /
+                        Toledo / Oklahoma State）不参与绘制。点击气泡查看详情。</div>
+                    <div class="chart-box" id="scatBox"><canvas id="scatterChart"></canvas></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= HEATMAP MATRIX ================= -->
+        <section id="matrix" class="sec">
+            <div class="wrap">
+                <div class="sec-head reveal">
+                    <div class="kicker">Score Matrix</div>
+                    <h2>🔥 评分热力矩阵 · 36 所推荐区 × 6 维指标</h2>
+                    <p>按当前权重的综合分降序排列。颜色越绿越强，越红越弱（风险列为反向：<b
+                            style="color:#cfe3ff">绿色=低风险</b>）。悬停查看精确数值，点击校名打开详情档案。拖动「权重实验室」滑杆时，此矩阵的综合分列会同步刷新。</p>
+                </div>
+                <div class="panel reveal" style="padding:16px">
+                    <div class="hmscroll">
+                        <div class="hm" id="heatmap"></div>
+                    </div>
+                    <div class="hmlegend"><span>弱</span>
+                        <div class="bar"></div><span>强</span><span style="margin-left:14px">· 风险列：绿=安全 /
+                            红=高危</span><span style="margin-left:auto" id="hmCount"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= TABLE ================= -->
+        <section id="rank" class="sec">
+            <div class="wrap">
+                <div class="sec-head reveal">
+                    <div class="kicker">Final Ranking · Enhanced</div>
+                    <h2>82 校最终总排名表 · 增强版</h2>
+                    <p>表格支持搜索、层级/判定/收藏筛选、全列排序、双AI分歧过滤、可调权重综合分、逐校雷达详情弹窗与最多 3 校横向对比，并可导出当前视图 CSV。点击任意行查看该校全部评估细节与「为什么」。
+                    </p>
+                </div>
+                <div class="formula reveal">
+                    <b>官方公式：</b>
+                    <span>① 层级优先 <span class="op">(S&gt;A&gt;B&gt;C&gt;D，生态契合一票否决)</span></span>
+                    <span class="op">→</span>
+                    <span>② CSRankings 综合计数降序 <span class="op">(2016–2026)</span></span>
+                    <span class="op">→</span>
+                    <span>③ 教授规模并列决胜</span>
+                    <span class="op">｜</span>
+                    <span><b>综合分公式：</b><span class="op" id="fxLine">Σ(权重×子分)/Σ权重</span></span>
+                </div>
+                <div class="toolbar reveal">
+                    <div class="search">🔍<input id="q" type="text" placeholder="搜索学校 / 实验室 / 标签 / 轨道 / 理由…（快捷键 / ）">
+                    </div>
+                    <div class="tchips" id="tierChips"></div>
+                </div>
+                <div class="toolbar reveal">
+                    <div class="seg" id="verdictSeg">
+                        <button data-v="all" class="on">全部判定</button>
+                        <button data-v="yes">✅ 推荐 26</button>
+                        <button data-v="cond">⚠️ 条件 10</button>
+                        <button data-v="no">❌ 拒绝 46</button>
+                    </div>
+                    <label class="switch"><input type="checkbox" id="disagreeOnly"><span
+                            class="tr"></span>只看双AI分歧校（17所）</label>
+                    <label class="switch" style="--tc:#f5c451"><input type="checkbox" id="starOnly"><span class="tr"
+                            style=""></span>⭐ 只看收藏 <b class="mono" id="starCnt" style="color:var(--gold)">0</b></label>
+                    <button class="btn sm" onclick="exportCSV()">⬇ 导出 CSV</button>
+                    <div class="result-line" id="resultLine"></div>
+                </div>
+                <div class="tscroll reveal">
+                    <table id="mainTable">
+                        <thead>
+                            <tr>
+                                <th data-k="rank">终审#<span class="arrow"></span></th>
+                                <th>学校</th>
+                                <th>层级</th>
+                                <th>判定</th>
+                                <th data-k="score">综合分<span class="arrow"></span></th>
+                                <th data-k="cs">CSRankings计数<span class="arrow"></span></th>
+                                <th data-k="cr">全美#<span class="arrow"></span></th>
+                                <th data-k="fc">教授<span class="arrow"></span></th>
+                                <th data-k="fund">资助指数<span class="arrow"></span></th>
+                                <th data-k="risk">风险<span class="arrow"></span></th>
+                                <th>Gemini</th>
+                                <th>Qwen3.8</th>
+                                <th>建议轨道</th>
+                                <th>核心标签</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ARBITRATION ================= -->
+        <section id="arb" class="sec">
+            <div class="wrap">
+                <div class="sec-head reveal">
+                    <div class="kicker">Arbitration</div>
+                    <h2>争议裁决档案 · 为什么改判</h2>
+                    <p>17 所双 AI 分歧校的最终处置。左栏为「实测平反区」——产出数据推翻了过于绝对的拒绝；右栏为「排除项降维区」——Gemini 的 ✅ 被硬性排除条件（医疗/物理/金融/弱产出）否决。</p>
+                </div>
+                <div class="arb-grid">
+                    <div class="arb-col reveal">
+                        <h3 style="color:var(--green)">⬆ 实测平反区（8 所改判向上）</h3>
+                        <div id="arbUp"></div>
+                    </div>
+                    <div class="arb-col reveal">
+                        <h3 style="color:var(--red)">⬇ 排除项降维区（8 所改判向下）</h3>
+                        <div id="arbDown"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= WHY ================= -->
+        <section id="why" class="sec">
+            <div class="wrap">
+                <div class="sec-head reveal">
+                    <div class="kicker">Methodology · Why</div>
+                    <h2>为什么是这份排名 · 为什么这样加倍</h2>
+                    <p>本排名不是 CSRankings 的复读机，也不是任何单一 AI 的一家之言。以下完整交代口径差异、筛选副作用、排除项触发链、生存策略。</p>
+                </div>
+                <div class="quote reveal">「80% 重合，剩下 20% 的分裂点」<small>—— Qwen3.8 反思轮 · 与
+                        Gemini 首轮共识率 79.3%（一致✅ 22 所 + 一致❌ 43 所）</small></div>
+
+
+                <div class="why-grid">
+                    <div class="panel reveal">
+                        <h3 style="font-size:16px;margin-bottom:12px">① 两套口径的本质差异</h3>
+                        <table class="cmp-table">
+                            <tr>
+                                <th>维度</th>
+                                <th>CSRankings 口径</th>
+                                <th>双AI生态口径</th>
+                            </tr>
+                            <tr>
+                                <td style="color:var(--tx3)">核心指标</td>
+                                <td>教授数 × 顶会论文总量</td>
+                                <td>培养模式 / 资助 / 文化 / 交叉土壤</td>
+                            </tr>
+                            <tr>
+                                <td style="color:var(--tx3)">看得见</td>
+                                <td>研究生产力绝对值</td>
+                                <td>是否逼你刷题做 SDE、有无 Thesis、RA/TA 资助、跨系选课自由度</td>
+                            </tr>
+                            <tr>
+                                <td style="color:var(--tx3)">看不见</td>
+                                <td>现金牛项目 / Co-op 工厂 / 零资助授课硕</td>
+                                <td>小生态校的论文体量差距</td>
+                            </tr>
+                            <tr>
+                                <td style="color:var(--tx3)">典型冲突</td>
+                                <td>NEU #8、ASU #12、SBU #22 产出极高</td>
+                                <td>但整体文化是 SDE 流水线 → 仅研究轨可留</td>
+                            </tr>
+                            <tr>
+                                <td style="color:var(--tx3)">反向冲突</td>
+                                <td>Georgetown #104、Tufts #75 产出极低</td>
+                                <td>但 DC 政策 / 文理生态无可替代 → 维持推荐</td>
+                            </tr>
+                        </table>
+                        <p style="font-size:12.5px;color:var(--tx3);margin-top:12px">∴
+                            最终排名采用「层级优先、产出决胜」：生态契合是一票否决权，产出只在同层内部排序。这解释了为什么 MIT（实测仅#16）仍是 A 层——Media Lab 的产出不进
+                            CSRankings 会议口径，它强在生态而非计数。</p>
+                    </div>
+                    <div class="panel reveal">
+                        <h3 style="font-size:16px;margin-bottom:12px">② 筛选组合的污染与纯净建议</h3>
+                        <p style="font-size:13.5px;color:var(--tx2)">本次实测使用的七项筛选中，有两项引入了与您画像不符的噪声：</p>
+                        <div class="chips" style="margin:12px 0"><span class="chip strike">🤖 Robotics</span><span
+                                style="font-size:12px;color:var(--tx3);align-self:center">→ 抬升
+                                WPI/TAMU/VT，但它们做的是控制与硬件机器人，不是您要的 HRI / 社交机器人</span></div>
+                        <div class="chips" style="margin:0 0 12px"><span class="chip strike">⚡ AI
+                                (AAAI/IJCAI)</span><span style="font-size:12px;color:var(--tx3);align-self:center">→ 含大量
+                                ML-Systems 重代码产出，抬升 ASU/UTD/SBU，与「不过于重代码」存在内在张力</span></div>
+                        <p style="font-size:13.5px;color:var(--tx2)">同时，<b style="color:#cfe3ff">未勾选 Computer
+                                Graphics</b> 导致 Utah / UNC / RIT 在视觉认知与沉浸式交互上的优势被低估。</p>
+                        <div class="chips" style="margin-top:12px"><span
+                                style="font-size:12.5px;color:var(--tx3);align-self:center">更纯净的复核组合 →</span><span
+                                class="chip keepchip">HCI</span><span class="chip keepchip">NLP</span><span
+                                class="chip keepchip">Web & IR</span><span class="chip keepchip">CS
+                                Education</span><span class="chip keepchip">Visualization</span></div>
+                    </div>
+                </div>
+                <div class="why-grid" style="margin-top:16px">
+                    <div class="panel reveal">
+                        <h3 style="font-size:16px;margin-bottom:14px">③ 硬性排除项触发链（❌ 46 所的拒绝依据）</h3>
+                        <div class="exc-block">
+                            <div class="t" style="color:#ff9e9e">🧪 数理化触发<span class="c">5 校</span></div>
+                            <div class="chips"><span class="chip">FSU · HPC/物理建模</span><span class="chip">U Arizona ·
+                                    Optics#1</span><span class="chip">Rochester · 光学传统</span><span class="chip">Colorado
+                                    Mines · 重工业数理</span><span class="chip">U New Mexico · Sandia/Los Alamos</span></div>
+                        </div>
+                        <div class="exc-block">
+                            <div class="t" style="color:#ffc38a">🧬 生物 / 医疗 / 农业触发<span class="c">13 校</span></div>
+                            <div class="chips"><span class="chip">Rutgers · Bioinformatics</span><span class="chip">UC
+                                    Davis · AgTech</span><span class="chip">Iowa State · AgTech</span><span
+                                    class="chip">Wash State · Vet IT</span><span class="chip">CWRU · BME/Cleveland
+                                    Clinic</span><span class="chip">UAB · EHR</span><span class="chip">Emory ·
+                                    CDC医疗</span><span class="chip">Vanderbilt · VUMC</span><span class="chip">WUSTL ·
+                                    医疗交叉</span><span class="chip">NE-Lincoln / U Idaho / Oklahoma St / U Kentucky ·
+                                    农业</span></div>
+                        </div>
+                        <div class="exc-block">
+                            <div class="t" style="color:#a5c8ff">💰 金融 / 经济触发<span class="c">6 校</span></div>
+                            <div class="chips"><span class="chip">Notre Dame · 金融咨询网络</span><span class="chip">UConn ·
+                                    哈特福德保险</span><span class="chip">Stevens · Quant/金融IT</span><span
+                                    class="chip">NE-Omaha · 伯克希尔</span><span class="chip">Delaware · 化工+金融后台</span><span
+                                    class="chip">UIC · 金融IT（部分）</span></div>
+                        </div>
+                        <div class="exc-block" style="margin-bottom:0">
+                            <div class="t" style="color:#d5a6ff">🏭 SDE 印钞机 / 签证工具<span class="c">其余 22 校</span></div>
+                            <div class="chips"><span class="chip">UF · 无Thesis零资助</span><span class="chip">Rice
+                                    MPCS</span><span class="chip">Northeastern · Co-op工厂</span><span class="chip">UCI
+                                    MCS</span><span class="chip">UTD · 200+/年</span><span class="chip">ASU ·
+                                    300+/年</span><span class="chip">TAMU MCS</span><span class="chip">Santa Clara ·
+                                    零科研</span><span class="chip">SJSU · FAANG输送</span><span class="chip">IIT · Day-1
+                                    CPT</span><span class="chip">Cincinnati · Co-op</span><span class="chip">…等</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel reveal">
+                        <h3 style="font-size:16px;margin-bottom:14px">④ B 层（条件平反）生存法则</h3>
+                        <p style="font-size:13px;color:var(--tx2);margin-bottom:10px">这 10 所学校的「适合」是有前提的——选错轨道就会从 ✅ 跌回
+                            ❌：</p>
+                        <ul class="rules">
+                            <li>只申请 <b>Thesis MS / PhD 研究轨</b>；任何标注 Course-based / Non-thesis / Self-supporting 的项目一律放弃。
+                            </li>
+                            <li>入学前书面确认 <b>RA / TA 资助路径</b>；官方明确「不提供硕士生资助」的项目（如 UF CISE）直接出局。</li>
+                            <li>避开纯 Systems / Networking / ML-Systems 重代码组，主动锁定 HCI / NLP / Viz / Social Computing 实验室。
+                            </li>
+                            <li>提前一季套磁目标实验室教授：UIUC HCI、NEU 可视化组、ASU SCAI 研究组、UIC Viz、UMass NLP、OSU Accessible Tech。</li>
+                            <li>双面上课型大学（NEU/ASU/SBU/UTD）：把学校当「研究组的壳」，而不是「就业服务的芯」。</li>
+                        </ul>
+                        <h3 style="font-size:15px;margin:20px 0 10px">⑤ 结构性盲区 · 名单外遗珠</h3>
+                        <p style="font-size:12.5px;color:var(--tx3);margin-bottom:10px">82
+                            校名单以「资金/SDE博弈」口径选校，系统性漏掉了以下研究型契合校（若扩充名单，Qwen 建议直接标 ✅）：</p>
+                        <div class="blind-grid" id="blindGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <div class="frow">
+                <span class="chip">📊 数据：CSRankings 2016–2026</span>
+                <span class="chip">🎯 筛选：AI / NLP / Web&IR / CS Edu / HCI / Robotics / Visualization</span>
+                <span class="chip">🤖 评审：Gemini 首轮 × Qwen3.8 复核与反思</span>
+                <span class="chip">⚙️ 增强：四维评分 / 权重实验室 / 热力矩阵 / 雷达档案</span>
+            </div>
+            <p>免责声明：本页为两位 AI 助手基于给定知识库与公开研究产出数据的观点性评估，供选校研究参考；项目政策（Thesis 选项、资助、招生规模）请以各校官网最新信息为准。官方排名公式：层级优先 →
+                CSRankings 综合计数降序 → 教授规模决胜。四维子评分（产出/契合/资助/自由度）为基于知识库的建模估计，用于结构对比而非精确测量。</p>
+        </div>
+    </footer>
+
+    <div class="cmpbar" id="cmpbar">
+        <span style="font-size:12.5px;color:var(--tx3)">对比栏（最多3校）</span>
+        <span id="cmpChips" style="display:flex;gap:8px;flex-wrap:wrap"></span>
+        <button class="btn primary" onclick="openCompare()">开始对比</button>
+        <button class="btn" onclick="clearCompare()">清空</button>
+    </div>
+    <button class="fab" id="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <div id="toast"></div>
+    <div class="mback" id="mDetail">
+        <div class="modal" id="mDetailBox"></div>
+    </div>
+    <div class="mback" id="mCompare">
+        <div class="modal" style="max-width:980px" id="mCompareBox"></div>
+    </div>
+
+    <script>
+        /* ================= DATA ================= */
+        const TIER_INFO = {
+            S: { name: '双高圣地', full: 'T0 · 双高圣地', color: '#f5c451', desc: 'CSRankings 产出顶尖 + 交叉生态完美契合，无条件首选。', eg: 'CMU · GT · UMD · UCSD · UW' },
+            A: { name: '强适配', full: 'T1 · 强适配', color: '#3fd6b4', desc: '产出或生态至少一项顶级、另一项达标，双AI共识推荐。', eg: 'MIT · NYU · RIT · GMU · Utah' },
+            B: { name: '条件平反', full: 'T2 · 条件平反', color: '#ff9e4f', desc: '实测产出强劲但文化有坑，必须锁定 Thesis / 研究轨。', eg: 'UIUC · NEU · UIC · UMass · USC' },
+            C: { name: '文化小众', full: 'T3 · 文化小众', color: '#a98cfa', desc: '产出平平但生态 / 地缘无可替代，适合政策与文理路线。', eg: 'Brown · Duke · Georgetown' },
+            D: { name: '维持拒绝', full: 'T4 · 维持拒绝', color: '#f4506b', desc: '文化错位，或触发数理化生 / 金融 / SDE 硬性排除。', eg: '46 所拒绝校' }
+        };
+        const TIER_ORDER = { S: 0, A: 1, B: 2, C: 3, D: 4 };
+        const S = (abbr, zh, en, tier, g, q, cr, cs, fc, lab, tags, why, warn) => ({ abbr, zh, en, tier, g, q, cr, cs, fc, lab, tags, why, warn: warn || '' });
+        const SCHOOLS = [
+            S("Stanford", "斯坦福大学", "Stanford University", "S", 1, 1, 7, 18.0, 40, "Symbolic Systems · Stanford HCI Group", ["HCI", "认知科学", "符号系统", "HAI"], "Symbolic Systems 是认知科学+CS 的神级交叉项目，HCI Group 全球顶尖；学校以以人为本的计算（Human-Centered AI）为旗帜，计算机与人类行为、心理学、社会学深度融合，绝非培养 SDE 的工厂，高度契合跨学科学术愿景。", "产出更集中在 AI/Systems 口径，交叉申请请锁定 Symbolic Systems 与 HCI 组。"),
+            S("MIT", "麻省理工学院", "Massachusetts Institute of Technology", "A", 1, 1, 16, 11.0, 64, "MIT Media Lab · Fluid Interfaces", ["Media Lab", "认知×科技×社会", "创意交叉"], "Media Lab 是全球认知、科技与社会学结合的最高殿堂，极度注重创意与交叉设计，完全脱离传统 EECS 的纯代码内卷。实测仅列 #16 是因为 Media Lab 产出不进 CSRankings 传统顶会口径——它是契合型圣地，而非产出型圣地。", "若要论文产出请优先考虑 CMU/GT/UCSD/UW；MIT 买的是生态上限。"),
+            S("Berkeley", "加州大学伯克利分校", "University of California, Berkeley", "S", 1, 1, 11, 12.9, 53, "I-School · 认知科学 · BiD", ["认知科学发源地", "I-School", "科技政策"], "现代认知科学发源地之一，I-School 偏社科、科技政策与 HCI，BiD 与 Computational Social Science 团队底蕴深厚，CS 与社会科学、认知语言学交叉极其成熟，避开 EECS 卷王轨道仍保有顶级学术深度。"),
+            S("CMU", "卡内基梅隆大学", "Carnegie Mellon University", "S", 1, 1, 1, 30.2, 128, "HCII · LTI · METALS", ["HCII全球第一", "NLP", "社会计算"], "实测全美第 1（30.2 计数、128 位教授）+ 全球第一的独立 HCII 人机交互研究所，产出与文化双封顶。心理学、设计学、认知科学与计算技术的结合是核心主干，提供专门的 HCI 硕博体系，能彻底脱离纯软件开发的同质化竞争。", "避开 SCS 纯 Systems/AI 码农 track，锁定 HCII、LHI 或 METALS 项目。"),
+            S("UIUC", "伊利诺伊大学香槟分校", "Univ. of Illinois Urbana-Champaign", "B", 1, 0, 2, 24.9, 86, "HCI（全美前五）· Social Computing", ["HCI前五", "社会计算", "NLP"], "实测并列 #2（24.9），HCI 在知识库中原标全美第 5，Social Computing 与人机协作积淀深厚。Qwen 反思轮承认因『SDE 流水线』叙事将其整体 ❌ 是最大失误，正式平反为条件推荐。", "必须申请 Thesis MS / PhD 轨道；坚决避开纯就业导向的 MCS 授课项目。"),
+            S("GT", "佐治亚理工学院", "Georgia Institute of Technology", "S", 1, 1, 2, 24.9, 96, "HCC 博士 · MS-HCI · GVU Center", ["HCC", "GVU", "认知×交互"], "实测并列 #2。独立且强悍的 Human-Centered Computing 博士项目与交叉 MS-HCI，涵盖计算、心理学、数字媒体三个学院的资源，专精认知、人机互动与社会计算，是跨学科研究的极佳选择，非纯 SDE 流水线。"),
+            S("Purdue", "普渡大学", "Purdue University", "D", 0, 0, 21, 9.9, 46, "—", ["硬核系统", "SDE导向"], "传统硬核工科强校，CS 课程与研究重度倾斜于底层系统、编译器、网络安全与软件工程，缺乏柔性的社科与认知科学交叉土壤，极易将学生推向传统 SDE 和系统工程师路线。论文产出高（#21）不等于画像契合。"),
+            S("PSU", "宾夕法尼亚州立大学", "Pennsylvania State University", "A", 1, 1, 41, 6.8, 35, "IST 信息科学与技术学院", ["IST", "人本设计", "科技政策"], "拥有独立且极其强悍的 IST 学院，专精 Human-Centered Design、社会计算与技术政策，打破传统 CS 偏重敲代码的沉闷，非常强调信息系统与人类心理及社会组织的交互。双 AI 一致推荐。"),
+            S("Ohio State", "俄亥俄州立大学", "The Ohio State University", "D", 0, 0, 53, 5.6, 26, "—", ["传统CS", "SDE导向"], "项目规模大，科研与教学重心高度集中于传统数据挖掘、系统开发与算法，就业导向明显指向中西部大厂传统 SDE 岗位，缺乏心理学与认知方向的深度交叉支持。"),
+            S("UF", "佛罗里达大学", "University of Florida", "D", 0, 0, 61, 4.5, 24, "—", ["无Thesis", "零资助", "SDE印钞机"], "MS CISE 为纯授课型且完全没有 Thesis 选项，官方明确不向硕士生提供 RA/TA 资助。项目完全以刷题、找 SDE 工作为唯一导向，彻底断绝深度认知交叉科研的可能性。"),
+            S("Stony Brook", "石溪大学", "Stony Brook University", "B", 0, 0, 22, 9.8, 46, "AI × 系统交叉研究组", ["双面校", "AI", "实测平反"], "实测 #22，论文产出确实强劲，AI 与系统交叉有一定体量。Qwen 反思轮由 ❌ 修正为『双面校』：研究侧值得考虑。", "Course track 仍 ❌（纯课程无 Thesis，卖点为通勤纽约找 SDE）；仅当能进入 thesis / 研究轨时 ✅。"),
+            S("Rutgers", "罗格斯大学", "Rutgers University", "D", 0, 0, 25, 8.5, 37, "—", ["生信触发", "现金牛"], "强势方向偏 AI 与生物信息学（Bioinformatics 前列），触发生物排除项；MS 为 150+ 人大规模『现金牛』培养模式，课程偏传统 CS 核心，主要为大纽约地区输送常规软件工程师。"),
+            S("NC State", "北卡罗来纳州立大学", "North Carolina State University", "D", 0, 0, 42, 6.6, 38, "—", ["软件工程", "系统"], "强势领域集中于软件工程（SE 前列）与操作系统，地理位置紧邻 RTP 三角园区，培养目标明确指向 IBM、红帽等企业的传统 IT 与代码开发岗位。"),
+            S("Virginia Tech", "弗吉尼亚理工大学", "Virginia Tech", "B", 1, 0, 13, 11.8, 55, "Center for HCI (CHCI)", ["CHCI", "VR/AR", "双面校"], "CHCI 历史悠久、声誉卓著，VR/AR、沉浸式计算与认知人机界面课题强，Gemini 首轮即 ✅；实测 #13 产出扎实，但部分由工程类 Robotics 与 Systems 计数抬升。", "必须申请 Thesis MS 轨道进 CHCI 研究；避开纯 Systems/Networking 重代码方向。"),
+            S("UCSC", "加州大学圣克鲁兹分校", "UC Santa Cruz", "A", 1, 1, 42, 6.6, 40, "Computational Media · Expressive Intelligence Studio", ["计算媒体", "游戏×叙事", "NLP生成"], "极具特色的 Computational Media 系与 Expressive Intelligence Studio，将计算与游戏设计、心理学、叙事学、自然语言生成深度结合，学术气质独特且非传统，双 AI 一致推荐。"),
+            S("Rice", "莱斯大学", "Rice University", "D", 0, 0, 57, 4.9, 19, "—", ["自费无论文", "SDE印钞机"], "MPCS 为全自费、无论文的职业型学位，课程高度实用化，专门为休斯顿当地的能源与医疗 IT 部门批量输送写代码的工程人员，无认知交叉生态。"),
+            S("Northeastern", "东北大学", "Northeastern University", "B", 0, 0, 8, 17.5, 88, "HCI / Visualization 研究组", ["Co-op文化", "双面校", "可视化"], "实测 #8、HCI 与 Visualization 发表量巨大，产出不可忽视；但学校整体机制 100% 围绕 Co-op 带薪实习与进大厂做 SDE，工程与就业氛围极浓。", "双面校：course track 是纯 SDE 加工厂，坚决 ❌；仅当明确进研究组、走论文轨时 ✅。"),
+            S("UMass", "马萨诸塞大学阿默斯特分校", "Univ. of Massachusetts Amherst", "B", 1, 0, 18, 10.3, 44, "NLP（全美前十）· AI", ["NLP", "认知语言学", "实测平反"], "实测 #18，NLP 知识库标注全美第 10。自然语言处理天然与认知语言学、心理学、人类语义理解绑定，适合从语言与认知角度做深度学术探索。Qwen 反思轮由 ❌ 修正为条件 ✅。", "避开硬核 OS/Systems 方向，锁定 NLP 与认知语言交叉组。"),
+            S("Pitt", "匹兹堡大学", "University of Pittsburgh", "D", 1, 0, 69, 4.0, 19, "—", ["医疗IT", "HCI薄弱"], "Gemini 首轮看重 ISP 项目与共享 CMU 资源，但实测产出仅 #69，自身 HCI 薄弱、整体偏传统 CS 与医疗 IT，最终校准维持拒绝。"),
+            S("UCSD", "加州大学圣地亚哥分校", "Univ. of California, San Diego", "S", 1, 1, 5, 20.5, 89, "Design Lab · 全球第一个认知科学系", ["认知科学", "Design Lab", "HCI"], "实测 #5。拥有全球第一个认知科学系与唐·诺曼创建的 Design Lab，CS × Cognitive Science × HCI 交叉处于世界巅峰，完美契合全部主辅兴趣，双高圣地四巨头之一。"),
+            S("UCSB", "加州大学圣塔芭芭拉分校", "Univ. of California, Santa Barbara", "A", 1, 1, 48, 6.4, 30, "Media Arts & Technology (MAT)", ["MAT", "媒体艺术", "感知心理"], "极强的 MAT 跨学科项目，将计算技术与视觉艺术、人类感知、心理学完美融合，学术氛围自由且极富创意，是 CS 研究生阶段少有的非硬核代码栖息地。"),
+            S("UCI", "加州大学欧文分校", "Univ. of California, Irvine", "A", 0, 1, 32, 7.6, 51, "Informatics 系（I-School）", ["Informatics", "UX", "社会计算"], "独立的 Informatics 系极度偏向 HCI、社科、UX 与信息社会研究，实测 #32 有产出支撑，Qwen 直接上调至双高区。Gemini 的 ❌ 仅针对 MCS 项目而非 Informatics。", "坚决避开 MCS：150+ 人纯自费授课、零科研资助的 SDE 就业印钞机。"),
+            S("UC Davis", "加州大学戴维斯分校", "Univ. of California, Davis", "D", 0, 0, 51, 6.3, 29, "—", ["农业触发", "生物触发"], "强项为 AgTech 与生物计算，触发农业/生物排除项；CS 科研偏传统硬件系统，硕士培养越来越偏向纯就业。"),
+            S("UPenn", "宾夕法尼亚大学", "University of Pennsylvania", "A", 1, 1, 33, 7.5, 44, "CIS MSE · iSchool", ["藤校", "跨学科", "科技政策"], "常春藤无可比拟的自由跨学科氛围，选修心理学系、社会学系及人文项目门槛极低，CS 可结合认知科学研究，适合 Product / UX Research / Tech Policy 路线。", "申请学术型 CIS MSE；坚决避开转码刷题专用的 MCIT 项目。"),
+            S("UTD", "德克萨斯大学达拉斯分校", "Univ. of Texas at Dallas", "B", 0, 0, 42, 6.6, 32, "Web & IR 研究组", ["双面校", "Web&IR"], "实测并列 #42，Web & IR 方向确有一定产出，Qwen 反思轮将其由 ❌ 平反为双面校。", "200+/年规模的后端/电信授课轨仍 ❌；仅研究轨 ✅。"),
+            S("ASU", "亚利桑那州立大学", "Arizona State University", "B", 0, 0, 12, 12.3, 49, "SCAI · CS Education 研究组", ["双面校", "AI", "CS教育"], "实测 #12，AI 与 CS Edu 论文总量大，SCAI 基础设施投入真实；但每年 300+ 人的超级大组高度同质化，硕士生极难挤入核心交叉科研。", "双面校：需主动争取进研究组，避开大班授课轨。"),
+            S("UW", "华盛顿大学", "University of Washington", "S", 1, 1, 6, 19.3, 56, "DUB · HCDE · iSchool", ["DUB", "HCDE", "社会计算"], "实测 #6。DUB 联盟是全球最顶尖的 HCI 与设计研究集群之一，HCDE 与 iSchool 顶尖，跨系选课与交叉研究均处绝对领先地位，双高圣地四巨头之一。", "必须申请 Thesis MS/PhD；坚决避开纯 SDE 职业导向的 PMP 项目。"),
+            S("UMD", "马里兰大学学院公园分校", "Univ. of Maryland, College Park", "S", 1, 1, 2, 24.9, 68, "HCIL · iSchool", ["HCIL", "计算社会科学", "NLP"], "实测并列 #2（24.9）。享誉全球的 HCIL 历史悠久，计算社会科学、科技政策、NLP 与人类行为分析底蕴极其深厚，绝非纯工程系。Qwen 反思轮明确上调至双高圣地。"),
+            S("UMN", "明尼苏达大学双城分校", "Univ. of Minnesota, Twin Cities", "A", 0, 1, 25, 8.5, 37, "GroupLab · CSCW", ["CSCW", "GroupLab", "社会计算"], "GroupLab 在 HCI、心理学与 CSCW（计算机支持的协同工作）交叉领域极强，社科底蕴深厚。Gemini 的 ❌ 仅针对分布式系统硬核标签；Qwen 以实测 #25 支撑上调至双高区。"),
+            S("TAMU", "德州农工大学", "Texas A&M University", "D", 0, 0, 30, 8.1, 38, "—", ["硬核工程", "SDE印钞机"], "保守务实的南方硬核工科名校，培养风气高度偏向底层系统、硬件集成与传统软件工程；MCS 150+/年纯授课印钞机，是典型传统工程师与码农温床。"),
+            S("UIC", "伊利诺伊大学芝加哥分校", "Univ. of Illinois Chicago", "B", 0, 0, 15, 11.7, 45, "Visualization · HCI 研究组", ["可视化", "实测平反"], "实测 #15（高于 MIT 的 #16！），Visualization / HCI 产出此前被双 AI 完全漏判，Qwen 反思轮正式平反为条件推荐。", "仅考虑 Visualization 研究方向；金融 IT 就业轨道仍 ❌。"),
+            S("CU Boulder", "科罗拉多大学波尔得分校", "Univ. of Colorado Boulder", "A", 1, 1, 20, 10.1, 58, "ATLAS Institute", ["ATLAS", "创意科技", "社会影响"], "著名的 ATLAS Institute 专注创意科技、HCI、设计与社会影响交叉研究，极其鼓励破界思维，实测 #20 产出扎实，Qwen 上调至双高区，非常适合不愿死敲代码的复合型学生。"),
+            S("RPI", "伦斯勒理工学院", "Rensselaer Polytechnic Institute", "D", 0, 0, 96, 2.4, 16, "—", ["传统工科"], "传统工科老校，重点集中在机械、微电子与传统 IT 系统，校园文化严重缺乏心理学、社科等柔性交叉积淀；实测仅 #96，产出与文化双错配。"),
+            S("RIT", "罗切斯特理工学院", "Rochester Institute of Technology", "A", 1, 1, 28, 8.3, 53, "IGM 交互游戏与媒体学院 · HCI MS", ["IGM", "游戏", "视觉认知"], "独立的 IGM 学院 + 全美第 23 的 HCI MS 项目，游戏设计与交互天然深度结合认知心理学与感知科学，Imaging 相关领域全美顶尖，非传统码农路线，双 AI 一致推荐。"),
+            S("WPI", "伍斯特理工学院", "Worcester Polytechnic Institute", "D", 0, 0, 51, 6.3, 22, "—", ["机器人硬件", "项目制"], "极度强调 Project-based 的传统工程实操，优势集中在机器人与嵌入式系统，几乎没有给社科、心理学理论探索留出学术空间；其 Robotics 属控制硬件而非 HRI。"),
+            S("IIT", "伊利诺伊理工学院", "Illinois Institute of Technology", "D", 0, 0, 143, 1.4, 5, "—", ["Day-1 CPT", "签证校"], "国际生比例高达 80%+，严重依赖 Day-1 CPT 机制，被普遍视为签证维持校。毫无科研学术氛围，纯粹是低端 SDE 就业 / 续签工具。"),
+            S("NJIT", "新泽西理工学院", "New Jersey Institute of Technology", "D", 0, 0, 73, 3.6, 25, "—", ["通勤校", "网络安全IT"], "纽约市周边的高性价比通勤校，核心使命是将学生送入曼哈顿做网络安全与传统 IT 开发，完全没有认知科学或社科交叉的土壤。"),
+            S("GMU", "乔治梅森大学", "George Mason University", "A", 0, 1, 17, 10.4, 41, "Tech Policy · 社会计算", ["科技政策", "DC智库", "实测背书"], "实测 #17 产出不俗（高于 NYU 之外的多数私立），偏 Tech Policy / 社科，地处 NoVA-DC 走廊，科技政策、伦理与智库研究资源极好，非纯代码导向。Gemini 的 ❌ 被 Qwen 以实测数据推翻。"),
+            S("UMass Lowell", "马萨诸塞大学洛威尔分校", "Univ. of Massachusetts Lowell", "D", 0, 0, 80, 3.0, 16, "—", ["制造IT"], "定位为工业城市的应用型公立大学，强项集中在制造业 IT 与应用机器人，侧重传统工业开发，缺乏学术深度。"),
+            S("FSU", "佛罗里达州立大学", "Florida State University", "D", 0, 0, 85, 2.9, 16, "—", ["HPC", "物理触发"], "核心王牌是高性能计算（HPC）与科学计算，重度依赖复杂应用数学、物理建模与底层优化，直接触及其排斥数理化生的雷区。"),
+            S("Iowa State", "爱荷华州立大学", "Iowa State University", "D", 0, 0, 77, 3.2, 20, "—", ["农业触发"], "强项完全集中在农业科技（AgTech 前列）、重型机械 IT 与传统软件工程，触发农业排除项，缺乏人文心理与社科交互的研究基础。"),
+            S("U Arizona", "亚利桑那大学", "University of Arizona", "D", 1, 0, 80, 3.0, 14, "—", ["光学触发", "物理触发"], "Gemini 曾看重 iSchool 整合，但该校 Optics 全美第 1、重度物理/光学，触发物理排除项；实测仅 #80，最终校准维持拒绝。"),
+            S("Washington State", "华盛顿州立大学", "Washington State University", "D", 0, 0, 114, 2.0, 14, "—", ["兽医IT触发"], "独特优势在于兽医 IT 与农业科技交叉，研究对象偏向动物与自然生态，完全不符合探索『人类认知与心理』的偏好。"),
+            S("Oregon State", "俄勒冈州立大学", "Oregon State University", "B", 1, 0, 40, 6.9, 28, "HCI（CSRankings 第11）· Accessible Tech", ["隐藏HCI强校", "辅助技术", "人机协作"], "CSRankings HCI 单项全美第 11 的隐藏强校，在辅助技术与人类-AI 协作交互方面科研实力极强，学术性价比极高。Gemini 的 ✅ 被实测 #40 背书，Qwen 反思轮修正为条件推荐。"),
+            S("Cincinnati", "辛辛那提大学", "University of Cincinnati", "D", 0, 0, 107, 2.1, 11, "—", ["Co-op", "制造IT"], "全美 Co-op 模式的发源地，整个培养体系 100% 旨在将学生送入宝洁（P&G）或通用电气（GE）做应用 IT 实习，去学术化、高度职业化。"),
+            S("Michigan State", "密歇根州立大学", "Michigan State University", "D", 0, 0, 63, 4.2, 25, "—", ["汽车工业IT"], "Big Ten 传统工科强校，CS 研究高度服务于底特律汽车工业与车载底层系统开发，偏向硬件与传统制造，缺乏社科交叉灵动性。"),
+            S("USC", "南加州大学", "University of Southern California", "B", 0, 1, 23, 8.6, 51, "Interactive Media & Games", ["交互媒体", "游戏", "UX"], "实测 #23。Interactive Media & Games 方向极强，偏 UX、认知、产品与媒体交互，南加州娱乐/交互产业生态极佳；Gemini 的 ❌ 仅针对 Viterbi CS 通识大班。", "锁定交互媒体分院；避开 Viterbi 数百人自费 CS 通识授课轨。"),
+            S("NYU", "纽约大学", "New York University", "A", 1, 1, 18, 10.3, 58, "ITP · Center for Data Science", ["ITP", "艺术×科技", "认知"], "顶级交叉生态：ITP 被誉为『工程师的艺术学院』，偏 HCI、艺术、认知与社科交叉，Center for Data Science 与心理学系深度合作，科技×艺术×传媒×人类行为的上限极高，实测 #18 产出同样优秀。", "避开 Tandon 纯 CS 工程方向。"),
+            S("Duke", "杜克大学", "Duke University", "C", 1, 1, 60, 4.6, 34, "科技×社会政策 · 行为分析", ["精英小班", "科技政策", "心理行为"], "精英私立小班制，注重科技与社会政策、医疗健康及心理行为分析的结合，极其鼓励跨学科定制学习计划，完全不会迫使学生走纯码农路线；实测产出中游但生态契合。"),
+            S("Brown", "布朗大学", "Brown University", "C", 1, 1, 42, 6.6, 25, "CLPS 认知、语言与心理科学系", ["开放课程", "CLPS", "认知科学"], "贯彻 Open Curriculum 理念，CLPS 系全美顶尖，CS 与认知科学交叉极具深度，非常注重批判性思维与人类认知；教授基数小使论文绝对排名不显，但生态顶级。"),
+            S("Vanderbilt", "范德堡大学", "Vanderbilt University", "D", 1, 0, 55, 5.4, 32, "—", ["医疗触发"], "Gemini 曾看重 Peabody 教育科技，但 Qwen 实测其 CS 偏医疗 IT（VUMC）、CS 规模小且无 HCI 生态，触发医疗排除项，最终拒绝。"),
+            S("Tufts", "塔夫茨大学", "Tufts University", "C", 1, 1, 75, 3.4, 18, "HRI · Tech Ethics", ["HRI", "科技伦理", "儿童认知"], "带浓厚文理学院气质的精英研究型大学，Human-Robot Interaction、认知科学与科技伦理方向小而精；结合 Eliot-Pearson 儿童发展系形成独特的 EdTech × 认知 HCI 优势。"),
+            S("GWU", "乔治华盛顿大学", "George Washington University", "C", 1, 1, 107, 2.1, 10, "科技政策 · 社会计算", ["DC政策", "智库"], "位于 DC 政治核心区，CS 天然带极强的科技政策、社会计算与智库属性，极其适合不愿死敲代码、想走『科技+社科/管理』路线的人才；产出低但地缘独特性无可替代。"),
+            S("Syracuse", "雪城大学", "Syracuse University", "C", 0, 1, 128, 1.6, 10, "iSchool", ["iSchool", "信息政策", "信息行为"], "iSchool 偏信息研究、社科、HCI 与信息政策，非纯 CS，社科交叉底蕴深厚；Gemini 的 ❌ 仅针对传统 IT 管理标签，Qwen 以 iSchool 生态维持 ✅。"),
+            S("Emory", "埃默里大学", "Emory University", "D", 1, 0, 56, 5.1, 16, "—", ["医疗触发", "生物触发"], "Gemini 曾看重其毗邻 CDC 的医疗信息学，但 Qwen 实测其 CS 整体偏医疗/生物方向，触发生物排除项，最终拒绝。"),
+            S("CWRU", "凯斯西储大学", "Case Western Reserve University", "D", 0, 0, 114, 2.0, 13, "—", ["医疗触发", "BME"], "核心强势完全被生物医学工程、医疗硬件与传统制造 IT（Cleveland Clinic 生态）占据，直接触及其排斥生物学的雷区。"),
+            S("Georgetown", "乔治城大学", "Georgetown University", "C", 1, 1, 104, 2.2, 8, "Tech + Policy · 计算社会科学", ["Tech+Policy", "计算社科", "智库输送"], "最具人文社科基因的 CS 系之一，深耕『Tech + Policy』以及计算社会科学，直接输送政界、智库与国际组织，完美避开码农路线；这是买生态而非产出的典型选择。"),
+            S("WUSTL", "圣路易斯华盛顿大学", "Washington University in St. Louis", "D", 1, 0, 64, 4.1, 19, "—", ["医疗触发"], "Gemini 曾看到脑科学×脑机接口空间，但 Qwen 实测其整体偏医疗交叉，触发医疗排除项，最终校准维持拒绝区。"),
+            S("Notre Dame", "圣母大学", "University of Notre Dame", "D", 1, 0, 46, 6.5, 25, "—", ["金融触发"], "Gemini 曾看重 Lucy Family Institute 的科技伦理，但 Qwen 实测其校友网络重度偏向金融/咨询（『Notre Dame mafia』），触发金融排除项，最终拒绝。"),
+            S("Rochester", "罗切斯特大学", "University of Rochester", "D", 1, 0, 61, 4.5, 21, "—", ["光学触发", "物理触发"], "Gemini 曾看重 BCS 脑与认知科学系，但该校光学传统深厚、物理/光学权重高，触发物理排除项；实测产出中游，最终拒绝。"),
+            S("Colorado Mines", "科罗拉多矿业学院", "Colorado School of Mines", "D", 0, 0, 96, 2.4, 12, "—", ["重工业", "数理化触发"], "全美最硬核的能源、国防、矿业与地质工程学校，校园生态高度重工业化，毫无社科、心理学与 HCI 的生存空间，重数理化基础直接触发排除项。"),
+            S("Delaware", "特拉华大学", "University of Delaware", "D", 0, 0, 69, 4.0, 19, "—", ["化工触发", "金融后台"], "依托避税州优势，CS 主要服务于杜邦等化工巨头与金融机构的后台系统，本质是传统软件维护与数据开发，触发化工/金融双重排除。"),
+            S("UConn", "康涅狄格大学", "University of Connecticut", "D", 0, 0, 73, 3.6, 19, "—", ["保险IT触发"], "位于哈特福德保险业中心，CS 课程高度围绕精算 IT、保险数据开发与传统企业级软件，职业化倾向过于明显，触发金融排除项。"),
+            S("Stevens", "斯蒂文斯理工学院", "Stevens Institute of Technology", "D", 0, 0, 78, 3.1, 18, "—", ["Quant触发", "Day-1 CPT"], "依靠曼哈顿对岸地理优势，深陷 Day-1 CPT 避坑名单，主要为华尔街金融 IT 量化与普通码农保签证提供过度服务，科研属性极低。"),
+            S("Santa Clara", "圣塔克拉拉大学", "Santa Clara University", "D", 0, 0, null, 0, 0, "—", ["硅谷SDE跳板", "零科研"], "处于硅谷心脏（英伟达隔壁），零科研导向，未进入 CSRankings 榜单。学校存在的唯一意义是将高额学费转化为进入硅谷大厂做 SDE 的跳板，与学术兴趣相左。"),
+            S("SJSU", "圣何塞州立大学", "San Jose State University", "D", 0, 0, null, 0, 0, "—", ["FAANG输送", "刷题校"], "全美 FAANG 大厂 SDE 输送量最大的生源校之一，100% 围绕应用代码开发与算法刷题建立教学体系，毫无认知与社科研究支持，未进入 CSRankings 榜单。"),
+            S("UNC", "北卡罗来纳大学教堂山分校", "Univ. of North Carolina at Chapel Hill", "A", 1, 1, 23, 8.6, 32, "SILS iSchool · VR×医疗心理", ["SILS", "图形学/VR", "信息行为"], "顶尖文理与医学强校，计算机图形学、虚拟现实结合医疗心理学实力雄厚，SILS 的信息行为与 UX 研究极强；图形学权重未计入导致其被低估，实测并列 #23。"),
+            S("U Iowa", "爱荷华大学", "University of Iowa", "D", 1, 0, 117, 1.9, 10, "—", ["产出薄弱"], "Gemini 曾看重其跨学科宽容度，但实测仅 #117，无突出认知交叉亮点，本质是 Mastering-out 跳板，最终校准拒绝。"),
+            S("Utah", "犹他大学", "University of Utah", "A", 1, 1, 28, 8.3, 45, "EAE · 图形学重镇", ["图形学", "EAE", "游戏"], "全美顶尖图形学重镇，EAE 项目将计算机、心理学、游戏设计与交互完美结合；视觉认知与沉浸式交互底蕴深厚。因未勾选 Graphics 筛选，其真实实力被榜单低估，双 AI 一致推荐。"),
+            S("NE-Lincoln", "内布拉斯加大学林肯分校", "Univ. of Nebraska–Lincoln", "D", 0, 0, 90, 2.7, 10, "—", ["农业触发"], "典型中西部农业州公立大学，培养模式中规中矩，偏向传统软件工程、网络开发与农业科技应用，触发农业排除项。"),
+            S("Toledo", "托莱多大学", "University of Toledo", "D", 0, 0, null, 0, 0, "—", ["制造IT"], "依托五大湖传统工业带，CS 侧重底特律汽车工业、制造业 IT 与底层代码开发，完全缺乏社科与认知元素，未进入 CSRankings 榜单。"),
+            S("Louisville", "路易斯维尔大学", "University of Louisville", "D", 0, 0, 159, 1.2, 1, "—", ["物流IT"], "核心合作方为当地 UPS 全球物流枢纽与福特工厂，CS 几乎完全服务于物流 IT 和供应链自动化，属于典型的实用蓝领开发。"),
+            S("Tulsa", "塔尔萨大学", "University of Tulsa", "D", 0, 0, 159, 1.2, 2, "—", ["能源IT"], "强项完全绑定俄克拉荷马州的石油、天然气与能源产业数据系统，研究方向极其单一且偏向工业实现。"),
+            S("UAB", "阿拉巴马大学伯明翰分校", "Univ. of Alabama at Birmingham", "D", 0, 0, 181, 1.0, 1, "—", ["医疗触发", "EHR"], "虽是著名医疗中心，但其 CS 彻底沦为处理医院病历系统、底层电子健康档案（EHR）维护的打工部门，缺乏上层人文视角，触发医疗排除。"),
+            S("Wyoming", "怀俄明大学", "University of Wyoming", "D", 0, 0, 159, 1.2, 2, "—", ["偏远低成本"], "极度偏远且成本极低的乡村学校，仅提供最基础的传统 CS/SDE 课程，缺乏任何前沿交叉学科的基础设施。"),
+            S("Idaho", "爱达荷大学", "University of Idaho", "D", 0, 0, 181, 1.0, 1, "—", ["农业触发"], "资源全面倾斜于农业科技与环境工程的交叉计算，没有任何关于人类认知、行为心理或 HCI 的研究生态。"),
+            S("NE-Omaha", "内布拉斯加大学奥马哈分校", "Univ. of Nebraska Omaha", "D", 0, 0, 135, 1.5, 7, "—", ["金融触发"], "依托巴菲特的伯克希尔·哈撒韦，CS 彻底沦为当地金融、保险后台 IT 运维的后备军，违背金融经济排除要求。"),
+            S("Arkansas", "阿肯色大学", "University of Arkansas", "D", 0, 0, 121, 1.7, 5, "—", ["零售IT"], "核心雇主是隔壁的沃尔玛全球总部，CS 培养完全聚焦于大规模零售 IT、供应链物流底层代码。"),
+            S("Memphis", "孟菲斯大学", "University of Memphis", "D", 0, 0, 88, 2.8, 10, "—", ["物流IT"], "依托 FedEx 全球总部，CS 项目本质上是为供应链自动化与包裹追踪系统输送软件工程师。"),
+            S("Kentucky", "肯塔基大学", "University of Kentucky", "D", 0, 0, 121, 1.7, 10, "—", ["农业触发"], "位于传统农业与马场大州，CS 科研高度绑定农业数据与当地工业，缺乏社科交叉的学术基因。"),
+            S("UNM", "新墨西哥大学", "University of New Mexico", "D", 0, 0, 121, 1.7, 7, "—", ["国家实验室触发", "物理触发"], "深度绑定 Sandia 与 Los Alamos 两大国家实验室，是核物理、超算与高性能计算的大本营，直接触及物理/硬核数学的排除雷区。"),
+            S("Oklahoma State", "俄克拉荷马州立大学", "Oklahoma State University", "D", 0, 0, null, 0, 0, "—", ["农业触发", "能源"], "围绕农业工程与传统能源科技建立的 CS 体系，完全不具备探索『人、社会、认知』等柔性科技愿景的条件，未进入 CSRankings 榜单。")
+        ];
+
+        /* ================= SUB-SCORE MODEL ================= */
+        const MAXCS = 30.2;
+        const TIER_BASE = { S: { fit: 95, fund: 72, free: 92, risk: 1 }, A: { fit: 87, fund: 58, free: 84, risk: 2 }, B: { fit: 55, fund: 40, free: 52, risk: 3 }, C: { fit: 74, fund: 55, free: 86, risk: 2 }, D: { fit: 12, fund: 12, free: 15, risk: 5 } };
+        const FIT_OV = { MIT: 97, Stanford: 96, Berkeley: 94, CMU: 97, GT: 96, UCSD: 96, UW: 95, UMD: 94, NYU: 90, Georgetown: 90, Brown: 88, UCSC: 88, Utah: 88, CU: 86, RIT: 86, UNC: 85, Duke: 84, PSU: 84, UPenn: 84, Tufts: 82, UMN: 82, GMU: 80, GWU: 80, UCI: 80, UCSB: 84, USC: 66, UIUC: 62, UIC: 60, UMass: 60, OSU: 68, VT: 66, NEU: 50, SBU: 50, ASU: 46, UTD: 44, Pitt: 20 };
+        const FUND_OV = { Stanford: 80, MIT: 85, CMU: 75, GT: 72, UCSD: 72, UW: 72, UMD: 70, Berkeley: 65, NYU: 50, UPenn: 60, PSU: 62, UMN: 62, CU: 60, UCSB: 60, UCSC: 62, Utah: 58, UNC: 60, UCI: 55, RIT: 55, GMU: 60, UIUC: 55, UIC: 40, UMass: 55, OSU: 55, VT: 55, NEU: 35, SBU: 35, ASU: 30, UTD: 30, USC: 40, Brown: 68, Duke: 65, Tufts: 58, Georgetown: 55, GWU: 50, Syracuse: 45, UF: 0, Rice: 8, "Santa Clara": 3, SJSU: 5, IIT: 4, Stevens: 10 };
+        const FREE_OV = { Stanford: 95, Berkeley: 93, MIT: 96, CMU: 90, GT: 90, UCSD: 95, UW: 92, UMD: 90, Brown: 95, Georgetown: 92, Duke: 88, Tufts: 86, GWU: 85, NYU: 90, UCSB: 88, UCSC: 88, RIT: 82, GMU: 80, PSU: 82, UMN: 82, CU: 88, UNC: 84, Utah: 84, UPenn: 86, UCI: 80, UIUC: 60, UIC: 58, NEU: 45, ASU: 42, SBU: 50, UTD: 40, UMass: 60, VT: 62, OSU: 66, USC: 64 };
+        const RISK_OV = { UIUC: 3, UIC: 3, UMass: 3, VT: 3, OSU: 3, USC: 3, NEU: 4, ASU: 4, UTD: 4, SBU: 4, UF: 5, Rice: 5, "Santa Clara": 5, SJSU: 5, IIT: 5, Stevens: 5, MIT: 1, Stanford: 1 };
+        const TRACK_OV = { D: '🚫 不建议 · 触发排除/文化错位', B: '🎯 仅限 Thesis / PhD 研究轨', S: '🏆 研究轨优先 · 全轨道可行', A: '✅ 研究轨优先 · 全轨道可行', C: '🌿 生态路线 · 政策/文理轨' };
+        const TRACK_OV_SCH = { UPenn: 'CIS MSE（避开 MCIT）', UCI: 'Informatics（避开 MCS）', UW: 'Thesis/PhD（避开 PMP）', CMU: 'HCII / METALS（避开纯 Systems）', USC: '交互媒体分院（避开 Viterbi 大班）', NYU: 'ITP（避开 Tandon 纯CS）', UIUC: 'Thesis MS（避开 MCS）', NEU: '研究组论文轨（避开 Co-op 课程轨）' };
+
+        SCHOOLS.forEach(s => {
+            const b = TIER_BASE[s.tier];
+            s.fit = FIT_OV[s.abbr] ?? b.fit;
+            s.fund = FUND_OV[s.abbr] ?? b.fund;
+            s.free = FREE_OV[s.abbr] ?? b.free;
+            s.risk = RISK_OV[s.abbr] ?? b.risk;
+            s.out = Math.round(s.cs / MAXCS * 1000) / 10;
+            s.track = TRACK_OV_SCH[s.abbr] || TRACK_OV[s.tier];
+        });
+        SCHOOLS.sort((a, b) => TIER_ORDER[a.tier] - TIER_ORDER[b.tier] || b.cs - a.cs || b.fc - a.fc || a.abbr.localeCompare(b.abbr));
+        SCHOOLS.forEach((s, i) => { s.id = i + 1; s.rank = i + 1; });
+        const BY_ID = {}; SCHOOLS.forEach(s => BY_ID[s.id] = s);
+        const verdictOf = s => s.tier === 'B' ? 'cond' : (s.tier === 'D' ? 'no' : 'yes');
+        const verdictTxt = { yes: '✅ 推荐', cond: '⚠️ 条件推荐', no: '❌ 拒绝' };
+
+        /* ================= STATE ================= */
+        const weights = { out: 30, fit: 40, fund: 15, free: 15 };
+        const state = { q: '', tier: 'all', verdict: 'all', disagree: false, starOnly: false, sortK: 'rank', sortDir: 1 };
+        const compareSet = new Set();
+        let starSet = new Set();
+        try { starSet = new Set(JSON.parse(localStorage.getItem('cs82stars') || '[]')); } catch (e) { }
+        function saveStars() { try { localStorage.setItem('cs82stars', JSON.stringify([...starSet])); } catch (e) { } }
+        function scoreOf(s) { const tot = weights.out + weights.fit + weights.fund + weights.free || 1; return (weights.out * s.out + weights.fit * s.fit + weights.fund * s.fund + weights.free * s.free) / tot; }
+
+        /* ================= HELPERS ================= */
+        const $ = id => document.getElementById(id);
+        function toast(msg) { const t = $('toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 2600); }
+        function tierBadge(t) { const c = TIER_INFO[t].color; return `<span class="tier-badge" style="--tc:${c}">${t}</span>`; }
+        function aiV(v) { return v ? '<span class="ai-v y">✓ 适合</span>' : '<span class="ai-v n">✗ 拒绝</span>'; }
+        function heatColor(v) { const h = Math.max(0, Math.min(145, v * 1.45)); return `hsla(${h},70%,46%,.82)`; }
+        function riskStars(r) { const on = '●'.repeat(r), off = '○'.repeat(5 - r); const col = r <= 2 ? 'var(--green)' : r === 3 ? 'var(--orange)' : 'var(--red)'; return `<span class="risk" style="color:${col}" title="风险等级 ${r}/5">${on}<span style="opacity:.3">${off}</span></span>`; }
+
+        /* ================= WEIGHT LAB ================= */
+        const WKEYS = [['wOut', 'out', 'wOutV'], ['wFit', 'fit', 'wFitV'], ['wFund', 'fund', 'wFundV'], ['wFree', 'free', 'wFreeV']];
+        function paintSlider(inp) { const p = (inp.value - inp.min) / (inp.max - inp.min) * 100; inp.style.setProperty('--fill', p + '%'); }
+        function refreshLab(keepPreset) {
+            WKEYS.forEach(([id, k, lb]) => { const inp = $(id); $(lb).textContent = weights[k]; inp.value = weights[k]; paintSlider(inp); });
+            $('fxLine').textContent = `综合分 = (${weights.out}×产出 + ${weights.fit}×契合 + ${weights.fund}×资助 + ${weights.free}×自由度) / ${weights.out + weights.fit + weights.fund + weights.free}`;
+            renderTopStrip(); renderTable(); renderHeat();
+        }
+        WKEYS.forEach(([id, k]) => {
+            $(id).addEventListener('input', e => { weights[k] = +e.target.value; refreshLab(); });
+        });
+        document.querySelectorAll('.preset').forEach(b => b.addEventListener('click', () => {
+            const [o, f, fd, fr] = b.dataset.p.split(',').map(Number);
+            weights.out = o; weights.fit = f; weights.fund = fd; weights.free = fr;
+            document.querySelectorAll('.preset').forEach(x => x.classList.remove('on')); b.classList.add('on');
+            refreshLab(); toast('已应用预设：' + b.textContent.trim());
+        }));
+        function resetWeights() {
+            weights.out = 30; weights.fit = 40; weights.fund = 15; weights.free = 15;
+            document.querySelectorAll('.preset').forEach((x, i) => x.classList.toggle('on', i === 1)); refreshLab(); toast('已重置为均衡默认权重');
+        }
+        $('applyLab').addEventListener('change', e => {
+            if (e.target.checked) { state.sortK = 'score'; state.sortDir = -1; toast('总表已切换为按综合分排序'); }
+            else { state.sortK = 'rank'; state.sortDir = 1; toast('总表已恢复官方终审排序'); }
+            renderTable();
+            document.getElementById('rank').scrollIntoView({ behavior: 'smooth' });
+        });
+        function renderTopStrip() {
+            const pool = SCHOOLS.filter(s => s.tier !== 'D').map(s => ({ s, sc: scoreOf(s) })).sort((a, b) => b.sc - a.sc).slice(0, 12);
+            $('topStrip').innerHTML = pool.map(({ s, sc }, i) => {
+                const c = TIER_INFO[s.tier].color, diff = s.rank - (i + 1);
+                const pill = diff > 0 ? `<span class="pr up">▲${diff}</span>` : diff < 0 ? `<span class="pr dn">▼${-diff}</span>` : `<span class="pr eq">—</span>`;
+                return `<div class="tcard" style="--tc:${c}" onclick="openDetail(${s.id})">${pill}
+<div class="nm">${i + 1}. ${s.abbr}</div><div class="sc">${sc.toFixed(1)}</div>
+<div class="mt">${TIER_INFO[s.tier].name} · 官方终审 #${s.rank} · 产出${Math.round(s.out)} 契合${s.fit} 资助${s.fund} 自由${s.free}</div></div>`;
+            }).join('');
+        }
+
+        /* ================= TIER CARDS ================= */
+        (function () {
+            const grid = $('tierGrid');
+            Object.keys(TIER_INFO).forEach(t => {
+                const info = TIER_INFO[t], cnt = SCHOOLS.filter(s => s.tier === t).length;
+                const d = document.createElement('div');
+                d.className = 'tiercard reveal'; d.style.setProperty('--tc', info.color); d.dataset.tier = t;
+                d.innerHTML = `<div class="tl"><span class="big">${t}</span><div><div class="tn">${info.name}</div></div><span class="cnt">${cnt} 所</span></div>
+<p>${info.desc}</p><div class="eg">${info.eg}</div>`;
+                d.onclick = () => { state.tier = (state.tier === t ? 'all' : t); syncTierChips(); renderTable(); document.getElementById('rank').scrollIntoView({ behavior: 'smooth' }); };
+                grid.appendChild(d);
+            });
+        })();
+
+        /* ================= TIER FILTER CHIPS ================= */
+        (function () {
+            const box = $('tierChips');
+            const mk = (val, label, color) => {
+                const b = document.createElement('button'); b.className = 'tchip'; b.dataset.tier = val; b.textContent = label;
+                if (color) b.style.setProperty('--tc', color);
+                b.onclick = () => { state.tier = val; syncTierChips(); renderTable(); }; box.appendChild(b);
+            };
+            mk('all', '全部 82', '#9aa5bd');
+            Object.keys(TIER_INFO).forEach(t => mk(t, `${t} · ${TIER_INFO[t].name} ${SCHOOLS.filter(s => s.tier === t).length}`, TIER_INFO[t].color));
+        })();
+        function syncTierChips() {
+            document.querySelectorAll('#tierChips .tchip').forEach(b => b.classList.toggle('on', b.dataset.tier === state.tier));
+            document.querySelectorAll('#tierGrid .tiercard').forEach(c => c.classList.toggle('active', c.dataset.tier === state.tier));
+        }
+
+        /* ================= TABLE ================= */
+        function applyFilters() {
+            let list = SCHOOLS.slice();
+            if (state.q) {
+                const q = state.q.toLowerCase();
+                list = list.filter(s => (s.abbr + s.zh + s.en + (s.lab || '') + s.tags.join('') + s.why + s.track).toLowerCase().includes(q));
+            }
+            if (state.tier !== 'all') list = list.filter(s => s.tier === state.tier);
+            if (state.verdict !== 'all') list = list.filter(s => verdictOf(s) === state.verdict);
+            if (state.disagree) list = list.filter(s => s.g !== s.q);
+            if (state.starOnly) list = list.filter(s => starSet.has(s.id));
+            const k = state.sortK, dir = state.sortDir;
+            list.sort((a, b) => {
+                if (k === 'rank') return (a.rank - b.rank) * dir;
+                if (k === 'cs') return (a.cs - b.cs) * dir;
+                if (k === 'fc') return (a.fc - b.fc) * dir;
+                if (k === 'fund') return (a.fund - b.fund) * dir;
+                if (k === 'risk') return (a.risk - b.risk) * dir;
+                if (k === 'score') return (scoreOf(a) - scoreOf(b)) * dir;
+                if (k === 'cr') { const va = a.cr == null ? 9999 : a.cr, vb = b.cr == null ? 9999 : b.cr; return (va - vb) * dir; }
+                return 0;
+            });
+            return list;
+        }
+        function renderTable() {
+            const list = applyFilters();
+            const tb = $('tbody');
+            tb.innerHTML = list.map((s, i) => {
+                const v = verdictOf(s), c = TIER_INFO[s.tier].color;
+                const medal = s.rank === 1 ? '🥇' : s.rank === 2 ? '🥈' : s.rank === 3 ? '🥉' : null;
+                const tags = s.tags.slice(0, 2).map(t => `<span class="tagmini">${t}</span>`).join('') + (s.tags.length > 2 ? `<span class="tagmini">+${s.tags.length - 2}</span>` : '');
+                const sc = scoreOf(s), star = starSet.has(s.id);
+                const checked = compareSet.has(s.id) ? 'checked' : '';
+                return `<tr class="t${s.tier} ${s.tier === 'D' ? 'dim' : ''}" data-id="${s.id}" style="animation-delay:${Math.min(i * 8, 220)}ms">
+<td class="rk">${medal ? `<span class="medal">${medal}</span>` : '#' + s.rank}</td>
+<td><div class="sch"><div class="ab">${s.abbr}</div><div class="zh">${s.zh}</div><div class="en">${s.en}</div></div></td>
+<td>${tierBadge(s.tier)}</td>
+<td><span class="v-${v}">${verdictTxt[v]}</span>${s.g !== s.q ? '<div style="font-size:10px;color:var(--tx3)">⚖ 分歧裁决</div>' : ''}</td>
+<td class="scorecell"><span class="v" style="color:${c}">${sc.toFixed(1)}</span><div class="mini-bar gd"><i style="width:${Math.min(sc, 100).toFixed(1)}%"></i></div></td>
+<td class="scorecell"><span class="v">${s.cs ? s.cs.toFixed(1) : '—'}</span><div class="mini-bar"><i style="width:${(s.cs / MAXCS * 100).toFixed(1)}%"></i></div></td>
+<td class="mono">${s.cr ? '#' + s.cr : '<span style="color:var(--tx3)">未上榜</span>'}</td>
+<td class="mono">${s.fc || '—'}</td>
+<td class="fundcell"><span class="fv" style="color:${s.fund >= 60 ? 'var(--green)' : s.fund >= 35 ? 'var(--orange)' : 'var(--red)'}">${s.fund}</span><div class="mini-bar vt"><i style="width:${s.fund}%"></i></div></td>
+<td>${riskStars(s.risk)}</td>
+<td>${aiV(s.g)}</td>
+<td>${aiV(s.q)}</td>
+<td><div class="trk">${s.track}</div></td>
+<td>${tags}</td>
+<td><div class="rowbtns">
+<button class="star ${star ? 'on' : ''}" title="收藏" onclick="event.stopPropagation();toggleStar(${s.id},this)">${star ? '★' : '☆'}</button>
+<input type="checkbox" class="cbx" title="加入对比" ${checked} onclick="event.stopPropagation();toggleCompare(${s.id},this)">
+<button class="mini-btn" onclick="event.stopPropagation();openDetail(${s.id})">详情</button>
+</div></td>
+</tr>`;
+            }).join('');
+            tb.querySelectorAll('tr').forEach(tr => tr.addEventListener('click', () => openDetail(+tr.dataset.id)));
+            const y = list.filter(s => verdictOf(s) === 'yes').length, c2 = list.filter(s => verdictOf(s) === 'cond').length, n = list.filter(s => verdictOf(s) === 'no').length;
+            $('resultLine').textContent = `共 ${list.length} 所 · ✅ ${y} · ⚠️ ${c2} · ❌ ${n}`;
+            $('starCnt').textContent = starSet.size;
+            document.querySelectorAll('th[data-k]').forEach(th => {
+                const ar = th.querySelector('.arrow');
+                ar.textContent = th.dataset.k === state.sortK ? (state.sortDir === 1 ? ' ▲' : ' ▼') : '';
+            });
+        }
+        document.querySelectorAll('th[data-k]').forEach(th => th.addEventListener('click', () => {
+            const k = th.dataset.k;
+            if (state.sortK === k) state.sortDir *= -1; else { state.sortK = k; state.sortDir = (k === 'cr' || k === 'rank' || k === 'risk') ? 1 : -1; }
+            renderTable();
+        }));
+        $('q').addEventListener('input', e => { state.q = e.target.value.trim(); renderTable(); });
+        document.querySelectorAll('#verdictSeg button').forEach(b => b.addEventListener('click', () => {
+            document.querySelectorAll('#verdictSeg button').forEach(x => x.classList.remove('on'));
+            b.classList.add('on'); state.verdict = b.dataset.v; renderTable();
+        }));
+        $('disagreeOnly').addEventListener('change', e => { state.disagree = e.target.checked; renderTable(); });
+        $('starOnly').addEventListener('change', e => { state.starOnly = e.target.checked; renderTable(); });
+        document.addEventListener('keydown', e => {
+            if (e.key === '/' && document.activeElement.tagName !== 'INPUT') { e.preventDefault(); $('q').focus(); }
+            if (e.key === 'Escape') closeModals();
+        });
+
+        /* ================= STAR / SHORTLIST ================= */
+        function toggleStar(id, el) {
+            if (starSet.has(id)) { starSet.delete(id); el.classList.remove('on'); el.textContent = '☆'; toast('已移出收藏'); }
+            else { starSet.add(id); el.classList.add('on'); el.textContent = '★'; toast('⭐ 已加入收藏（本地存档）'); }
+            saveStars(); $('starCnt').textContent = starSet.size;
+            if (state.starOnly) renderTable();
+        }
+
+        /* ================= CSV EXPORT ================= */
+        function exportCSV() {
+            const list = applyFilters();
+            const head = ['终审排名', '缩写', '中文名', '英文名', '层级', '判定', '综合分', 'CSRankings计数', '全美排名', '教授数', '产出分', '契合分', '资助指数', '交叉自由度', '风险(1-5)', '建议轨道', 'Gemini', 'Qwen3.8', '核心标签', '旗舰项目', '避坑警示'];
+            const rows = list.map(s => [s.rank, s.abbr, s.zh, s.en, s.tier, verdictTxt[verdictOf(s)], scoreOf(s).toFixed(1), s.cs, s.cr ?? '未上榜', s.fc, s.out.toFixed(1), s.fit, s.fund, s.free, s.risk, s.track, s.g ? '适合' : '拒绝', s.q ? '适合' : '拒绝', s.tags.join('/'), s.lab || '—', s.warn || '—']);
+            const csv = '\ufeff' + [head, ...rows].map(r => r.map(x => `"${String(x).replace(/"/g, '""')}"`).join(',')).join('\n');
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+            const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = '82校共识排名_当前筛选.csv'; a.click();
+            URL.revokeObjectURL(a.href);
+            toast(`已导出 ${list.length} 行数据 CSV`);
+        }
+
+        /* ================= COMPARE ================= */
+        function toggleCompare(id, el) {
+            if (compareSet.has(id)) compareSet.delete(id);
+            else { if (compareSet.size >= 3) { el.checked = false; toast('最多选择 3 所学校进行对比'); return; } compareSet.add(id); }
+            renderCmpBar();
+        }
+        function renderCmpBar() {
+            const bar = $('cmpbar'), box = $('cmpChips');
+            box.innerHTML = [...compareSet].map(id => {
+                const s = BY_ID[id];
+                return `<span class="cchip">${tierBadge(s.tier)} ${s.abbr} <b onclick="removeCmp(${id})">✕</b></span>`;
+            }).join('');
+            bar.classList.toggle('show', compareSet.size > 0);
+        }
+        function removeCmp(id) { compareSet.delete(id); renderCmpBar(); renderTable(); }
+        function clearCompare() { compareSet.clear(); renderCmpBar(); renderTable(); }
+        let cmpRadar = null;
+        function openCompare() {
+            if (compareSet.size < 2) { toast('请至少选择 2 所学校再对比'); return; }
+            const list = [...compareSet].map(id => BY_ID[id]);
+            const rows = [
+                ['层级', s => tierBadge(s.tier) + ' ' + TIER_INFO[s.tier].name],
+                ['最终判定', s => `<span class="v-${verdictOf(s)}">${verdictTxt[verdictOf(s)]}</span>`],
+                ['终审排名', s => `<span class="mono">#${s.rank} / 82</span>`],
+                ['综合分（当前权重）', s => `<span class="mono" style="color:${TIER_INFO[s.tier].color}">${scoreOf(s).toFixed(1)}</span>`],
+                ['CSRankings计数', s => `<span class="mono">${s.cs ? s.cs.toFixed(1) : '—'}</span>`],
+                ['CSRankings全美#', s => `<span class="mono">${s.cr ? '#' + s.cr : '未上榜'}</span>`],
+                ['教授规模', s => `<span class="mono">${s.fc || '—'}</span>`],
+                ['四维子分', s => `<span class="mono" style="font-size:11.5px">产出${Math.round(s.out)} · 契合${s.fit}<br>资助${s.fund} · 自由${s.free}</span>`],
+                ['资助指数', s => `<span class="mono">${s.fund}/100</span>`],
+                ['风险星级', s => riskStars(s.risk)],
+                ['建议轨道', s => s.track],
+                ['Gemini 初判', s => aiV(s.g)],
+                ['Qwen3.8 初判', s => aiV(s.q)],
+                ['旗舰项目', s => s.lab || '—'],
+                ['避坑警示', s => s.warn ? `<span style="color:var(--orange)">${s.warn}</span>` : '<span style="color:var(--tx3)">无特别警示</span>'],
+                ['核心标签', s => s.tags.map(t => `<span class="tagmini">${t}</span>`).join('')],
+                ['共识理由', s => s.why]
+            ];
+            let html = `<button class="mclose" onclick="closeModals()">✕</button>
+<h3 style="font-family:'Noto Serif SC',serif;font-size:22px;margin-bottom:12px">横向对比 · ${list.map(s => s.abbr).join(' vs ')}</h3>
+<div class="cmp-radar-box"><canvas id="cmpRadarCv"></canvas></div>
+<div style="overflow-x:auto"><table class="cm-table"><tr><td style="color:var(--tx3)">维度</td>${list.map(s => `<th><div style="font-size:16px">${s.abbr}</div><div style="font-size:11px;color:var(--tx3);font-weight:400">${s.zh}</div></th>`).join('')}</tr>`;
+            rows.forEach(([k, f]) => { html += `<tr><td>${k}</td>${list.map(s => `<td>${f(s)}</td>`).join('')}</tr>`; });
+            html += '</table></div>';
+            $('mCompareBox').innerHTML = html;
+            $('mCompare').classList.add('show');
+            if (cmpRadar) cmpRadar.destroy();
+            cmpRadar = new Chart($('cmpRadarCv'), {
+                type: 'radar', data: {
+                    labels: ['研究产出', '生态契合', '资助可得', '交叉自由度'],
+                    datasets: list.map(s => ({
+                        label: s.abbr, data: [s.out, s.fit, s.fund, s.free],
+                        backgroundColor: TIER_INFO[s.tier].color + '33', borderColor: TIER_INFO[s.tier].color, borderWidth: 2, pointBackgroundColor: TIER_INFO[s.tier].color
+                    }))
+                }, options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: { r: { min: 0, max: 100, ticks: { stepSize: 25, backdropColor: 'transparent', font: { family: '"JetBrains Mono"', size: 10 } }, grid: { color: 'rgba(255,255,255,.1)' }, angleLines: { color: 'rgba(255,255,255,.1)' }, pointLabels: { color: '#a7b1c9', font: { size: 12 } } } },
+                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 12 } } }
+                }
+            });
+        }
+
+        /* ================= DETAIL MODAL ================= */
+        let mRadar = null;
+        function openDetail(id) {
+            const s = BY_ID[id], v = verdictOf(s), c = TIER_INFO[s.tier].color, sc = scoreOf(s);
+            const diff = s.g !== s.q ? `<div class="mdiff">⚖ <b>双 AI 原始意见分歧：</b>Gemini ${s.g ? '✅ 适合' : '❌ 拒绝'} · Qwen3.8 ${s.q ? '✅ 适合' : '❌ 拒绝'} —— 最终经 CSRankings 实测数据与反思轮仲裁为当前结论。</div>` : '';
+            $('mDetailBox').innerHTML = `
+<button class="mclose" onclick="closeModals()">✕</button>
+<div class="mh">
+<div>
+<div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">${tierBadge(s.tier)}<span class="v-${v}" style="font-size:13px">${verdictTxt[v]}</span><span style="font-size:11.5px;color:var(--tx3)">${TIER_INFO[s.tier].full}</span>${starSet.has(s.id) ? '<span style="color:var(--gold)">★ 已收藏</span>' : ''}</div>
+<div class="ab">${s.abbr}</div>
+<div class="zz">${s.zh} · ${s.en}</div>
+</div>
+<div style="margin-left:auto;text-align:right">
+<div style="font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;color:${c}">#${s.rank}</div>
+<div style="font-size:11px;color:var(--tx3)">终审排名 / 82</div>
+</div>
+</div>
+<div class="mstats">
+<div class="ms"><div class="k">综合分（当前权重）</div><div class="v" style="color:${c}">${sc.toFixed(1)}</div></div>
+<div class="ms"><div class="k">CSRankings 综合计数</div><div class="v">${s.cs ? s.cs.toFixed(1) : '—'}</div></div>
+<div class="ms"><div class="k">CSRankings 全美排名</div><div class="v">${s.cr ? '#' + s.cr : '未上榜'}</div></div>
+<div class="ms"><div class="k">相关领域教授</div><div class="v">${s.fc || '—'}</div></div>
+<div class="ms"><div class="k">资助指数 / 风险</div><div class="v" style="font-size:14px">${s.fund}/100 · ${riskStars(s.risk)}</div></div>
+<div class="ms"><div class="k">建议轨道</div><div class="v" style="font-size:12.5px;line-height:1.4">${s.track}</div></div>
+<div class="ms"><div class="k">Gemini 初判</div><div class="v" style="font-size:14px">${s.g ? '✅ 适合' : '❌ 拒绝'}</div></div>
+<div class="ms"><div class="k">Qwen3.8 初判</div><div class="v" style="font-size:14px">${s.q ? '✅ 适合' : '❌ 拒绝'}</div></div>
+<div class="ms"><div class="k">最终判定</div><div class="v" style="font-size:14px;color:${c}">${verdictTxt[v]}</div></div>
+</div>
+<div class="mradar-wrap">
+<div class="mradar-box"><canvas id="mRadarCv"></canvas></div>
+<div class="dimrows">
+<div class="dr"><div class="dl"><span>📊 研究产出</span><b>${Math.round(s.out)}/100</b></div><div class="bar"><i style="width:${s.out}%;background:var(--blue)"></i></div></div>
+<div class="dr"><div class="dl"><span>🧬 生态契合</span><b>${s.fit}/100</b></div><div class="bar"><i style="width:${s.fit}%;background:var(--teal)"></i></div></div>
+<div class="dr"><div class="dl"><span>💰 资助可得性</span><b>${s.fund}/100</b></div><div class="bar"><i style="width:${s.fund}%;background:var(--gold)"></i></div></div>
+<div class="dr"><div class="dl"><span>🔀 交叉自由度</span><b>${s.free}/100</b></div><div class="bar"><i style="width:${s.free}%;background:var(--violet)"></i></div></div>
+</div>
+</div>
+${s.lab ? `<div class="mbox"><div class="bt">🏛 旗舰项目 / 实验室</div>${s.lab}</div>` : ''}
+<div class="mwhy">${s.why}</div>
+${s.warn ? `<div class="mwarn"><div class="bt">⚠️ 生存策略 / 避坑警示</div>${s.warn}</div>` : ''}
+${diff}
+<div class="chips" style="margin-top:6px">${s.tags.map(t => `<span class="chip">${t}</span>`).join('')}</div>
+<div class="mfoot">评审链：Gemini 首轮深评 × Qwen3.8 独立复核 × CSRankings 2016–2026 实测（AI/NLP/Web&IR/CS Edu/HCI/Robotics/Vis）× 反思仲裁。四维子分为知识库建模估计。</div>`;
+            $('mDetail').classList.add('show');
+            if (mRadar) mRadar.destroy();
+            mRadar = new Chart($('mRadarCv'), {
+                type: 'radar', data: {
+                    labels: ['研究产出', '生态契合', '资助可得', '交叉自由度'],
+                    datasets: [{ label: s.abbr, data: [s.out, s.fit, s.fund, s.free], backgroundColor: c + '33', borderColor: c, borderWidth: 2, pointBackgroundColor: c }]
+                }, options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: { r: { min: 0, max: 100, ticks: { stepSize: 25, backdropColor: 'transparent', font: { family: '"JetBrains Mono"', size: 9 } }, grid: { color: 'rgba(255,255,255,.1)' }, angleLines: { color: 'rgba(255,255,255,.1)' }, pointLabels: { color: '#a7b1c9', font: { size: 11 } } } },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+        function closeModals() { $('mDetail').classList.remove('show'); $('mCompare').classList.remove('show'); }
+        document.querySelectorAll('.mback').forEach(m => m.addEventListener('click', e => { if (e.target === m) closeModals(); }));
+
+        /* ================= DICE ================= */
+        function dice() {
+            const pool = SCHOOLS.filter(s => s.tier !== 'D');
+            const s = pool[Math.floor(Math.random() * pool.length)];
+            toast(`🎲 命运抽签：${s.abbr}（${TIER_INFO[s.tier].name} · ${verdictTxt[verdictOf(s)]}）`);
+            setTimeout(() => openDetail(s.id), 350);
+        }
+
+        /* ================= HEATMAP ================= */
+        function renderHeat() {
+            const dims = [['产出', 'out', 0], ['契合', 'fit', 0], ['资助', 'fund', 0], ['自由度', 'free', 0], ['综合', 'score', 0], ['风险', 'risk', 1]];
+            const pool = SCHOOLS.filter(s => s.tier !== 'D').sort((a, b) => scoreOf(b) - scoreOf(a));
+            let html = `<div class="hh corner">学校 ↓ / 维度 →</div>` + dims.map(d => `<div class="hh">${d[0]}</div>`).join('');
+            pool.forEach(s => {
+                html += `<div class="hl" onclick="openDetail(${s.id})">${tierBadge(s.tier)} ${s.abbr}</div>`;
+                dims.forEach(([nm, k, inv]) => {
+                    let val = k === 'score' ? scoreOf(s) : s[k];
+                    const disp = k === 'score' ? val.toFixed(1) : (k === 'risk' ? val + '/5' : Math.round(val));
+                    const col = inv ? heatColor((5 - val) / 4 * 100) : heatColor(val);
+                    html += `<div class="hc" style="background:${col}" title="${s.abbr} · ${nm}：${disp}">${disp}</div>`;
+                });
+            });
+            $('heatmap').innerHTML = html;
+            $('hmCount').textContent = `${pool.length} 所推荐区学校 · 按当前权重综合分排序`;
+        }
+
+        /* ================= ARBITRATION ================= */
+        (function () {
+            const up = [
+                ["UIUC", "双方分歧 → ⚠️ 条件✅", "实测并列全美 #2（24.9），知识库原标 HCI#5。Qwen 承认因『SDE 流水线』叙事整体 ❌ 是最大失误——研究侧完全值得申请，仅避开 MCS。"],
+                ["UIC", "双方 ❌ → ⚠️ 条件✅", "实测 #15，竟高于 MIT！Visualization/HCI 产出被双 AI 完全漏判，平反后仅推荐 Viz 研究方向。"],
+                ["Northeastern", "双方 ❌ → ⚠️ 双面校", "实测 #8、HCI/Vis 发表量巨大。课程轨仍是 Co-op SDE 工厂，但研究轨改判 ✅。"],
+                ["ASU", "双方 ❌ → ⚠️ 双面校", "实测 #12，AI 与 CS Edu 论文总量大；300+ 人大班仍是风险，需挤进研究组。"],
+                ["Stony Brook", "双方 ❌ → ⚠️ 双面校", "实测 #22，论文产出确实强；course track 维持 ❌，thesis 轨 ✅。"],
+                ["UT Dallas", "双方 ❌ → ⚠️ 双面校", "实测并列 #42，Web&IR 有产出；200+/年授课大班维持 ❌，研究轨 ✅。"],
+                ["UMass", "Qwen ❌ → ⚠️ 条件✅", "实测 #18、NLP#10。Qwen 反思轮纠正『OS/Systems 硬核』的整体标签，锁定 NLP 方向。"],
+                ["Oregon State", "Qwen ❌ → ⚠️ 条件✅", "CSRankings HCI 单项全美 #11 的隐藏强校，辅助技术科研极强，实测 #40 验证 Gemini 眼光。"]
+            ];
+            const down = [
+                ["Vanderbilt", "Gemini ✅ → ❌", "触发医疗排除：CS 偏 VUMC 医疗 IT，规模小、无 HCI 生态。"],
+                ["Emory", "Gemini ✅ → ❌", "触发生物排除：毗邻 CDC 的光环下，CS 整体偏医疗/生物方向。"],
+                ["WUSTL", "Gemini ✅ → ❌", "触发医疗排除：脑机接口的想象空间不敌整体医疗交叉权重。"],
+                ["Rochester", "Gemini ✅ → ❌", "触发物理排除：BCS 认知系很强，但光学传统使物理权重过高。"],
+                ["U Arizona", "Gemini ✅ → ❌", "触发物理排除：iSchool 构想不敌 Optics 全美第 1 的物理底色。"],
+                ["Notre Dame", "Gemini ✅ → ❌", "触发金融排除：科技伦理亮点不敌『Notre Dame mafia』金融咨询网络。"],
+                ["Pitt", "Gemini ✅ → ❌", "实测仅 #69：ISP 与 CMU 后花园光环，撑不起自身薄弱的 HCI。"],
+                ["U Iowa", "Gemini ✅ → ❌", "实测仅 #117：跨学科宽容度有余，认知交叉亮点不足。"]
+            ];
+            $('arbUp').innerHTML = up.map(([n, m, r]) => `<div class="arb-card"><div class="arb-top"><span class="nm">${n}</span><span class="arb-move up">${m}</span></div><p>${r}</p></div>`).join('');
+            $('arbDown').innerHTML = down.map(([n, m, r]) => `<div class="arb-card"><div class="arb-top"><span class="nm">${n}</span><span class="arb-move dn">${m}</span></div><p>${r}</p></div>`).join('');
+        })();
+
+        /* ================= BLIND SPOTS ================= */
+        (function () {
+            const extra = [["Michigan", "#9 · 17.3", "HCI / 社会计算传统强项"], ["Cornell", "#10 · 15.2", "HCI / 信息科学"], ["Northwestern", "#13 · 11.8", "学习科学 / HCI"], ["UVA", "#25 · 8.5", "HCI / 可视化"], ["UT Austin", "#31 · 7.8", "NLP / 认知交叉"], ["UCLA", "#33 · 7.5", "HCI / 媒体"], ["Wisconsin", "#37 · 7.2", "HCI / 教育科技"], ["Indiana", "#46 · 6.5", "HCI / Viz 传统强项"], ["Buffalo", "#48 · 6.4", "HCI / 认知"], ["UCF", "#48 · 6.4", "可视化 / 建模"]];
+            $('blindGrid').innerHTML = extra.map(([n, d, w]) => `<div class="blind"><div class="n">${n}</div><div class="d">${d}</div><div class="w">${w}</div></div>`).join('');
+        })();
+
+        /* ================= CHARTS ================= */
+        Chart.defaults.font.family = '"Noto Sans SC",sans-serif';
+        Chart.defaults.color = '#98a2bb';
+        const gridC = 'rgba(255,255,255,.07)';
+        (function () {
+            const top = SCHOOLS.filter(s => s.cs > 0).sort((a, b) => b.cs - a.cs).slice(0, 20);
+            new Chart($('barChart'), {
+                type: 'bar', data: {
+                    labels: top.map(s => s.abbr),
+                    datasets: [{ data: top.map(s => s.cs), backgroundColor: top.map(s => TIER_INFO[s.tier].color + 'cc'), borderColor: top.map(s => TIER_INFO[s.tier].color), borderWidth: 1, borderRadius: 4 }]
+                }, options: {
+                    indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                    onClick: (e, els) => { if (els.length) openDetail(top[els[0].index].id); },
+                    plugins: { legend: { display: false }, tooltip: { callbacks: { label: (c) => { const s = top[c.dataIndex]; return ` ${s.cs.toFixed(1)} 计数 · ${TIER_INFO[s.tier].name} · ${verdictTxt[verdictOf(s)]}`; } } } },
+                    scales: { x: { grid: { color: gridC }, ticks: { font: { family: '"JetBrains Mono"' } } }, y: { grid: { display: false }, ticks: { font: { weight: '700' } } } }
+                }
+            });
+        })();
+        (function () {
+            const tiers = Object.keys(TIER_INFO);
+            const counts = tiers.map(t => SCHOOLS.filter(s => s.tier === t).length);
+            new Chart($('donutChart'), {
+                type: 'doughnut', data: {
+                    labels: tiers.map(t => `${t} ${TIER_INFO[t].name}`),
+                    datasets: [{ data: counts, backgroundColor: tiers.map(t => TIER_INFO[t].color + 'dd'), borderColor: '#0e1424', borderWidth: 3, hoverOffset: 10 }]
+                }, options: {
+                    responsive: true, maintainAspectRatio: false, cutout: '64%',
+                    plugins: { legend: { position: 'bottom', labels: { boxWidth: 12, padding: 14, font: { size: 12 } } } }
+                }
+            });
+            $('donutLegend').innerHTML = tiers.map((t, i) => `${t} ${TIER_INFO[t].name}：<b class="mono" style="color:${TIER_INFO[t].color}">${counts[i]}</b> 所`).join('<br>');
+        })();
+        (function () {
+            const tiers = Object.keys(TIER_INFO);
+            const datasets = tiers.map(t => {
+                const pts = SCHOOLS.filter(s => s.tier === t && s.cs > 0);
+                return {
+                    label: `${t} ${TIER_INFO[t].name}`, data: pts.map(p => ({ x: p.cs, y: p.fc })), ids: pts.map(p => p.id),
+                    backgroundColor: TIER_INFO[t].color + 'c4', borderColor: TIER_INFO[t].color, borderWidth: 1.5, pointRadius: 6, pointHoverRadius: 9
+                };
+            });
+            window.scatterChart = new Chart($('scatterChart'), {
+                type: 'scatter', data: { datasets }, options: {
+                    responsive: true, maintainAspectRatio: false,
+                    onClick: (e, els) => { if (els.length) { const el = els[0]; const ds = scatterChart.data.datasets[el.datasetIndex]; openDetail(ds.ids[el.index]); } },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12, padding: 14, font: { size: 12 } } },
+                        tooltip: { callbacks: { label: (c) => { const s = BY_ID[c.dataset.ids[c.dataIndex]]; return ` ${s.abbr} · 计数 ${s.cs.toFixed(1)} · 教授 ${s.fc} · ${verdictTxt[verdictOf(s)]}`; } } }
+                    },
+                    scales: {
+                        x: { title: { display: true, text: 'CSRankings 综合计数（2016–2026 七项筛选）' }, grid: { color: gridC }, ticks: { font: { family: '"JetBrains Mono"' } } },
+                        y: { title: { display: true, text: '相关领域教授数' }, grid: { color: gridC }, ticks: { font: { family: '"JetBrains Mono"' } } }
+                    }
+                }
+            });
+        })();
+
+        /* ================= COUNTERS & REVEAL & FAB ================= */
+        (function () {
+            document.querySelectorAll('.stat .num').forEach(el => {
+                const to = +el.dataset.to; const t0 = performance.now(); const dur = 1400;
+                const step = now => {
+                    const p = Math.min((now - t0) / dur, 1); const e = 1 - Math.pow(1 - p, 3);
+                    el.textContent = Math.round(to * e); if (p < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
+            });
+        })();
+        const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+        window.addEventListener('scroll', () => $('fab').classList.toggle('show', window.scrollY > 600));
+
+        /* ================= INIT ================= */
+        syncTierChips();
+        refreshLab();
+        renderCmpBar();
+    </script>
+</body>
+
+</html>
