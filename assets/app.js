@@ -1126,14 +1126,25 @@
                 "My server doesn't have memory leaks. It just had spicy midnight street food and needs a forced purge.",
                 "What happens when you flush a clock down the toilet? You waste a lot of time.",
                 "Why did the skeleton go into the restroom alone? Because he had no-body to go with.",
-                "Why did the toilet paper fail its driving test? It couldn’t stop leaving skid marks.",
+                "Why did the toilet paper fail its driving test? It couldn't stop leaving skid marks.",
                 "What do you call a magical fairy hovering over the toilet? Stinker Bell.",
                 "Life is like a roll of toilet paper: It seems endless at first, but once you hit the cardboard core, things get desperate fast.",
-                "Why do ninja farts smell the worst? Because silence is the loudest form of betrayal.",
-                "Why don’t toilets ever get lonely? Because good friends are always dropping by.",
+                "What is a ninja's favorite kind of fart? Silent but deadly.",
+                "Why don't toilets ever get lonely? Because good friends are always dropping by.",
                 "What happens when you ingest 1,000,000 bytes of bad data? A complete core dump in the ceramic terminal.",
                 "What did the spider in the toilet say? 'Don't flush, I'm just here for the web development!'",
-                "There are two types of people in this world: Those who look before flushing, and liars."
+                "There are two types of people in this world: Those who look before flushing, and liars.",
+                "Why is poop always so polite? Because it always introduces itself before it steps out.",
+                "What do you call a magical poop? A poof!",
+                "Why do people love reading on the toilet? Because it's a great place to digest information.",
+                "Why don't farts ever go to school? Because they always get expelled.",
+                "What do you call a fart that doesn't make a sound? A ghost toot.",
+                "Love is like a fart: If you have to force it, it's probably shit.",
+                "A fart is just the desperate cry of an imprisoned poop.",
+                "Why did the poop go to therapy? It had too much built-up emotional baggage and needed a clean release.",
+                "What did the plumber say to the clogged toilet? 'I've seen some shit in my life, but this is legendary.'",
+                "What's the similarity between dropped Wi-Fi and diarrhea? When either goes down unexpectedly, immediate panic ensues.",
+                "What do you call someone who spends 45 minutes on the porcelain throne? A smartphone enthusiast doing peer review."
             ];
 
             const portfolioLabJokeIntros = [
