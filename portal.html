@@ -77,6 +77,26 @@
             will-change: transform, opacity;
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .ambient-glow {
+                animation: none !important;
+            }
+        }
+
+        @media (forced-colors: active) {
+            .glass-card {
+                border: 1px solid ButtonText !important;
+            }
+            a:focus-visible {
+                outline: 2px solid Highlight !important;
+            }
+        }
+
         .mist-cyan {
             background: radial-gradient(circle, rgba(0, 240, 255, 0.12) 0%, rgba(0, 240, 255, 0.05) 35%, rgba(0, 240, 255, 0.015) 60%, transparent 80%);
             width: 75vw;
@@ -471,13 +491,27 @@
                 renderer.render(scene, camera);
             };
 
+            const motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+            let isReducedMotion = motionQuery ? motionQuery.matches : false;
+
             const animateWave = () => {
                 if (isAnimating) {
                     renderFrame();
-                    requestAnimationFrame(animateWave);
+                    if (!isReducedMotion) {
+                        requestAnimationFrame(animateWave);
+                    }
                 }
             };
             requestAnimationFrame(animateWave);
+
+            if (motionQuery && typeof motionQuery.addEventListener === 'function') {
+                motionQuery.addEventListener('change', (e) => {
+                    isReducedMotion = e.matches;
+                    if (!isReducedMotion && isAnimating) {
+                        requestAnimationFrame(animateWave);
+                    }
+                });
+            }
 
             // Keep rendering active during touch and scroll interactions
             const onScrollTouch = () => {

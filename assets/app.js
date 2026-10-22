@@ -63,6 +63,8 @@
 
             lightbox.setAttribute('aria-hidden', 'false');
             lightbox.classList.remove('hidden');
+            const announcer = document.getElementById('a11y-announcer');
+            if (announcer) announcer.textContent = (title || 'Document Preview') + ' modal opened. Press Escape to close.';
             requestAnimationFrame(() => {
                 lightbox.classList.remove('opacity-0');
                 lightbox.classList.add('flex', 'opacity-100');
@@ -77,6 +79,8 @@
             lightbox.classList.remove('opacity-100');
             lightbox.classList.add('opacity-0');
             releaseFocus(lightbox);
+            const announcerClose = document.getElementById('a11y-announcer');
+            if (announcerClose) announcerClose.textContent = 'Preview modal closed.';
             setTimeout(() => {
                 lightbox.classList.remove('flex');
                 lightbox.classList.add('hidden');
@@ -588,6 +592,8 @@
             modal.classList.add('flex');
             modal.removeAttribute('aria-hidden');
 
+            const hireAnnouncer = document.getElementById('a11y-announcer');
+            if (hireAnnouncer) hireAnnouncer.textContent = 'Hire Jason modal dialog opened. Press Escape to close.';
             requestAnimationFrame(() => {
                 modal.classList.remove('opacity-0');
                 modal.classList.add('opacity-100');
@@ -602,6 +608,8 @@
         };
 
         window.closeHireModal = function (e) {
+            const hireAnnounceClose = document.getElementById('a11y-announcer');
+            if (hireAnnounceClose) hireAnnounceClose.textContent = 'Hire modal closed.';
             const modal = document.getElementById('hire-modal');
             const card = document.getElementById('hire-modal-card');
             if (!modal) return;
@@ -1810,13 +1818,27 @@
                 renderer.render(scene, camera);
             };
 
+            const motionQuery = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+            let isReducedMotion = motionQuery ? motionQuery.matches : false;
+
             const animateWave = () => {
                 if (isAnimating) {
                     renderFrame();
-                    requestAnimationFrame(animateWave);
+                    if (!isReducedMotion) {
+                        requestAnimationFrame(animateWave);
+                    }
                 }
             };
             requestAnimationFrame(animateWave);
+
+            if (motionQuery && typeof motionQuery.addEventListener === 'function') {
+                motionQuery.addEventListener('change', (e) => {
+                    isReducedMotion = e.matches;
+                    if (!isReducedMotion && isAnimating) {
+                        requestAnimationFrame(animateWave);
+                    }
+                });
+            }
 
             const onScrollTouch = () => {
                 if (isPcOrMac && lastPointerX >= 0 && lastPointerY >= 0) {

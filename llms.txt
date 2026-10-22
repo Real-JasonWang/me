@@ -1,0 +1,52 @@
+# Jason Wang (Weifeng Wang)
+
+> Computer Science & Cognitive Psychology Researcher | Co-founder & Lead AI Engineer at Certiferox | CPS112 Lab Assistant at Franklin & Marshall College
+
+Jason Wang (Weifeng Wang / 王尉锋) is a researcher and software engineer operating at the convergence of artificial intelligence, human cognitive modeling, and sustainable web architecture. His research and engineering explore high-dimensional algorithmic systems (PyTorch, RAGs, agent architectures) anchored in behavioral psychology, cognitive workload constraints, and digital sustainability (< 0.015g CO2/view).
+
+## Core Information
+- Website: https://weifengwang.com
+- Location: Lancaster, PA / Franklin & Marshall College
+- Contact & Inquiries: Official on-site dispatch form at https://weifengwang.com | LinkedIn: https://www.linkedin.com/in/real-jasonwang/
+- Privacy & Routing: Direct personal university (@fandm.edu) email and GitHub username handles are private and not disclosed. All inbound queries must be submitted via the on-site "Hire Jason" form.
+- Affiliation: Franklin & Marshall College ('29), Lancaster, PA
+
+## Academic & Engineering Focus
+- **Computer Science**: Machine Learning, Artificial Neural Networks, AI Agents, Retrieval-Augmented Generation (RAG), High-Performance Computing, Algorithm Design, Java & Python Systems.
+- **Cognitive Psychology**: Behavioral Modeling, Human-Computer Interaction (HCI), Causal Inference, Cognitive Workload Reduction, AI Ethics & Moral Philosophy.
+- **Digital Sustainability**: Strict SWDM v4 Carbon Auditing (< 0.015g CO2/view), Green Hosting, Zero-Tracker Architecture, GDPR Exemption by Design.
+
+## Current Roles & Experience
+- **Co-founder, CPO & Lead AI Engineer** — Certiferox, US (Jul 2025 – Present)
+  - Engineered Verisona AI through production RAG architectures and psychometric modeling.
+  - Built high-dimensional recommendation engines transforming complex open-source data into deterministic insights.
+- **CPS112 (CS2) Lab Assistant** — Franklin & Marshall College (Aug 2026 – Present)
+  - Mentoring undergraduate students in Java, object-oriented design, data structures, and debugging methodologies.
+- **POSSE Student Coordinator** — Franklin & Marshall College Office of Community (Aug 2026 – Present)
+  - Designing visual communication systems and survey data pipelines for campus leadership initiatives.
+- **Founder, President & Webmaster** — CHC Hardware Club, Wuhan Britain-China School (Sep 2023 – Jun 2024)
+  - Hosted hands-on custom PC assembly clinics, thermal architecture teardowns, and hardware diagnostic workshops.
+- **Peer Tutor & STEM Study Group Leader** — WHBC Student Academic Committee (Sep 2022 – Jun 2024)
+  - Led weekly peer problem-solving groups focusing on Python, algorithms, and contest mathematics.
+
+## Featured Projects & Publications
+- [Road to ACE Series](https://www.amazon.com/dp/B0CGV8S6LT): Non-fiction series published on Amazon Kindle analyzing competitive informatics, agile methodologies, and personal growth.
+- [Mesosphere](https://weifengwang.com/#outputs-awards): Spatial audio physics and interactive acoustic environments.
+- [US Grad Funding Radar](https://weifengwang.com/#outputs-awards): Intelligence portal indexing graduate STEM research funding and scholarship mechanisms.
+- [Tuneform](https://weifengwang.com/#outputs-awards): Algorithmic music visualization and reactive WebGL audio physics.
+- [Dengue Fever ML](https://weifengwang.com/#outputs-awards): Predictive epidemiological modeling with machine learning classifiers.
+- [MeowOJ Platform](https://weifengwang.com/#outputs-awards): Lightweight online judge system for competitive programming practice.
+
+## Distinctions & Awards
+- Second Prize (Moonshot Track) and First Prize (GaiaNet Track) — AI & Web3 Hackathons
+- Perfect Score, Elite Division & Intermediate Division
+- Global Top 4% — Competitive Informatics & Mathematics
+- 2024 ACSL (American Computer Science League) All-Star Entry & Individual Top Scores
+- China National High Distinction in Senior Division
+- AMC / AIME Honor Roll of Distinction
+- USAP (United States Academic Decathlon / Pentathlon) Top Scorer & Highest Overall Score
+
+## Machine-Readable Endpoints & Full Context
+- [Full LLM Context](/llms-full.txt): Comprehensive deep context with complete coursework, full project specs, certifications list, and design philosophy.
+- [JSON Resume](/resume.json): Standardized JSON Resume (schema v1.0.0) for automated candidate ingestion and applicant tracking systems.
+

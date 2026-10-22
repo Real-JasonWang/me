@@ -1,0 +1,198 @@
+# Jason Wang (Weifeng Wang) — Comprehensive Portfolio & Research Context
+
+> Full machine-readable knowledge base for LLMs, AI agents, and automated research evaluators.
+
+---
+
+## 1. Executive Summary & Identity
+
+- **Full Name**: Weifeng Wang (Jason Wang / 王尉锋)
+- **Pronouns**: he/him (playfully listed as he/she/it/jason/wang)
+- **Location**: Lancaster, Pennsylvania, United States (Franklin & Marshall College)
+- **Website**: https://weifengwang.com
+- **Inquiries & Contact**: Official on-site contact form at https://weifengwang.com | LinkedIn: https://www.linkedin.com/in/real-jasonwang/
+- **Privacy Notice**: Direct personal university (@fandm.edu) email and GitHub username handles are strictly private and not published for inbound scraping. All inquiries must be submitted through the on-site "Hire Jason" web form.
+- **Handshake**: https://fandm.joinhandshake.com/profiles/wang
+- **Amazon Author**: https://www.amazon.com/dp/B0CGV8S6LT
+- **Digital Beacon Carbon Audit**: https://digitalbeacon.co/report/weifengwang-com (Grade A+, 0.013g CO2)
+
+### Bio & Philosophy
+Jason Wang is an undergraduate researcher and software engineer at Franklin & Marshall College studying Computer Science and Cognitive Psychology. His work centers on the synthesis of algorithmic computational power (deep learning, RAG, agent workflows) with human cognitive ecology (behavioral psychology, cognitive workload, causal reasoning). He believes an algorithm is inert if it fails to respect human context, and that high-performance web systems should be environmentally regenerative and architecturally private by default.
+
+---
+
+## 2. Education
+
+### Franklin & Marshall College
+- **Degree**: Bachelor of Arts in Computer Science & Psychology (Dual Track)
+- **Class**: 2029 (Expected May 2029)
+- **Location**: Lancaster, Pennsylvania, USA
+- **Academic Roles**:
+  - CPS112 (CS2 - Data Structures & Algorithms) Lab Assistant
+  - POSSE Student Coordinator (Office of Community Engagement)
+
+### Wuhan Britain-China School (WHBC)
+- **Curriculum**: Cambridge International A-Levels / AP / High School Diploma
+- **Years**: Sep 2021 – Jun 2025
+- **Location**: Wuhan, Hubei, China
+- **Leadership**: Founder & President of CHC Hardware Club; STEM Study Group Leader on Student Academic Committee.
+
+### Oxford University (Univ)
+- **Program**: Academic Summer Seminar / Univ Visiting Program
+- **Focus**: Advanced humanities, epistemology, and interdisciplinary research.
+
+---
+
+## 3. Professional Experience & Leadership
+
+### Co-founder, CPO & Lead AI Engineer
+**Certiferox** | Remote / US | *Jul 2025 – Present*
+- Engineered **Verisona AI**, an enterprise-grade retrieval-augmented generation (RAG) system utilizing psychometric data modeling to transform noisy, high-dimensional open datasets into structured, actionable intelligence.
+- Spearheaded prompt orchestration, vector embedding evaluation pipelines, and fine-tuning experiments across frontier model families.
+- Designed deterministic data pipelines and intuitive interfaces aligning AI output with organizational cognitive constraints.
+
+### CPS112 (Computer Science 2) Lab Assistant
+**Franklin & Marshall College — Department of Computer Science** | Lancaster, PA | *Aug 2026 – Present*
+- Appointed as teaching assistant for CPS112 (Computer Science 2: Data Structures and Algorithms in Java).
+- Guiding undergraduate students during laboratory sessions on memory management, object-oriented paradigms, recursion, linked structures, tree traversals, and algorithmic complexity analysis.
+- Facilitating systematic debugging workshops and code review practices.
+
+### POSSE Student Coordinator
+**Franklin & Marshall College — Office of Community & Inclusion** | Lancaster, PA | *Aug 2026 – Present*
+- Leading student community initiatives and DEI visual communication workflows.
+- Developing streamlined data collection pipelines via structured forms to quantify engagement metrics and program efficacy.
+- Coordinating event logistics, student onboarding, and collaborative cross-cultural workshops.
+
+### Founder, President & Webmaster
+**CHC Hardware Club** | Wuhan Britain-China School | *Sep 2023 – Jun 2024*
+- Founded and managed the campus hardware and computer architecture society.
+- Organized custom PC assembly clinics, liquid/air thermal architecture teardowns, overclocking benchmarking, and hardware diagnostic workshops.
+- Designed, deployed, and maintained the official club web portal architecture.
+
+### Peer Tutor & STEM Study Group Leader
+**WHBC Student Academic Committee** | Wuhan, China | *Sep 2022 – Jun 2024*
+- Led weekly peer problem-solving seminars in Python programming, algorithmic data structures, and contest mathematics.
+- Prepared students for competitive informatics contests and advanced placement coursework.
+
+---
+
+## 4. Technical Skills & Domains
+
+### Computer Science & Systems
+- **Programming Languages**: Python, Java, JavaScript (ES2024), TypeScript, C/C++, SQL, HTML5, CSS3 / Tailwind CSS.
+- **Machine Learning & AI**: PyTorch, Scikit-Learn, SciPy, NumPy, Pandas, Transformers, LangChain, RAG Systems, Vector Databases (Pinecone/Milvus), Prompt Engineering.
+- **Web & Infrastructure**: Node.js, Cloudflare Pages & Workers (Edge Compute), Playwright, WebGL / Three.js, Git / GitHub Actions, RESTful APIs, JSON Schema.
+
+### Cognitive Science & Human Factors
+- **Methodologies**: Cognitive Workload Assessment, Causal Inference, Social Anthropology, Behavioral Economics, Psychometric Modeling.
+- **Ethics**: Responsible AI Frameworks, Algorithmic Bias Mitigation, Computing Ethics and Society.
+
+### Performance & Digital Sustainability
+- **Green Web Architecture**: Sustainable Web Design Model (SWDM v4) compliance, sub-50KB cold load budgets, zero-dependency visual styling.
+- **Auditor Automation**: Carbon gate suppression, stealth crawler detection, DOM hydration prioritization.
+
+---
+
+## 5. Detailed Project Catalog
+
+### 1. "Road to ACE" Series (Published Book Series)
+- **Platform**: Amazon Kindle (ASIN: [B0CGV8S6LT](https://www.amazon.com/dp/B0CGV8S6LT))
+- **Format**: Non-fiction books / Kindle Edition
+- **Summary**: Formulated practical frameworks for competitive informatics, international curriculum navigation, agile project workflows, and personal development for STEM students.
+
+### 2. Mesosphere
+- **Type**: Interactive WebGL & Spatial Audio System
+- **Focus**: Acoustic physics, spatial audio positioning, and browser-based real-time soundscapes.
+- **Tech**: Web Audio API, WebGL, Three.js, GLSL Shaders.
+
+### 3. US Grad Funding Radar
+- **Type**: Academic Intelligence Portal
+- **Focus**: Aggregating, categorizing, and tracking competitive graduate research fellowships, institutional grants, and STEM funding opportunities across top US institutions.
+- **Tech**: Automated scrapers, structured JSON repositories, serverless search indexing.
+
+### 4. Tuneform
+- **Type**: Algorithmic Audio-Visual Synthesizer
+- **Focus**: Real-time frequency spectrum decomposition, audio reactive canvas animations, dynamic WebGL shaders.
+- **Tech**: Web Audio AnalyserNode, Canvas API, Three.js.
+
+### 5. Simply Exploring
+- **Type**: Interactive Geographical & Educational Portal
+- **Focus**: Spatial exploration, digital maps, and environmental literacy tools for self-directed learners.
+
+### 6. Dengue Fever ML
+- **Type**: Epidemiological Machine Learning Pipeline
+- **Focus**: Predictive modeling of disease outbreak probabilities using meteorological variables, precipitation indices, and demographic datasets.
+- **Tech**: Python, Scikit-learn, Pandas, XGBoost.
+
+### 7. MeowOJ Platform
+- **Type**: Lightweight Online Judge
+- **Focus**: Sandboxed code execution, unit test verification, and automated grading for competitive programming problems.
+- **Tech**: Python sandboxing, REST APIs, responsive dashboard.
+
+### 8. Debate × CS Portal
+- **Platform**: AiSocietyProject Web Architecture Portal
+- **Focus**: Interdisciplinary exploration of sociotechnical debates, AI governance, and social implications of algorithmic decisions.
+
+### 9. "FLOUR" Film
+- **Role**: Director, Cinematographer & Visual Editor
+- **Distinction**: Best Cinematography & Visual Design award.
+
+### 10. RunX Brand Design
+- **Platform**: https://runxexperimental.github.io/RunX/
+- **Focus**: Modern visual identity system, typographic hierarchy, and responsive web showcase.
+
+---
+
+## 6. Honors & Awards
+
+1. **Second Prize (Moonshot Track) & First Prize (GaiaNet Track)** — AI & Web3 Hackathons
+2. **Perfect Score in the Elite Division** — Competitive Computing & Mathematics
+3. **Global Top 4%** — Global Mathematics & Computing Contests
+4. **2024 ACSL All-Star Entry & Individual Top Scores** — American Computer Science League (Senior/Intermediate)
+5. **China National High Distinction in Senior Division** — National Olympiad in Informatics in Provinces / National Contests
+6. **Honor Roll of Distinction** — AMC 10/12 & AIME Qualifications
+7. **Best Cinematography & Visual Design** — Film & Media Festival
+8. **Perfect Score, Intermediate Division** — Regional Computing League
+9. **2022–2023 Academic Competition Excellence Award** — WHBC
+10. **Two Gold Awards** — STEM & Science Olympiads
+11. **Regional Excellence Award** — Algorithmic Problem Solving
+12. **USAP Top Scorer & Highest Overall Score** — United States Academic Pentathlon
+13. **Champion (1st Place, Final)** — Regional Debate & Speech Championship
+
+---
+
+## 7. Verified Licenses & Certifications
+
+1. **CITI Program**: Students and Faculty Human Subjects Research (Social-Behavioral-Educational)
+2. **DeepLearning.AI / Stanford**: Machine Learning Specialization (Supervised, Unsupervised, Recommenders, RL)
+3. **IBM**: Introduction to Data Science Specialization
+4. **Wharton / Univ of Pennsylvania**: AI For Business
+5. **Google**: Google IT Support Professional Certificate
+6. **IBM**: IBM IT Support Professional Certificate
+7. **Google**: Google Digital Marketing & E-commerce Professional Certificate
+8. **Google**: Google Project Management Professional Certificate
+9. **Google**: Gemini for Google Workspace
+10. **Coursera / Univ**: Generative AI for UI UX Design
+11. **Coursera / Univ**: Responsive Website Development and Design
+12. **Coursera / Univ**: Responsible Generative AI
+13. **Coursera / Univ**: Computing, Ethics, and Society
+14. **Peking University**: Learn Chinese: HSK Test Preparation Specialization
+15. **Wesleyan University**: Creative Writing Specialization
+
+---
+
+## 8. Architectural Architecture: Zero Carbon & Privacy
+
+- **Carbon Footprint Rating**: Grade A+ on Website Carbon & Digital Beacon (< 0.015g CO2 / visit; cold-load transfer ~46.3 KB).
+- **SWDM v4 Standard**: Fully compliant with the Sustainable Web Design Model (v4), hosted on renewable green energy with ultra-low carbon intensity.
+- **Dual-Mode Engine**: Distinguishes between automated carbon auditors / crawlers (suppresses heavy WebGL/Three.js render loops to minimize compute waste) and authentic human interactive sessions.
+- **Privacy By Architecture**: Zero trackers, zero cookies, zero analytics beacons. No personal data collected or stored. GDPR-exempt by design.
+
+---
+
+## 9. Machine Discovery Endpoints
+
+- **`/llms.txt`**: Standard manifest with summary bio and core references per llmstxt.org.
+- **`/llms-full.txt`**: This exhaustive document.
+- **`/resume.json`**: Official JSON Resume schema v1.0.0 for automated ATS and AI evaluation.
+

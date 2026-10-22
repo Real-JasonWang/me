@@ -1,0 +1,380 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+  "basics": {
+    "name": "Jason (Weifeng) Wang",
+    "label": "Computer Science & Cognitive Psychology Researcher | AI Engineer",
+    "image": "https://weifengwang.com/assets/jw_b1.jpg",
+    "email": "wangweifeng0316@gmail.com",
+    "phone": "",
+    "url": "https://weifengwang.com",
+    "summary": "Undergraduate researcher and software engineer at Franklin & Marshall College studying Computer Science and Cognitive Psychology. Co-founder and Lead AI Engineer at Certiferox, engineering retrieval-augmented generation (RAG) and psychometric systems. Passionate about AI agents, cognitive workload modeling, and carbon-negative web architectures.",
+    "location": {
+      "address": "Franklin & Marshall College",
+      "postalCode": "17604",
+      "city": "Lancaster",
+      "countryCode": "US",
+      "region": "Pennsylvania"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "real-jasonwang",
+        "url": "https://github.com/real-jasonwang"
+      },
+      {
+        "network": "Handshake",
+        "username": "wang",
+        "url": "https://fandm.joinhandshake.com/profiles/wang"
+      },
+      {
+        "network": "Amazon",
+        "username": "Weifeng Wang",
+        "url": "https://www.amazon.com/dp/B0CGV8S6LT"
+      },
+      {
+        "network": "DigitalBeacon",
+        "username": "weifengwang-com",
+        "url": "https://digitalbeacon.co/report/weifengwang-com"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Certiferox",
+      "position": "Co-founder, CPO & Lead AI Engineer",
+      "url": "https://weifengwang.com",
+      "startDate": "2025-07-01",
+      "endDate": null,
+      "summary": "Architected and deployed enterprise recommendation and psychometric modeling engines using frontier LLMs and RAG workflows.",
+      "highlights": [
+        "Engineered Verisona AI through production RAG implementations, optimizing token efficiency and retrieval precision.",
+        "Transformed high-dimensional, unstructured open-source datasets into actionable deterministic intelligence.",
+        "Designed vector indexing and semantic reranking pipelines for scalable inference."
+      ]
+    },
+    {
+      "name": "Franklin & Marshall College — Department of Computer Science",
+      "position": "CPS112 (Computer Science 2) Lab Assistant",
+      "url": "https://www.fandm.edu",
+      "startDate": "2026-08-01",
+      "endDate": null,
+      "summary": "Assisting undergraduate students in Java, object-oriented design, algorithmic complexity, and data structures.",
+      "highlights": [
+        "Mentoring students through recursion, linked data structures, trees, sorting, and algorithmic analysis.",
+        "Leading interactive code review and debugging walkthroughs in weekly laboratory sessions."
+      ]
+    },
+    {
+      "name": "Franklin & Marshall College — Office of Community",
+      "position": "POSSE Student Coordinator",
+      "url": "https://www.fandm.edu",
+      "startDate": "2026-08-01",
+      "endDate": null,
+      "summary": "Coordinating leadership initiatives, survey data pipelines, and visual ontologies for campus community programs.",
+      "highlights": [
+        "Designed and maintained deterministic data collection workflows to track inclusive engagement metrics.",
+        "Orchestrated cross-functional communication and community logistics."
+      ]
+    },
+    {
+      "name": "CHC Hardware Club",
+      "position": "Founder, President & Webmaster",
+      "url": "https://real-jasonwang.github.io/chc_hardware_club/",
+      "startDate": "2023-09-01",
+      "endDate": "2024-06-30",
+      "summary": "Founded and led the premier student computer hardware and architecture society at WHBC.",
+      "highlights": [
+        "Organized hands-on PC assembly clinics, thermal dissipation teardowns, and hardware diagnostic workshops.",
+        "Designed and launched the club's static responsive portal."
+      ]
+    },
+    {
+      "name": "WHBC Student Academic Committee",
+      "position": "Peer Tutor & STEM Study Group Leader",
+      "url": "https://weifengwang.com",
+      "startDate": "2022-09-01",
+      "endDate": "2024-06-30",
+      "summary": "Led collaborative peer tutoring cohorts focusing on algorithmic problem solving, Python programming, and contest mathematics.",
+      "highlights": [
+        "Coached lower-form students in computational logic and competitive informatics contest prep."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Franklin & Marshall College",
+      "url": "https://www.fandm.edu",
+      "area": "Computer Science & Cognitive Psychology (Dual Track)",
+      "studyType": "Bachelor of Arts",
+      "startDate": "2025-08-01",
+      "endDate": "2029-05-30",
+      "score": "",
+      "courses": [
+        "Data Structures and Algorithms (Java)",
+        "Discrete Mathematics",
+        "Cognitive Science & Perception",
+        "Causal Inference & Psychological Statistics",
+        "Systems Architecture"
+      ]
+    },
+    {
+      "institution": "Wuhan Britain-China School (WHBC)",
+      "url": "https://weifengwang.com",
+      "area": "Science & Mathematics (Cambridge International A-Levels / AP)",
+      "studyType": "High School Diploma",
+      "startDate": "2021-09-01",
+      "endDate": "2025-06-30",
+      "score": "",
+      "courses": [
+        "A-Level Mathematics",
+        "A-Level Further Mathematics",
+        "A-Level Physics",
+        "Computer Science & Informatics"
+      ]
+    },
+    {
+      "institution": "University of Oxford (Univ)",
+      "url": "https://www.ox.ac.uk",
+      "area": "Epistemology & Interdisciplinary Humanities Seminar",
+      "studyType": "Visiting Seminar",
+      "startDate": "2023-07-01",
+      "endDate": "2023-08-01",
+      "courses": [
+        "Philosophy of Mind",
+        "Epistemology"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "name": "Computer Science & AI",
+      "level": "Advanced",
+      "keywords": [
+        "Python",
+        "Java",
+        "JavaScript (ES2024)",
+        "TypeScript",
+        "C/C++",
+        "PyTorch",
+        "Scikit-learn",
+        "RAG Architecture",
+        "LangChain",
+        "Vector Databases",
+        "Neural Networks"
+      ]
+    },
+    {
+      "name": "Cognitive Science & Psychology",
+      "level": "Proficient",
+      "keywords": [
+        "Cognitive Workload Assessment",
+        "Causal Inference",
+        "Human-Computer Interaction (HCI)",
+        "Psychometric Modeling",
+        "AI Ethics",
+        "Social Anthropology"
+      ]
+    },
+    {
+      "name": "Web & Cloud Architecture",
+      "level": "Advanced",
+      "keywords": [
+        "Cloudflare Pages & Workers",
+        "Tailwind CSS",
+        "WebGL / Three.js",
+        "Node.js",
+        "Playwright",
+        "REST APIs",
+        "SWDM v4 Digital Sustainability",
+        "Web Audio API"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Road to ACE Series",
+      "description": "Non-fiction book series published on Amazon Kindle examining informatics frameworks, curriculum navigation, and personal growth for young engineers.",
+      "highlights": [
+        "Published internationally on Amazon Kindle (ASIN: B0CGV8S6LT)",
+        "Codified agile thinking frameworks for competitive informatics students"
+      ],
+      "keywords": ["Author", "Amazon Kindle", "Informatics", "Agile"],
+      "url": "https://www.amazon.com/dp/B0CGV8S6LT"
+    },
+    {
+      "name": "Mesosphere",
+      "description": "Interactive spatial audio simulator combining Web Audio API physics with real-time 3D canvas rendering.",
+      "highlights": [
+        "Real-time 3D acoustic position rendering",
+        "Zero-latency spatial audio DSP synthesis"
+      ],
+      "keywords": ["Web Audio API", "Three.js", "Spatial Audio", "DSP"],
+      "url": "https://weifengwang.com/#outputs-awards"
+    },
+    {
+      "name": "US Grad Funding Radar",
+      "description": "Automated data aggregation system indexing graduate STEM fellowship and research funding opportunities across US universities.",
+      "highlights": [
+        "Structured repository filtering across funding criteria, deadlines, and citizenship rules",
+        "Lightweight serverless query interface"
+      ],
+      "keywords": ["Scraping", "Data Structuring", "Research Intelligence"],
+      "url": "https://weifengwang.com/#outputs-awards"
+    },
+    {
+      "name": "Tuneform",
+      "description": "Reactive algorithmic music synthesizer converting frequency spectrum data into dynamic WebGL shader geometry.",
+      "highlights": [
+        "FFT spectrum decomposition via AnalyserNode",
+        "Hardware-accelerated shader animation"
+      ],
+      "keywords": ["Audio Reactive", "WebGL", "GLSL", "Music Tech"],
+      "url": "https://weifengwang.com/#outputs-awards"
+    },
+    {
+      "name": "Dengue Fever ML",
+      "description": "Machine learning epidemiological classification model forecasting outbreak risks from environmental and meteorological sensor inputs.",
+      "highlights": [
+        "Integrated multivariate time-series datasets",
+        "Evaluated ensemble tree and boosted models"
+      ],
+      "keywords": ["Machine Learning", "Epidemiology", "Python", "Predictive Modeling"],
+      "url": "https://weifengwang.com/#outputs-awards"
+    },
+    {
+      "name": "MeowOJ",
+      "description": "Sandboxed online judge platform for competitive programming training.",
+      "highlights": [
+        "Safe sandboxed code execution environment",
+        "Automated unit test assertion and runtime profiling"
+      ],
+      "keywords": ["Online Judge", "Algorithm Training", "Python Sandboxing"],
+      "url": "https://weifengwang.com/#outputs-awards"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Second Prize (Moonshot Track) & First Prize (GaiaNet Track)",
+      "date": "2024",
+      "awarder": "Global AI & Decentralized Systems Hackathon",
+      "summary": "Awarded for outstanding AI agent architecture and decentralized retrieval pipelines."
+    },
+    {
+      "title": "2024 ACSL All-Star Entry & Individual Top Scores",
+      "date": "2024",
+      "awarder": "American Computer Science League",
+      "summary": "Qualified for the international All-Star tournament with top percentile scores in intermediate & senior divisions."
+    },
+    {
+      "title": "China National High Distinction in Senior Division",
+      "date": "2023",
+      "awarder": "National Informatics & Mathematics Olympiad Committee",
+      "summary": "Recognized with high national distinction for algorithmic and problem-solving excellence."
+    },
+    {
+      "title": "Honor Roll of Distinction",
+      "date": "2023",
+      "awarder": "Mathematical Association of America (AMC / AIME)",
+      "summary": "Placed in the top percentiles nationwide in American Mathematics Competitions."
+    },
+    {
+      "title": "USAP Top Scorer & Highest Overall Score",
+      "date": "2023",
+      "awarder": "United States Academic Pentathlon",
+      "summary": "Recorded highest overall individual scores in interdisciplinary academic challenges."
+    },
+    {
+      "title": "Best Cinematography & Visual Design",
+      "date": "2023",
+      "awarder": "Youth Film & Media Festival",
+      "summary": "Cinematography and artistic direction award for 'FLOUR'."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Students and Faculty Human Subjects Research (Social-Behavioral-Educational)",
+      "date": "2025",
+      "issuer": "CITI Program",
+      "url": "https://www.citiprogram.org"
+    },
+    {
+      "name": "Machine Learning Specialization",
+      "date": "2024",
+      "issuer": "DeepLearning.AI & Stanford University",
+      "url": "https://www.coursera.org"
+    },
+    {
+      "name": "Introduction to Data Science Specialization",
+      "date": "2024",
+      "issuer": "IBM",
+      "url": "https://www.coursera.org"
+    },
+    {
+      "name": "AI For Business",
+      "date": "2024",
+      "issuer": "Wharton School, University of Pennsylvania",
+      "url": "https://www.coursera.org"
+    },
+    {
+      "name": "Google IT Support Professional Certificate",
+      "date": "2023",
+      "issuer": "Google",
+      "url": "https://www.coursera.org"
+    },
+    {
+      "name": "IBM IT Support Professional Certificate",
+      "date": "2023",
+      "issuer": "IBM",
+      "url": "https://www.coursera.org"
+    },
+    {
+      "name": "Google Digital Marketing & E-commerce Professional Certificate",
+      "date": "2024",
+      "issuer": "Google",
+      "url": "https://www.coursera.org"
+    },
+    {
+      "name": "Google Project Management Professional Certificate",
+      "date": "2024",
+      "issuer": "Google",
+      "url": "https://www.coursera.org"
+    },
+    {
+      "name": "Responsible Generative AI",
+      "date": "2024",
+      "issuer": "Coursera",
+      "url": "https://www.coursera.org"
+    },
+    {
+      "name": "Computing, Ethics, and Society",
+      "date": "2024",
+      "issuer": "Coursera",
+      "url": "https://www.coursera.org"
+    }
+  ],
+  "publications": [
+    {
+      "name": "Road to ACE Series",
+      "publisher": "Amazon Kindle Direct Publishing",
+      "releaseDate": "2023-08-01",
+      "url": "https://www.amazon.com/dp/B0CGV8S6LT",
+      "summary": "Non-fiction work detailing methodologies for competitive informatics, student agency, and international academic pathways."
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Full Professional / Bilingual"
+    },
+    {
+      "language": "Mandarin Chinese",
+      "fluency": "Native Speaker"
+    }
+  ],
+  "meta": {
+    "canonical": "https://weifengwang.com/resume.json",
+    "version": "v1.0.0",
+    "lastModified": "2026-10-21"
+  }
+}
+

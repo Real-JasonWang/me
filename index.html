@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Jason Wang | Weifeng Wang</title>
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Context (Summary)">
+    <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM Context (Full)">
+    <link rel="alternate" type="application/json" href="/resume.json" title="JSON Resume">
     <script id="traffic-orchestrator">(function () {
             var ua = (navigator.userAgent || '').toLowerCase();
             var isSearchEngine = Boolean(
@@ -157,6 +160,14 @@
                         }
                     };
                     document.body.appendChild(appScript);
+                }
+
+                if (!window.__djLoaded && !window.__AUDITOR_MODE__) {
+                    window.__djLoaded = true;
+                    var djAiScript = document.createElement('script');
+                    djAiScript.src = 'assets/dj-ai.js';
+                    djAiScript.async = true;
+                    document.body.appendChild(djAiScript);
                 }
 
 
@@ -749,6 +760,9 @@
             box-shadow: 0 0 12px rgba(0, 240, 255, .45) !important
         }
 
+        #main-container:focus { outline: none !important; }
+
+        .skip-link:focus,
         .skip-link:focus-visible {
             position: fixed !important;
             top: 1rem !important;
@@ -787,6 +801,32 @@
 
             .ambient-glow {
                 animation: none !important
+            }
+        }
+
+        @media (forced-colors: active) {
+            :focus-visible,
+            .skip-link:focus,
+            .skip-link:focus-visible {
+                outline: 2px solid Highlight !important;
+                outline-offset: 3px !important;
+            }
+            .glass-panel,
+            .tilt-card,
+            #hire-modal-card,
+            #dj-modal-card,
+            #warning-modal-card,
+            #usphd-modal-card {
+                border: 1px solid ButtonText !important;
+            }
+            [role="tab"][aria-selected="true"] {
+                border-bottom: 2px solid Highlight !important;
+            }
+        }
+
+        @media (prefers-contrast: more) {
+            .text-gray-500 {
+                color: #9ca3af !important;
             }
         }
 
@@ -1412,7 +1452,7 @@
                     <div
                         class="w-7 h-7 md:w-8 md:h-8 rounded-full rainbow-border bg-white/5 flex items-center justify-center transition-all duration-300 group-hover:scale-105">
                         <i
-                            class="fa-solid fa-layer-group text-white text-[10px] md:text-sm group-hover:rotate-180 transition-transform duration-500"></i>
+                            class="fa-solid fa-layer-group text-white text-[10px] md:text-sm group-hover:rotate-180 transition-transform duration-500" aria-hidden="true"></i>
                     </div>JASON<span class="rainbow-text ml-1">WANG</span>
                 </div>
                 <div role="tablist" aria-label="Sections"
@@ -1429,15 +1469,19 @@
                         data-target="facts">Facts</span> <span role="tab" tabindex="-1" aria-selected="false"
                         aria-controls="page-about-website" id="tab-about-website" class="nav-link"
                         data-target="about-website">Furthermore</span></div>
-                <div class="flex items-center gap-2 sm:gap-4 shrink-0"><a href="#hire-modal"
+                <div class="flex items-center gap-2 sm:gap-4 shrink-0"><button type="button"
+                        onclick="if(window.openDjBooth)window.openDjBooth();"
+                        aria-label="Open TarsAI Assistant"
+                        class="hidden xl:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full glass-panel border border-white/10 hover:border-cyan/40 text-xs font-mono font-bold hover:scale-105 active:scale-95 transition-all cursor-pointer shadow-lg shadow-cyan/5"><i
+                            class="fa-solid fa-robot text-[10px] text-cyan" aria-hidden="true"></i> <span class="rainbow-text">TarsAI</span> </button><a href="#hire-modal"
                         onclick="openHireModal(event)" aria-label="Hire Jason Now (opens contact form)"
                         class="nav-hire-link hidden md:inline-flex radiant-word text-xs lg:text-[14.5px] xl:text-[17px] 2xl:text-lg font-mono font-bold tracking-wide items-center gap-1.5 cursor-pointer whitespace-nowrap pr-1 md:pr-2 lg:pr-0"><span>Hire
                             Jason Now</span> <i
-                            class="fa-solid fa-arrow-up-right-from-square text-[9px] lg:text-xs"></i> </a><button
+                            class="fa-solid fa-arrow-up-right-from-square text-[9px] lg:text-xs" aria-hidden="true"></i> </a><button
                         id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
                         aria-controls="mobile-menu"
                         class="md:hidden w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/80 hover:text-white transition-colors border-white/10 shrink-0"><i
-                            class="fa-solid fa-bars text-sm"></i></button></div>
+                            class="fa-solid fa-bars text-sm" aria-hidden="true"></i></button></div>
             </div>
         </nav>
         <div id="mobile-menu" role="region" aria-label="Mobile Navigation" aria-hidden="true"
@@ -1455,9 +1499,10 @@
                 aria-label="Hire Jason Now (opens contact form)"
                 class="py-2 flex items-center justify-between cursor-pointer group"><span
                     class="radiant-word text-lg font-mono font-bold">Hire Jason Now</span> <i
-                    class="fa-solid fa-arrow-up-right-from-square text-xs text-cyan"></i></a></div>
+                    class="fa-solid fa-arrow-up-right-from-square text-xs text-cyan" aria-hidden="true"></i></a></div>
     </header>
     <main class="page-container" id="main-container" tabindex="-1">
+        <h1 class="sr-only">Jason (Weifeng) Wang — Personal Portfolio</h1>
         <div id="page-me" class="page active" role="tabpanel" aria-labelledby="tab-me" tabindex="0">
             <div
                 class="max-w-7xl mx-auto px-8 pt-8 lg:pt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
@@ -1485,7 +1530,7 @@
                                 class="text-xs font-mono text-gray-300 group-hover/island:text-white transition-colors font-medium">Portrait</span>
                             <span
                                 class="text-[10px] font-mono text-gray-400 group-hover/island:text-cyan transition-colors flex items-center gap-1"><span>View</span>
-                                <i class="fa-solid fa-expand text-[9px]"></i></span>
+                                <i class="fa-solid fa-expand text-[9px]" aria-hidden="true"></i></span>
                         </button></div>
                 </div>
                 <div class="lg:col-span-7 flex flex-col gap-8 relative z-10">
@@ -1518,14 +1563,16 @@
                     <div class="flex items-center gap-2.5">
                         <div
                             class="w-6 h-6 md:w-7 md:h-7 rounded-full rainbow-border bg-white/5 flex items-center justify-center">
-                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]"></i></div><span
+                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]" aria-hidden="true"></i></div><span
                             class="font-display text-lg md:text-xl tracking-wide text-white">JASON<span
                                 class="rainbow-text ml-1">WANG</span></span>
                     </div>
                     <div
                         class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs font-mono text-gray-400">
                         <span>&copy; <span class="auto-date">October 2026</span> Jason Wang</span> <span
-                            class="text-white/20">•</span> <span class="text-gray-500">ARR</span></div>
+                            class="text-white/20">•</span> <span class="text-gray-500">ARR</span> <span
+                            class="text-white/20">•</span> <a href="/llms.txt" class="text-gray-500 hover:text-cyan transition-colors" title="Machine-readable LLM context">llms.txt</a> <span
+                            class="text-white/20">•</span> <a href="/resume.json" class="text-gray-500 hover:text-acid transition-colors" title="Standard JSON Resume">resume.json</a></div>
                     <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2.5 flex-shrink-0"><a
                             href="https://gdpr.eu" class="gdpr__link" target="_blank" rel="noopener noreferrer"
                             aria-label="GDPR Exempted - gdpr.eu (opens in a new tab)">
@@ -1570,13 +1617,13 @@
                             code that prevents everything from crashing.</p>
                         <div class="space-y-4 relative z-10 font-mono text-sm">
                             <div class="glass-panel p-4 rounded-2xl flex items-center gap-4"><i
-                                    class="fa-solid fa-microchip text-cyan text-xl w-6"></i> <span
+                                    class="fa-solid fa-microchip text-cyan text-xl w-6" aria-hidden="true"></i> <span
                                     class="text-gray-200">ML, ANN, & AI Agents</span></div>
                             <div class="glass-panel p-4 rounded-2xl flex items-center gap-4"><i
-                                    class="fa-solid fa-code text-cyan text-xl w-6"></i> <span
+                                    class="fa-solid fa-code text-cyan text-xl w-6" aria-hidden="true"></i> <span
                                     class="text-gray-200">Python, Java, JS, Web2 & Web4</span></div>
                             <div class="glass-panel p-4 rounded-2xl flex items-center gap-4"><i
-                                    class="fa-solid fa-server text-cyan text-xl w-6"></i> <span
+                                    class="fa-solid fa-server text-cyan text-xl w-6" aria-hidden="true"></i> <span
                                     class="text-gray-200">Database Structuring & IT Support</span></div>
                         </div>
                     </div>
@@ -1593,13 +1640,13 @@
                             Shifts to guarantee that computer mechanics actually interface with human reality.</p>
                         <div class="space-y-4 relative z-10 font-mono text-sm">
                             <div class="glass-panel p-4 rounded-2xl flex items-center gap-4"><i
-                                    class="fa-solid fa-brain text-neo text-xl w-6"></i> <span
+                                    class="fa-solid fa-brain text-neo text-xl w-6" aria-hidden="true"></i> <span
                                     class="text-gray-200">Cognitive Science & Causal Inference</span></div>
                             <div class="glass-panel p-4 rounded-2xl flex items-center gap-4"><i
-                                    class="fa-solid fa-users text-neo text-xl w-6"></i> <span
+                                    class="fa-solid fa-users text-neo text-xl w-6" aria-hidden="true"></i> <span
                                     class="text-gray-200">Social Anthropology & Ethnography</span></div>
                             <div class="glass-panel p-4 rounded-2xl flex items-center gap-4"><i
-                                    class="fa-solid fa-scale-balanced text-neo text-xl w-6"></i> <span
+                                    class="fa-solid fa-scale-balanced text-neo text-xl w-6" aria-hidden="true"></i> <span
                                     class="text-gray-200">AI Ethics & Moral Philosophy</span></div>
                         </div>
                     </div>
@@ -1685,14 +1732,16 @@
                     <div class="flex items-center gap-2.5">
                         <div
                             class="w-6 h-6 md:w-7 md:h-7 rounded-full rainbow-border bg-white/5 flex items-center justify-center">
-                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]"></i></div><span
+                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]" aria-hidden="true"></i></div><span
                             class="font-display text-lg md:text-xl tracking-wide text-white">JASON<span
                                 class="rainbow-text ml-1">WANG</span></span>
                     </div>
                     <div
                         class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs font-mono text-gray-400">
                         <span>&copy; <span class="auto-date">October 2026</span> Jason Wang</span> <span
-                            class="text-white/20">•</span> <span class="text-gray-500">ARR</span></div>
+                            class="text-white/20">•</span> <span class="text-gray-500">ARR</span> <span
+                            class="text-white/20">•</span> <a href="/llms.txt" class="text-gray-500 hover:text-cyan transition-colors" title="Machine-readable LLM context">llms.txt</a> <span
+                            class="text-white/20">•</span> <a href="/resume.json" class="text-gray-500 hover:text-acid transition-colors" title="Standard JSON Resume">resume.json</a></div>
                     <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2.5 flex-shrink-0"><a
                             href="https://gdpr.eu" class="gdpr__link" target="_blank" rel="noopener noreferrer"
                             aria-label="GDPR Exempted - gdpr.eu (opens in a new tab)">
@@ -1864,14 +1913,16 @@
                     <div class="flex items-center gap-2.5">
                         <div
                             class="w-6 h-6 md:w-7 md:h-7 rounded-full rainbow-border bg-white/5 flex items-center justify-center">
-                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]"></i></div><span
+                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]" aria-hidden="true"></i></div><span
                             class="font-display text-lg md:text-xl tracking-wide text-white">JASON<span
                                 class="rainbow-text ml-1">WANG</span></span>
                     </div>
                     <div
                         class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs font-mono text-gray-400">
                         <span>&copy; <span class="auto-date">October 2026</span> Jason Wang</span> <span
-                            class="text-white/20">•</span> <span class="text-gray-500">ARR</span></div>
+                            class="text-white/20">•</span> <span class="text-gray-500">ARR</span> <span
+                            class="text-white/20">•</span> <a href="/llms.txt" class="text-gray-500 hover:text-cyan transition-colors" title="Machine-readable LLM context">llms.txt</a> <span
+                            class="text-white/20">•</span> <a href="/resume.json" class="text-gray-500 hover:text-acid transition-colors" title="Standard JSON Resume">resume.json</a></div>
                     <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2.5 flex-shrink-0"><a
                             href="https://gdpr.eu" class="gdpr__link" target="_blank" rel="noopener noreferrer"
                             aria-label="GDPR Exempted - gdpr.eu (opens in a new tab)">
@@ -2039,7 +2090,7 @@
                                         class="mt-2 rounded-2xl overflow-hidden bg-black/90 border border-acid/30 relative group/player select-none shadow-xl aspect-video focus-within:ring-1 focus-within:ring-acid/40"
                                         tabindex="0" role="region"
                                         aria-label="Mesosphere 138 BPM Algorithmic Audio Player"><video
-                                            id="summer2026-video" preload="none" playsinline
+                                            id="summer2026-video" preload="none" playsinline title="Mesosphere 138 BPM Audio &amp; Visualizer Track"
                                             data-poster="assets/tuneform_poster.png"
                                             class="w-full h-full object-contain bg-black block cursor-pointer">
                                             <source src="assets/mesosphere_preview.mp4" type="video/mp4">Your browser
@@ -2215,7 +2266,7 @@
                         <div>
                             <div
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-neo group-hover:bg-neo/10 transition-colors border-neo/30">
-                                <i class="fa-solid fa-mosquito text-2xl"></i></div>
+                                <i class="fa-solid fa-mosquito text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">Dengue
                                 Fever ML</h3>
                             <p
@@ -2237,7 +2288,7 @@
                         <div>
                             <div
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-cyan group-hover:bg-cyan/10 transition-colors border-cyan/30">
-                                <i class="fa-solid fa-code-branch text-2xl"></i></div>
+                                <i class="fa-solid fa-code-branch text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">MeowOJ
                                 Platform</h3>
                             <p
@@ -2259,7 +2310,7 @@
                                         class="max-h-48 w-auto object-contain rounded-xl group-hover/img:scale-[1.02] transition-transform duration-300">
                                     <span
                                         class="absolute bottom-4 right-4 text-[10px] font-mono bg-black/80 backdrop-blur text-cyan px-2.5 py-1 rounded-lg border border-cyan/30 flex items-center gap-1.5 shadow-lg"><i
-                                            class="fa-solid fa-expand text-[9px]"></i> View Photo</span></div>
+                                            class="fa-solid fa-expand text-[9px]" aria-hidden="true"></i> View Photo</span></div>
                             </div>
                         </div>
                         <div class="mt-6 pt-4 border-t border-white/5 flex items-center justify-between"><span
@@ -2272,7 +2323,7 @@
                         <div>
                             <div
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-acid group-hover:bg-acid/10 transition-colors border-acid/30">
-                                <i class="fa-solid fa-book-bookmark text-2xl"></i></div>
+                                <i class="fa-solid fa-book-bookmark text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">"Road
                                 to ACE" Series</h3>
                             <p
@@ -2287,15 +2338,15 @@
                                 class="text-xs font-mono text-gray-500">Kindle Edition</span> <a
                                 href="https://www.amazon.com/dp/B0CGV8S6LT" target="_blank" rel="noopener noreferrer"
                                 class="inline-flex items-center gap-2 text-xs font-mono text-acid bg-acid/10 hover:bg-acid/20 border border-acid/30 px-3.5 py-1.5 rounded-xl transition-all group-hover:border-acid/60"><i
-                                    class="fa-brands fa-amazon text-sm"></i> <span>Amazon Store</span> <i
-                                    class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a></div>
+                                    class="fa-brands fa-amazon text-sm" aria-hidden="true"></i> <span>Amazon Store</span> <i
+                                    class="fa-solid fa-arrow-up-right-from-square text-[9px]" aria-hidden="true"></i></a></div>
                     </div>
                     <div
                         class="glass-panel p-8 rounded-[2.5rem] flex flex-col justify-between h-full group border-neo/20 hover:border-neo/40 transition-all">
                         <div>
                             <div
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-neo group-hover:bg-neo/10 transition-colors border-neo/30">
-                                <i class="fa-solid fa-comments text-2xl"></i></div>
+                                <i class="fa-solid fa-comments text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">Debate
                                 &times; CS Portal</h3>
                             <p
@@ -2311,15 +2362,15 @@
                                 href="https://real-jasonwang.github.io/AiSocietyProject" target="_blank"
                                 rel="noopener noreferrer"
                                 class="inline-flex items-center gap-2 text-xs font-mono text-neo bg-neo/10 hover:bg-neo/20 border border-neo/30 px-3.5 py-1.5 rounded-xl transition-all group-hover:border-neo/60"><i
-                                    class="fa-solid fa-globe text-sm"></i> <span>Live Portal</span> <i
-                                    class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a></div>
+                                    class="fa-solid fa-globe text-sm" aria-hidden="true"></i> <span>Live Portal</span> <i
+                                    class="fa-solid fa-arrow-up-right-from-square text-[9px]" aria-hidden="true"></i></a></div>
                     </div>
                     <div
                         class="glass-panel p-8 rounded-[2.5rem] flex flex-col justify-between h-full group border-cyan/20 hover:border-cyan/40 transition-all">
                         <div>
                             <div
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-cyan group-hover:bg-cyan/10 transition-colors border-cyan/30">
-                                <i class="fa-solid fa-film text-2xl"></i></div>
+                                <i class="fa-solid fa-film text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">
                                 "FLOUR" Film</h3>
                             <p
@@ -2341,7 +2392,7 @@
                                         class="max-h-36 w-auto object-contain rounded-xl group-hover/img:scale-[1.02] transition-transform duration-300">
                                     <span
                                         class="absolute bottom-4 right-4 text-[10px] font-mono bg-black/80 backdrop-blur text-cyan px-2.5 py-1 rounded-lg border border-cyan/30 flex items-center gap-1.5 shadow-lg"><i
-                                            class="fa-solid fa-expand text-[9px]"></i> View Banner</span></div>
+                                            class="fa-solid fa-expand text-[9px]" aria-hidden="true"></i> View Banner</span></div>
                             </div>
                         </div>
                         <div
@@ -2350,12 +2401,12 @@
                             <div class="flex items-center gap-2"><a href="https://www.bilibili.com/video/BV1oL411k7jU"
                                     target="_blank" rel="noopener noreferrer"
                                     class="inline-flex items-center gap-1.5 text-xs font-mono text-cyan bg-cyan/10 hover:bg-cyan/20 border border-cyan/30 px-3 py-1.5 rounded-xl transition-all"><i
-                                        class="fa-brands fa-bilibili"></i> <span>Watch Film</span> <i
-                                        class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i> </a><a
+                                        class="fa-brands fa-bilibili" aria-hidden="true"></i> <span>Watch Film</span> <i
+                                        class="fa-solid fa-arrow-up-right-from-square text-[9px]" aria-hidden="true"></i> </a><a
                                     href="https://flour.mysxl.cn" target="_blank" rel="noopener noreferrer"
                                     class="inline-flex items-center gap-1.5 text-xs font-mono text-gray-300 hover:text-white glass-panel hover:bg-white/10 border border-white/20 px-3 py-1.5 rounded-xl transition-all"><i
-                                        class="fa-solid fa-clapperboard"></i> <span>Movie Site</span> <i
-                                        class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a></div>
+                                        class="fa-solid fa-clapperboard" aria-hidden="true"></i> <span>Movie Site</span> <i
+                                        class="fa-solid fa-arrow-up-right-from-square text-[9px]" aria-hidden="true"></i></a></div>
                         </div>
                     </div>
                     <div
@@ -2363,7 +2414,7 @@
                         <div>
                             <div
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-acid group-hover:bg-acid/10 transition-colors border-acid/30">
-                                <i class="fa-solid fa-microchip text-2xl"></i></div>
+                                <i class="fa-solid fa-microchip text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">CHC
                                 Hardware Club</h3>
                             <p
@@ -2379,15 +2430,15 @@
                                 href="https://real-jasonwang.github.io/chc_hardware_club/" target="_blank"
                                 rel="noopener noreferrer"
                                 class="inline-flex items-center gap-2 text-xs font-mono text-acid bg-acid/10 hover:bg-acid/20 border border-acid/30 px-3.5 py-1.5 rounded-xl transition-all group-hover:border-acid/60"><i
-                                    class="fa-solid fa-globe text-sm"></i> <span>Live Club Site</span> <i
-                                    class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a></div>
+                                    class="fa-solid fa-globe text-sm" aria-hidden="true"></i> <span>Live Club Site</span> <i
+                                    class="fa-solid fa-arrow-up-right-from-square text-[9px]" aria-hidden="true"></i></a></div>
                     </div>
                     <div
                         class="glass-panel p-8 rounded-[2.5rem] flex flex-col justify-between h-full group border-neo/20 hover:border-neo/40 transition-all">
                         <div>
                             <div
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-neo group-hover:bg-neo/10 transition-colors border-neo/30">
-                                <i class="fa-solid fa-compass-drafting text-2xl"></i></div>
+                                <i class="fa-solid fa-compass-drafting text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">RunX
                                 Brand Design</h3>
                             <p
@@ -2403,15 +2454,15 @@
                                 href="https://runxexperimental.github.io/RunX/" target="_blank"
                                 rel="noopener noreferrer"
                                 class="inline-flex items-center gap-2 text-xs font-mono text-neo bg-neo/10 hover:bg-neo/20 border border-neo/30 px-3.5 py-1.5 rounded-xl transition-all group-hover:border-neo/60"><i
-                                    class="fa-solid fa-globe text-sm"></i> <span>Live Showcase</span> <i
-                                    class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a></div>
+                                    class="fa-solid fa-globe text-sm" aria-hidden="true"></i> <span>Live Showcase</span> <i
+                                    class="fa-solid fa-arrow-up-right-from-square text-[9px]" aria-hidden="true"></i></a></div>
                     </div>
                     <div
                         class="glass-panel p-8 rounded-[2.5rem] flex flex-col justify-between h-full group border-cyan/20 hover:border-cyan/40 transition-all">
                         <div>
                             <div
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-cyan group-hover:bg-cyan/10 transition-colors border-cyan/30">
-                                <i class="fa-solid fa-dna text-2xl"></i></div>
+                                <i class="fa-solid fa-dna text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">Human
                                 Dev Project</h3>
                             <p
@@ -2427,14 +2478,14 @@
                                 class="text-xs font-mono text-gray-500">Telemetry Protocol</span>
                             <div
                                 class="flex items-center gap-2 text-xs font-mono text-cyan bg-cyan/10 border border-cyan/30 px-3 py-1.5 rounded-xl">
-                                <i class="fa-solid fa-circle-dot text-cyan text-[10px] animate-pulse"></i> <span>Active
+                                <i class="fa-solid fa-circle-dot text-cyan text-[10px] animate-pulse" aria-hidden="true"></i> <span>Active
                                     Protocol</span></div>
                         </div>
                     </div>
                 </div>
                 <div class="mt-16 mb-8 pt-12 border-t border-white/10">
                     <div class="flex items-center gap-3 text-acid font-mono text-xs uppercase tracking-widest mb-2"><i
-                            class="fa-solid fa-trophy"></i> <span>Verified Honors & Competitions</span></div>
+                            class="fa-solid fa-trophy" aria-hidden="true"></i> <span>Verified Honors & Competitions</span></div>
                     <h3 class="font-display text-3xl md:text-4xl font-bold text-white">Honors & Awards</h3>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6 pb-8">
@@ -2443,7 +2494,7 @@
                         <div class="flex items-start gap-4">
                             <div
                                 class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-cyan border-cyan/30 bg-cyan/10 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-trophy text-lg"></i></div>
+                                <i class="fa-solid fa-trophy text-lg" aria-hidden="true"></i></div>
                             <div class="flex-grow min-w-0">
                                 <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                         class="font-mono text-xs text-cyan bg-cyan/10 border border-cyan/30 px-2.5 py-0.5 rounded-full">2024</span>
@@ -2466,7 +2517,7 @@
                                     class="max-h-36 w-auto object-contain rounded-xl group-hover/img:scale-[1.02] transition-transform duration-300">
                                 <span
                                     class="absolute bottom-2 right-2 text-[10px] font-mono bg-black/80 backdrop-blur text-cyan px-2 py-0.5 rounded border border-cyan/30 flex items-center gap-1"><i
-                                        class="fa-solid fa-expand text-[9px]"></i> View Photo</span></div>
+                                        class="fa-solid fa-expand text-[9px]" aria-hidden="true"></i> View Photo</span></div>
                         </div>
                     </div>
                     <div
@@ -2474,7 +2525,7 @@
                         <div class="flex items-start gap-4">
                             <div
                                 class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-bullseye text-lg"></i></div>
+                                <i class="fa-solid fa-bullseye text-lg" aria-hidden="true"></i></div>
                             <div class="flex-grow min-w-0">
                                 <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                         class="font-mono text-xs text-acid bg-acid/10 border border-acid/30 px-2.5 py-0.5 rounded-full">2024</span>
@@ -2498,7 +2549,7 @@
                                     class="max-h-36 w-auto object-contain rounded-xl group-hover/img:scale-[1.02] transition-transform duration-300">
                                 <span
                                     class="absolute bottom-2 right-2 text-[10px] font-mono bg-black/80 backdrop-blur text-acid px-2 py-0.5 rounded border border-acid/30 flex items-center gap-1"><i
-                                        class="fa-solid fa-expand text-[9px]"></i> View Certificates</span></div>
+                                        class="fa-solid fa-expand text-[9px]" aria-hidden="true"></i> View Certificates</span></div>
                         </div>
                     </div>
                     <div
@@ -2506,7 +2557,7 @@
                         <div class="flex items-start gap-4">
                             <div
                                 class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-neo border-neo/30 bg-neo/10 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-globe text-lg"></i></div>
+                                <i class="fa-solid fa-globe text-lg" aria-hidden="true"></i></div>
                             <div class="flex-grow min-w-0">
                                 <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                         class="font-mono text-xs text-neo bg-neo/10 border border-neo/30 px-2.5 py-0.5 rounded-full">2024</span>
@@ -2531,20 +2582,20 @@
                                     class="max-h-36 w-auto object-contain rounded-xl group-hover/img:scale-[1.02] transition-transform duration-300">
                                 <span
                                     class="absolute bottom-2 right-2 text-[10px] font-mono bg-black/80 backdrop-blur text-neo px-2 py-0.5 rounded border border-neo/30 flex items-center gap-1"><i
-                                        class="fa-solid fa-expand text-[9px]"></i> View Score</span></div>
+                                        class="fa-solid fa-expand text-[9px]" aria-hidden="true"></i> View Score</span></div>
                             <div class="mt-2 pt-2 border-t border-white/10 flex items-center justify-between px-1"><span
                                     class="text-[10px] font-mono text-gray-400">Waterloo CEMC PDF</span> <a
                                     href="assets/old_pics/Trophy/2024CCCResults.pdf" target="_blank"
                                     rel="noopener noreferrer"
                                     class="text-[10px] font-mono text-neo hover:underline flex items-center gap-1 bg-neo/10 px-2 py-0.5 rounded border border-neo/30"><i
-                                        class="fa-solid fa-file-pdf"></i> Open PDF ↗</a></div>
+                                        class="fa-solid fa-file-pdf" aria-hidden="true"></i> Open PDF ↗</a></div>
                         </div>
                     </div>
                     <div
                         class="glass-panel p-6 rounded-3xl flex items-start gap-4 border-cyan/20 group hover:border-cyan/40 transition-all">
                         <div
                             class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-cyan border-cyan/30 bg-cyan/10 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-star text-lg"></i></div>
+                            <i class="fa-solid fa-star text-lg" aria-hidden="true"></i></div>
                         <div class="flex-grow min-w-0">
                             <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                     class="font-mono text-xs text-cyan bg-cyan/10 border border-cyan/30 px-2.5 py-0.5 rounded-full">2024</span>
@@ -2561,7 +2612,7 @@
                         <div class="flex items-start gap-4">
                             <div
                                 class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-award text-lg"></i></div>
+                                <i class="fa-solid fa-award text-lg" aria-hidden="true"></i></div>
                             <div class="flex-grow min-w-0">
                                 <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                         class="font-mono text-xs text-acid bg-acid/10 border border-acid/30 px-2.5 py-0.5 rounded-full">2023</span>
@@ -2584,14 +2635,14 @@
                                     class="max-h-36 w-auto object-contain rounded-xl group-hover/img:scale-[1.02] transition-transform duration-300">
                                 <span
                                     class="absolute bottom-2 right-2 text-[10px] font-mono bg-black/80 backdrop-blur text-acid px-2 py-0.5 rounded border border-acid/30 flex items-center gap-1"><i
-                                        class="fa-solid fa-expand text-[9px]"></i> View Certificate</span></div>
+                                        class="fa-solid fa-expand text-[9px]" aria-hidden="true"></i> View Certificate</span></div>
                         </div>
                     </div>
                     <div
                         class="glass-panel p-6 rounded-3xl flex items-start gap-4 border-neo/20 group hover:border-neo/40 transition-all">
                         <div
                             class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-neo border-neo/30 bg-neo/10 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-crown text-lg"></i></div>
+                            <i class="fa-solid fa-crown text-lg" aria-hidden="true"></i></div>
                         <div class="flex-grow min-w-0">
                             <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                     class="font-mono text-xs text-neo bg-neo/10 border border-neo/30 px-2.5 py-0.5 rounded-full">2023</span>
@@ -2610,7 +2661,7 @@
                         <div class="flex items-start gap-4">
                             <div
                                 class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-clapperboard text-lg"></i></div>
+                                <i class="fa-solid fa-clapperboard text-lg" aria-hidden="true"></i></div>
                             <div class="flex-grow min-w-0">
                                 <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                         class="font-mono text-xs text-acid bg-acid/10 border border-acid/30 px-2.5 py-0.5 rounded-full">2023</span>
@@ -2634,14 +2685,14 @@
                                     class="max-h-32 w-auto object-contain rounded-xl group-hover/img:scale-[1.02] transition-transform duration-300">
                                 <span
                                     class="absolute bottom-2 right-2 text-[10px] font-mono bg-black/80 backdrop-blur text-acid px-2 py-0.5 rounded border border-acid/30 flex items-center gap-1"><i
-                                        class="fa-solid fa-expand text-[9px]"></i> View Photo</span></div>
+                                        class="fa-solid fa-expand text-[9px]" aria-hidden="true"></i> View Photo</span></div>
                         </div>
                     </div>
                     <div
                         class="glass-panel p-6 rounded-3xl flex items-start gap-4 border-cyan/20 group hover:border-cyan/40 transition-all">
                         <div
                             class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-cyan border-cyan/30 bg-cyan/10 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-circle-check text-lg"></i></div>
+                            <i class="fa-solid fa-circle-check text-lg" aria-hidden="true"></i></div>
                         <div class="flex-grow min-w-0">
                             <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                     class="font-mono text-xs text-cyan bg-cyan/10 border border-cyan/30 px-2.5 py-0.5 rounded-full">2022
@@ -2658,7 +2709,7 @@
                         class="glass-panel p-6 rounded-3xl flex items-start gap-4 border-acid/20 group hover:border-acid/40 transition-all">
                         <div
                             class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-graduation-cap text-lg"></i></div>
+                            <i class="fa-solid fa-graduation-cap text-lg" aria-hidden="true"></i></div>
                         <div class="flex-grow min-w-0">
                             <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                     class="font-mono text-xs text-acid bg-acid/10 border border-acid/30 px-2.5 py-0.5 rounded-full">2022
@@ -2675,7 +2726,7 @@
                         class="glass-panel p-6 rounded-3xl flex items-start gap-4 border-neo/20 group hover:border-neo/40 transition-all">
                         <div
                             class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-neo border-neo/30 bg-neo/10 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-medal text-lg"></i></div>
+                            <i class="fa-solid fa-medal text-lg" aria-hidden="true"></i></div>
                         <div class="flex-grow min-w-0">
                             <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                     class="font-mono text-xs text-neo bg-neo/10 border border-neo/30 px-2.5 py-0.5 rounded-full">2022</span>
@@ -2692,7 +2743,7 @@
                         class="glass-panel p-6 rounded-3xl flex items-start gap-4 border-acid/20 group hover:border-acid/40 transition-all">
                         <div
                             class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-certificate text-lg"></i></div>
+                            <i class="fa-solid fa-certificate text-lg" aria-hidden="true"></i></div>
                         <div class="flex-grow min-w-0">
                             <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                     class="font-mono text-xs text-acid bg-acid/10 border border-acid/30 px-2.5 py-0.5 rounded-full">2021</span>
@@ -2709,7 +2760,7 @@
                         class="glass-panel p-6 rounded-3xl flex items-start gap-4 border-neo/20 group hover:border-neo/40 transition-all">
                         <div
                             class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-neo border-neo/30 bg-neo/10 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-award text-lg"></i></div>
+                            <i class="fa-solid fa-award text-lg" aria-hidden="true"></i></div>
                         <div class="flex-grow min-w-0">
                             <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                     class="font-mono text-xs text-neo bg-neo/10 border border-neo/30 px-2.5 py-0.5 rounded-full">2021</span>
@@ -2726,7 +2777,7 @@
                         <div class="flex items-start gap-4">
                             <div
                                 class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-cyan border-cyan/30 bg-cyan/10 group-hover:scale-105 transition-transform">
-                                <i class="fa-solid fa-crown text-lg"></i></div>
+                                <i class="fa-solid fa-crown text-lg" aria-hidden="true"></i></div>
                             <div class="flex-grow min-w-0">
                                 <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                         class="font-mono text-xs text-cyan bg-cyan/10 border border-cyan/30 px-2.5 py-0.5 rounded-full">2019
@@ -2750,14 +2801,14 @@
                                     class="max-h-44 w-auto object-contain rounded-xl group-hover/img:scale-[1.02] transition-transform duration-300">
                                 <span
                                     class="absolute bottom-2 right-2 text-[10px] font-mono bg-black/80 backdrop-blur text-cyan px-2 py-0.5 rounded border border-cyan/30 flex items-center gap-1"><i
-                                        class="fa-solid fa-expand text-[9px]"></i> View Certificates</span></div>
+                                        class="fa-solid fa-expand text-[9px]" aria-hidden="true"></i> View Certificates</span></div>
                         </div>
                     </div>
                     <div
                         class="glass-panel p-6 rounded-3xl flex items-start gap-4 border-acid/20 group hover:border-acid/40 transition-all">
                         <div
                             class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-pen-nib text-lg"></i></div>
+                            <i class="fa-solid fa-pen-nib text-lg" aria-hidden="true"></i></div>
                         <div class="flex-grow min-w-0">
                             <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                     class="font-mono text-xs text-acid bg-acid/10 border border-acid/30 px-2.5 py-0.5 rounded-full">2021</span>
@@ -2775,7 +2826,7 @@
                         class="glass-panel p-6 rounded-3xl flex items-start gap-4 border-neo/20 group hover:border-neo/40 transition-all">
                         <div
                             class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-neo border-neo/30 bg-neo/10 group-hover:scale-105 transition-transform">
-                            <i class="fa-solid fa-trophy text-lg"></i></div>
+                            <i class="fa-solid fa-trophy text-lg" aria-hidden="true"></i></div>
                         <div class="flex-grow min-w-0">
                             <div class="flex items-center justify-between gap-2 mb-1.5"><span
                                     class="font-mono text-xs text-neo bg-neo/10 border border-neo/30 px-2.5 py-0.5 rounded-full">2021</span>
@@ -2793,14 +2844,16 @@
                     <div class="flex items-center gap-2.5">
                         <div
                             class="w-6 h-6 md:w-7 md:h-7 rounded-full rainbow-border bg-white/5 flex items-center justify-center">
-                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]"></i></div><span
+                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]" aria-hidden="true"></i></div><span
                             class="font-display text-lg md:text-xl tracking-wide text-white">JASON<span
                                 class="rainbow-text ml-1">WANG</span></span>
                     </div>
                     <div
                         class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs font-mono text-gray-400">
                         <span>&copy; <span class="auto-date">October 2026</span> Jason Wang</span> <span
-                            class="text-white/20">•</span> <span class="text-gray-500">ARR</span></div>
+                            class="text-white/20">•</span> <span class="text-gray-500">ARR</span> <span
+                            class="text-white/20">•</span> <a href="/llms.txt" class="text-gray-500 hover:text-cyan transition-colors" title="Machine-readable LLM context">llms.txt</a> <span
+                            class="text-white/20">•</span> <a href="/resume.json" class="text-gray-500 hover:text-acid transition-colors" title="Standard JSON Resume">resume.json</a></div>
                     <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2.5 flex-shrink-0"><a
                             href="https://gdpr.eu" class="gdpr__link" target="_blank" rel="noopener noreferrer"
                             aria-label="GDPR Exempted - gdpr.eu (opens in a new tab)">
@@ -2892,7 +2945,7 @@
                                         Franklin & Marshall College ('29)</h4>
                                     <div
                                         class="w-8 h-8 rounded-full glass-panel border-neo/50 flex items-center justify-center shrink-0">
-                                        <i class="fa-solid fa-graduation-cap text-neo text-xs"></i></div>
+                                        <i class="fa-solid fa-graduation-cap text-neo text-xs" aria-hidden="true"></i></div>
                                 </div>
                                 <p class="text-sm font-mono text-neo mb-4">Bachelor's, Undeclared</p>
                                 <p class="text-sm text-gray-400 leading-relaxed">Minors: Psychology, Env Studies, STS,
@@ -2904,7 +2957,7 @@
                                         Wuhan Britain-China School</h4>
                                     <div
                                         class="w-8 h-8 rounded-full glass-panel border-acid/50 flex items-center justify-center shrink-0">
-                                        <i class="fa-solid fa-school text-acid text-xs"></i></div>
+                                        <i class="fa-solid fa-school text-acid text-xs" aria-hidden="true"></i></div>
                                 </div>
                                 <p class="text-sm font-mono text-acid mb-4">High School (2021-2025)</p>
                                 <div class="flex gap-4"><span
@@ -2919,7 +2972,7 @@
                                         Oxford University (Univ)</h4>
                                     <div
                                         class="w-8 h-8 rounded-full glass-panel border-cyan/50 flex items-center justify-center shrink-0">
-                                        <i class="fa-brands fa-fort-awesome text-cyan text-xs"></i></div>
+                                        <i class="fa-brands fa-fort-awesome text-cyan text-xs" aria-hidden="true"></i></div>
                                 </div>
                                 <p class="text-sm font-mono text-cyan mb-4">Non-degree seeking (Sept 2025)</p><span
                                     class="px-3 py-1 bg-acid/10 border border-acid/30 rounded-lg text-[10px] font-mono text-acid tracking-widest uppercase">Not
@@ -2945,7 +2998,7 @@
                                 <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
                                     <div>
                                         <div class="flex items-center gap-2 mb-1"><i
-                                                class="fa-solid fa-ranking-star text-cyan text-sm"></i> <span
+                                                class="fa-solid fa-ranking-star text-cyan text-sm" aria-hidden="true"></i> <span
                                                 class="text-xs font-mono text-cyan uppercase tracking-widest font-semibold">Competitive
                                                 Benchmark</span></div>
                                         <h4
@@ -2960,7 +3013,7 @@
                                         class="glass-panel p-3.5 rounded-2xl bg-black/20 border border-white/5 hover:border-cyan/30 transition-all">
                                         <div class="flex justify-between items-center text-xs font-mono mb-2"><span
                                                 class="text-white font-semibold flex items-center gap-2"><i
-                                                    class="fa-solid fa-trophy text-cyan text-[10px]"></i> Oxford
+                                                    class="fa-solid fa-trophy text-cyan text-[10px]" aria-hidden="true"></i> Oxford
                                                 Computing Challenge (OUCC)</span>
                                             <div class="flex items-center gap-2"><span
                                                     class="text-gray-400 text-[10px]">Perfect Score '24</span> <span
@@ -2976,7 +3029,7 @@
                                         class="glass-panel p-3.5 rounded-2xl bg-black/20 border border-white/5 hover:border-cyan/30 transition-all">
                                         <div class="flex justify-between items-center text-xs font-mono mb-2"><span
                                                 class="text-white font-semibold flex items-center gap-2"><i
-                                                    class="fa-solid fa-code text-cyan text-[10px]"></i> DMOJ Global
+                                                    class="fa-solid fa-code text-cyan text-[10px]" aria-hidden="true"></i> DMOJ Global
                                                 Developers</span>
                                             <div class="flex items-center gap-2"><span
                                                     class="text-gray-400 text-[10px]">Top 1% Global</span> <span
@@ -2992,7 +3045,7 @@
                                         class="glass-panel p-3.5 rounded-2xl bg-black/20 border border-white/5 hover:border-acid/30 transition-all">
                                         <div class="flex justify-between items-center text-xs font-mono mb-2"><span
                                                 class="text-white font-semibold flex items-center gap-2"><i
-                                                    class="fa-solid fa-chart-simple text-acid text-[10px]"></i> SAT
+                                                    class="fa-solid fa-chart-simple text-acid text-[10px]" aria-hidden="true"></i> SAT
                                                 Reasoning Assessment</span>
                                             <div class="flex items-center gap-2"><span
                                                     class="text-gray-400 text-[10px]">1510 / 1600</span> <span
@@ -3008,7 +3061,7 @@
                                         class="glass-panel p-3.5 rounded-2xl bg-black/20 border border-white/5 hover:border-acid/30 transition-all">
                                         <div class="flex justify-between items-center text-xs font-mono mb-2"><span
                                                 class="text-white font-semibold flex items-center gap-2"><i
-                                                    class="fa-solid fa-graduation-cap text-acid text-[10px]"></i> High
+                                                    class="fa-solid fa-graduation-cap text-acid text-[10px]" aria-hidden="true"></i> High
                                                 School Weighted GPA</span>
                                             <div class="flex items-center gap-2"><span
                                                     class="text-gray-400 text-[10px]">4.75 / 5.0</span> <span
@@ -3024,7 +3077,7 @@
                                         class="glass-panel p-3.5 rounded-2xl bg-black/20 border border-white/5 hover:border-neo/30 transition-all">
                                         <div class="flex justify-between items-center text-xs font-mono mb-2"><span
                                                 class="text-white font-semibold flex items-center gap-2"><i
-                                                    class="fa-solid fa-award text-neo text-[10px]"></i> CEMC Waterloo
+                                                    class="fa-solid fa-award text-neo text-[10px]" aria-hidden="true"></i> CEMC Waterloo
                                                 CCC Senior</span>
                                             <div class="flex items-center gap-2"><span
                                                     class="text-gray-400 text-[10px]">Honor Roll Top 3%</span> <span
@@ -3040,7 +3093,7 @@
                                         class="glass-panel p-3.5 rounded-2xl bg-black/20 border border-white/5 hover:border-neo/30 transition-all">
                                         <div class="flex justify-between items-center text-xs font-mono mb-2"><span
                                                 class="text-white font-semibold flex items-center gap-2"><i
-                                                    class="fa-solid fa-language text-neo text-[10px]"></i> TOEFL iBT
+                                                    class="fa-solid fa-language text-neo text-[10px]" aria-hidden="true"></i> TOEFL iBT
                                                 (English Bilingual)</span>
                                             <div class="flex items-center gap-2"><span
                                                     class="text-gray-400 text-[10px]">110 / 120</span> <span
@@ -3064,7 +3117,7 @@
                 <div class="mt-16 mb-8 pt-12 border-t border-white/10">
                     <div class="mb-10">
                         <div class="flex items-center gap-3 text-cyan font-mono text-xs uppercase tracking-widest mb-2">
-                            <i class="fa-solid fa-certificate"></i> <span>Verified Credentials & Specializations</span>
+                            <i class="fa-solid fa-certificate" aria-hidden="true"></i> <span>Verified Credentials & Specializations</span>
                         </div>
                         <h3 class="font-display text-3xl md:text-4xl font-bold text-white">Licenses & Certifications
                         </h3>
@@ -3084,10 +3137,10 @@
                                         type="button"
                                         onclick="openLightbox('assets/old_pics/Trophy/3x3.png', 'Coursera Certificates', 'Verified Coursera certificates')"
                                         class="px-4 py-2 rounded-xl glass-panel text-xs font-mono text-cyan hover:bg-cyan/15 border-cyan/30 hover:border-cyan/50 flex items-center gap-2 transition-all cursor-pointer"><i
-                                            class="fa-solid fa-expand"></i> View Certificates</button> <a
+                                            class="fa-solid fa-expand" aria-hidden="true"></i> View Certificates</button> <a
                                         href="assets/old_pics/Trophy/CourseraCertificateWWF.zip" download
                                         class="px-4 py-2 rounded-xl glass-panel text-xs font-mono text-gray-300 hover:text-white hover:bg-white/10 border-white/10 hover:border-white/20 flex items-center gap-2 transition-all"><i
-                                            class="fa-solid fa-file-zipper text-cyan"></i> Download (.zip)</a></div>
+                                            class="fa-solid fa-file-zipper text-cyan" aria-hidden="true"></i> Download (.zip)</a></div>
                             </div>
                             <div role="button" tabindex="0" aria-haspopup="dialog"
                                 aria-label="View full size certificates: Coursera Verified Certificates"
@@ -3099,7 +3152,7 @@
                                         class="max-h-64 md:max-h-72 w-auto object-contain rounded-xl group-hover/img:scale-[1.02] transition-transform duration-300">
                                     <span
                                         class="absolute bottom-3 right-3 text-[10px] font-mono bg-black/80 backdrop-blur text-cyan px-2.5 py-1 rounded-lg border border-cyan/30 flex items-center gap-1.5 shadow-lg"><i
-                                            class="fa-solid fa-expand text-[9px]"></i> View Full Size</span></div>
+                                            class="fa-solid fa-expand text-[9px]" aria-hidden="true"></i> View Full Size</span></div>
                             </div>
                         </div>
                     </div>
@@ -3110,7 +3163,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-shield-halved text-base"></i></div>
+                                        <i class="fa-solid fa-shield-halved text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-acid block font-semibold">CITI
                                             Program</span> <span class="text-[10px] font-mono text-gray-500">Mar 2026 –
                                             Mar 2030</span></div>
@@ -3135,7 +3188,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-cyan border-cyan/30 bg-cyan/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-brands fa-google text-base"></i></div>
+                                        <i class="fa-brands fa-google text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-cyan block font-semibold">Google</span>
                                         <span class="text-[10px] font-mono text-gray-500">Issued Dec 2025</span></div>
                                 </div>
@@ -3161,7 +3214,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-neo border-neo/30 bg-neo/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-wand-magic-sparkles text-base"></i></div>
+                                        <i class="fa-solid fa-wand-magic-sparkles text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-neo block font-semibold">IBM</span> <span
                                             class="text-[10px] font-mono text-gray-500">Issued Oct 2025</span></div>
                                 </div>
@@ -3185,7 +3238,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-cyan border-cyan/30 bg-cyan/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-laptop-code text-base"></i></div>
+                                        <i class="fa-solid fa-laptop-code text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-cyan block font-semibold">University of
                                             London</span> <span class="text-[10px] font-mono text-gray-500">Issued Jun
                                             2025</span></div>
@@ -3210,7 +3263,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-chart-line text-base"></i></div>
+                                        <i class="fa-solid fa-chart-line text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-acid block font-semibold">University of
                                             Pennsylvania</span> <span class="text-[10px] font-mono text-gray-500">Issued
                                             Jun 2025</span></div>
@@ -3235,7 +3288,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-neo border-neo/30 bg-neo/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-robot text-base"></i></div>
+                                        <i class="fa-solid fa-robot text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-neo block font-semibold">University of
                                             Michigan</span> <span class="text-[10px] font-mono text-gray-500">Issued Jun
                                             2025</span></div>
@@ -3260,7 +3313,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-scale-balanced text-base"></i></div>
+                                        <i class="fa-solid fa-scale-balanced text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-acid block font-semibold">Univ of Colorado
                                             Boulder</span> <span class="text-[10px] font-mono text-gray-500">Issued May
                                             2025</span></div>
@@ -3285,7 +3338,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-cyan border-cyan/30 bg-cyan/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-cloud text-base"></i></div>
+                                        <i class="fa-solid fa-cloud text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-cyan block font-semibold">Google
                                             Cloud</span> <span class="text-[10px] font-mono text-gray-500">Issued May
                                             2025</span></div>
@@ -3310,7 +3363,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-cyan border-cyan/30 bg-cyan/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-brands fa-google text-base"></i></div>
+                                        <i class="fa-brands fa-google text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-cyan block font-semibold">Google</span>
                                         <span class="text-[10px] font-mono text-gray-500">Issued Jul 2023</span></div>
                                 </div>
@@ -3336,7 +3389,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-server text-base"></i></div>
+                                        <i class="fa-solid fa-server text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-acid block font-semibold">IBM</span> <span
                                             class="text-[10px] font-mono text-gray-500">Issued Jul 2023</span></div>
                                 </div>
@@ -3360,7 +3413,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-neo border-neo/30 bg-neo/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-language text-base"></i></div>
+                                        <i class="fa-solid fa-language text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-neo block font-semibold">Peking
                                             University</span> <span class="text-[10px] font-mono text-gray-500">Issued
                                             Jul 2023</span></div>
@@ -3385,7 +3438,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-database text-base"></i></div>
+                                        <i class="fa-solid fa-database text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-acid block font-semibold">IBM</span> <span
                                             class="text-[10px] font-mono text-gray-500">Issued Jul 2023</span></div>
                                 </div>
@@ -3411,7 +3464,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-cyan border-cyan/30 bg-cyan/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-brain text-base"></i></div>
+                                        <i class="fa-solid fa-brain text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-cyan block font-semibold">Stanford
                                             University</span> <span class="text-[10px] font-mono text-gray-500">Issued
                                             Jul 2023</span></div>
@@ -3438,7 +3491,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-neo border-neo/30 bg-neo/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-feather-pointed text-base"></i></div>
+                                        <i class="fa-solid fa-feather-pointed text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-neo block font-semibold">Wesleyan
                                             University</span> <span class="text-[10px] font-mono text-gray-500">Issued
                                             Jul 2023</span></div>
@@ -3465,7 +3518,7 @@
                                 <div class="flex items-center gap-2.5 mb-4">
                                     <div
                                         class="w-9 h-9 rounded-xl glass-panel flex items-center justify-center text-cyan border-cyan/30 bg-cyan/10 group-hover:scale-105 transition-transform">
-                                        <i class="fa-solid fa-list-check text-base"></i></div>
+                                        <i class="fa-solid fa-list-check text-base" aria-hidden="true"></i></div>
                                     <div><span class="text-xs font-mono text-cyan block font-semibold">Google</span>
                                         <span class="text-[10px] font-mono text-gray-500">Issued Jul 2023</span></div>
                                 </div>
@@ -3489,8 +3542,8 @@
                 </div>
                 <div class="mt-12 flex justify-center"><a href="./old/"
                         class="glass-panel px-6 py-3 rounded-full flex items-center gap-2.5 text-xs font-mono text-gray-300 hover:text-cyan border border-white/10 hover:border-cyan/40 hover:-translate-y-0.5 transition-all duration-300 shadow-lg"><i
-                            class="fa-solid fa-clock-rotate-left text-xs text-cyan"></i> <span>Previous Site</span> <i
-                            class="fa-solid fa-arrow-up-right-from-square text-[10px] text-gray-500"></i></a></div>
+                            class="fa-solid fa-clock-rotate-left text-xs text-cyan" aria-hidden="true"></i> <span>Previous Site</span> <i
+                            class="fa-solid fa-arrow-up-right-from-square text-[10px] text-gray-500" aria-hidden="true"></i></a></div>
                 <div class="mt-8 mb-2 flex justify-center"><button type="button" onclick="openWarningModal()"
                         class="group inline-flex items-center justify-center w-full max-w-[280px] sm:max-w-[340px] md:max-w-[380px] py-3.5 sm:py-4 px-8 rounded-full glass-panel text-white border border-red-500/80 hover:border-red-400 hover:bg-red-500/10 shadow-[0_0_12px_rgba(239,68,68,0.2)] hover:shadow-[0_0_20px_rgba(239,68,68,0.4)] backdrop-blur-xl transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer"><span
                             class="text-sm sm:text-base font-mono font-bold tracking-widest text-gray-200 group-hover:text-white transition-colors select-none">DONT
@@ -3500,14 +3553,16 @@
                     <div class="flex items-center gap-2.5">
                         <div
                             class="w-6 h-6 md:w-7 md:h-7 rounded-full rainbow-border bg-white/5 flex items-center justify-center">
-                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]"></i></div><span
+                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]" aria-hidden="true"></i></div><span
                             class="font-display text-lg md:text-xl tracking-wide text-white">JASON<span
                                 class="rainbow-text ml-1">WANG</span></span>
                     </div>
                     <div
                         class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs font-mono text-gray-400">
                         <span>&copy; <span class="auto-date">October 2026</span> Jason Wang</span> <span
-                            class="text-white/20">•</span> <span class="text-gray-500">ARR</span></div>
+                            class="text-white/20">•</span> <span class="text-gray-500">ARR</span> <span
+                            class="text-white/20">•</span> <a href="/llms.txt" class="text-gray-500 hover:text-cyan transition-colors" title="Machine-readable LLM context">llms.txt</a> <span
+                            class="text-white/20">•</span> <a href="/resume.json" class="text-gray-500 hover:text-acid transition-colors" title="Standard JSON Resume">resume.json</a></div>
                     <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2.5 flex-shrink-0"><a
                             href="https://gdpr.eu" class="gdpr__link" target="_blank" rel="noopener noreferrer"
                             aria-label="GDPR Exempted - gdpr.eu (opens in a new tab)">
@@ -3842,14 +3897,16 @@
                     <div class="flex items-center gap-2.5">
                         <div
                             class="w-6 h-6 md:w-7 md:h-7 rounded-full rainbow-border bg-white/5 flex items-center justify-center">
-                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]"></i></div><span
+                            <i class="fa-solid fa-layer-group text-white text-[9px] md:text-[10px]" aria-hidden="true"></i></div><span
                             class="font-display text-lg md:text-xl tracking-wide text-white">JASON<span
                                 class="rainbow-text ml-1">WANG</span></span>
                     </div>
                     <div
                         class="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs font-mono text-gray-400">
                         <span>&copy; <span class="auto-date">October 2026</span> Jason Wang</span> <span
-                            class="text-white/20">•</span> <span class="text-gray-500">ARR</span></div>
+                            class="text-white/20">•</span> <span class="text-gray-500">ARR</span> <span
+                            class="text-white/20">•</span> <a href="/llms.txt" class="text-gray-500 hover:text-cyan transition-colors" title="Machine-readable LLM context">llms.txt</a> <span
+                            class="text-white/20">•</span> <a href="/resume.json" class="text-gray-500 hover:text-acid transition-colors" title="Standard JSON Resume">resume.json</a></div>
                     <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2.5 flex-shrink-0"><a
                             href="https://gdpr.eu" class="gdpr__link" target="_blank" rel="noopener noreferrer"
                             aria-label="GDPR Exempted - gdpr.eu (opens in a new tab)">
@@ -3882,7 +3939,7 @@
                         class="text-white font-medium text-sm md:text-base">Document Preview</span></div><button
                     type="button" onclick="closeLightbox()" aria-label="Close image preview"
                     class="w-8 h-8 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-all cursor-pointer"><i
-                        class="fa-solid fa-xmark text-sm"></i></button>
+                        class="fa-solid fa-xmark text-sm" aria-hidden="true"></i></button>
             </div>
             <div
                 class="relative w-full flex items-center justify-center rounded-2xl bg-black/70 border border-white/10 p-2 overflow-hidden shadow-2xl max-h-[80vh]">
@@ -3928,7 +3985,7 @@
                 <div class="flex items-center justify-end mb-2 sm:mb-3"><button type="button"
                         onclick="closeWarningModal()" aria-label="Close warning alert"
                         class="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-all duration-300 hover:rotate-90 hover:scale-110 active:scale-95 cursor-pointer"><i
-                            class="fa-solid fa-xmark text-sm"></i></button></div>
+                            class="fa-solid fa-xmark text-sm" aria-hidden="true"></i></button></div>
                 <div class="text-left mb-6 sm:mb-8">
                     <h2 id="warning-modal-title"
                         class="font-display text-4xl sm:text-5xl md:text-[56px] font-bold tracking-wide mb-3 leading-tight rainbow-text whitespace-normal sm:whitespace-nowrap">
@@ -3943,7 +4000,7 @@
                         href="#hire-modal" onclick="closeWarningModal(); openHireModal(event);"
                         class="px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl font-mono text-xs sm:text-sm font-bold text-black bg-gradient-to-r from-acid via-cyan to-neo hover:opacity-90 shadow-xl shadow-cyan/25 hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 flex items-center gap-2 cursor-pointer"><span>Fine,
                             Let's Connect / Hire Jason</span> <i
-                            class="fa-solid fa-arrow-up-right-from-square text-[10px] sm:text-xs"></i> </a><button
+                            class="fa-solid fa-arrow-up-right-from-square text-[10px] sm:text-xs" aria-hidden="true"></i> </a><button
                         type="button" onclick="closeWarningModal()"
                         class="px-6 py-3 sm:px-7 sm:py-3.5 rounded-xl glass-panel font-mono text-xs sm:text-sm text-gray-300 hover:text-white hover:bg-white/10 border-white/15 hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 cursor-pointer">Dismiss
                         Warning</button></div>
@@ -3979,20 +4036,20 @@
                         <div class="flex flex-col gap-1.5"><label for="hire-name"
                                 class="font-mono text-xs sm:text-sm text-gray-300 font-semibold flex items-center gap-1"><span>Your
                                     Name</span> <span class="text-cyan">*</span></label> <input type="text"
-                                id="hire-name" name="name" required placeholder="Definitely a human"
+                                id="hire-name" name="name" autocomplete="name" required aria-required="true" placeholder="Definitely a human"
                                 class="hire-input w-full bg-[#141520]/80 border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-cyan/60 focus:ring-1 focus:ring-cyan/40 transition-colors duration-200 font-mono">
                         </div>
                         <div class="flex flex-col gap-1.5"><label for="hire-email"
                                 class="font-mono text-xs sm:text-sm text-gray-300 font-semibold flex items-center gap-1"><span>Your
                                     Email</span> <span class="text-cyan">*</span></label> <input type="email"
-                                id="hire-email" name="email" required placeholder="not_spam@company.com"
+                                id="hire-email" name="email" autocomplete="email" required aria-required="true" placeholder="not_spam@company.com"
                                 class="hire-input w-full bg-[#141520]/80 border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-cyan/60 focus:ring-1 focus:ring-cyan/40 transition-colors duration-200 font-mono">
                         </div>
                     </div>
                     <div class="hire-grid-2 grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                         <div class="flex flex-col gap-1.5"><label for="hire-org"
                                 class="font-mono text-xs sm:text-sm text-gray-300 font-semibold"><span>Company /
-                                    Organization</span></label> <input type="text" id="hire-org" name="organization"
+                                    Organization</span></label> <input type="text" id="hire-org" name="organization" autocomplete="organization"
                                 placeholder="NASA / My garage"
                                 class="hire-input w-full bg-[#141520]/80 border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-cyan/60 focus:ring-1 focus:ring-cyan/40 transition-colors duration-200 font-mono">
                         </div>
@@ -4066,13 +4123,13 @@
                     <div class="flex flex-col gap-1.5"><label for="hire-subject"
                             class="font-mono text-xs sm:text-sm text-gray-300 font-semibold flex items-center gap-1"><span>Subject</span>
                             <span class="text-cyan">*</span></label> <input type="text" id="hire-subject" name="subject"
-                            required placeholder="Shut up and take my offer"
+                            required aria-required="true" placeholder="Shut up and take my offer"
                             class="hire-input w-full bg-[#141520]/80 border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-cyan/60 focus:ring-1 focus:ring-cyan/40 transition-colors duration-200 font-mono">
                     </div>
                     <div class="flex flex-col gap-1.5"><label for="hire-message"
                             class="font-mono text-xs sm:text-sm text-gray-300 font-semibold flex items-center gap-1"><span>Message
                                 Details</span> <span class="text-cyan">*</span></label> <textarea id="hire-message"
-                            name="message" required rows="3"
+                            name="message" required aria-required="true" rows="3"
                             placeholder="We have snacks, cool projects, and actual budget..."
                             class="hire-input w-full bg-[#141520]/80 border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-cyan/60 focus:ring-1 focus:ring-cyan/40 transition-colors duration-200 font-mono resize-none"></textarea>
                     </div>
@@ -4102,11 +4159,189 @@
                         aria-hidden="true"></i></a></div>
         </div>
     </div>
-    <script>document.querySelectorAll('.nav-link, .nav-brand').forEach(function (link) {
+
+    <!-- Floating TarsAI Assistant Launcher -->
+    <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 select-none" style="z-index: 9999;">
+        <button id="dj-trigger-btn" type="button" aria-label="Open TarsAI Assistant (Shortcut: Cmd+J)"
+            onclick="if(window.__hydrateAssets)window.__hydrateAssets(); if(window.openDjBooth)window.openDjBooth(event);"
+            class="group flex items-center gap-2.5 px-4 py-2.5 rounded-full glass-panel border border-white/15 hover:border-cyan/50 text-white shadow-[0_10px_30px_rgba(0,0,0,0.85),0_0_25px_rgba(0,240,255,0.15)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.9),0_0_35px_rgba(0,240,255,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer">
+            <span class="w-6 h-6 rounded-full bg-gradient-to-br from-acid/20 via-cyan/20 to-neo/20 border border-cyan/40 flex items-center justify-center text-cyan text-xs">
+                <i class="fa-solid fa-robot text-[11px]"></i>
+            </span>
+            <span class="font-display font-bold text-xs sm:text-sm tracking-wide rainbow-text">TarsAI</span>
+            <kbd class="hidden md:inline-block ml-1 px-1.5 py-0.5 rounded bg-white/10 border border-white/15 text-[9px] font-mono text-gray-400">Cmd+J</kbd>
+        </button>
+    </div>
+
+    <!-- TarsAI MODAL -->
+    <div id="dj-modal" role="dialog" aria-modal="true" aria-labelledby="dj-modal-title" aria-hidden="true"
+        class="fixed inset-0 z-[130] bg-black/85 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5 md:p-6 transition-all duration-300 opacity-0"
+        onclick="if(window.closeDjModal)window.closeDjModal(event)">
+        <div id="dj-modal-card"
+            class="relative w-full max-w-xl md:max-w-2xl bg-[#0c0d14]/95 border border-white/15 rounded-2xl sm:rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.85),0_0_50px_rgba(0,240,255,0.08)] transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] scale-90 translate-y-6 opacity-0 overflow-hidden flex flex-col max-h-[92vh] sm:max-h-[88vh]"
+            onclick="event.stopPropagation()">
+            <!-- Top Neon Accent Line -->
+            <div class="h-[2px] w-full bg-gradient-to-r from-acid via-cyan to-neo shrink-0"></div>
+
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-5 pt-5 pb-3 sm:px-8 sm:pt-6 sm:pb-4 border-b border-white/10 shrink-0">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-acid/20 via-cyan/20 to-neo/20 border border-cyan/40 flex items-center justify-center text-cyan shadow-[0_0_15px_rgba(0,240,255,0.25)] shrink-0">
+                        <i class="fa-solid fa-robot text-base sm:text-lg"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <h2 id="dj-modal-title" class="font-display text-2xl sm:text-3xl font-bold tracking-wide leading-tight rainbow-text">TarsAI</h2>
+                        <p class="font-mono text-[10px] sm:text-[11px] text-gray-400">The Asshole Roast System (TARS) AI assistant made by Jason Wang himself</p>
+                    </div>
+                </div>
+
+                <!-- Header Actions -->
+                <button id="dj-close-btn" type="button" aria-label="Close TarsAI"
+                    onclick="if(window.closeDjModal)window.closeDjModal(event);"
+                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-all duration-200 hover:rotate-90 hover:scale-105 active:scale-95 cursor-pointer shrink-0">
+                    <i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i>
+                </button>
+            </div>
+
+            <!-- Chat Feed Container -->
+            <div id="dj-chat-log" class="flex-1 overflow-y-auto px-5 py-4 sm:px-8 sm:py-5 flex flex-col gap-3.5 min-h-[220px] max-h-[360px] bg-transparent">
+                <!-- Messages appended dynamically -->
+            </div>
+
+            <!-- Thinking Indicator -->
+            <div id="dj-thinking-indicator" class="hidden px-5 py-2 sm:px-8 bg-[#141520]/60 border-t border-white/5 text-xs font-mono text-cyan flex items-center gap-2 shrink-0">
+                <i class="fa-solid fa-circle-notch animate-spin text-xs text-cyan"></i>
+                <span>Thinking...</span>
+            </div>
+
+            <!-- Quick Action Chips (Positioned right above Input Bar) -->
+            <div class="px-3.5 py-2 sm:px-8 sm:py-2.5 border-t border-white/5 bg-[#141520]/60 flex flex-wrap items-center gap-1.5 sm:gap-2 shrink-0 select-none min-w-0">
+                <button type="button" data-prompt="Roast me ruthlessly." onclick="if(window.handleDjChip)window.handleDjChip(this);"
+                    class="dj-quick-chip whitespace-nowrap px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono glass-panel text-gray-300 hover:text-acid hover:border-acid/40 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer shrink-0">
+                    Roast me
+                </button>
+                <button type="button" data-prompt="Why should someone hire Jason Wang?" onclick="if(window.handleDjChip)window.handleDjChip(this);"
+                    class="dj-quick-chip whitespace-nowrap px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono glass-panel text-gray-300 hover:text-cyan hover:border-cyan/40 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer shrink-0">
+                    Why Hire Jason?
+                </button>
+                <button type="button" onclick="if(window.handleLuckyHire)window.handleLuckyHire(event);"
+                    class="whitespace-nowrap px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono glass-panel text-cyan hover:text-white hover:border-cyan/60 hover:bg-cyan/15 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer flex items-center gap-1.5 shadow-[0_0_12px_rgba(0,240,255,0.15)] shrink-0">
+                    <i class="fa-solid fa-clover text-acid text-xs"></i>
+                    <span>I am feeling lucky</span>
+                </button>
+            </div>
+
+            <!-- Input Bar -->
+            <div class="p-3 sm:p-5 bg-[#0c0d14] border-t border-white/10 shrink-0 min-w-0">
+                <form id="dj-input-form" onsubmit="return (window.handleDjFormSubmit ? window.handleDjFormSubmit(event) : false);" class="flex items-center gap-2 sm:gap-3 min-w-0">
+                    <div class="relative flex-1 min-w-0">
+                        <input id="dj-user-input" type="text" autocomplete="off" maxlength="500"
+                            placeholder="Ask TarsAI anything..."
+                            class="hire-input w-full bg-[#141520]/80 border border-white/10 rounded-xl px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-cyan/60 focus:ring-1 focus:ring-cyan/40 transition-colors duration-200 font-mono min-w-0">
+                    </div>
+                    <button type="submit" aria-label="Send message to TarsAI" id="dj-submit-btn"
+                        onclick="if(window.handleDjFormSubmit) window.handleDjFormSubmit(event);"
+                        class="py-2 px-3.5 sm:py-3 sm:px-6 rounded-xl font-mono text-xs sm:text-base font-bold text-black bg-gradient-to-r from-acid via-cyan to-neo hover:opacity-95 shadow-lg shadow-cyan/25 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer shrink-0 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <span>Send</span> <i class="fa-solid fa-paper-plane text-xs sm:text-sm"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.handleLuckyHire = function (e) {
+            if (e && e.preventDefault) e.preventDefault();
+            if (window.closeDjModal) window.closeDjModal();
+            setTimeout(function () {
+                if (window.openHireModal) window.openHireModal();
+            }, 250);
+        };
+
+        window.handleDjChip = function (btn) {
+            var prompt = (typeof btn === 'string') ? btn : (btn && btn.getAttribute ? btn.getAttribute('data-prompt') : '');
+            if (!prompt) return;
+            if (window.__sendDjMessage) {
+                window.__sendDjMessage(prompt);
+            } else {
+                window.__pendingDjMessages = window.__pendingDjMessages || [];
+                window.__pendingDjMessages.push(prompt);
+            }
+        };
+
+        window.handleDjFormSubmit = function (e) {
+            if (e && e.preventDefault) e.preventDefault();
+            var input = document.getElementById('dj-user-input');
+            if (!input) return false;
+            var query = input.value.trim();
+            if (!query) return false;
+            input.value = '';
+            if (window.__sendDjMessage) {
+                window.__sendDjMessage(query);
+            } else {
+                window.__pendingDjMessages = window.__pendingDjMessages || [];
+                window.__pendingDjMessages.push(query);
+            }
+            return false;
+        };
+
+        window.openDjBooth = function (e) {
+            if (e && typeof e.preventDefault === 'function') e.preventDefault();
+            if (window.__hydrateAssets) window.__hydrateAssets();
+            var trigger = document.getElementById('dj-trigger-btn');
+            if (trigger) trigger.classList.add('hidden');
+            var modal = document.getElementById('dj-modal');
+            var card = document.getElementById('dj-modal-card');
+            if (!modal) return;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            modal.removeAttribute('aria-hidden');
+            requestAnimationFrame(function () {
+                modal.classList.remove('opacity-0');
+                modal.classList.add('opacity-100');
+                if (card) {
+                    card.classList.remove('scale-90', 'translate-y-6', 'opacity-0');
+                    card.classList.add('scale-100', 'translate-y-0', 'opacity-100');
+                }
+                var input = document.getElementById('dj-user-input');
+                if (input) input.focus();
+            });
+            if (window.__realOpenDjBooth) {
+                window.__realOpenDjBooth();
+            } else {
+                window.__openDjPending = true;
+            }
+        };
+
+        window.closeDjModal = function (e) {
+            if (e && typeof e.preventDefault === 'function') e.preventDefault();
+            var trigger = document.getElementById('dj-trigger-btn');
+            if (trigger) trigger.classList.remove('hidden');
+            var modal = document.getElementById('dj-modal');
+            var card = document.getElementById('dj-modal-card');
+            if (!modal) return;
+            modal.setAttribute('aria-hidden', 'true');
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0');
+            if (card) {
+                card.classList.remove('scale-100', 'translate-y-0', 'opacity-100');
+                card.classList.add('scale-90', 'translate-y-6', 'opacity-0');
+            }
+            setTimeout(function () {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, 300);
+            if (window.__realCloseDjModal) {
+                window.__realCloseDjModal();
+            }
+        };
+
+        document.querySelectorAll('.nav-link, .nav-brand').forEach(function (link) {
             link.addEventListener('click', function (e) {
                 if (window.__hydrateAssets) window.__hydrateAssets(e);
             }, { passive: true });
-        });</script>
+        });
+    </script>
+    <script src="assets/dj-ai.js" defer></script>
 </body>
 
 </html>
