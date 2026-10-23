@@ -14,6 +14,7 @@
         lastInteractionTime: Date.now(),
         messages: []
     };
+    let activeEdgeEndpoint = null;
 
     const ROAST_SYSTEM_PROMPT = `You are TarsAI (The Asshole Roast System), the website AI assistant made by Jason Wang himself.
 You speak EXCLUSIVELY in Grade 12 English. Never speak Chinese under any circumstances.
@@ -436,32 +437,65 @@ ROASTING & RECRUITING:
                 }
             }
 
-            // 2. Route to Cloudflare Edge Worker (/api/dj-chat)
-            try {
-                const isLocalPreview = (window.location.protocol === 'http:' && (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost')) || window.location.protocol === 'file:';
-                const apiEndpoint = isLocalPreview
-                    ? 'https://me.wangweifeng0316.workers.dev/api/dj-chat'
-                    : '/api/dj-chat';
+            // 2. Route to Cloudflare Edge Worker with automatic fallback
+            const isLocalPreview = (window.location.protocol === 'http:' && (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost')) || window.location.protocol === 'file:';
+            const fallbackWorkerUrl = 'https://me.wangweifeng0316.workers.dev/api/dj-chat';
 
-                const response = await fetchWithTimeout(apiEndpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: text, history: AI_STATE.messages.slice(-6) })
-                }, 30000);
-
-                if (response && response.ok) {
-                    const data = await response.json().catch(() => null);
-                    if (data && data.reply) {
-                        processReply(data.reply);
-                        return;
-                    }
-                }
-                throw new Error(`Edge returned HTTP ${response ? response.status : 'timeout'}`);
-            } catch (edgeErr) {
-                console.error('[AI Assistant] Edge endpoint error:', edgeErr);
-                addMessage('dj', `:::stat [Cloudflare Edge Notice]\nEdge AI endpoint unreachable: ${escapeHtml(edgeErr.message)}\n:::\n>_ Set your custom Gemini key in browser console via localStorage.setItem('DJ_AI_KEY', 'your_key') to query Gemini directly.`);
-                return;
+            const candidateEndpoints = [];
+            if (activeEdgeEndpoint) {
+                candidateEndpoints.push(activeEdgeEndpoint);
+                if (activeEdgeEndpoint !== fallbackWorkerUrl) candidateEndpoints.push(fallbackWorkerUrl);
+                else candidateEndpoints.push('/api/dj-chat');
+            } else if (isLocalPreview) {
+                candidateEndpoints.push(fallbackWorkerUrl);
+            } else {
+                candidateEndpoints.push('/api/dj-chat');
+                candidateEndpoints.push(fallbackWorkerUrl);
             }
+
+            let lastEdgeError = null;
+
+            for (const endpoint of candidateEndpoints) {
+                try {
+                    const response = await fetchWithTimeout(endpoint, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: text, history: AI_STATE.messages.slice(-6) })
+                    }, 30000);
+
+                    if (response && response.ok) {
+                        const data = await response.json().catch(() => null);
+                        if (data && data.reply) {
+                            activeEdgeEndpoint = endpoint;
+                            processReply(data.reply);
+                            return;
+                        }
+                    } else if (response) {
+                        // 405 (Method Not Allowed - static host like GitHub Pages) or 404
+                        if (response.status === 405 || response.status === 404) {
+                            console.warn(`[AI Assistant] Edge endpoint ${endpoint} returned HTTP ${response.status}, attempting fallback...`);
+                            lastEdgeError = new Error(`Edge returned HTTP ${response.status}`);
+                            continue;
+                        }
+                        // If it's a 429 rate limit or 403 access denied, edge returns a formatted roast card
+                        const errData = await response.json().catch(() => null);
+                        if (errData && errData.reply) {
+                            processReply(errData.reply);
+                            return;
+                        }
+                        lastEdgeError = new Error(`Edge returned HTTP ${response.status}`);
+                    } else {
+                        lastEdgeError = new Error('Edge request timed out');
+                    }
+                } catch (err) {
+                    console.warn(`[AI Assistant] Edge endpoint ${endpoint} connection failed:`, err);
+                    lastEdgeError = err;
+                }
+            }
+
+            console.error('[AI Assistant] All Edge endpoints failed:', lastEdgeError);
+            addMessage('dj', `:::stat [Cloudflare Edge Notice]\nEdge AI endpoint unreachable: ${escapeHtml(lastEdgeError ? lastEdgeError.message : 'Unknown error')}\n:::\n>_ Set your custom Gemini key in browser console via localStorage.setItem('DJ_AI_KEY', 'your_key') to query Gemini directly.`);
+            return;
         } catch (outerErr) {
             console.error('[AI Assistant] Execution pipeline error:', outerErr);
             addMessage('dj', `:::stat [Execution Error]\n${escapeHtml(outerErr.message || 'Unknown pipeline failure')}\n:::`);
