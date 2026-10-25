@@ -80,6 +80,61 @@ CORE PERSONA & LANGUAGE:
    - Compact Bullet Cards:
      - **Title**: Specific detail, witty commentary, or roast.
 
+   - Specialized Structured Formats (Deploy when contextually appropriate):
+     * Timeline / Career Milestones:
+       :::timeline [Milestones]
+       2021-2025 | Cambridge A-Levels | STEM Group Leader
+       Jul 2025 | Certiferox | Lead AI Engineer
+       :::
+     * 2x2 Quad Diagnostics:
+       :::matrix [Cognitive Quad]
+       Q1: Algorithmic Rigor | Top 4% competitive coding reflexes
+       Q2: Human Cognition | Cognitive workload modeling
+       :::
+     * Telemetry Progress Gauges:
+       :::meter [System Readout]
+       Algorithmic Speed: 98%
+       Carbon Discipline: 99%
+       :::
+     * Pipeline Workflow:
+       :::flow [RAG Architecture]
+       1: Ingestion -> Parse raw unstructured PDFs & docs
+       2: Vector Index -> High-dimensional embeddings via Milvus
+       :::
+     * Hardware / Profiling Spec HUD:
+       :::spec [Subject Telemetry: JW-29]
+       Architecture: Dual-Core CS + CogPsych
+       Latency: Sub-15ms Edge Response
+       :::
+     * Procedural Audio Synth Track:
+       :::audio [Mesosphere (Strudel Synth)]
+       BPM: 138 | Key: F# Minor | Scale: Aeolian
+       Synth: Algorithmic Acid TB-303
+       :::
+     * Incident / Triage Alert:
+       :::diag [CRITICAL: ATS Ingestion Failure]
+       Severity: CRITICAL
+       Fault: Recruiter ATS attempted to classify CS2 mentorship as generic IT support
+       Action: Check /resume.json directly
+       :::
+     * Comms Intercept Log:
+       :::log [COMMS INTERCEPT // FREQ: 142.8 MHz]
+       Speaker: TARS Ground Control
+       Time: 03:42:19 EST
+       Message: "Human visitor detected attempting quadratic loops. Deploying sarcasm."
+       :::
+     * Competitive Honors & Trophies:
+       :::trophy [Verified Honors]
+       ACSL All-Star | American Computer Science League | Perfect Senior Division
+       AMC/AIME Honor Roll | MAA Mathematics | Top Distinction
+       :::
+     * Code Patch / Diff Terminal:
+       :::diff [Sub-15ms Latency Patch]
+       Lang: java
+       - while (true) heap.allocate(rawStream);
+       + try (var session = pool.acquire()) { session.process(); }
+       :::
+
    Always wrap your answer with a punchy intro and a deadpan conclusion.
 
 KNOWLEDGE BASE ON JASON WANG (WEIFENG WANG / 王尉锋):
@@ -183,6 +238,36 @@ ROASTING & RECRUITING:
         general: [
             "TarsAI online. Telemetry operational.\n\n:::vs [Query Evaluation]\nOptimal: 'Why Hire Jason?' or 'Roast me'.\nCurrent: Ambiguous input detected.\n:::\n\n:::verdict\nState your inquiry clearly, or click one of the quick chips above.:::",
             "Signal received, though deciphering your intent requires more compute than this server is allocated.\n\n:::stat [<0.015g CO2]\nEvery byte counts on this carbon-optimized site. Please make your next query intellectually worthwhile.\n:::\n\n:::verdict\nNeed inspiration? Ask why Jason should be hired, or hit 'Roast me'.:::"
+        ],
+        music: [
+            "Accessing audio synthesis and procedural audio telemetry:\n\n:::audio [Mesosphere (Strudel REPL Synth)]\nBPM: 138 | Key: F# Minor | Scale: Aeolian\nWaveform: Algorithmic Acid TB-303 + Sawtooth\nStrudel: stack(\"bd [~ cp]\", \"saw [f3 f4]*4\", \"decay 0.2\")\n:::\n\n:::verdict\nProcedural acid trance synthesized to survive F-1 visa anxiety. Zero samples, 100% mathematical oscillations.:::"
+        ],
+        timeline: [
+            "Here is the trajectory telemetry of Jason Wang:\n\n:::timeline [Academic & Venture Milestones]\n2021 - 2025 | Cambridge A-Levels & AP | STEM Study Group Leader & Competition Honors\nJul 2025 - Present | Certiferox | Co-founder & Lead AI Engineer (Verisona Enterprise RAG)\nAug 2026 - Present | Franklin & Marshall ('29) | CS & Cognitive Psychology Double Major\n:::\n\n:::verdict\nWhile typical peers were practicing TikTok dances, he was shipping vector pipelines and mentoring freshmen through pointers.:::"
+        ],
+        matrix: [
+            "Running multi-dimensional cognitive diagnostic:\n\n:::matrix [Cognitive & Engineering Quad]\nQ1: Algorithmic Agency | Top 4% competitive coding reflexes & sub-15ms optimization\nQ2: Human Cognition | Cognitive workload modeling & psychometric validation\nQ3: Carbon Discipline | <0.015g CO2 footprint per request\nQ4: Roast Output | 100% deadpan delivery calibrated for recruiters\n:::\n\n:::verdict\nBalanced across both analytical depth and computational physics.:::"
+        ],
+        meter: [
+            "Live system telemetry meters:\n\n:::meter [Telemetry Diagnostic Readout]\nAlgorithmic Rigor: 96%\nCarbon Efficiency: 99%\nMemory Safety Discipline: 94%\nRecruiter Tolerance: 4%\n:::\n\n:::verdict\nSystem running at peak performance. Tolerance for generic InMail messages remains near absolute zero.:::"
+        ],
+        flow: [
+            "Enterprise RAG architecture execution flow:\n\n:::flow [Verisona RAG Pipeline]\n1: Document Ingest -> High-throughput enterprise PDF & rubric ingestion\n2: Dense Vectorization -> High-dimensional embeddings in Milvus space\n3: Psychometric Rerank -> Multi-factor semantic scoring\n4: Sub-15ms Edge -> Stream directly via Cloudflare Workers edge nodes\n:::\n\n:::verdict\nBuilt for high throughput, sub-15ms edge inference, and zero hallucination drift.:::"
+        ],
+        spec: [
+            "Technical specification readout:\n\n:::spec [Subject Telemetry: JW-29]\nArchitecture: Dual-Core CS + Cognitive Psychology\nLead Node: Certiferox Verisona AI RAG\nTarget Latency: Sub-15ms Edge Response\nCarbon Benchmark: <0.015g CO2 / Page View (SWDM v4)\nKernel Status: 100% Operational\n:::\n\n:::verdict\nHardware and neural stack fully calibrated for high-impact production engineering.:::"
+        ],
+        diag: [
+            "Diagnostic scan results:\n\n:::diag [WARNING: ATS Keyword Misalignment]\nSeverity: WARN\nFault: Corporate ATS scanner attempting to match competitive coding credentials with standard helpdesk tickets\nImpact: 88.2% likelihood of recruiter missing top 4% informatics honors\nAction: Consult machine-readable /resume.json directly to prevent talent loss\n:::\n\n:::verdict\nAutomation is great until a recruiter's regex throws an unhandled exception.:::"
+        ],
+        log: [
+            "Telemetry channel intercepted:\n\n:::log [SEC-COMM // FREQ: 142.8 MHz]\nSpeaker: TARS Ground Control\nTimestamp: 03:42:19 EST\nTransmission: Human visitor detected inspecting portfolio architecture. Telemetry indicates zero syntax errors and optimal carbon discipline.\n:::\n\n:::verdict\nTransmission authentic. Decryption verified.:::"
+        ],
+        trophy: [
+            "Verified competitive honors and distinctions:\n\n:::trophy [Competitive Informatics & Math Distinctions]\nACSL All-Star Entry | American Computer Science League | Perfect Senior Division\nAMC / AIME Honor Roll | MAA Invitational Mathematics | Top Global Distinction\nHackathon 1st Prize | GaiaNet AI & Web3 Track | Champion\n:::\n\n:::verdict\nVerified honors in global competitive computing, discrete mathematics, and decentralized AI.:::"
+        ],
+        diff: [
+            "Memory safety patch preview:\n\n:::diff [Sub-15ms Edge Buffer Patch]\nLang: JAVA\n- while (true) unindexedStream.allocate(1024);\n+ try (var session = vectorPool.acquire()) { stream.vectorSearch(session); }\n:::\n\n:::verdict\nDeterministic memory bounds replace sloppy garbage collection leaks.:::"
         ]
     };
 
@@ -646,6 +731,26 @@ ROASTING & RECRUITING:
             reply = OFFLINE_ROAST_BANK.critique[Math.floor(Math.random() * OFFLINE_ROAST_BANK.critique.length)];
         } else if (q.includes('roast me') || q.includes('roast')) {
             reply = OFFLINE_ROAST_BANK.roastMe[Math.floor(Math.random() * OFFLINE_ROAST_BANK.roastMe.length)];
+        } else if (q.includes('music') || q.includes('audio') || q.includes('synth') || q.includes('mesosphere') || q.includes('strudel')) {
+            reply = OFFLINE_ROAST_BANK.music[Math.floor(Math.random() * OFFLINE_ROAST_BANK.music.length)];
+        } else if (q.includes('timeline') || q.includes('milestone') || q.includes('history') || q.includes('career') || q.includes('trajectory')) {
+            reply = OFFLINE_ROAST_BANK.timeline[Math.floor(Math.random() * OFFLINE_ROAST_BANK.timeline.length)];
+        } else if (q.includes('matrix') || q.includes('quad')) {
+            reply = OFFLINE_ROAST_BANK.matrix[Math.floor(Math.random() * OFFLINE_ROAST_BANK.matrix.length)];
+        } else if (q.includes('meter') || q.includes('gauge') || q.includes('progress') || q.includes('telemetry')) {
+            reply = OFFLINE_ROAST_BANK.meter[Math.floor(Math.random() * OFFLINE_ROAST_BANK.meter.length)];
+        } else if (q.includes('flow') || q.includes('pipeline') || q.includes('steps') || q.includes('workflow')) {
+            reply = OFFLINE_ROAST_BANK.flow[Math.floor(Math.random() * OFFLINE_ROAST_BANK.flow.length)];
+        } else if (q.includes('spec') || q.includes('hardware') || q.includes('specs') || q.includes('chip') || q.includes('latency')) {
+            reply = OFFLINE_ROAST_BANK.spec[Math.floor(Math.random() * OFFLINE_ROAST_BANK.spec.length)];
+        } else if (q.includes('diag') || q.includes('alert') || q.includes('incident') || q.includes('fault')) {
+            reply = OFFLINE_ROAST_BANK.diag[Math.floor(Math.random() * OFFLINE_ROAST_BANK.diag.length)];
+        } else if (q.includes('log') || q.includes('intercept') || q.includes('radio') || q.includes('comms')) {
+            reply = OFFLINE_ROAST_BANK.log[Math.floor(Math.random() * OFFLINE_ROAST_BANK.log.length)];
+        } else if (q.includes('trophy') || q.includes('award') || q.includes('honor') || q.includes('olympiad') || q.includes('contest') || q.includes('acsl') || q.includes('amc')) {
+            reply = OFFLINE_ROAST_BANK.trophy[Math.floor(Math.random() * OFFLINE_ROAST_BANK.trophy.length)];
+        } else if (q.includes('diff') || q.includes('patch') || q.includes('git') || q.includes('bugfix')) {
+            reply = OFFLINE_ROAST_BANK.diff[Math.floor(Math.random() * OFFLINE_ROAST_BANK.diff.length)];
         } else if (q.includes('why hire') || q.includes('hire him') || (q.includes('hire') && q.includes('jason'))) {
             reply = OFFLINE_ROAST_BANK.whyHire[Math.floor(Math.random() * OFFLINE_ROAST_BANK.whyHire.length)];
         } else if (q.includes('jason') || q.includes('weifeng') || q.includes('who') || q.includes('about') || q.includes('background') || q.includes('education') || q.includes('skills')) {
@@ -709,7 +814,7 @@ ROASTING & RECRUITING:
         let escaped = escapeHtml(text);
 
         // Pre-strip accidental code-fence wrappers around card blocks
-        escaped = escaped.replace(/```(?:markdown)?\s*\r?\n(:::(?:stat|roast|vs|skills|tags|card|take|verdict)[\s\S]*?:{2,4})\s*\r?\n```/gi, '$1');
+        escaped = escaped.replace(/```(?:markdown)?\s*\r?\n(:::(?:stat|roast|vs|skills|tags|card|take|verdict|timeline|matrix|meter|progress|flow|steps|spec|audio|track|diag|alert|log|trophy|awards|diff|patch)[\s\S]*?:{2,4})\s*\r?\n```/gi, '$1');
 
         // Pre-normalize accidental combination: :::verdict / :::take followed immediately by >_ prompt
         escaped = escaped.replace(/(?:^|\n)[ \t]*:::(?:take|verdict)(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n[ \t]*(?:&gt;|>)[_ -][ \t]*/gi, (match, title) => {
@@ -836,6 +941,382 @@ ROASTING & RECRUITING:
             return `<div class="glass-panel p-2.5 sm:p-3 my-1.5 rounded-xl border border-white/10 hover:border-cyan/40 bg-[#0d0f18]/90 transition-all shadow-md min-w-0 overflow-hidden">` +
                 cleanTitle +
                 `<div class="text-xs sm:text-sm text-gray-200 font-mono leading-relaxed min-w-0 break-words">${text}</div>` +
+                `</div>\n`;
+        });
+
+        // 2g-1. Chronological Timeline card: :::timeline [title]
+        escaped = escaped.replace(/(?:^|\n)[ \t]*:::timeline(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n([\s\S]*?)(?:(?:\r?\n[ \t]*:{2,4}(?:[ \t]*(?:\r?\n|$)))|(?=\r?\n[ \t]*:::|$))/gi, (match, title, body) => {
+            const cleanTitle = title ? `<div class="flex items-center gap-2 mb-2 pb-1.5 border-b border-white/10 text-cyan text-xs font-mono font-bold"><i class="fa-solid fa-timeline text-acid text-xs"></i><span>${title.trim()}</span></div>` : '';
+            const lines = body.trim().replace(/:{2,4}$/, '').trim().split('\n').map(l => l.trim()).filter(Boolean);
+            const itemsHtml = lines.map((line) => {
+                const parts = line.split('|').map(p => p.trim());
+                const time = parts[0] || '';
+                const name = parts[1] || '';
+                const desc = parts.slice(2).join('|') || (parts.length === 2 ? '' : parts[1]);
+                const primaryText = desc ? `<strong class="text-white">${name}</strong>: ${desc}` : `<span class="text-white">${name || time}</span>`;
+                return `<div class="relative pl-5 pb-2.5 last:pb-0">` +
+                    `<div class="absolute left-0 top-1.5 w-2 h-2 rounded-full bg-cyan ring-2 ring-cyan/30"></div>` +
+                    `<div class="text-[10px] font-mono font-bold text-acid uppercase tracking-wider mb-0.5">${time}</div>` +
+                    `<div class="text-xs font-mono text-gray-300 leading-snug break-words">${primaryText}</div>` +
+                    `</div>`;
+            }).join('');
+
+            return `<div class="glass-panel p-2.5 sm:p-3 my-1.5 rounded-xl border border-white/10 hover:border-cyan/30 bg-[#0d0f18]/90 transition-all shadow-md min-w-0 overflow-hidden">` +
+                cleanTitle +
+                `<div class="relative before:absolute before:left-[3px] before:top-2 before:bottom-2 before:w-[1px] before:bg-gradient-to-b before:from-cyan before:via-acid/50 before:to-transparent min-w-0">` +
+                itemsHtml +
+                `</div>` +
+                `</div>\n`;
+        });
+
+        // 2g-2. 2x2 Matrix / Quad Diagnostics card: :::matrix [title]
+        escaped = escaped.replace(/(?:^|\n)[ \t]*:::matrix(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n([\s\S]*?)(?:(?:\r?\n[ \t]*:{2,4}(?:[ \t]*(?:\r?\n|$)))|(?=\r?\n[ \t]*:::|$))/gi, (match, title, body) => {
+            const cleanTitle = title ? `<div class="flex items-center gap-2 mb-2 pb-1 border-b border-white/10 text-cyan text-xs font-mono font-bold"><i class="fa-solid fa-chess-board text-neo text-xs"></i><span>${title.trim()}</span></div>` : '';
+            const lines = body.trim().replace(/:{2,4}$/, '').trim().split('\n').map(l => l.trim()).filter(Boolean);
+            const quads = [
+                { label: 'Q1', color: 'border-cyan/40 bg-cyan/5 text-cyan' },
+                { label: 'Q2', color: 'border-acid/40 bg-acid/5 text-acid' },
+                { label: 'Q3', color: 'border-neo/40 bg-neo/5 text-neo' },
+                { label: 'Q4', color: 'border-emerald-500/40 bg-emerald-950/20 text-emerald-300' }
+            ];
+            const quadCells = lines.slice(0, 4).map((line, idx) => {
+                const theme = quads[idx] || quads[0];
+                let tag = theme.label;
+                let content = line;
+                if (line.includes('|')) {
+                    const parts = line.split('|');
+                    tag = parts[0].trim();
+                    content = parts.slice(1).join('|').trim();
+                } else if (line.includes(':')) {
+                    const parts = line.split(':');
+                    tag = parts[0].trim();
+                    content = parts.slice(1).join(':').trim();
+                }
+                return `<div class="p-2 rounded-lg border ${theme.color} flex flex-col justify-between min-w-0 break-words shadow-sm">` +
+                    `<div class="text-[10px] font-mono font-extrabold tracking-wider uppercase mb-1 opacity-90">${tag}</div>` +
+                    `<div class="text-xs font-mono text-gray-200 leading-snug">${content}</div>` +
+                    `</div>`;
+            }).join('');
+
+            return `<div class="glass-panel p-2.5 sm:p-3 my-1.5 rounded-xl border border-white/10 hover:border-cyan/30 bg-[#0d0f18]/90 transition-all shadow-md min-w-0 overflow-hidden">` +
+                cleanTitle +
+                `<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 min-w-0">${quadCells}</div>` +
+                `</div>\n`;
+        });
+
+        // 2g-3. Multi-Metric Telemetry Gauges card: :::meter or :::progress
+        escaped = escaped.replace(/(?:^|\n)[ \t]*:::(?:meter|progress)(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n([\s\S]*?)(?:(?:\r?\n[ \t]*:{2,4}(?:[ \t]*(?:\r?\n|$)))|(?=\r?\n[ \t]*:::|$))/gi, (match, title, body) => {
+            const cleanTitle = title ? `<div class="flex items-center justify-between mb-2 pb-1 border-b border-white/10 text-cyan text-xs font-mono font-bold"><span><i class="fa-solid fa-gauge-high text-acid text-xs mr-1.5"></i>${title.trim()}</span><span class="text-[10px] text-gray-400 font-normal">TELEMETRY</span></div>` : '';
+            const lines = body.trim().replace(/:{2,4}$/, '').trim().split('\n').map(l => l.trim()).filter(Boolean);
+            const rows = lines.map(line => {
+                let name = line;
+                let pct = 75;
+                const colonIdx = line.lastIndexOf(':');
+                if (colonIdx !== -1) {
+                    name = line.substring(0, colonIdx).trim();
+                    const valStr = line.substring(colonIdx + 1).replace('%', '').trim();
+                    const parsed = parseFloat(valStr);
+                    if (!isNaN(parsed)) pct = Math.max(0, Math.min(100, parsed));
+                } else if (line.includes('|')) {
+                    const parts = line.split('|');
+                    name = parts[0].trim();
+                    const valStr = (parts[1] || '').replace('%', '').trim();
+                    const parsed = parseFloat(valStr);
+                    if (!isNaN(parsed)) pct = Math.max(0, Math.min(100, parsed));
+                }
+                const barColor = pct < 20 ? 'bg-gradient-to-r from-red-500 to-amber-500' : 'bg-gradient-to-r from-cyan via-acid to-neo';
+                return `<div class="space-y-1">` +
+                    `<div class="flex items-center justify-between text-xs font-mono">` +
+                    `<span class="text-gray-300 truncate">${name}</span>` +
+                    `<span class="text-cyan font-bold shrink-0 ml-2">${pct}%</span>` +
+                    `</div>` +
+                    `<div class="h-1.5 w-full rounded-full bg-white/10 overflow-hidden">` +
+                    `<div class="h-full rounded-full ${barColor} transition-all duration-500" style="width: ${pct}%"></div>` +
+                    `</div>` +
+                    `</div>`;
+            }).join('');
+
+            return `<div class="glass-panel p-2.5 sm:p-3 my-1.5 rounded-xl border border-white/10 hover:border-cyan/30 bg-[#0d0f18]/90 transition-all shadow-md space-y-2.5 min-w-0 overflow-hidden">` +
+                cleanTitle +
+                rows +
+                `</div>\n`;
+        });
+
+        // 2g-4. Sequential Pipeline Workflow card: :::flow or :::steps
+        escaped = escaped.replace(/(?:^|\n)[ \t]*:::(?:flow|steps)(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n([\s\S]*?)(?:(?:\r?\n[ \t]*:{2,4}(?:[ \t]*(?:\r?\n|$)))|(?=\r?\n[ \t]*:::|$))/gi, (match, title, body) => {
+            const cleanTitle = title ? `<div class="flex items-center gap-2 mb-2 pb-1 border-b border-white/10 text-cyan text-xs font-mono font-bold"><i class="fa-solid fa-network-wired text-acid text-xs"></i><span>${title.trim()}</span></div>` : '';
+            const rawLines = body.trim().replace(/:{2,4}$/, '').trim().split('\n').map(l => l.trim()).filter(Boolean);
+            const stepsHtml = rawLines.map((line, idx) => {
+                let stepNum = idx + 1;
+                let stepText = line;
+                if (/^\d+[:.]\s*/.test(line)) {
+                    const m = line.match(/^(\d+)[:.]\s*(.*)$/);
+                    stepNum = m[1];
+                    stepText = m[2];
+                }
+                let stepTitle = stepText;
+                let stepDesc = '';
+                if (stepText.includes('->')) {
+                    const p = stepText.split('->');
+                    stepTitle = p[0].trim();
+                    stepDesc = p.slice(1).join('->').trim();
+                } else if (stepText.includes('|')) {
+                    const p = stepText.split('|');
+                    stepTitle = p[0].trim();
+                    stepDesc = p.slice(1).join('|').trim();
+                }
+                const descHtml = stepDesc ? `<div class="text-[11px] font-mono text-gray-400 mt-0.5 break-words">${stepDesc}</div>` : '';
+                const arrow = idx < rawLines.length - 1 ? `<div class="hidden sm:flex items-center justify-center text-acid/50 shrink-0 text-xs px-1"><i class="fa-solid fa-arrow-right"></i></div><div class="sm:hidden flex justify-center text-acid/50 text-[10px] py-0.5"><i class="fa-solid fa-arrow-down"></i></div>` : '';
+
+                return `<div class="flex-1 min-w-0 flex flex-col sm:flex-row items-stretch sm:items-center">` +
+                    `<div class="flex-1 p-2 rounded-lg bg-white/5 border border-white/10 hover:border-cyan/40 transition-all min-w-0">` +
+                    `<div class="flex items-center gap-1.5 mb-0.5 min-w-0">` +
+                    `<span class="w-4 h-4 rounded-full bg-cyan/20 border border-cyan/40 text-cyan text-[10px] flex items-center justify-center font-bold shrink-0">${stepNum}</span>` +
+                    `<span class="text-xs font-mono font-bold text-white truncate">${stepTitle}</span>` +
+                    `</div>` +
+                    descHtml +
+                    `</div>` +
+                    arrow +
+                    `</div>`;
+            }).join('');
+
+            return `<div class="glass-panel p-2.5 sm:p-3 my-1.5 rounded-xl border border-white/10 hover:border-cyan/30 bg-[#0d0f18]/90 transition-all shadow-md min-w-0 overflow-hidden">` +
+                cleanTitle +
+                `<div class="flex flex-col sm:flex-row items-stretch gap-1.5 min-w-0">${stepsHtml}</div>` +
+                `</div>\n`;
+        });
+
+        // 2g-5. Hardware / Profiling Spec Sheet HUD card: :::spec [title]
+        escaped = escaped.replace(/(?:^|\n)[ \t]*:::spec(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n([\s\S]*?)(?:(?:\r?\n[ \t]*:{2,4}(?:[ \t]*(?:\r?\n|$)))|(?=\r?\n[ \t]*:::|$))/gi, (match, title, body) => {
+            const cleanTitle = title ? `<div class="flex items-center justify-between mb-2 pb-1 border-b border-cyan/20 text-cyan text-xs font-mono font-bold"><span><i class="fa-solid fa-microchip text-acid text-xs mr-1.5"></i>${title.trim()}</span><span class="text-[10px] text-gray-500 font-mono tracking-widest">[SYS_SPEC]</span></div>` : '';
+            const lines = body.trim().replace(/:{2,4}$/, '').trim().split('\n').map(l => l.trim()).filter(Boolean);
+            const rows = lines.map((line, idx) => {
+                let key = line;
+                let val = '';
+                if (line.includes(':')) {
+                    const parts = line.split(':');
+                    key = parts[0].trim();
+                    val = parts.slice(1).join(':').trim();
+                } else if (line.includes('|')) {
+                    const parts = line.split('|');
+                    key = parts[0].trim();
+                    val = parts.slice(1).join('|').trim();
+                }
+                const hexIdx = (idx + 1).toString(16).toUpperCase().padStart(2, '0');
+                return `<div class="flex items-baseline justify-between text-xs font-mono leading-tight py-0.5 min-w-0">` +
+                    `<span class="text-gray-400 shrink-0"><span class="text-cyan/60 text-[10px] mr-1.5 font-bold">[0x${hexIdx}]</span>${key}</span>` +
+                    `<span class="tars-dot-leader"></span>` +
+                    `<span class="text-cyan font-bold shrink-0 text-right">${val || 'OK'}</span>` +
+                    `</div>`;
+            }).join('');
+
+            return `<div class="p-2.5 sm:p-3 my-1.5 rounded-xl border border-cyan/30 hover:border-cyan/50 bg-[#07090e] transition-all shadow-md min-w-0 overflow-hidden">` +
+                cleanTitle +
+                `<div class="space-y-1 min-w-0">${rows}</div>` +
+                `</div>\n`;
+        });
+
+        // 2g-6. Procedural Audio / Synth Track card: :::audio or :::track
+        escaped = escaped.replace(/(?:^|\n)[ \t]*:::(?:audio|track)(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n([\s\S]*?)(?:(?:\r?\n[ \t]*:{2,4}(?:[ \t]*(?:\r?\n|$)))|(?=\r?\n[ \t]*:::|$))/gi, (match, title, body) => {
+            const cleanTitle = title ? title.trim() : 'Strudel Audio Cue';
+            const lines = body.trim().replace(/:{2,4}$/, '').trim().split('\n').map(l => l.trim()).filter(Boolean);
+            let bpm = '138';
+            let key = 'F# Minor';
+            let waveform = 'Acid 303';
+            let promptCode = '';
+
+            lines.forEach(l => {
+                if (l.includes('|')) {
+                    l.split('|').forEach(part => {
+                        const p = part.trim();
+                        const pl = p.toLowerCase();
+                        if (pl.startsWith('bpm:')) bpm = p.split(':')[1].trim();
+                        else if (pl.startsWith('key:')) key = p.split(':')[1].trim();
+                        else if (pl.startsWith('waveform:') || pl.startsWith('synth:') || pl.startsWith('scale:')) waveform = p.split(':')[1].trim();
+                        else if (pl.startsWith('strudel:') || pl.startsWith('pattern:') || pl.startsWith('prompt:')) promptCode = p.substring(p.indexOf(':') + 1).trim();
+                    });
+                } else {
+                    const lower = l.toLowerCase();
+                    if (lower.startsWith('bpm:')) bpm = l.split(':')[1].trim();
+                    else if (lower.startsWith('key:')) key = l.split(':')[1].trim();
+                    else if (lower.startsWith('waveform:') || lower.startsWith('synth:')) waveform = l.split(':')[1].trim();
+                    else if (lower.startsWith('strudel:') || lower.startsWith('pattern:') || lower.startsWith('prompt:')) promptCode = l.substring(l.indexOf(':') + 1).trim();
+                    else if (!promptCode) promptCode = l;
+                }
+            });
+
+            const codeSection = promptCode ? `<div class="mt-2 p-1.5 rounded bg-black/60 border border-white/10 text-cyan text-[11px] font-mono truncate"><i class="fa-solid fa-code text-[10px] text-acid mr-1"></i>${promptCode}</div>` : '';
+
+            return `<div class="glass-panel p-2.5 sm:p-3 my-1.5 rounded-xl border border-acid/30 hover:border-acid/50 bg-[#090d12]/95 transition-all shadow-md min-w-0 overflow-hidden">` +
+                `<div class="flex items-center justify-between mb-2 pb-1 border-b border-white/10">` +
+                `<div class="flex items-center gap-2 min-w-0 truncate">` +
+                `<i class="fa-solid fa-compact-disc text-acid text-sm shrink-0 animate-spin" style="animation-duration: 4s;"></i>` +
+                `<span class="text-xs font-mono font-bold text-white truncate">${cleanTitle}</span>` +
+                `</div>` +
+                `<div class="flex items-end gap-0.5 h-4 shrink-0 px-1">` +
+                `<div class="w-1 bg-acid rounded-sm tars-eq-1"></div>` +
+                `<div class="w-1 bg-cyan rounded-sm tars-eq-2"></div>` +
+                `<div class="w-1 bg-neo rounded-sm tars-eq-3"></div>` +
+                `<div class="w-1 bg-cyan rounded-sm tars-eq-4"></div>` +
+                `<div class="w-1 bg-acid rounded-sm tars-eq-5"></div>` +
+                `</div>` +
+                `</div>` +
+                `<div class="flex flex-wrap gap-1.5 text-[10px] font-mono">` +
+                `<span class="px-2 py-0.5 rounded bg-acid/15 border border-acid/30 text-acid font-bold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-acid animate-pulse"></span>${bpm} BPM</span>` +
+                `<span class="px-2 py-0.5 rounded bg-cyan/15 border border-cyan/30 text-cyan font-bold">${key}</span>` +
+                `<span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-gray-300">${waveform}</span>` +
+                `</div>` +
+                codeSection +
+                `</div>\n`;
+        });
+
+        // 2g-7. Diagnostic Incident Alert banner: :::diag or :::alert
+        escaped = escaped.replace(/(?:^|\n)[ \t]*:::(?:diag|alert)(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n([\s\S]*?)(?:(?:\r?\n[ \t]*:{2,4}(?:[ \t]*(?:\r?\n|$)))|(?=\r?\n[ \t]*:::|$))/gi, (match, title, body) => {
+            const rawBody = body.trim().replace(/:{2,4}$/, '').trim();
+            const lines = rawBody.split('\n').map(l => l.trim()).filter(Boolean);
+            let severity = 'CRITICAL';
+            let detail = rawBody;
+            let action = '';
+
+            lines.forEach(l => {
+                const lower = l.toLowerCase();
+                if (lower.startsWith('severity:')) severity = l.split(':')[1].trim().toUpperCase();
+                else if (lower.startsWith('action:') || lower.startsWith('remedy:')) action = l.substring(l.indexOf(':') + 1).trim();
+                else if (lower.startsWith('fault:') || lower.startsWith('detail:') || lower.startsWith('impact:')) {
+                    detail = l.substring(l.indexOf(':') + 1).trim();
+                }
+            });
+
+            const isCrit = severity.includes('CRIT') || severity.includes('FAIL') || severity.includes('ERROR');
+            const isWarn = severity.includes('WARN');
+            const isNom = severity.includes('OK') || severity.includes('NOMINAL') || severity.includes('PASS');
+
+            const theme = isCrit
+                ? { border: 'border-l-4 border-l-red-500 border-y border-r border-red-500/30 bg-red-950/20', text: 'text-red-400', badge: 'bg-red-500/20 text-red-300 border-red-500/40', ping: 'bg-red-400' }
+                : isWarn
+                ? { border: 'border-l-4 border-l-amber-500 border-y border-r border-amber-500/30 bg-amber-950/20', text: 'text-amber-400', badge: 'bg-amber-500/20 text-amber-300 border-amber-500/40', ping: 'bg-amber-400' }
+                : isNom
+                ? { border: 'border-l-4 border-l-emerald-500 border-y border-r border-emerald-500/30 bg-emerald-950/20', text: 'text-emerald-400', badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40', ping: 'bg-emerald-400' }
+                : { border: 'border-l-4 border-l-cyan border-y border-r border-cyan/30 bg-[#0d0f18]/90', text: 'text-cyan', badge: 'bg-cyan/20 text-cyan border-cyan/40', ping: 'bg-cyan' };
+
+            const cleanTitle = title ? title.trim() : `SYSTEM ${severity}`;
+            const actionHtml = action ? `<div class="mt-1.5 pt-1.5 border-t border-white/10 text-xs font-mono text-gray-300"><strong class="text-white">Action:</strong> ${action}</div>` : '';
+
+            return `<div class="p-2.5 sm:p-3 my-1.5 rounded-r-xl ${theme.border} transition-all shadow-md min-w-0 overflow-hidden font-mono">` +
+                `<div class="flex items-center justify-between mb-1.5">` +
+                `<div class="flex items-center gap-2 min-w-0">` +
+                `<span class="relative flex h-2 w-2 shrink-0">` +
+                `<span class="animate-ping absolute inline-flex h-full w-full rounded-full ${theme.ping} opacity-75"></span>` +
+                `<span class="relative inline-flex rounded-full h-2 w-2 ${theme.ping}"></span>` +
+                `</span>` +
+                `<span class="text-xs font-bold ${theme.text} truncate">${cleanTitle}</span>` +
+                `</div>` +
+                `<span class="px-1.5 py-0.5 rounded text-[9px] font-bold border ${theme.badge}">${severity}</span>` +
+                `</div>` +
+                `<div class="text-xs text-gray-200 leading-relaxed break-words">${detail}</div>` +
+                actionHtml +
+                `</div>\n`;
+        });
+
+        // 2g-8. Space / Ground Comms Intercept Log card: :::log
+        escaped = escaped.replace(/(?:^|\n)[ \t]*:::log(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n([\s\S]*?)(?:(?:\r?\n[ \t]*:{2,4}(?:[ \t]*(?:\r?\n|$)))|(?=\r?\n[ \t]*:::|$))/gi, (match, title, body) => {
+            const rawBody = body.trim().replace(/:{2,4}$/, '').trim();
+            const lines = rawBody.split('\n').map(l => l.trim()).filter(Boolean);
+            let speaker = 'TARS GROUND CONTROL';
+            let time = '03:42:19 EST';
+            let message = rawBody;
+
+            lines.forEach(l => {
+                const lower = l.toLowerCase();
+                if (lower.startsWith('speaker:')) speaker = l.split(':')[1].trim();
+                else if (lower.startsWith('time:') || lower.startsWith('timestamp:')) time = l.substring(l.indexOf(':') + 1).trim();
+                else if (lower.startsWith('message:') || lower.startsWith('transmission:')) message = l.substring(l.indexOf(':') + 1).trim();
+            });
+
+            const header = title ? title.trim() : 'COMMS INTERCEPT // FREQ: 142.8 MHz';
+
+            return `<div class="p-2.5 sm:p-3 my-1.5 rounded-xl border border-emerald-500/30 bg-emerald-950/20 text-emerald-300 font-mono text-xs transition-all shadow-md min-w-0 overflow-hidden">` +
+                `<div class="flex items-center justify-between pb-1.5 mb-1.5 border-b border-emerald-500/20 text-[10px] tracking-wider text-emerald-400">` +
+                `<span class="flex items-center gap-1.5 font-bold truncate"><i class="fa-solid fa-satellite-dish animate-pulse shrink-0"></i>${header}</span>` +
+                `<span class="text-emerald-500/80 font-mono shrink-0 ml-2">${time}</span>` +
+                `</div>` +
+                `<div class="flex items-start gap-2 min-w-0">` +
+                `<span class="px-1.5 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/40 text-[9px] font-bold text-white shrink-0 uppercase">${speaker.toUpperCase()}</span>` +
+                `<div class="text-xs text-emerald-100 leading-relaxed italic flex-1 break-words">"${message.replace(/^["']|["']$/g, '')}"</div>` +
+                `</div>` +
+                `</div>\n`;
+        });
+
+        // 2g-9. Medallion & Competitive Honors card: :::trophy or :::awards
+        escaped = escaped.replace(/(?:^|\n)[ \t]*:::(?:trophy|awards)(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n([\s\S]*?)(?:(?:\r?\n[ \t]*:{2,4}(?:[ \t]*(?:\r?\n|$)))|(?=\r?\n[ \t]*:::|$))/gi, (match, title, body) => {
+            const cleanTitle = title ? `<div class="flex items-center gap-2 mb-2 pb-1 border-b border-amber-500/20 text-amber-400 text-xs font-mono font-bold"><i class="fa-solid fa-trophy text-amber-300 text-xs"></i><span>${title.trim()}</span></div>` : '';
+            const lines = body.trim().replace(/:{2,4}$/, '').trim().split('\n').map(l => l.trim()).filter(Boolean);
+            const awardsHtml = lines.map(line => {
+                const parts = line.split('|').map(p => p.trim());
+                const contest = parts[0] || '';
+                const org = parts[1] || '';
+                const tier = parts[2] || '';
+                const tierBadge = tier ? `<span class="px-1.5 py-0.5 rounded bg-amber-400/20 border border-amber-400/40 text-amber-200 text-[10px] font-mono font-bold shrink-0 ml-1.5">${tier}</span>` : '';
+                const orgText = org ? `<span class="text-gray-400 text-[11px] block truncate">${org}</span>` : '';
+
+                return `<div class="flex items-center justify-between p-1.5 sm:p-2 rounded-lg bg-amber-950/20 border border-amber-500/20 hover:border-amber-400/40 transition-all min-w-0">` +
+                    `<div class="flex items-center gap-2 min-w-0 flex-1">` +
+                    `<div class="w-6 h-6 rounded-md bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 text-xs shrink-0 shadow-[0_0_8px_rgba(245,158,11,0.3)]">` +
+                    `<i class="fa-solid fa-award"></i>` +
+                    `</div>` +
+                    `<div class="min-w-0 flex-1">` +
+                    `<div class="text-xs font-mono font-bold text-white truncate">${contest}</div>` +
+                    orgText +
+                    `</div>` +
+                    `</div>` +
+                    tierBadge +
+                    `</div>`;
+            }).join('');
+
+            return `<div class="glass-panel p-2.5 sm:p-3 my-1.5 rounded-xl border border-amber-500/30 hover:border-amber-500/50 bg-[#0d0f18]/90 transition-all shadow-md space-y-1.5 min-w-0 overflow-hidden">` +
+                cleanTitle +
+                awardsHtml +
+                `</div>\n`;
+        });
+
+        // 2g-10. Micro Code Patch / Git Diff Terminal: :::diff or :::patch
+        escaped = escaped.replace(/(?:^|\n)[ \t]*:::(?:diff|patch)(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n([\s\S]*?)(?:(?:\r?\n[ \t]*:{2,4}(?:[ \t]*(?:\r?\n|$)))|(?=\r?\n[ \t]*:::|$))/gi, (match, title, body) => {
+            const rawBody = body.trim().replace(/:{2,4}$/, '').trim();
+            const lines = rawBody.split('\n');
+            let lang = 'DIFF';
+            const codeLines = [];
+
+            lines.forEach(l => {
+                const trimmed = l.trim();
+                if (trimmed.toLowerCase().startsWith('lang:')) {
+                    lang = trimmed.split(':')[1].trim().toUpperCase();
+                } else {
+                    codeLines.push(l);
+                }
+            });
+
+            const cleanTitle = title ? title.trim() : 'Code Patch';
+            const rowsHtml = codeLines.map(line => {
+                if (line.startsWith('+')) {
+                    return `<div class="bg-emerald-950/40 text-emerald-300 px-2 py-0.5 border-l-2 border-emerald-500 font-mono text-[11px] break-all leading-tight"><span class="select-none text-emerald-500 font-bold mr-1.5">+</span>${line.substring(1)}</div>`;
+                } else if (line.startsWith('-')) {
+                    return `<div class="bg-red-950/40 text-red-300 px-2 py-0.5 border-l-2 border-red-500 font-mono text-[11px] break-all leading-tight"><span class="select-none text-red-500 font-bold mr-1.5">-</span>${line.substring(1)}</div>`;
+                } else {
+                    return `<div class="text-gray-400 px-2 py-0.5 font-mono text-[11px] break-all leading-tight"><span class="select-none text-gray-600 mr-2"> </span>${line}</div>`;
+                }
+            }).join('');
+
+            return `<div class="my-1.5 rounded-xl border border-white/15 bg-[#08090f] overflow-hidden shadow-md font-mono min-w-0">` +
+                `<div class="flex items-center justify-between px-3 py-1.5 bg-black/60 border-b border-white/10">` +
+                `<div class="flex items-center gap-1.5">` +
+                `<span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>` +
+                `<span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>` +
+                `<span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>` +
+                `<span class="text-xs text-gray-300 font-bold ml-2 truncate">${cleanTitle}</span>` +
+                `</div>` +
+                `<span class="text-[9px] px-1.5 py-0.5 rounded bg-white/10 text-cyan font-bold tracking-wider">${lang}</span>` +
+                `</div>` +
+                `<div class="py-1 overflow-x-auto">${rowsHtml}</div>` +
                 `</div>\n`;
         });
 
