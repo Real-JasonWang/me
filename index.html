@@ -524,6 +524,48 @@
             transform: translateY(-4px)
         }
 
+        /* TarsAI Glass & Sidecar Modal */
+        #dj-modal {
+            background-color: rgba(0, 0, 0, 0.4) !important;
+            backdrop-filter: blur(16px) saturate(140%) !important;
+            -webkit-backdrop-filter: blur(16px) saturate(140%) !important;
+        }
+
+        #dj-modal-card {
+            background: rgba(15, 15, 20, 0.55) !important;
+            backdrop-filter: blur(24px) saturate(150%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(150%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.12) !important;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.02), 0 25px 80px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 240, 255, 0.08) !important;
+        }
+
+        #dj-modal.tars-docked {
+            background-color: transparent !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            align-items: flex-end !important;
+            justify-content: flex-end !important;
+            pointer-events: none !important;
+            padding: 1rem !important;
+        }
+
+        #dj-modal.tars-docked #dj-modal-card {
+            pointer-events: auto !important;
+            width: 100% !important;
+            max-width: 480px !important;
+            max-height: 80vh !important;
+            background: rgba(15, 15, 20, 0.6) !important;
+            backdrop-filter: blur(24px) saturate(150%) !important;
+            -webkit-backdrop-filter: blur(24px) saturate(150%) !important;
+            border: 1px solid rgba(0, 240, 255, 0.3) !important;
+            box-shadow: 0 20px 70px rgba(0, 0, 0, 0.85), 0 0 35px rgba(0, 240, 255, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
+        }
+
+        #dj-modal.tars-docked #dj-chat-log {
+            max-height: 48vh !important;
+            min-height: 220px !important;
+        }
+
         .tilt-card {
             position: relative;
             transform-style: preserve-3d;
@@ -1536,7 +1578,7 @@
                 <div class="lg:col-span-7 flex flex-col gap-8 relative z-10">
                     <h1 class="font-display text-6xl md:text-8xl leading-tight tracking-wide">Shhh. the<br><span
                             class="rainbow-text">Door-in-the-Face</span> effect.</h1>
-                    <div class="glass-panel p-6 rounded-3xl rainbow-border">
+                    <div id="card-bio" class="glass-panel p-6 rounded-3xl rainbow-border">
                         <p class="text-lg text-gray-300 font-light leading-relaxed">If I directly said, "A real
                             liberal-arts, true CS & PSY student's portfolio," you might have closed the tab.</p>
                     </div>
@@ -1604,7 +1646,7 @@
                     </h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-10">
-                    <div class="glass-panel p-10 rounded-[2.5rem] relative overflow-hidden group">
+                    <div id="card-skill-cs" class="glass-panel p-10 rounded-[2.5rem] relative overflow-hidden group">
                         <div
                             class="absolute -right-10 -top-10 text-[10rem] text-white/[0.02] font-mono transition-colors duration-700">
                             0/1</div>
@@ -1627,7 +1669,7 @@
                                     class="text-gray-200">Database Structuring & IT Support</span></div>
                         </div>
                     </div>
-                    <div class="glass-panel p-10 rounded-[2.5rem] relative overflow-hidden group">
+                    <div id="card-skill-psych" class="glass-panel p-10 rounded-[2.5rem] relative overflow-hidden group">
                         <div
                             class="absolute -right-10 -top-10 text-[10rem] text-white/[0.02] font-display transition-colors duration-700">
                             Ψ</div>
@@ -1651,7 +1693,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-20 pt-14 border-t border-white/10">
+                <div id="card-skill-org" class="mt-20 pt-14 border-t border-white/10">
                     <div class="mb-10 text-center md:text-left">
                         <h3 class="font-display text-4xl md:text-6xl font-bold text-white tracking-wide">Organizations
                             &amp; Ecosystems</h3>
@@ -1773,7 +1815,7 @@
                 </div>
                 <div class="space-y-8 pb-8">
                     <div
-                        class="glass-panel p-8 md:p-10 rounded-[2.5rem] flex flex-col md:flex-row gap-8 items-start border-neo/20">
+                        id="card-certiferox" class="glass-panel p-8 md:p-10 rounded-[2.5rem] flex flex-col md:flex-row gap-8 items-start border-neo/20">
                         <div class="md:w-1/3 flex flex-col gap-3"><span
                                 class="px-4 py-2 rounded-full glass-panel text-neo font-mono text-xs w-max border-neo/30">Jul
                                 2025 - Present</span>
@@ -1795,7 +1837,7 @@
                         </div>
                     </div>
                     <div
-                        class="glass-panel p-8 md:p-10 rounded-[2.5rem] flex flex-col md:flex-row gap-8 items-start border-acid/20">
+                        id="card-cps112" class="glass-panel p-8 md:p-10 rounded-[2.5rem] flex flex-col md:flex-row gap-8 items-start border-acid/20">
                         <div class="md:w-1/3 flex flex-col gap-3"><span
                                 class="px-4 py-2 rounded-full glass-panel text-acid font-mono text-xs w-max border-acid/30">Aug
                                 2026 - Present</span>
@@ -1821,7 +1863,7 @@
                             </div>
                         </div>
                     </div>
-                    <div
+                    <div id="card-posse"
                         class="glass-panel p-8 md:p-10 rounded-[2.5rem] flex flex-col md:flex-row gap-8 items-start border-cyan/20">
                         <div class="md:w-1/3 flex flex-col gap-3"><span
                                 class="px-4 py-2 rounded-full glass-panel text-cyan font-mono text-xs w-max border-cyan/30">Aug
@@ -1842,7 +1884,7 @@
                                 weekly work experience under the Tier-3 monetary-value exchange protocol.</p>
                         </div>
                     </div>
-                    <div
+                    <div id="card-jason-uni"
                         class="glass-panel p-8 md:p-10 rounded-[2.5rem] flex flex-col md:flex-row gap-8 items-start border-neo/20">
                         <div class="md:w-1/3 flex flex-col gap-3"><span
                                 class="px-4 py-2 rounded-full glass-panel text-neo font-mono text-xs w-max border-neo/30">Apr
@@ -1865,7 +1907,7 @@
                             </div>
                         </div>
                     </div>
-                    <div
+                    <div id="card-webmaster"
                         class="glass-panel p-8 md:p-10 rounded-[2.5rem] flex flex-col md:flex-row gap-8 items-start border-cyan/20">
                         <div class="md:w-1/3 flex flex-col gap-3"><span
                                 class="px-4 py-2 rounded-full glass-panel text-cyan font-mono text-xs w-max border-cyan/30">Sep
@@ -1886,7 +1928,7 @@
                                 reviews, and performance benchmarks.</p>
                         </div>
                     </div>
-                    <div
+                    <div id="card-stem-tutor"
                         class="glass-panel p-8 md:p-10 rounded-[2.5rem] flex flex-col md:flex-row gap-8 items-start border-acid/20">
                         <div class="md:w-1/3 flex flex-col gap-3"><span
                                 class="px-4 py-2 rounded-full glass-panel text-acid font-mono text-xs w-max border-acid/30">Sep
@@ -1983,7 +2025,7 @@
                             China.</p>
                         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 my-2">
                             <div
-                                class="bg-black/40 hover:bg-black/60 border border-cyan/20 hover:border-cyan/40 rounded-[1.75rem] p-6 flex flex-col justify-between transition-all duration-300 group/sub">
+                                id="card-funding" class="bg-black/40 hover:bg-black/60 border border-cyan/20 hover:border-cyan/40 rounded-[1.75rem] p-6 flex flex-col justify-between transition-all duration-300 group/sub">
                                 <div>
                                     <div class="flex items-center justify-between mb-4">
                                         <div
@@ -2076,7 +2118,7 @@
                                 </div>
                             </div>
                             <div
-                                class="bg-black/40 hover:bg-black/60 border border-acid/20 hover:border-acid/40 rounded-[1.75rem] p-6 flex flex-col justify-between transition-all duration-300 group/sub">
+                                id="card-mesosphere" class="bg-black/40 hover:bg-black/60 border border-acid/20 hover:border-acid/40 rounded-[1.75rem] p-6 flex flex-col justify-between transition-all duration-300 group/sub">
                                 <div>
                                     <div
                                         class="w-11 h-11 rounded-full bg-acid/10 text-acid flex items-center justify-center mb-4 border border-acid/30">
@@ -2174,7 +2216,7 @@
                                         class="text-acid bg-acid/10 border border-acid/30 px-2.5 py-0.5 rounded-lg">Preview
                                         Reel</span></div>
                             </div>
-                            <div
+                            <div id="card-heritage"
                                 class="bg-black/40 hover:bg-black/60 border border-neo/20 hover:border-neo/40 rounded-[1.75rem] p-6 flex flex-col justify-between transition-all duration-300 group/sub">
                                 <div>
                                     <div
@@ -2225,7 +2267,7 @@
                                     <span class="text-neo bg-neo/10 border border-neo/30 px-2.5 py-0.5 rounded-lg">17
                                         Photos</span></div>
                             </div>
-                            <div
+                            <div id="card-exploring"
                                 class="bg-black/40 hover:bg-black/60 border border-cyan/20 hover:border-cyan/40 rounded-[1.75rem] p-6 flex flex-col justify-between transition-all duration-300 group/sub">
                                 <div>
                                     <div
@@ -2262,6 +2304,7 @@
                         </div>
                     </div>
                     <div
+                        id="card-dengue"
                         class="glass-panel p-8 rounded-[2.5rem] flex flex-col justify-between h-full group border-neo/20 hover:border-neo/40 transition-all">
                         <div>
                             <div
@@ -2284,6 +2327,7 @@
                                 · XGBoost</span></div>
                     </div>
                     <div
+                        id="card-meowoj"
                         class="glass-panel p-8 rounded-[2.5rem] flex flex-col justify-between h-full group border-cyan/20 hover:border-cyan/40 transition-all">
                         <div>
                             <div
@@ -2321,7 +2365,7 @@
                     <div
                         class="glass-panel p-8 rounded-[2.5rem] flex flex-col justify-between h-full group border-acid/20 hover:border-acid/40 transition-all">
                         <div>
-                            <div
+                            <div id="card-road-ace"
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-acid group-hover:bg-acid/10 transition-colors border-acid/30">
                                 <i class="fa-solid fa-book-bookmark text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">"Road
@@ -2344,7 +2388,7 @@
                     <div
                         class="glass-panel p-8 rounded-[2.5rem] flex flex-col justify-between h-full group border-neo/20 hover:border-neo/40 transition-all">
                         <div>
-                            <div
+                            <div id="card-debate-cs"
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-neo group-hover:bg-neo/10 transition-colors border-neo/30">
                                 <i class="fa-solid fa-comments text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">Debate
@@ -2365,10 +2409,10 @@
                                     class="fa-solid fa-globe text-sm" aria-hidden="true"></i> <span>Live Portal</span> <i
                                     class="fa-solid fa-arrow-up-right-from-square text-[9px]" aria-hidden="true"></i></a></div>
                     </div>
-                    <div
+                    <div id="card-award-cinematography"
                         class="glass-panel p-8 rounded-[2.5rem] flex flex-col justify-between h-full group border-cyan/20 hover:border-cyan/40 transition-all">
                         <div>
-                            <div
+                            <div id="card-flour-film"
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-cyan group-hover:bg-cyan/10 transition-colors border-cyan/30">
                                 <i class="fa-solid fa-film text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">
@@ -2412,7 +2456,7 @@
                     <div
                         class="glass-panel p-8 rounded-[2.5rem] flex flex-col justify-between h-full group border-acid/20 hover:border-acid/40 transition-all">
                         <div>
-                            <div
+                            <div id="card-chc-hardware"
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-acid group-hover:bg-acid/10 transition-colors border-acid/30">
                                 <i class="fa-solid fa-microchip text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">CHC
@@ -2436,7 +2480,7 @@
                     <div
                         class="glass-panel p-8 rounded-[2.5rem] flex flex-col justify-between h-full group border-neo/20 hover:border-neo/40 transition-all">
                         <div>
-                            <div
+                            <div id="card-runx"
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-neo group-hover:bg-neo/10 transition-colors border-neo/30">
                                 <i class="fa-solid fa-compass-drafting text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">RunX
@@ -2460,7 +2504,7 @@
                     <div
                         class="glass-panel p-8 rounded-[2.5rem] flex flex-col justify-between h-full group border-cyan/20 hover:border-cyan/40 transition-all">
                         <div>
-                            <div
+                            <div id="card-human-dev"
                                 class="w-16 h-16 rounded-full glass-panel flex items-center justify-center mb-6 text-cyan group-hover:bg-cyan/10 transition-colors border-cyan/30">
                                 <i class="fa-solid fa-dna text-2xl" aria-hidden="true"></i></div>
                             <h3 class="font-display text-3xl md:text-4xl font-bold mb-3 text-white tracking-wide">Human
@@ -2492,7 +2536,7 @@
                     <div
                         class="glass-panel p-6 rounded-3xl flex flex-col justify-between border-cyan/20 group hover:border-cyan/40 transition-all">
                         <div class="flex items-start gap-4">
-                            <div
+                            <div id="card-award-adventurex"
                                 class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-cyan border-cyan/30 bg-cyan/10 group-hover:scale-105 transition-transform">
                                 <i class="fa-solid fa-trophy text-lg" aria-hidden="true"></i></div>
                             <div class="flex-grow min-w-0">
@@ -2523,7 +2567,7 @@
                     <div
                         class="glass-panel p-6 rounded-3xl flex flex-col justify-between border-acid/20 group hover:border-acid/40 transition-all">
                         <div class="flex items-start gap-4">
-                            <div
+                            <div id="card-award-oucc"
                                 class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
                                 <i class="fa-solid fa-bullseye text-lg" aria-hidden="true"></i></div>
                             <div class="flex-grow min-w-0">
@@ -2555,7 +2599,7 @@
                     <div
                         class="glass-panel p-6 rounded-3xl flex flex-col justify-between border-neo/20 group hover:border-neo/40 transition-all">
                         <div class="flex items-start gap-4">
-                            <div
+                            <div id="card-award-top4"
                                 class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-neo border-neo/30 bg-neo/10 group-hover:scale-105 transition-transform">
                                 <i class="fa-solid fa-globe text-lg" aria-hidden="true"></i></div>
                             <div class="flex-grow min-w-0">
@@ -2593,7 +2637,7 @@
                     </div>
                     <div
                         class="glass-panel p-6 rounded-3xl flex items-start gap-4 border-cyan/20 group hover:border-cyan/40 transition-all">
-                        <div
+                        <div id="card-award-acsl"
                             class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-cyan border-cyan/30 bg-cyan/10 group-hover:scale-105 transition-transform">
                             <i class="fa-solid fa-star text-lg" aria-hidden="true"></i></div>
                         <div class="flex-grow min-w-0">
@@ -2610,7 +2654,7 @@
                     <div
                         class="glass-panel p-6 rounded-3xl flex flex-col justify-between border-acid/20 group hover:border-acid/40 transition-all">
                         <div class="flex items-start gap-4">
-                            <div
+                            <div id="card-award-senior"
                                 class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-acid border-acid/30 bg-acid/10 group-hover:scale-105 transition-transform">
                                 <i class="fa-solid fa-award text-lg" aria-hidden="true"></i></div>
                             <div class="flex-grow min-w-0">
@@ -2640,7 +2684,7 @@
                     </div>
                     <div
                         class="glass-panel p-6 rounded-3xl flex items-start gap-4 border-neo/20 group hover:border-neo/40 transition-all">
-                        <div
+                        <div id="card-award-amc"
                             class="w-11 h-11 rounded-2xl glass-panel flex items-center justify-center shrink-0 text-neo border-neo/30 bg-neo/10 group-hover:scale-105 transition-transform">
                             <i class="fa-solid fa-crown text-lg" aria-hidden="true"></i></div>
                         <div class="flex-grow min-w-0">
@@ -2885,7 +2929,7 @@
                 </div>
                 <div class="grid lg:grid-cols-2 gap-16 pb-8">
                     <div class="flex flex-col gap-8">
-                        <div class="glass-panel p-10 rounded-[2.5rem]">
+                        <div id="card-facts-hardware" class="glass-panel p-10 rounded-[2.5rem]">
                             <h3
                                 class="font-display text-3xl md:text-4xl font-bold mb-8 text-white border-b border-white/10 pb-4 tracking-wide">
                                 Hardware Specifications</h3>
@@ -2920,7 +2964,7 @@
                                         Wang</span></div>
                             </div>
                         </div>
-                        <div class="glass-panel p-10 rounded-[2.5rem]">
+                        <div id="card-facts-languages" class="glass-panel p-10 rounded-[2.5rem]">
                             <h3
                                 class="font-display text-3xl md:text-4xl font-bold mb-8 text-white border-b border-white/10 pb-4 tracking-wide">
                                 Linguistic Compilers</h3>
@@ -2934,7 +2978,7 @@
                                     (Limited)</span></div>
                         </div>
                     </div>
-                    <div class="glass-panel p-10 rounded-[2.5rem] h-max">
+                    <div id="card-facts-education" class="glass-panel p-10 rounded-[2.5rem] h-max">
                         <h3
                             class="font-display text-3xl md:text-4xl font-bold mb-10 text-white border-b border-white/10 pb-4 tracking-wide">
                             Knowledge Ingestion</h3>
@@ -2981,7 +3025,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-16 mb-12 pt-12 border-t border-white/10">
+                <div id="card-facts-benchmarks" class="mt-16 mb-12 pt-12 border-t border-white/10">
                     <div class="mb-10 text-center md:text-left">
                         <h3 class="font-display text-4xl md:text-6xl font-bold text-white tracking-wide">Competitive
                             &amp; Academic Benchmarks</h3>
@@ -3114,7 +3158,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-16 mb-8 pt-12 border-t border-white/10">
+                <div id="card-facts-certs" class="mt-16 mb-8 pt-12 border-t border-white/10">
                     <div class="mb-10">
                         <div class="flex items-center gap-3 text-cyan font-mono text-xs uppercase tracking-widest mb-2">
                             <i class="fa-solid fa-certificate" aria-hidden="true"></i> <span>Verified Credentials & Specializations</span>
@@ -3625,7 +3669,7 @@
                     </div>
                 </section>
                 <div class="flex flex-col gap-10 sm:gap-12 pb-12">
-                    <div
+                    <div id="card-gdpr"
                         class="tilt-card glass-panel p-8 sm:p-12 rounded-[2.5rem] relative overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                         <div class="max-w-4xl">
                             <h3
@@ -3644,6 +3688,7 @@
                         </div>
                     </div>
                     <div
+                        id="card-carbon"
                         class="tilt-card glass-panel p-8 sm:p-12 rounded-[2.5rem] relative overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                         <div class="max-w-4xl">
                             <h3
@@ -3726,7 +3771,7 @@
                                     aria-hidden="true"></i></div>
                         </div>
                     </div>
-                    <div
+                    <div id="card-carbon-scale"
                         class="glass-panel px-3 py-5 sm:p-8 lg:p-12 rounded-[2rem] sm:rounded-[2.5rem] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.4)]">
                         <div class="pb-6 mb-8 border-b border-white/10">
                             <h3
@@ -4162,23 +4207,22 @@
 
     <!-- Floating TarsAI Assistant Launcher -->
     <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 select-none" style="z-index: 9999;">
-        <button id="dj-trigger-btn" type="button" aria-label="Open TarsAI Assistant (Shortcut: Cmd+J)"
+        <button id="dj-trigger-btn" type="button" aria-label="Open TarsAI Assistant"
             onclick="if(window.__hydrateAssets)window.__hydrateAssets(); if(window.openDjBooth)window.openDjBooth(event);"
             class="group flex items-center gap-2.5 px-4 py-2.5 rounded-full glass-panel border border-white/15 hover:border-cyan/50 text-white shadow-[0_10px_30px_rgba(0,0,0,0.85),0_0_25px_rgba(0,240,255,0.15)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.9),0_0_35px_rgba(0,240,255,0.3)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer">
             <span class="w-6 h-6 rounded-full bg-gradient-to-br from-acid/20 via-cyan/20 to-neo/20 border border-cyan/40 flex items-center justify-center text-cyan text-xs">
                 <i class="fa-solid fa-robot text-[11px]"></i>
             </span>
             <span class="font-display font-bold text-xs sm:text-sm tracking-wide rainbow-text">TarsAI</span>
-            <kbd class="hidden md:inline-block ml-1 px-1.5 py-0.5 rounded bg-white/10 border border-white/15 text-[9px] font-mono text-gray-400">Cmd+J</kbd>
         </button>
     </div>
 
     <!-- TarsAI MODAL -->
     <div id="dj-modal" role="dialog" aria-modal="true" aria-labelledby="dj-modal-title" aria-hidden="true"
-        class="fixed inset-0 z-[130] bg-black/85 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5 md:p-6 transition-all duration-300 opacity-0"
+        class="fixed inset-0 z-[130] bg-black/40 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5 md:p-6 transition-all duration-300 opacity-0"
         onclick="if(window.closeDjModal)window.closeDjModal(event)">
         <div id="dj-modal-card"
-            class="relative w-full max-w-2xl md:max-w-3xl lg:max-w-4xl bg-[#0c0d14]/95 border border-white/15 rounded-2xl sm:rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.85),0_0_50px_rgba(0,240,255,0.08)] transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] scale-90 translate-y-6 opacity-0 overflow-hidden flex flex-col max-h-[94vh] sm:max-h-[90vh]"
+            class="relative w-full max-w-2xl md:max-w-3xl lg:max-w-4xl border border-white/15 rounded-2xl sm:rounded-3xl shadow-[0_25px_80px_rgba(0,0,0,0.7),0_0_50px_rgba(0,240,255,0.08)] transform transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] scale-90 translate-y-6 opacity-0 overflow-hidden flex flex-col max-h-[94vh] sm:max-h-[90vh]"
             onclick="event.stopPropagation()">
             <!-- Top Neon Accent Line -->
             <div class="h-[2px] w-full bg-gradient-to-r from-acid via-cyan to-neo shrink-0"></div>
@@ -4196,11 +4240,19 @@
                 </div>
 
                 <!-- Header Actions -->
-                <button id="dj-close-btn" type="button" aria-label="Close TarsAI"
-                    onclick="if(window.closeDjModal)window.closeDjModal(event);"
-                    class="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-all duration-200 hover:rotate-90 hover:scale-105 active:scale-95 cursor-pointer shrink-0">
-                    <i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i>
-                </button>
+                <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                    <button id="dj-dock-btn" type="button" aria-label="Toggle Co-pilot Sidecar Mode"
+                        onclick="if(window.tarsCopilot)window.tarsCopilot.toggleDock();"
+                        title="Toggle Co-pilot Sidecar (Dock to corner)"
+                        class="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-cyan hover:border-cyan/40 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer">
+                        <i id="dj-dock-icon" class="fa-solid fa-table-columns text-xs sm:text-sm" aria-hidden="true"></i>
+                    </button>
+                    <button id="dj-close-btn" type="button" aria-label="Close TarsAI"
+                        onclick="if(window.closeDjModal)window.closeDjModal(event);"
+                        class="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-white hover:border-white/30 transition-all duration-200 hover:rotate-90 hover:scale-105 active:scale-95 cursor-pointer">
+                        <i class="fa-solid fa-xmark text-sm" aria-hidden="true"></i>
+                    </button>
+                </div>
             </div>
 
             <!-- Chat Feed Container -->
@@ -4209,13 +4261,13 @@
             </div>
 
             <!-- Thinking Indicator -->
-            <div id="dj-thinking-indicator" class="hidden px-5 py-2 sm:px-8 bg-[#141520]/60 border-t border-white/5 text-xs font-mono text-cyan flex items-center gap-2 shrink-0">
+            <div id="dj-thinking-indicator" class="hidden px-5 py-2 sm:px-8 bg-[#141520]/25 border-t border-white/5 text-xs font-mono text-cyan flex items-center gap-2 shrink-0">
                 <i class="fa-solid fa-circle-notch animate-spin text-xs text-cyan"></i>
                 <span>Thinking...</span>
             </div>
 
             <!-- Quick Action Chips (Positioned right above Input Bar) -->
-            <div class="px-3.5 py-2 sm:px-8 sm:py-2.5 border-t border-white/5 bg-[#141520]/60 flex flex-wrap items-center gap-1.5 sm:gap-2 shrink-0 select-none min-w-0">
+            <div class="px-3.5 py-2 sm:px-8 sm:py-2.5 border-t border-white/5 bg-[#141520]/25 flex flex-wrap items-center gap-1.5 sm:gap-2 shrink-0 select-none min-w-0">
                 <button type="button" data-prompt="Roast me ruthlessly." onclick="if(window.handleDjChip)window.handleDjChip(this);"
                     class="dj-quick-chip whitespace-nowrap px-2.5 py-1 sm:px-3.5 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono glass-panel text-gray-300 hover:text-acid hover:border-acid/40 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer shrink-0">
                     Roast me
@@ -4232,7 +4284,7 @@
             </div>
 
             <!-- Input Bar -->
-            <div class="p-3 sm:p-5 bg-[#0c0d14] border-t border-white/10 shrink-0 min-w-0">
+            <div class="p-3 sm:p-5 bg-transparent border-t border-white/10 shrink-0 min-w-0">
                 <form id="dj-input-form" onsubmit="return (window.handleDjFormSubmit ? window.handleDjFormSubmit(event) : false);" class="flex items-center gap-2 sm:gap-3 min-w-0">
                     <div class="relative flex-1 min-w-0">
                         <input id="dj-user-input" type="text" autocomplete="off" maxlength="500"

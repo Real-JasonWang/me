@@ -1,6 +1,6 @@
 # Jason Wang — Personal Portfolio
 
-Personal portfolio website for Jason (Weifeng) Wang, featuring responsive single-page navigation and clean visual design.
+Personal portfolio website for Jason (Weifeng) Wang, featuring responsive single-page navigation, clean visual design, and an integrated TarsAI co-pilot.
 
 Live site: [weifengwang.com](https://weifengwang.com)
 
@@ -14,6 +14,7 @@ Live site: [weifengwang.com](https://weifengwang.com)
 - **Outputs & Awards** — Projects, honors, and notable accomplishments.
 - **Facts** — Key personal milestones and principles.
 - **Furthermore** — Digital carbon footprint rating, green hosting, and privacy details.
+- **TarsAI** — Interactive AI assistant and co-pilot with live site navigation.
 
 ---
 
@@ -41,6 +42,7 @@ me/
 ├── index.html       # Portfolio website
 ├── portal.html      # Archive portal
 ├── assets/          # Styles and media assets
+├── _worker.js       # Cloudflare Workers edge backend
 ├── old/             # Archived previous version
 ├── LICENSE.md       # Modified MIT License
 └── README.md        # Documentation

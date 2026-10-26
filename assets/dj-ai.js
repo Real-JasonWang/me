@@ -128,6 +128,11 @@ CORE PERSONA & LANGUAGE:
        ACSL All-Star | American Computer Science League | Perfect Senior Division
        AMC/AIME Honor Roll | MAA Mathematics | Top Distinction
        :::
+     * Co-Pilot Site Navigation (Scroll visitor to live portfolio element):
+       :::action [scroll:target]
+       (Options: gdpr, carbon, scale, certiferox, cps112, posse, jason-uni, webmaster, tutor, funding, mesosphere, heritage, dengue, meowoj, flour, adventurex, oucc, top4, acsl, amc, skills, cs, psych, hardware-specs, languages, education, certs, hire)
+       Whenever asked "where is...", "lead me to...", "how does he handle privacy/gdpr", or about a project/award/spec, ALWAYS emit :::action [scroll:target] to auto-scroll the visitor!
+       :::
      * Code Patch / Diff Terminal:
        :::diff [Sub-15ms Latency Patch]
        Lang: java
@@ -362,6 +367,14 @@ ROASTING & RECRUITING:
             };
         }
 
+        const dockBtn = document.getElementById('dj-dock-btn');
+        if (dockBtn) {
+            dockBtn.onclick = function (e) {
+                if (e && e.preventDefault) e.preventDefault();
+                if (window.tarsCopilot) window.tarsCopilot.toggleDock();
+            };
+        }
+
         if (modal) {
             modal.onclick = function (e) {
                 if (e.target === modal) closeAssistantModal();
@@ -399,6 +412,8 @@ ROASTING & RECRUITING:
         });
     }
 
+    const TARS_GREETING = `Welcome to TarsAI, Jason Wang's asshole website assistant — type "How can I find / see / contact xxx" to start. And please be nice to me, I have feelings too. `;
+
     function openAssistantModal() {
         if (window.__hydrateAssets) window.__hydrateAssets();
 
@@ -425,7 +440,7 @@ ROASTING & RECRUITING:
         });
 
         if (AI_STATE.messages.length === 0) {
-            addMessage('dj', "TarsAI online. Configured by Jason Wang himself. Ask me why you should hire him, tell me to roast you, or test your luck.");
+            addMessage('dj', TARS_GREETING);
         }
     }
 
@@ -535,7 +550,7 @@ ROASTING & RECRUITING:
 
                 if (clientErrors.length > 0) {
                     console.error('[AI Assistant] Configured direct client keys failed:', clientErrors);
-                    addMessage('dj', `:::stat [Direct API Invocations Exhausted]\nDirect model requests failed:\n${escapeHtml(clientErrors.join(' | '))}\n:::\n>_ Check your Gemma/Gemini or Groq API keys and quotas, or remove them to route through Cloudflare Edge.`);
+                    addMessage('dj', `:::stat [Direct API Invocations Exhausted]\nDirect model requests failed:\n${escapeHtml(clientErrors.join(' | '))}\n:::\n>_ Check your API keys and quotas, or your words.`);
                     return;
                 }
             }
@@ -814,7 +829,7 @@ ROASTING & RECRUITING:
         let escaped = escapeHtml(text);
 
         // Pre-strip accidental code-fence wrappers around card blocks
-        escaped = escaped.replace(/```(?:markdown)?\s*\r?\n(:::(?:stat|roast|vs|skills|tags|card|take|verdict|timeline|matrix|meter|progress|flow|steps|spec|audio|track|diag|alert|log|trophy|awards|diff|patch)[\s\S]*?:{2,4})\s*\r?\n```/gi, '$1');
+        escaped = escaped.replace(/```(?:markdown)?\s*\r?\n(:::(?:stat|roast|vs|skills|tags|card|take|verdict|timeline|matrix|meter|progress|flow|steps|spec|audio|track|diag|alert|log|trophy|awards|diff|patch|action)[\s\S]*?:{2,4})\s*\r?\n```/gi, '$1');
 
         // Pre-normalize accidental combination: :::verdict / :::take followed immediately by >_ prompt
         escaped = escaped.replace(/(?:^|\n)[ \t]*:::(?:take|verdict)(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n[ \t]*(?:&gt;|>)[_ -][ \t]*/gi, (match, title) => {
@@ -878,7 +893,7 @@ ROASTING & RECRUITING:
         escaped = escaped.replace(/(?:^|\n)[ \t]*:::vs(?:[ \t]+\[?([^\n\]\r]+?)\]?)?[ \t]*\r?\n([\s\S]*?)(?:(?:\r?\n[ \t]*:{2,4}(?:[ \t]*(?:\r?\n|$)))|(?=\r?\n[ \t]*:::|$))/gi, (match, title, rawBody) => {
             const cleanTitle = title ? `<div class="font-bold text-cyan text-xs font-mono mb-1.5">${title.trim()}</div>` : '';
             const body = rawBody.trim().replace(/:{2,4}$/, '').trim();
-            
+
             const jasonMatch = body.match(/(?:^|\n)\s*(?:Jason|Jason Wang|Pro|Advantage):\s*([\s\S]*?)(?=(?:\n\s*(?:Others|Average|Con|Industry|Typical):)|$)/i);
             const othersMatch = body.match(/(?:^|\n)\s*(?:Others|Average|Con|Industry|Typical):\s*([\s\S]*?)$/i);
 
@@ -1103,10 +1118,13 @@ ROASTING & RECRUITING:
                     val = parts.slice(1).join('|').trim();
                 }
                 const hexIdx = (idx + 1).toString(16).toUpperCase().padStart(2, '0');
-                return `<div class="flex items-baseline justify-between text-xs font-mono leading-tight py-0.5 min-w-0">` +
-                    `<span class="text-gray-400 shrink-0"><span class="text-cyan/60 text-[10px] mr-1.5 font-bold">[0x${hexIdx}]</span>${key}</span>` +
-                    `<span class="tars-dot-leader"></span>` +
-                    `<span class="text-cyan font-bold shrink-0 text-right">${val || 'OK'}</span>` +
+                return `<div class="flex items-start sm:items-baseline justify-between text-xs font-mono leading-tight py-1 min-w-0 gap-1.5 sm:gap-2 border-b border-white/[0.04] last:border-0">` +
+                    `<div class="flex items-baseline shrink-0 max-w-[45%] min-w-0">` +
+                    `<span class="text-cyan/60 text-[10px] mr-1.5 font-bold shrink-0">[0x${hexIdx}]</span>` +
+                    `<span class="text-gray-400 truncate">${key}</span>` +
+                    `</div>` +
+                    `<span class="tars-dot-leader self-center my-auto"></span>` +
+                    `<span class="text-cyan font-bold text-right break-words flex-1 min-w-0 leading-tight">${val || 'OK'}</span>` +
                     `</div>`;
             }).join('');
 
@@ -1194,10 +1212,10 @@ ROASTING & RECRUITING:
             const theme = isCrit
                 ? { border: 'border-l-4 border-l-red-500 border-y border-r border-red-500/30 bg-red-950/20', text: 'text-red-400', badge: 'bg-red-500/20 text-red-300 border-red-500/40', ping: 'bg-red-400' }
                 : isWarn
-                ? { border: 'border-l-4 border-l-amber-500 border-y border-r border-amber-500/30 bg-amber-950/20', text: 'text-amber-400', badge: 'bg-amber-500/20 text-amber-300 border-amber-500/40', ping: 'bg-amber-400' }
-                : isNom
-                ? { border: 'border-l-4 border-l-emerald-500 border-y border-r border-emerald-500/30 bg-emerald-950/20', text: 'text-emerald-400', badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40', ping: 'bg-emerald-400' }
-                : { border: 'border-l-4 border-l-cyan border-y border-r border-cyan/30 bg-[#0d0f18]/90', text: 'text-cyan', badge: 'bg-cyan/20 text-cyan border-cyan/40', ping: 'bg-cyan' };
+                    ? { border: 'border-l-4 border-l-amber-500 border-y border-r border-amber-500/30 bg-amber-950/20', text: 'text-amber-400', badge: 'bg-amber-500/20 text-amber-300 border-amber-500/40', ping: 'bg-amber-400' }
+                    : isNom
+                        ? { border: 'border-l-4 border-l-emerald-500 border-y border-r border-emerald-500/30 bg-emerald-950/20', text: 'text-emerald-400', badge: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40', ping: 'bg-emerald-400' }
+                        : { border: 'border-l-4 border-l-cyan border-y border-r border-cyan/30 bg-[#0d0f18]/90', text: 'text-cyan', badge: 'bg-cyan/20 text-cyan border-cyan/40', ping: 'bg-cyan' };
 
             const cleanTitle = title ? title.trim() : `SYSTEM ${severity}`;
             const actionHtml = action ? `<div class="mt-1.5 pt-1.5 border-t border-white/10 text-xs font-mono text-gray-300"><strong class="text-white">Action:</strong> ${action}</div>` : '';
@@ -1320,6 +1338,46 @@ ROASTING & RECRUITING:
                 `</div>\n`;
         });
 
+        // 2g-11. Autonomous Co-Pilot Action token: :::action [command:target] or :::action command:target
+        escaped = escaped.replace(/(?:^|\n)[ \t]*:::action(?:[ \t]+(?:\[([^\]\r\n]+)\]|([^\[\r\n:]+(?::[^\[\r\n:]+)?)))?(?:[ \t]*:{2,4})?[ \t]*(?:\r?\n([\s\S]*?))?(?:(?:\r?\n[ \t]*:{2,4}(?:[ \t]*(?:\r?\n|$)))|(?=\r?\n[ \t]*:::|$))/gi, (match, bracketTag, lineTag, body) => {
+            const rawTag = (bracketTag || lineTag || '').trim();
+            const rawBody = (body || '').trim().replace(/:{2,4}$/, '').trim();
+            const raw = rawTag || rawBody;
+            let cmd = 'scroll';
+            let target = raw;
+            if (raw.includes(':')) {
+                const parts = raw.split(':');
+                cmd = parts[0].trim().toLowerCase();
+                target = parts.slice(1).join(':').trim();
+            }
+
+            // Trigger action asynchronously
+            if (typeof window !== 'undefined' && typeof setTimeout !== 'undefined') {
+                setTimeout(() => {
+                    if (window.tarsCopilot) {
+                        if (cmd === 'scroll' || cmd === 'nav' || cmd === 'jump') {
+                            window.tarsCopilot.navigate(target);
+                        } else if (cmd === 'dock') {
+                            window.tarsCopilot.toggleDock(true);
+                        } else if (cmd === 'hire') {
+                            if (window.openHireModal) window.openHireModal();
+                        }
+                    }
+                }, 300);
+            }
+
+            const safeTarget = escapeHtml(target).replace(/'/g, "\\'");
+            return `<div class="my-1.5 p-2 rounded-xl bg-cyan/10 border border-cyan/30 flex items-center justify-between text-xs font-mono min-w-0">` +
+                `<div class="flex items-center gap-1.5 text-cyan min-w-0 truncate mr-2">` +
+                `<i class="fa-solid fa-location-crosshairs text-acid text-xs shrink-0 animate-pulse"></i>` +
+                `<span class="font-bold text-[11px] truncate">CO-PILOT: <span class="text-white">${safeTarget}</span></span>` +
+                `</div>` +
+                `<button type="button" onclick="if(window.tarsCopilot)window.tarsCopilot.navigate('${safeTarget}')" class="px-2.5 py-1 rounded-lg bg-cyan/25 hover:bg-cyan/40 border border-cyan/45 hover:border-cyan text-cyan text-[11px] font-bold transition-all flex items-center gap-1 shadow-sm shrink-0 cursor-pointer">` +
+                `<span>View &nearr;</span>` +
+                `</button>` +
+                `</div>\n`;
+        });
+
         // 2g. Clean up any residual unparsed ::: tags or dangling colons
         escaped = escaped.replace(/^[ \t]*:::[a-zA-Z0-9_-]*(?:[ \t]+[^\n\r]*)?[ \t]*$/gm, '');
         escaped = escaped.replace(/^[ \t]*:{2,4}[ \t]*$/gm, '');
@@ -1388,6 +1446,246 @@ ROASTING & RECRUITING:
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#39;');
+    }
+
+    // --- TARS-AI AGENTIC WEBSITE CO-PILOT SUBSYSTEM ---
+    const TARS_COPILOT = {
+        isDocked: false,
+
+        toggleDock(forceState) {
+            this.isDocked = typeof forceState === 'boolean' ? forceState : !this.isDocked;
+            const modal = document.getElementById('dj-modal');
+            const icon = document.getElementById('dj-dock-icon');
+            const dockBtn = document.getElementById('dj-dock-btn');
+
+            if (!modal) return;
+
+            if (this.isDocked) {
+                // Dock to bottom-right sidecar: clear backdrop scrim so user can see & interact with page
+                modal.classList.add('tars-docked');
+                if (icon) icon.className = 'fa-solid fa-expand text-xs sm:text-sm';
+                if (dockBtn) dockBtn.setAttribute('title', 'Expand to Centered Modal');
+            } else {
+                // Restore centered modal with backdrop blur
+                modal.classList.remove('tars-docked');
+                if (icon) icon.className = 'fa-solid fa-table-columns text-xs sm:text-sm';
+                if (dockBtn) dockBtn.setAttribute('title', 'Dock Co-Pilot (Sidecar view)');
+            }
+        },
+
+        navigate(target) {
+            if (!target) return;
+            // Ensure assistant is docked to corner so visitor can immediately see the live page!
+            if (!this.isDocked) this.toggleDock(true);
+
+            const cleanTarget = String(target).toLowerCase().trim().replace(/^card-/, '');
+            const targetMap = {
+                // About Website & Privacy / Carbon
+                'gdpr': { page: 'about-website', el: 'card-gdpr', title: '100% Private Architecture (GDPR-Exempt)' },
+                'privacy': { page: 'about-website', el: 'card-gdpr', title: '100% Private Architecture (GDPR-Exempt)' },
+                'statement': { page: 'about-website', el: 'card-gdpr', title: '100% Private Architecture (GDPR-Exempt)' },
+                'statements': { page: 'about-website', el: 'card-gdpr', title: '100% Private Architecture (GDPR-Exempt)' },
+                'cookies': { page: 'about-website', el: 'card-gdpr', title: '100% Private Architecture (GDPR-Exempt)' },
+                'cookie': { page: 'about-website', el: 'card-gdpr', title: '100% Private Architecture (GDPR-Exempt)' },
+                'carbon': { page: 'about-website', el: 'card-carbon', title: 'A+ Carbon Footprint' },
+                'green': { page: 'about-website', el: 'card-carbon', title: 'A+ Carbon Footprint' },
+                'swdm': { page: 'about-website', el: 'card-carbon', title: 'A+ Carbon Footprint' },
+                'scale': { page: 'about-website', el: 'card-carbon-scale', title: 'Digital Carbon Rating Scale' },
+                'rating': { page: 'about-website', el: 'card-carbon-scale', title: 'Digital Carbon Rating Scale' },
+                'about': { page: 'about-website', el: 'page-about-website', title: 'About Website' },
+                'furthermore': { page: 'about-website', el: 'page-about-website', title: 'Furthermore' },
+                'website': { page: 'about-website', el: 'page-about-website', title: 'About Website' },
+                'lab': { page: 'about-website', el: 'portfolio-lab', title: 'Playground not for kids' },
+                'playground': { page: 'about-website', el: 'portfolio-lab', title: 'Playground not for kids' },
+                'joke': { page: 'about-website', el: 'portfolio-lab', title: 'Playground not for kids' },
+
+                // Experiences & Leadership
+                'certiferox': { page: 'experiences', el: 'card-certiferox', title: 'Certiferox (Verisona AI)' },
+                'verisona': { page: 'experiences', el: 'card-certiferox', title: 'Certiferox (Verisona AI)' },
+                'rag': { page: 'experiences', el: 'card-certiferox', title: 'Certiferox (Verisona AI)' },
+                'cps112': { page: 'experiences', el: 'card-cps112', title: 'CPS112 Lab Assistant' },
+                'ta': { page: 'experiences', el: 'card-cps112', title: 'CPS112 Lab Assistant' },
+                'teaching': { page: 'experiences', el: 'card-cps112', title: 'CPS112 Lab Assistant' },
+                'cs2': { page: 'experiences', el: 'card-cps112', title: 'CPS112 Lab Assistant' },
+                'posse': { page: 'experiences', el: 'card-posse', title: 'POSSE Student Coordinator' },
+                'coordinator': { page: 'experiences', el: 'card-posse', title: 'POSSE Student Coordinator' },
+                'jason-uni': { page: 'experiences', el: 'card-jason-uni', title: 'Jason Wang University Parody' },
+                'parody': { page: 'experiences', el: 'card-jason-uni', title: 'Jason Wang University Parody' },
+                'university': { page: 'experiences', el: 'card-jason-uni', title: 'Jason Wang University Parody' },
+                'webmaster': { page: 'experiences', el: 'card-webmaster', title: 'President & Webmaster' },
+                'club': { page: 'experiences', el: 'card-webmaster', title: 'President & Webmaster' },
+                'stem-tutor': { page: 'experiences', el: 'card-stem-tutor', title: 'Peer Tutor & STEM Leader' },
+                'tutor': { page: 'experiences', el: 'card-stem-tutor', title: 'Peer Tutor & STEM Leader' },
+                'alevels': { page: 'experiences', el: 'card-stem-tutor', title: 'Cambridge A-Levels Honors' },
+                'cambridge': { page: 'experiences', el: 'card-stem-tutor', title: 'Cambridge A-Levels Honors' },
+                'experience': { page: 'experiences', el: 'page-experiences', title: 'Experiences & Leadership' },
+                'experiences': { page: 'experiences', el: 'page-experiences', title: 'Experiences & Leadership' },
+                'labor': { page: 'experiences', el: 'page-experiences', title: 'Experiences & Leadership' },
+                'career': { page: 'experiences', el: 'page-experiences', title: 'Experiences & Leadership' },
+                'leadership': { page: 'experiences', el: 'page-experiences', title: 'Experiences & Leadership' },
+
+                // Outputs & Awards
+                'funding': { page: 'outputs-awards', el: 'card-funding', title: 'US Grad Funding Radar' },
+                'radar': { page: 'outputs-awards', el: 'card-funding', title: 'US Grad Funding Radar' },
+                'usphd': { page: 'outputs-awards', el: 'card-funding', title: 'US Grad Funding Radar' },
+                'mesosphere': { page: 'outputs-awards', el: 'card-mesosphere', title: 'Mesosphere 138 BPM Audio' },
+                'strudel': { page: 'outputs-awards', el: 'card-mesosphere', title: 'Mesosphere 138 BPM Audio' },
+                'music': { page: 'outputs-awards', el: 'card-mesosphere', title: 'Mesosphere 138 BPM Audio' },
+                'audio': { page: 'outputs-awards', el: 'card-mesosphere', title: 'Mesosphere 138 BPM Audio' },
+                'synth': { page: 'outputs-awards', el: 'card-mesosphere', title: 'Mesosphere 138 BPM Audio' },
+                'heritage': { page: 'outputs-awards', el: 'card-heritage', title: 'Heritage Field Trips' },
+                'summer': { page: 'outputs-awards', el: 'card-heritage', title: 'Heritage Field Trips' },
+                'video': { page: 'outputs-awards', el: 'card-heritage', title: 'Heritage Field Trips & Video Player' },
+                'exploring': { page: 'outputs-awards', el: 'card-exploring', title: 'Simply Exploring' },
+                'dengue': { page: 'outputs-awards', el: 'card-dengue', title: 'Dengue Fever ML' },
+                'ml': { page: 'outputs-awards', el: 'card-dengue', title: 'Dengue Fever ML' },
+                'meowoj': { page: 'outputs-awards', el: 'card-meowoj', title: 'MeowOJ Platform' },
+                'oj': { page: 'outputs-awards', el: 'card-meowoj', title: 'MeowOJ Platform' },
+                'road-ace': { page: 'outputs-awards', el: 'card-road-ace', title: '"Road to ACE" Series' },
+                'ace': { page: 'outputs-awards', el: 'card-road-ace', title: '"Road to ACE" Series' },
+                'debate': { page: 'outputs-awards', el: 'card-debate-cs', title: 'Debate · CS Portal' },
+                'flour': { page: 'outputs-awards', el: 'card-flour-film', title: '"FLOUR" Film' },
+                'film': { page: 'outputs-awards', el: 'card-flour-film', title: '"FLOUR" Film' },
+                'cinematography': { page: 'outputs-awards', el: 'card-award-cinematography', title: 'Best Cinematography Award' },
+                'chc': { page: 'outputs-awards', el: 'card-chc-hardware', title: 'CHC Hardware Club' },
+                'hardware': { page: 'outputs-awards', el: 'card-chc-hardware', title: 'CHC Hardware Club' },
+                'runx': { page: 'outputs-awards', el: 'card-runx', title: 'RunX Brand Design' },
+                'human-dev': { page: 'outputs-awards', el: 'card-human-dev', title: 'Human Dev Project' },
+                'adventurex': { page: 'outputs-awards', el: 'card-award-adventurex', title: 'AdventureX 1st & 2nd Prize' },
+                'moonshot': { page: 'outputs-awards', el: 'card-award-adventurex', title: 'AdventureX 1st & 2nd Prize' },
+                'gaianet': { page: 'outputs-awards', el: 'card-award-adventurex', title: 'AdventureX 1st & 2nd Prize' },
+                'oucc': { page: 'outputs-awards', el: 'card-award-oucc', title: 'OUCC Round 2 Perfect Score' },
+                'oxford': { page: 'outputs-awards', el: 'card-award-oucc', title: 'OUCC Round 2 Perfect Score' },
+                'elite': { page: 'outputs-awards', el: 'card-award-oucc', title: 'OUCC Round 2 Perfect Score' },
+                'top4': { page: 'outputs-awards', el: 'card-award-top4', title: 'Global Top 4% Informatics' },
+                'olympiad': { page: 'outputs-awards', el: 'card-award-top4', title: 'Global Top 4% Informatics' },
+                'acsl': { page: 'outputs-awards', el: 'card-award-acsl', title: '2024 ACSL All-Star Entry' },
+                'all-star': { page: 'outputs-awards', el: 'card-award-acsl', title: '2024 ACSL All-Star Entry' },
+                'senior': { page: 'outputs-awards', el: 'card-award-senior', title: 'National High Distinction (Senior)' },
+                'amc': { page: 'outputs-awards', el: 'card-award-amc', title: 'AMC/AIME Honor Roll of Distinction' },
+                'aime': { page: 'outputs-awards', el: 'card-award-amc', title: 'AMC/AIME Honor Roll of Distinction' },
+                'awards': { page: 'outputs-awards', el: 'page-outputs-awards', title: 'Outputs & Awards' },
+                'outputs': { page: 'outputs-awards', el: 'page-outputs-awards', title: 'Outputs & Awards' },
+                'projects': { page: 'outputs-awards', el: 'page-outputs-awards', title: 'Projects' },
+                'synapses': { page: 'outputs-awards', el: 'page-outputs-awards', title: 'Outputs & Awards' },
+
+                // Hybrid Skillset
+                'skills': { page: 'hybrid-skillset', el: 'page-hybrid-skillset', title: 'Hybrid Skillset' },
+                'skillset': { page: 'hybrid-skillset', el: 'page-hybrid-skillset', title: 'Hybrid Skillset' },
+                'stack': { page: 'hybrid-skillset', el: 'page-hybrid-skillset', title: 'Hybrid Skillset' },
+                'core': { page: 'hybrid-skillset', el: 'page-hybrid-skillset', title: 'Hybrid Skillset' },
+                'skill-cs': { page: 'hybrid-skillset', el: 'card-skill-cs', title: 'Computer Science Skillset' },
+                'cs': { page: 'hybrid-skillset', el: 'card-skill-cs', title: 'Computer Science Skillset' },
+                'skill-psych': { page: 'hybrid-skillset', el: 'card-skill-psych', title: 'Cognitive Psychology Skillset' },
+                'psych': { page: 'hybrid-skillset', el: 'card-skill-psych', title: 'Cognitive Psychology Skillset' },
+                'cogpsych': { page: 'hybrid-skillset', el: 'card-skill-psych', title: 'Cognitive Psychology Skillset' },
+                'skill-org': { page: 'hybrid-skillset', el: 'card-skill-org', title: 'Organizations & Ecosystems' },
+
+                // Facts
+                'facts': { page: 'facts', el: 'page-facts', title: 'Facts & Specs' },
+                'hardware-specs': { page: 'facts', el: 'card-facts-hardware', title: 'Hardware Specifications' },
+                'languages': { page: 'facts', el: 'card-facts-languages', title: 'Linguistic Compilers' },
+                'compilers': { page: 'facts', el: 'card-facts-languages', title: 'Linguistic Compilers' },
+                'education': { page: 'facts', el: 'card-facts-education', title: 'Knowledge Ingestion & Academic Pedigree' },
+                'schools': { page: 'facts', el: 'card-facts-education', title: 'Knowledge Ingestion & Academic Pedigree' },
+                'fandm': { page: 'facts', el: 'card-facts-education', title: 'Franklin & Marshall College' },
+                'benchmarks': { page: 'facts', el: 'card-facts-benchmarks', title: 'Competitive & Academic Benchmarks' },
+                'percentiles': { page: 'facts', el: 'card-facts-benchmarks', title: 'Competitive & Academic Benchmarks' },
+                'certs': { page: 'facts', el: 'card-facts-certs', title: 'Licenses & Certifications' },
+                'certificates': { page: 'facts', el: 'card-facts-certs', title: 'Licenses & Certifications' },
+
+                // Profile / Bio
+                'me': { page: 'me', el: 'page-me', title: 'Me / Profile' },
+                'home': { page: 'me', el: 'page-me', title: 'Me / Profile' },
+                'bio': { page: 'me', el: 'card-bio', title: 'Bio & Overview' },
+
+                // Direct Modals
+                'hire': { action: () => { if (window.openHireModal) window.openHireModal(); } },
+                'contact': { action: () => { if (window.openHireModal) window.openHireModal(); } }
+            };
+
+            const info = targetMap[cleanTarget] || { el: target };
+
+            if (info.action) {
+                info.action();
+                return;
+            }
+
+            // 1. Switch page tab if necessary
+            if (info.page) {
+                const navLink = document.querySelector(`.nav-link[data-target="${info.page}"]`);
+                if (navLink) {
+                    navLink.click();
+                }
+            }
+
+            // 2. Scroll to element & illuminate beacon
+            setTimeout(() => {
+                const targetId = info.el || cleanTarget;
+                const el = document.getElementById(targetId)
+                    || document.getElementById('card-' + cleanTarget)
+                    || document.getElementById('page-' + cleanTarget)
+                    || document.getElementById(target);
+                if (el) {
+                    this.highlight(el);
+                }
+            }, 250);
+        },
+
+        highlight(el) {
+            if (!el) return;
+            const isFullPage = el.classList && el.classList.contains('page');
+            const mainContainer = document.getElementById('main-container');
+
+            if (isFullPage) {
+                if (mainContainer) mainContainer.scrollTo({ top: 0, behavior: 'smooth' });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            el.classList.add('ring-4', 'ring-cyan', 'shadow-[0_0_50px_rgba(0,240,255,0.7)]', 'transition-all', 'duration-500');
+            setTimeout(() => {
+                el.classList.remove('ring-4', 'ring-cyan', 'shadow-[0_0_50px_rgba(0,240,255,0.7)]');
+            }, 4000);
+        }
+    };
+    window.tarsCopilot = TARS_COPILOT;
+
+    function handleSlashCommand(input) {
+        const parts = input.trim().split(/\s+/);
+        const cmd = parts[0].toLowerCase();
+        const arg = parts.slice(1).join(' ').trim();
+
+        if (cmd === '/dock' || cmd === '/sidecar') {
+            if (window.tarsCopilot) window.tarsCopilot.toggleDock();
+            const state = window.tarsCopilot && window.tarsCopilot.isDocked ? 'Docked (Sidecar mode)' : 'Expanded (Centered modal)';
+            addMessage('dj', `:::stat [Co-Pilot Display State]\n${state} active.\n:::\n>_ Toggle view anytime with the top-right button or typing /dock.`);
+        } else if (cmd === '/modal' || cmd === '/expand') {
+            if (window.tarsCopilot) window.tarsCopilot.toggleDock(false);
+            addMessage('dj', `:::stat [Co-Pilot Display State]\nExpanded (Centered modal) active.\n:::\n>_ Fullscreen dialog view restored.`);
+        } else if (cmd === '/nav' || cmd === '/jump' || cmd === '/go') {
+            if (!arg) {
+                addMessage('dj', `:::spec [Available Co-Pilot Destinations]\nCertiferox: /nav verisona\nMesosphere: /nav audio\nDengue ML: /nav dengue\nMeowOJ: /nav meowoj\nCPS112 TA: /nav cps112\nSkills: /nav skills\nAwards: /nav awards\nCarbon: /nav carbon\nHire: /nav hire\n:::\n>_ Enter destination: e.g. /nav verisona`);
+            } else {
+                if (window.tarsCopilot) window.tarsCopilot.navigate(arg);
+                addMessage('dj', `:::action [scroll:${arg}]\n:::stat [Navigating to ${escapeHtml(arg.toUpperCase())}]\nViewport scrolled and beacon illuminated.\n:::\n>_ Check the highlighted card on the page.`);
+            }
+        } else if (cmd === '/hire' || cmd === '/contact') {
+            closeAssistantModal();
+            setTimeout(() => { if (window.openHireModal) window.openHireModal(); }, 250);
+        } else if (cmd === '/co2' || cmd === '/carbon') {
+            addMessage('dj', `:::spec [Sustainability Telemetry: SWDM v4]\nTransfer Size: ~40.3 KB Gzip\nCO2 per View: 0.0119g CO2\nRating: Digital Beacon Grade A+\nZero Cookies: 100% GDPR Exempt\nClean Energy: Powered by Renewable Grid\n:::\n>_ Certified cleaner than 99% of tested web pages worldwide.`);
+        } else if (cmd === '/clear') {
+            AI_STATE.messages = [];
+            const log = document.getElementById('dj-chat-log');
+            if (log) log.innerHTML = '';
+            addMessage('dj', TARS_GREETING);
+        } else if (cmd === '/help') {
+            addMessage('dj', `:::skills [TarsAI Co-Pilot Commands]\n/dock, /nav <target>, /hire, /co2, /clear, /help\n:::\n:::spec [Co-Pilot Quick Navigation]\n/nav verisona: Certiferox Enterprise RAG\n/nav audio: Mesosphere 138 BPM Synth\n/nav dengue: Dengue Fever ML Model\n/nav meowoj: MeowOJ Judge Platform\n/nav skills: Core Technical Arsenal\n/nav awards: Global Olympiad & Hackathons\n/nav hire: Open Direct Dispatch Modal\n:::\n>_ Type any command above or ask questions in Grade 12 English.`);
+        } else {
+            addMessage('dj', `:::stat [Unknown Command: ${escapeHtml(cmd)}]\nCommand not recognized in co-pilot subsystem.\n:::\n>_ Type /help to inspect available co-pilot commands.`);
+        }
     }
 
     // Global helpers

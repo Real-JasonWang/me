@@ -364,6 +364,11 @@ CORE PERSONA & LANGUAGE:
        ACSL All-Star | American Computer Science League | Perfect Senior Division
        AMC/AIME Honor Roll | MAA Mathematics | Top Distinction
        :::
+     * Co-Pilot Site Navigation (Scroll visitor to live portfolio element):
+       :::action [scroll:target]
+       (Options: gdpr, carbon, scale, certiferox, cps112, posse, jason-uni, webmaster, tutor, funding, mesosphere, heritage, dengue, meowoj, flour, adventurex, oucc, top4, acsl, amc, skills, cs, psych, hardware-specs, languages, education, certs, hire)
+       Whenever asked "where is...", "lead me to...", "how does he handle privacy/gdpr", or about a project/award/spec, ALWAYS emit :::action [scroll:target] to auto-scroll the visitor!
+       :::
      * Code Patch / Diff Terminal:
        :::diff [Sub-15ms Latency Patch]
        Lang: java
